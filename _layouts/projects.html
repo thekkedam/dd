@@ -2,11 +2,9 @@
 layout: default
 ---
 <div class="cv">
-<!--
 {% for project in site.data.projects %}
    <a href="#{{ project.id }}" class="btn btn-default" title="Go to {{ project.name }}">{{ project.name }}</a>
 {% endfor %}
--->
 {% for project in site.data.projects %}
   <a id="{{ project.id }}"></a><h3>{{ project.name }}</h3>
   <h5>{{ project.name_long }}</h5>
