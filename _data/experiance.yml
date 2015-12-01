@@ -9,6 +9,6 @@
 - org:  x265 HEVC 
   role: Software Developer
   location: Multicoreware.Inc
-  when: Feb 2013 - Dec 2014
+  when: Feb 2013 - Dec 2013
   bullets: 
     - Developing a high performance video encoder for HEVC standard.
