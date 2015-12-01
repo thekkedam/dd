@@ -1,5 +1,5 @@
 ---
-layout: project 
+layout: default 
 title: Projects
 home: passive
 cv: passive
@@ -8,3 +8,21 @@ notes: passive
 contact: passive
 description: Projects Deepthi Devaki worked.
 ---
+{% for project in site.data.projects %}
+<div class="cv">
+  <dl class="dl-horizontal">
+    <dt>
+      <a href="{{ project.url }}" target="_blank">
+        {% capture image_path %}projects/{{ project.image }}{% endcapture %}
+        {% include image.html path=image_path alt=project.name %}
+      </a>
+    </dt>
+    <dd>
+      <a href="{{ project.url }}" target="_blank" name="{{ project.name | downcase | replace:' ','-' | remove:',' }}"><h3>{{ project.name }}</h3></a>
+      Link : <a href="{{ project.url }}" target="_blank">{{ project.url }}</a>
+      <p class="left-align">{{ project.description }}</p>
+    </dd>
+  </dl>
+ </div>
+{% endfor %}
+
