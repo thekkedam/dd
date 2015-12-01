@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<main>
+<div class="cv">
+    <a href="/files/Akkoorath_Deepthi-Devaki_CV.pdf" class="btn btn-default pull-right" title="Download CV as PDF">Download CV</a>
+    {% for section in site.data.sections %}
+            <h3 id="{{ section.id }}">
+                {{ section.name }}
+            </h3>
+            {% capture section_layout %}resume/{{section.layout}}.html{% endcapture %}
+            {% for hash in site.data %}
+              {% if hash[0] == section.id %}
+                {% assign blurb = hash[1] %}
+                {% include {{section_layout}} %}
+              {% endif %}
+            {% endfor %}
+    {% endfor %}
+</div>
+</main>
+
+

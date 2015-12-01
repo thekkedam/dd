@@ -1,0 +1,14 @@
+- org: SyncFree 
+  role: Research Engineer
+  location: TU Kaiserslautern
+  when: Feb 2014 - Now
+  bullets: 
+    - SyncFree is a European research project.
+    - A scalable key-value store for synchronisation free computations using CRDTs and causal consistent transactions.
+
+- org:  x265 HEVC 
+  role: Software Developer
+  location: Multicoreware.Inc
+  when: Feb 2013 - Dec 2014
+  bullets: 
+    - Developing a high performance video encoder for HEVC standard.
