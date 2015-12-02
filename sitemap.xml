@@ -2,6 +2,7 @@
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
     {% for post in site.posts %}
     <url>
         <loc>http://dd.thekkedam.org{{ post.url | remove: 'index.html' }}</loc>
@@ -17,4 +18,19 @@
     {% endif %}
     {% endif %}
     {% endfor %}
+
+    {% for project in site.data.projects %}
+    {% if project.doc_url != nil %}
+    {% if project.doc_url contains "/files" first %}
+    <url>
+	<loc>http://dd.thekkedam.org{{ project.doc_url }}</loc>
+    </url>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
+    <url>
+	<loc>http://dd.thekkedam.org/files/Akkoorath_Deepthi-Devaki_CV.pdf</loc>
+    </url>
+
 </urlset>
