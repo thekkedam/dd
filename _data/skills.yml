@@ -1,33 +1,26 @@
 - Languages:
-    primary:
-      - Haskel
-      - PHP
-    secondary:
-      - Bash
+      - Haskell
+      - Erlang
+      - C
+      - C++ 
+      - Java/J2EE 
       - Ruby
-      - Matlab
-      - Javascript
+      - Python
+      - PHP
+- Database:
+      - SQL
 - Frameworks:
-    primary:
-      - Flask
-      - Puppet
-    secondary:
-      - Chef
-      - Rails
+      - MPI
+      - OpenMP
+      - riak
+- Documentation:
+      - latex
 - Systems:
-    primary:
-      - Debian
-      - Docker
-      - Jenkins
-    secondary:
-      - Nginx
-      - Logstash
+      - Debian/Ubutu
+      - Windows
       - AWS
 - Technical:
-    primary:
-      - Statistics
-      - Operations Research
-    secondary:
-      - Signal Analysis
-      - AWS
-      - Artificial Intelligence
+      - Distributed Systems 
+      - weak/eventual consistency
+      - Software Transactional Memory
+      - Algorithms and Data structures

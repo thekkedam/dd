@@ -53,11 +53,11 @@ ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bo
 .clear { clear: both; height: 20px; }
 
 /* CV */
-.cv {line-height: 23px; width: 90%; margin: 0 auto;}
-.cv li { line-height: 23px; }
-.cv h2 { font-size: 26.5px; }
-.cv h1 { font-size: 32.5px; }
-
+.cv {line-height: 20px; width: 90%; margin: 0 auto;}
+.cv li { line-height: 20px; }
+/*.cv h2 { font-size: 18.5px; }
+.cv h1 { font-size: 21.5px; }
+*/
 .notes, .contact, .about, .cv, .error, .swatches { margin-bottom: 30px; }
 
 /* Contact */

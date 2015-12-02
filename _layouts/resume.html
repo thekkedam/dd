@@ -3,7 +3,10 @@ layout: default
 ---
 <main>
 <div class="cv">
-    <a href="/files/Akkoorath_Deepthi-Devaki_CV.pdf" class="btn btn-default pull-right" title="Download CV as PDF">Download CV</a>
+  <a href="/files/Akkoorath_Deepthi-Devaki_CV.pdf" class="btn btn-default pull-right" title="Download CV as PDF">Download CV</a>
+  {% for section in site.data.sections %}
+   <a href="#{{ section.id }}" class="btn btn-default" title="Go to {{ section.name }}">{{ section.name }}</a> 
+  {% endfor %}
     {% for section in site.data.sections %}
             <h3 id="{{ section.id }}">
                 {{ section.name }}
