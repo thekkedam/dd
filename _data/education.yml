@@ -1,8 +1,9 @@
 - org:  University of Amsterdam
-  role: MSc in Computer Science(Grid Computing)
+  role: MSc in Computer Science
   location: Amsterdam, Netherlands
   when: 2010–2012
   bullets: 
+    - 'Major : Grid Computing'
     - 'Master thesis : Optimizing Placement of Internet Application Components on Distributed Clouds'
     - 'CGPA: 8.0/10'
 - org: Amrita Vishwa Vidyapeetham
