@@ -1,0 +1,47 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.90">
+
+    {% for post in site.posts %}
+    <url>
+        <loc>http://dd.thekkedam.org{{ post.url | remove: 'index.html' }}</loc>
+	<lastmod>{{ site.date }}</lastmod>
+	<changefreq>daily</changefreq>
+	<priority>0.5</priority>
+    </url>
+    {% endfor %}
+
+    {% for page in site.pages %}
+    {% if page.layout != nil %}
+    {% if page.layout != 'feed' %}
+    <url>
+        <loc>http://dd.thekkedam.org{{ page.url | remove: 'index.html' }}</loc>
+	<lastmod>{{ site.date }}</lastmod>
+	<changefreq>daily</changefreq>
+	<priority>0.5</priority>
+    </url>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
+    {% for project in site.data.projects %}
+    {% if project.doc_url != nil %}
+    {% if project.doc_url contains "/files" first %}
+    <url>
+	<loc>http://dd.thekkedam.org{{ project.doc_url }}</loc>
+	<lastmod>{{ site.date }}</lastmod>
+	<changefreq>daily</changefreq>
+	<priority>0.5</priority>
+    </url>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
+    <url>
+	<loc>http://dd.thekkedam.org/files/Akkoorath_Deepthi-Devaki_CV.pdf</loc>
+	<changefreq>daily</changefreq>
+	<priority>0.5</priority>
+    </url>
+
+</urlset>
