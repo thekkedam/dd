@@ -12,9 +12,9 @@
   id: education
   layout: block
 
-#- name: Projects
-#  id: experiance
-#  layout: block
+- name: Projects
+  id: projects
+  layout: project
 
 - name: Skills
   id: skills
