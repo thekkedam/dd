@@ -3,10 +3,15 @@
       - Erlang
       - C
       - C++ 
-      - Java 
+      - Java/J2EE 
       - Ruby
       - Python
+      - PHP
+- Database:
+      - SQL
 - Frameworks:
+      - MPI
+      - OpenMP
       - riak
 - Documentation:
       - latex

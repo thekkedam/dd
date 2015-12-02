@@ -23,3 +23,8 @@
 - name: Achievements
   id: honors
   layout: list
+
+- name: Other
+  id: other
+  layout: list
+
