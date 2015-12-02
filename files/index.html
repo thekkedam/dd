@@ -1,0 +1,14 @@
+---
+layout: default
+title: Contact
+cv: passive
+projects: passive
+notes: passive
+contact: active
+description: Contact information for Deepthi Devaki Akkoorath, a software developer, researcher in distributed systems and eventual consistency.
+---
+	<ul class="list-unstyled">
+	{% directory path: files %}
+  		<li><a href="{{ file.url }}" >{{ file.name }}</a></li>
+	{% enddirectory %}
+	</ul>
