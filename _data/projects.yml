@@ -72,6 +72,29 @@
   doc_label: ""
   image: "NoImage.png"
 
+- name: "Buffer bloat"
+  name_long: "Performance simulation of buffer bloat in routers"
+  id: "buffer"
+  org: "Universiteit van Amsterdam"
+  date: "Feb 2011-Mar 2011"
+  description: |
+    Due to the dramatic price drop of memory network devices are configured with much larger buffer sizes
+    than before in order to prevent packet drop. This undermines the assumptions of the TCP congestion
+    avoidance algorithm which depends on packet loss in order to detect and prevent network congestion. We
+    investigate the effects of this buffer bloat phenomenon on throughput and latency. Our simulations show
+    that increasing buffer sizes reduces throughput slightly, but sharply increases latency. When the link is
+    saturated then large buffer sizes cause dramatic reduction of throughput rates for applications which
+    transmit data only periodically. In addition we show that TCP is in fact remarkably resilient to packet
+    drop and can tolerate very small buffer sizes very well at the benefit of optimal latency.
+  url: "https://homepages.staff.os3.nl/~delaat/netbuf/"
+  url_label: "Prof. Dr. Cees de Laat netbuf page"
+  src_url: "https://homepages.staff.os3.nl/~delaat/netbuf/bufferbloat_BG-DD.pdf"
+  src_label: "Document in OS3"
+  doc_url: "/files/Performance_simulation_of_buffer_bloat_in_routers_Deepthi_Devaki_Akkoorath.pdf"
+  doc_label: "PDF document"
+  image: "NoImage.png"
+
+
 - name: "PowerPC assembler to ALF translator"
   name_long: "PowerPC assembler to ALF translator in cooperation with world-leading WCET tool providers"
   id: "powerpc"
