@@ -19,9 +19,15 @@ layout: default
     </dt>
     <dd>
       <p align="justify" class="left-align">{{ project.description }}</p>
-      <a href="{{ project.url }}" target="_blank">{{ project.url_label }}</a><br>
-      <a href="{{ project.src_url }}" target="_blank">{{ project.src_label }}</a><br>
-      <a href="{{ project.doc_url }}" target="_blank">{{ project.doc_label }}</a><br>
+      {% if project.url != null %}
+          <a href="{{ project.url }}" target="_blank">{{ project.url_label }}</a><br>
+      {% endif %}
+      {% if project.src_url != null %}
+          <a href="{{ project.src_url }}" target="_blank">{{ project.src_label }}</a><br>
+      {% endif %}
+      {% if project.doc_url != null %}       
+          <a href="{{ project.doc_url }}" target="_blank">{{ project.doc_label }}</a><br>
+      {% endif %}
     </dd>
   </dl>
 {% endfor %}
