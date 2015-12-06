@@ -1,5 +1,5 @@
 
-- name: "Antidote"
+- name: "SyncFree"
   name_long: "The reference platform of the SyncFree"
   id: "syncfree"
   org: "TU Kaiserslautern"
@@ -14,11 +14,11 @@
     platform) is a scalable key-value store for synchronisation free computations 
     using CRDTs and causal consistent transaction.
   url: "http://syncfree.lip6.fr/"
-  url_label: "SyncFree Project"
+  url_label: "Project Homepage"
   src_url: "https://github.com/SyncFree/antidote"
   src_label: "Antidote github"
-  doc_url: "https://docs.google.com/document/d/1SNnmAtx5FrcNgEMdNQkKlfzYc1tqziaV2lQ6g9IQyzs"
-  doc_label: "General Info"
+  doc_url: 
+  doc_label: 
   image: "SyncFree.png"
 
 - name: "x265"
@@ -38,10 +38,10 @@
   doc_label: "VideoLAN Mercurial source repo"
   image: "x265.png"
 
-- name: "Dynamic Placement of Application"
+- name: "QoE"
   name_long: "Optimizing Placement of Internet Application Components on Distributed Clouds"
   id: "cloudedge"
-  org: "TNO, Netherlands"
+  org: "TNO, The Netherlands"
   date: "Nov 2011-July 2012"
   description: |
     An individual project carried out at TNO. The project contributed with a new model to optimize
@@ -52,7 +52,7 @@
   src_url: "http://dare.uva.nl/en/scriptie/425875"
   src_label: "Details in UVA"
   doc_url: "/files/Improving_Quality_of_Experience_of_Internet_Applications_Deepthi_Devaki_Akkoorath.pdf"
-  doc_label: "PDF document"
+  doc_label: "PDF"
   image: "NoImage.png"
 
 - name: "Grid access"
@@ -95,7 +95,7 @@
   image: "NoImage.png"
 
 
-- name: "PowerPC assembler to ALF translator"
+- name: "ALF translator"
   name_long: "PowerPC assembler to ALF translator in cooperation with world-leading WCET tool providers"
   id: "powerpc"
   org: "Mälardalen University"
@@ -107,8 +107,8 @@
     and convert it to ALF.
   url: "http://www.idt.mdh.se/examensarbete/index.php?choice=show&lang=en&id=0917"
   url_label: "Details in Mälardalen University"
-  src_url: ""
-  src_label: ""
+  src_url: 
+  src_label:
   doc_url: "/files/A_Translator_from_CRL2_representation_of_PowerPC_Assembly_to_ALF_Deepthi_Devaki_Akkoorath.pdf"
   doc_label: "PDF document"
   image: "NoImage.png"

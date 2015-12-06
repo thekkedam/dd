@@ -3,16 +3,14 @@
       - Erlang
       - C
       - C++ 
-      - Java/J2EE 
+      - Java 
       - Ruby
       - Python
       - PHP
-- Database:
-      - SQL
 - Frameworks:
       - MPI
       - OpenMP
-      - riak
+      - riak-core
 - Documentation:
       - latex
 - Systems:
@@ -20,7 +18,8 @@
       - Windows
       - AWS
 - Technical:
-      - Distributed Systems 
-      - weak/eventual consistency
+      - Distributed Systems
+      - Concurrent and Parallel programming
+      - Weak/Eventual Consistency
       - Software Transactional Memory
       - Algorithms and Data structures
