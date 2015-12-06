@@ -3,7 +3,7 @@ layout: default
 ---
 <main>
 <div class="cv">
-  <a href="/files/Akkoorath_Deepthi-Devaki_CV.pdf" class="btn btn-default pull-right" title="Download CV as PDF">Download CV</a>
+  <a href="{{ site.data.config.pdfresume }}" class="btn btn-default pull-right" title="Download CV as PDF">Download CV</a>
   {% for section in site.data.sections %}
    <a href="#{{ section.id }}" class="btn btn-default" title="Go to {{ section.name }}">{{ section.name }}</a> 
   {% endfor %}

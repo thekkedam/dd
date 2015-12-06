@@ -1,8 +1,2 @@
-# You
-name: Deepthi Devaki Akkoorath
-
-# Show this in the footer
-copyright: All rights reserved
-
 permalink: /notes/:year/:month/:day/:title
 markdown: kramdown
