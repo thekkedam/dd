@@ -1,6 +1,6 @@
 
 - name: "SyncFree"
-  name_long: "The reference platform of the SyncFree"
+  name_long: "Synchronisation free computations over large-scale replicated system"
   id: "syncfree"
   org: "TU Kaiserslautern"
   date: "Feb 2014-Now"
@@ -10,7 +10,8 @@
     data. Maintaining its consistency is relatively simple in a centralised cloud, but 
     no longer possible due to increased scalability requirements. Instead, data must 
     replicated across several distributed data centres, requiring new principled approaches 
-    to consistency that will be explored by the SyncFree project. Antidote (the reference 
+    to consistency that will be explored by the SyncFree project. 
+    Antidote (the reference 
     platform) is a scalable key-value store for synchronisation free computations 
     using CRDTs and causal consistent transaction.
   url: "http://syncfree.lip6.fr/"
@@ -41,8 +42,8 @@
 - name: "QoE"
   name_long: "Optimizing Placement of Internet Application Components on Distributed Clouds"
   id: "cloudedge"
-  org: "TNO, The Netherlands"
-  date: "Nov 2011-July 2012"
+  org: "TNO, The Netherlands and University of Amsterdam"
+  date: "Jan 2012-July 2012"
   description: |
     An individual project carried out at TNO. The project contributed with a new model to optimize
     the placement of application components which improves the Quality of Experience of Internet
@@ -61,7 +62,7 @@
   org: "Nationaal Instituut voor Kernfysica en Hoge-Energiefysica"
   date: "July 2011-Aug 2011"
   description: |
-    Adding different authentication mechanisms to a portal interface that we have built for 
+    Adding different authentication mechanisms to a portal interface for 
     grid access. The portal uses a robot certificate to allow users to run pre-configuration 
     applications on the grid. A single sign-on system using SimpleSAMLPHP was also developed.
   url: "http://www.nikhef.nl"
