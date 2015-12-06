@@ -16,6 +16,10 @@
   id: projects
   layout: project
 
+- name: Publications
+  id: publications
+  layout: list
+
 - name: Skills
   id: skills
   layout: cloud
