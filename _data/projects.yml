@@ -67,10 +67,10 @@
     applications on the grid. A single sign-on system using SimpleSAMLPHP was also developed.
   url: "http://www.nikhef.nl"
   url_label: "NIKHEF"
-  src_url: ""
-  src_label: ""
-  doc_url: ""
-  doc_label: ""
+  src_url: 
+  src_label:
+  doc_url: 
+  doc_label:
   image: "NoImage.png"
 
 - name: "Buffer bloat"
