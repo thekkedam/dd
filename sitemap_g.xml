@@ -6,7 +6,7 @@
     {% for post in site.posts %}
     <url>
         <loc>http://dd.thekkedam.org{{ post.url }}</loc>
-	<lastmod>{{ site.date }}</lastmod>
+	<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
 	<changefreq>monthly</changefreq>
 	<priority>0.5</priority>
     </url>
@@ -17,7 +17,7 @@
     {% if page.layout != 'feed' %}
     <url>
         <loc>http://dd.thekkedam.org{{ page.url }}</loc>
-	<lastmod>{{ site.date }}</lastmod>
+	<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
 	<changefreq>weekly</changefreq>
 	<priority>0.5</priority>
     </url>
@@ -30,7 +30,7 @@
     {% if project.doc_url contains "/files" first %}
     <url>
 	<loc>http://dd.thekkedam.org{{ project.doc_url }}</loc>
-	<lastmod>{{ site.date }}</lastmod>
+	<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
 	<changefreq>never</changefreq>
 	<priority>0.5</priority>
     </url>
@@ -40,7 +40,7 @@
 
     <url>
 	<loc>http://dd.thekkedam.org/files/Akkoorath_Deepthi-Devaki_CV.pdf</loc>
-	<lastmod>{{ site.date }}</lastmod>
+	<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
 	<changefreq>weekly</changefreq>
 	<priority>0.5</priority>
     </url>
