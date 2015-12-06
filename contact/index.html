@@ -10,12 +10,14 @@ description: Contact information for Deepthi Devaki Akkoorath, a software develo
 	<p>You can get in touch with me:</p>
 	
 	<ul class="list-unstyled">
-	<li><a href="https://softech.cs.uni-kl.de/homepage/de/staff/DeepthiAkkoorath/">@softech TU-KL</a></li>
-	<li><a href="https://www.linkedin.com/in/deepthidevaki/">@LinkedIn</a></li> 
-	<li><a href="https://github.com/deepthidevaki">@GitHub</a></li>
-	<li><a href="https://bitbucket.org/deepthidevaki">@Bitbucket</a></li>
-	<li><a href="https://www.facebook.com/deepthi.devaki">@Facebook</a></li>
-	<li>Send email to <span class="obfuscate">moc.liamg@ikavedihtpeed</span> </li>
+	    {% for contact in site.data.contact %}
+        	{% if contact.type == "email" %}
+			<li>Send email to <span class="obfuscate">{{ contact.link }}</span></li>
+		{% else %}
+			<li><a href="{{ contact.link }}">{{ contact.type }}</a></li>
+        	{% endif %}
+	    {% endfor %}
+
 	</ul>
 
 </div>
