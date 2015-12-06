@@ -9,14 +9,15 @@ description: Deepthi Devaki Akkoorath, a software developer, researcher in distr
 ---
 <div class="row marketing">
 	<div class="col-sm-4">
-	<img  class="img avatar" alt="Deepthi Devaki Akkoorath" src="img/DeepthiAkkoorath.jpg">
+	    <img  class="img avatar" alt="{{ site.data.config.name }}" src="{{ site.data.config.profile }}">
 	</div>
-	<div itemscope itemtype="http://data-vocabulary.org/Person" class="col-sm-8">
-	<p>Hi, I am <span itemprop="name">Deepthi Devaki Akkoorath</span> <br> and I am a <span itemprop="title">PhD student</span> in the <a href="https://softech.informatik.uni-kl.de/">Software Technology Group</a> at <a href="http://www.uni-kl.de/">TU Kaiserslautern</a>, supervised by <a href="https://softech.cs.uni-kl.de/homepage/de/staff/AnnetteBieniusa/">Dr. rer. nat. Annette Bieniusa</a> and <a href="https://softech.cs.uni-kl.de/homepage/de/staff/PoetzschHeffter/">Prof. Dr. Arnd Poetzsch-Heffter</a>.</p>
-	<p>My research is on weak memory consistency in concurrent and distributed systems. Currently I am working on SyncFree project <a href="/projects/#syncfree">Antidote</a>. I am also interested in the semantics and applicability of weak/eventual consistency in the context of shared memory concurrent programs and Software Transactional Memory (STM).</p>
-<!--
-	<p>I have workd priviously as <span itemprop="title">Software Developer</span> at <a href="http://www.multicorewareinc.com/">MulticoreWare</a> for <a href="https://x265.com/">x265 HEVC</a> development.</p>
--->
-	<p><a href="contact">Drop me a line</a> if you're interested in working with me.</p>
+
+	<div class="col-sm-8">
+        {% for section in site.data.home %}
+                {% for bullet in section[1] %}
+                        <p>{{ bullet }}</p>
+                {% endfor %}
+	<br>
+        {% endfor %}
 	</div>
 </div>

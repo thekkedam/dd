@@ -1,0 +1,8 @@
+- name: CV
+  link: /cv
+- name: Projects
+  link: /projects
+- name: Notes
+  link: /notes
+- name: Contact
+  link: /contact
