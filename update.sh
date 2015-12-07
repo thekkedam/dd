@@ -1,8 +1,8 @@
 #!/bin/bash
 
 WORKSPACE=$(pwd)
-COMMIT_TIME=$(date)
-COMMIT_MSG="Updated at $COMMIT_TIME "
+COMMIT_TIME=$(date +"%m-%d-%Y-%H:%M")
+COMMIT_MSG="Updated-$COMMIT_TIME"
 
 is_git=0
 
@@ -54,7 +54,7 @@ function git_commit()
 		do
 			echo "Commiting $temp_file in git ..."
 			run_cmd git add $temp_file
-			run_cmd git commit -m'$COMMIT_MSG' $temp_file
+			run_cmd git commit $temp_file -m"$COMMIT_MSG"
 		done
 	else
 		exit 1
