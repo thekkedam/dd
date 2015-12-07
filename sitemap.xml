@@ -5,7 +5,7 @@
 
     {% for post in site.posts %}
     <url>
-        <loc>http://dd.thekkedam.org{{ post.url | remove: 'index.html' }}</loc>
+        <loc>http://{{ site.data.config.domain }}{{ post.url | remove: 'index.html' }}</loc>
     </url>
     {% endfor %}
 
@@ -13,7 +13,7 @@
     {% if page.layout != nil %}
     {% if page.layout != 'feed' %}
     <url>
-        <loc>http://dd.thekkedam.org{{ page.url | remove: 'index.html' }}</loc>
+        <loc>http://{{ site.data.config.domain }}{{ page.url | remove: 'index.html' }}</loc>
     </url>
     {% endif %}
     {% endif %}
@@ -23,14 +23,14 @@
     {% if project.doc_url != nil %}
     {% if project.doc_url contains "/files" first %}
     <url>
-	<loc>http://dd.thekkedam.org{{ project.doc_url }}</loc>
+	<loc>http://{{ site.data.config.domain }}{{ project.doc_url }}</loc>
     </url>
     {% endif %}
     {% endif %}
     {% endfor %}
 
     <url>
-	<loc>http://dd.thekkedam.org/files/Akkoorath_Deepthi-Devaki_CV.pdf</loc>
+	<loc>http://{{ site.data.config.domain }}{{ site.data.config.pdfresume }}</loc>
     </url>
 
 </urlset>
