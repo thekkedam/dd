@@ -1,0 +1,20 @@
+---
+layout: default 
+title: CV
+cv: active
+description: Deepthi Devaki wish list.
+---
+
+{% for section in site.data.wish %}
+      <dl class="dl-horizontal">
+       <dt>
+        <h4 id="{{ section[0] }}">{{ section[0] }}</h4>
+       </dt>
+       <dd>
+       <br>
+       {% for item in section[1] %}
+          <li>{{ item }}</li>
+       {% endfor %}
+       </dd>
+      </dl>
+{% endfor %}
