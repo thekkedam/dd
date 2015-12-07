@@ -5,9 +5,12 @@
         <h4>{{ section[0] }}</h4>
        </dt>
        <dd>
+       <br>
        {% for item in section[1] %}
-          {{ item }}
+          <li>{{ item }}</li>
+	<!--
           {% unless forloop.last %}, {% endunless %}
+	-->
        {% endfor %}
        </dd>
       </dl>
