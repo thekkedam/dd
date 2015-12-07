@@ -1,7 +1,8 @@
 #!/bin/bash
 
 WORKSPACE=$(pwd)
-COMMIT_MSG=$(date)
+COMMIT_TIME=$(date)
+COMMIT_MSG="Updated at $COMMIT_TIME "
 
 is_git=0
 
@@ -10,18 +11,32 @@ if type "git" > /dev/null 2>&1 ; then
 #    	git --version
 fi
 
+function run_cmd()
+{
+	$@ > $WORKSPACE/run-update.log 2>&1
+	ret=$?
+	if [ "$ret" -eq "0" ]
+	then
+		echo "Excuted $@ ..."
+	else
+		echo "Error in excuting $@ ..."
+		cat $WORKSPACE/run-update.log
+		exit $ret
+	fi
+}
+
 function clean_old_logs()
 {
 	if [ -d $WORKSPACE/_site ]; then
 		echo "Clearing old files ..."
-    		rm -rf $WORKSPACE/_site
+    		run_cmd rm -rf $WORKSPACE/_site
 	fi
 }
 
 function build_check()
 {
 
-	bundle exec jekyll build --trace
+	run_cmd bundle exec jekyll build --trace
 	if [ "$?" -eq "0" ]
 	then
 		echo "Build good ..."
@@ -38,8 +53,8 @@ function git_commit()
 		for temp_file in $(git diff --name-only)
 		do
 			echo "Commiting $temp_file in git ..."
-			git add $temp_file
-			git commit -m"$COMMIT_MSG" $temp_file
+			run_cmd git add $temp_file
+			run_cmd git commit -m'$COMMIT_MSG' $temp_file
 		done
 	else
 		exit 1
@@ -51,7 +66,7 @@ function git_push()
         if [ "$is_git" -eq 1 ]
         then
 		echo "Pusing chnages to git ..."
-                git push
+                run_cmd git push
         else
                 exit 1
         fi
