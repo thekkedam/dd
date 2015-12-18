@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /unknown/
 Disallow: /guides/
 Disallow: /swatches/
-Disallow: google97d57224ec2ad433.html
+Disallow: /google97d57224ec2ad433.html

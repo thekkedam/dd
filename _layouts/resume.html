@@ -8,9 +8,16 @@ layout: default
    <a href="#{{ section.id }}" class="btn btn-default" title="Go to {{ section.name }}">{{ section.name }}</a> 
   {% endfor %}
     {% for section in site.data.sections %}
-            <h3 id="{{ section.id }}">
-                {{ section.name }}
-            </h3>
+            <p style="text-align:left;">
+                <h3 id="{{ section.id }}">
+                    {{ section.name }}
+                </h3>
+            {% if section.id == "skills" %}
+                <span style="float:right;">
+                   {% include openhub.html %}
+                </span>
+            {% endif %}
+            </p>
             {% capture section_layout %}resume/{{section.layout}}.html{% endcapture %}
             {% for hash in site.data %}
               {% if hash[0] == section.id %}
