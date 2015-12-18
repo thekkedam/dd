@@ -9,7 +9,7 @@ description: Credits and information about the website dd.thekkedam.org, the per
     <p>{{ site.data.config.domain }} is:</p>
     
       <ul class="list-unstyled">
-  	{% for section in site.data.about.site %}
+  	{% for section in site.data.about %}
   		{% for bullet in section[1] %}
       			<li>{{ bullet }}</li>
 		{% endfor %}
