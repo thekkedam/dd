@@ -65,7 +65,7 @@ function git_addf()
 {
         if [ "$is_git" -eq 1 ]
         then
-		$temp_file="$1"
+		temp_file="$1"
                 if [ -f "$temp_file" ]
                 then
                         echo "Adding $temp_file ..."
@@ -77,6 +77,19 @@ function git_addf()
         else
                 exit 1
         fi
+}
+
+function check_ingnore()
+{
+	temp_file="$1"
+        while true; do
+                read -p "Do you wish to ignore $temp_file permanently?" yn
+                case $yn in
+                        [Yy]* ) add_ingnore "$temp_file"; break;;
+                        [Nn]* ) echo "Skiping $temp_file"; break;;
+                        * ) echo "Please answer yes or no.";;
+                esac
+        done
 }
 
 function add_ingnore()
@@ -99,7 +112,7 @@ function add_new()
                 read -p "Do you wish to add $temp_file to repo?" yn
                 case $yn in
                         [Yy]* ) git_addf "$temp_file"; break;;
-                        [Nn]* ) add_ingnore "$temp_file"; break;;
+                        [Nn]* ) check_ingnore "$temp_file"; break;;
                         * ) echo "Please answer yes or no.";;
                 esac
         done
