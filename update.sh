@@ -123,7 +123,14 @@ function check_new()
 	IFS=$'\n'
 	for temp_file in $(git ls-files --others --exclude-standard)
 	do
-		isFile=$(cat $WORKSPACE/.gitignore | grep -v "^ *\(#.*\|\)$" | grep "$temp_file" | wc -l)
+                if [ -f $WORKSPACE/.gitignore ]
+                then    
+                        isFile=$(cat $WORKSPACE/.gitignore | grep -v "^ *\(#.*\|\)$" | grep "$temp_file" | wc -l)
+                else
+                        echo "# Added by script - add other file before this." >> $WORKSPACE/.gitignore
+                        echo "$temp_file" >> $WORKSPACE/.gitignore
+                        isFile="0"
+                fi
 		if [ "$isFile" -eq "0" ]
 		then
 			add_new "$temp_file"
