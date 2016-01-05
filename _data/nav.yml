@@ -1,8 +1,8 @@
-- name: CV
-  link: /cv
+- name: Research
+  link: /research
 - name: Projects
   link: /projects
+- name: CV
+  link: /cv
 - name: Notes
   link: /notes
-- name: Contact
-  link: /contact

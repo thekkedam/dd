@@ -18,7 +18,7 @@
 
 - name: Publications
   id: publications
-  layout: list
+  layout: publication
 
 - name: Skills
   id: skills

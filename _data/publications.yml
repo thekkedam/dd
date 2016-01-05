@@ -1,2 +1,16 @@
-- Conference:
-  - Transactions on Mergeable Objects, Deepthi Akkoorath and Annette Bieniusa. In Programming Languages and Systems 13th Asian Symposium, APLAS. 2015.
+Conference:
+  - title: Transactions on Mergeable Objects
+    id: mtm2015 
+    year: 2015
+    isbn: 978-3-319-26528-5
+    conference: 13th Asian Symposium, APLAS 
+    booktitle: Programming Languages and Systems
+    volume: 9458
+    series: Lecture Notes in Computer Science
+    doi: 10.1007/978-3-319-26529-2_23
+    url: http://dx.doi.org/10.1007/978-3-319-26529-2_23
+    publisher: Springer International Publishing
+    keywords: Concurrent programming; Transactional memory; Mergeable objects; Relaxed consistency
+    author: Deepthi Akkoorath, Annette Bieniusa
+    pages: 427-444
+    language: English
