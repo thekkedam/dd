@@ -1,0 +1,63 @@
+---
+layout: default
+title: Contact
+contact: active
+description: Research of Deepthi Devaki Akkoorath, a software developer, researcher in distributed systems and eventual consistency.
+---
+<div class="contact">
+            <p><h3>Research Interests </h3><p>
+	    {% for research in site.data.research %}
+	        <h4>{{ research.topic }}</h4>
+		<ul class="list-unstyled"> 
+		<li>{{ research.description }}</li>
+		</ul>
+                {% if research.link != null %}
+		<a href="{{ research.link }}">More info</a>
+                {% endif %}
+	    {% endfor %}
+            <p><h3>Publications </h3><p>
+    {% for section_hash in site.data.publications %}
+    <h4>{{ section_hash[0] }}</h4>
+    <ul class="list-unstyled">
+      {% for section in section_hash %}
+      {% for pubtext in section %}
+      {% if pubtext.title != null %}
+      <li><a id="{{ pubtext.id }}"></a>{{ pubtext.title }},
+	{% if pubtext.author != null %}
+        <i>{{ pubtext.author }}</i>,
+        {% endif %}
+        {% if pubtext.conference != null %}
+        In {{ pubtext.conference }},
+        {% endif %}
+        {% if pubtext.degree != null %}
+        <b>{{ pubtext.degree }}</b> at
+        {% endif %}
+        {% if pubtext.organization != null %}
+        {{ pubtext.organization }},
+        {% endif %}
+        {% if pubtext.year != null %}
+        {{ pubtext.year }},
+        {% endif %}
+        {% if pubtext.pages != null %}
+        page {{ pubtext.pages }},
+        {% endif %}
+        {% if pubtext.url != null %}
+        [<a href="{{ pubtext.url }}">Publication</a>]
+        {% endif %}
+        {% if pubtext.pdf != null %}
+        [<a href="{{ pubtext.pdf }}">PDF</a>]
+        {% endif %}
+        {% if pubtext.presentation != null %}
+        [<a href="{{ pubtext.presentation }}">Presentation</a>]
+        {% endif %}
+	{% if pubtext.abstract != null %}
+	<p><i>Abstract</i> : {{ pubtext.abstract }}</p>
+        {% endif %}
+      </li>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </ul>
+    {% endfor %}
+
+</div>
