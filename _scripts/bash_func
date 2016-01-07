@@ -1,0 +1,294 @@
+
+function print_sep()
+{
+	echo ""
+        echo "---------------------------------------------------"
+	echo ""
+}
+function check_git()
+{
+	if type "git" > /dev/null 2>&1 ; then
+        	is_git=1
+		#git --version
+	else
+		is_git=0
+	fi
+}
+
+function set_default()
+{
+        if [ -z $run_cmd_debug ]; then
+                run_cmd_debug=0
+        fi
+	if [ -z $EXITONERROR ]; then
+		EXITONERROR="yes"
+	fi
+	if [ -z $run_cmd_log_file ]; then
+		run_cmd_log_file="run-cmd.log"
+	fi
+	if [ -z $EXITFUN ]; then
+		EXITFUN="exit_process"
+	fi
+}
+
+function run_cmd()
+{
+	$@ > $run_cmd_log_file 2>&1
+	ret=$?
+	if [ "$ret" -eq "0" ]
+	then
+		echo "Excuted $@ ..."
+		if [ "$run_cmd_debug" -eq "1" ] && [ -s $run_cmd_log_file ]; then
+			print_sep
+			cat $run_cmd_log_file
+			print_sep
+		fi
+	else
+		echo "Error in excuting $@ ..."
+		print_sep
+		cat $run_cmd_log_file
+		print_sep
+		if [ "$EXITONERROR" == "no" ]; then
+			echo "Not exiting as EXITONERROR is set to $EXITONERROR .."
+		else
+			exit $ret
+		fi
+	fi
+}
+
+function copy_file()    
+{               
+        echo "Copy file $1 to $2 ..."
+        run_cmd cp $1 $2
+}
+
+function clean_file()
+{
+	#echo "Clean file $1 ..."
+	EXITONERROR="no"
+	run_cmd rm -rf $1
+	EXITONERROR="yes"
+}
+
+# get_file <file name> <file url> <back up file>
+function get_file()
+{
+	if [ -z $3 ]; then
+		$3 = "0"
+	fi
+        #echo "Get $1 from $2 ..."
+        if [ -f $1 ]; then
+                run_cmd rm -f $1
+        fi
+        EXITONERROR="no"
+        run_cmd wget $2 -O $1
+        if [ "$ret" -ne "0" ]; then
+                echo "Error on retriving $1 ..."
+                if [ -f $3 ]; then
+                        echo "Using $3 files ..."
+                        copy_file $3 $1
+                fi
+        fi
+        EXITONERROR="yes"
+}
+
+function get_version()
+{
+	echo "Get latest github support ..."
+	get_file versions.json https://pages.github.com/versions.json deploy/versions.json
+}
+
+function make_diploy()
+{
+        echo "Make docker deply files ..."
+	copy_file Gemfile deploy/
+	copy_file versions.json deploy/
+	copy_file Gemfile.lock deploy/
+}
+
+function clean_old_logs()
+{
+	echo "Clearing old files ..."
+	clean_file _site
+        clean_file .sass-cache
+	clean_file versions.json
+	clean_file Gemfile.lock 
+	clean_file $run_cmd_log_file
+	clean_file commit.template
+}
+
+function git_commit_msg()
+{
+	echo $COMMIT_MSG > commit.template
+}
+
+function git_commit()
+{
+	git_commit_msg
+	if [ "$is_git" -eq 1 ]
+	then
+		for temp_file in $(git diff --name-only)
+		do
+			echo "Commiting $temp_file in git ..."
+			run_cmd git add $temp_file
+			run_cmd git commit $temp_file --file=commit.template
+		done
+	else
+		exit 1
+	fi		
+}
+
+function git_addf()
+{
+	git_commit_msg
+        if [ "$is_git" -eq 1 ]
+        then
+		temp_file="$1"
+                if [ -f "$temp_file" ]
+                then
+                        echo "Adding $temp_file ..."
+                        run_cmd git add "$temp_file"
+                        run_cmd git commit "$temp_file" --file=commit.template
+                else
+			echo "Unable to find the $temp_file file .."
+		fi
+        else
+                exit 1
+        fi
+}
+
+function check_ingnore()
+{
+	temp_file="$1"
+        while true; do
+                read -p "Do you wish to ignore $temp_file permanently?" yn
+                case $yn in
+                        [Yy]* ) add_ingnore "$temp_file"; break;;
+                        [Nn]* ) echo "Skiping $temp_file"; break;;
+                        * ) echo "Please answer yes or no.";;
+                esac
+        done
+}
+
+function add_ingnore()
+{
+	temp_file="$1"
+	echo "Adding $temp_file to ingnore ..."
+	if [ -f .gitignore ]
+	then
+		is_tag=$(cat .gitignore | grep "# Added by script - add other file before this." | wc -l)
+		if [ "$is_tag" -eq "0" ]
+		then
+			echo "# Added by script - add other file before this." >> .gitignore
+		fi
+		echo "$temp_file" >> .gitignore
+	else
+		echo "# Added by script - add other file before this." >> .gitignore
+		echo "$temp_file" >> .gitignore
+	fi
+}
+
+function add_new()
+{
+	temp_file="$1"
+        while true; do
+                read -p "Do you wish to add $temp_file to repo?" yn
+                case $yn in
+                        [Yy]* ) git_addf "$temp_file"; break;;
+                        [Nn]* ) check_ingnore "$temp_file"; break;;
+                        * ) echo "Please answer yes or no.";;
+                esac
+        done
+}
+
+function check_new()
+{
+	IFS=$'\n'
+	for temp_file in $(git ls-files --others --exclude-standard)
+	do
+                if [ -f .gitignore ]
+                then    
+                        isFile=$(cat .gitignore | grep -v "^ *\(#.*\|\)$" | grep "$temp_file" | wc -l)
+                else
+                        echo "# Added by script - add other file before this." >> .gitignore
+                        echo "$temp_file" >> .gitignore
+                        isFile="0"
+                fi
+		if [ "$isFile" -eq "0" ]
+		then
+			add_new "$temp_file"
+		else
+			echo "This file $temp_file in ignore - If like to add edit .gitignore file ..."
+		fi
+	done
+	unset IFS
+}
+
+function git_push()
+{
+        if [ "$is_git" -eq 1 ]
+        then
+		echo "Pusing chnages to git ..."
+                run_cmd git push --all
+        else
+                exit 1
+        fi
+}
+
+function gem_update()
+{
+	echo "Update gems ..."
+	run_cmd bundle update
+}
+
+function site_build()
+{
+	if [ ! -f ./versions.json ]; then
+		echo "Build with last updated version.json ..."
+		copy_file deploy/versions.json versions.json
+	fi
+	echo "Build jekyll site ..."
+	run_cmd bundle exec jekyll build --verbose --trace
+}
+
+function run_htmlproof()
+{
+	echo "Run html proof ..."
+	run_cmd bundle exec htmlproof ./_site --disable-external
+}
+
+function rm_proff_temp()
+{
+	echo "Remove htmlproof temp files ..."
+	run_cmd rm -rf tmp
+}
+
+function site_run()
+{
+        if [ ! -f ./versions.json ]; then
+                echo "Build with last updated version.json ..."
+                copy_file deploy/versions.json versions.json
+        fi
+	echo "Run jekyll server ...."
+        if [ "$run_cmd_debug" -eq "1" ]; then
+		print_sep
+                bundle exec jekyll serve --verbose --trace
+                print_sep
+	else
+		run_cmd bundle exec jekyll serve --verbose --trace
+	fi
+}
+
+function link_draft()
+{
+	if [ -L _drafts ]; then
+		echo "The link present ..."
+	else
+		echo "Creting _draft link ..."
+		run_cmd ln -s ../../../work-personal/_drafts .
+	fi 
+}
+
+set_default
+trap $EXITFUN 1 2 3 6 15
+
