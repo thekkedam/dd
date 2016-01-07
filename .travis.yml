@@ -5,6 +5,10 @@ rvm:
 
 before_script:
  - chmod +x ./_scripts/cibuild 
+ - cp deploy/Gemfile Gemfile
+ - cp deploy/Gemfile.lock Gemfile.lock
+ - cp deploy/jekyll-serve jekyll-serve
+ - cp deploy/versions.json versions.json
 
 script: ./_scripts/cibuild
 
