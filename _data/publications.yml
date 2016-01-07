@@ -3,7 +3,7 @@ Conference:
     id: mtm2015 
     year: 2015
     isbn: 978-3-319-26528-5
-    conference: 13th Asian Symposium, APLAS 
+    conference: Programming Languages and Systems - 13th Asian Symposium, APLAS 
     booktitle: Programming Languages and Systems
     volume: 9458
     series: Lecture Notes in Computer Science
@@ -14,3 +14,4 @@ Conference:
     author: Deepthi Akkoorath, Annette Bieniusa
     pages: 427-444
     language: English
+    pdf: /files/Transactions_on_Mergeable_Objects-Akkoorath-Bieniusa.pdf
