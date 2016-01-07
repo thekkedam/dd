@@ -37,6 +37,23 @@
     {% endif %}
     {% endif %}
     {% endfor %}
+    <!-- Publications documents -->
+    {% for section_hash in site.data.publications %}
+      {% for section in section_hash %}
+        {% for pubtext in section %}
+          {% if pubtext.pdf != nil %}
+            {% if pubtext.pdf contains "/files" first %}
+              <url>
+                <loc>http://{{ site.data.config.domain }}{{ pubtext.pdf }}</loc>
+                <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+                <changefreq>never</changefreq>
+                <priority>0.5</priority>
+              </url>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
     <!-- Resume -->
     <url>
 	<loc>http://{{ site.data.config.domain }}{{ site.data.config.pdfresume }}</loc>
