@@ -129,9 +129,23 @@ function git_commit()
 	then
 		for temp_file in $(git diff --name-only)
 		do
-			echo "Commiting $temp_file in git ..."
-			run_cmd git add $temp_file
-			run_cmd git commit $temp_file --file=commit.template
+			isFile="0"
+			if [ -f .gitignore ]
+			then
+				isFile=$(cat .gitignore | grep -v "^ *\(#.*\|\)$" | grep "$temp_file" | wc -l)
+			fi
+			if [ "$isFile" -eq "0" ]
+			then
+				echo "Commiting $temp_file in git ..."
+				run_cmd git add $temp_file
+				run_cmd git commit $temp_file --file=commit.template
+			else
+				if [ "$run_cmd_debug" -eq "1" ]; then
+		               		print_sep
+					echo "This file $temp_file in ignore - If like to add edit .gitignore file ..."
+					print_sep
+				fi
+			fi
 		done
 	else
 		exit 1
