@@ -1,3 +1,5 @@
 _site/
 run-update.log
 Gemfile.lock
+# Added by script - add other file before this.
+run-cmd.log
