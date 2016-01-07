@@ -1,2 +1,7 @@
 permalink: /notes/:year/:month/:day/:title
 markdown: kramdown
+timezone: 'Europe/Berlin'
+
+github:
+  repo: "thekkedam/dd"
+  branch: "gh-pages"
