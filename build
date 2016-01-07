@@ -1,0 +1,54 @@
+#!/bin/bash
+
+site_test="-t"
+site_run="-r"
+update="-u"
+WORKSPACE=$(pwd)
+
+function exit_fn()
+{
+    echo "Exiting ..."
+    clean_old_logs
+    rm_proff_temp
+}
+
+EXITFUN="exit_fn"
+
+if [ -f _scripts/bash_func ]; then
+        . _scripts/bash_func
+else
+        echo "Error on _scripts/bash_func ..."
+fi
+
+
+### MAIN ###
+link_draft
+if [ "$1" == "$update" ]
+then
+    clean_old_logs
+    rm_proff_temp
+    get_version
+    gem_update
+    make_diploy
+elif [ "$1" == "$site_test" ]
+then
+    clean_old_logs
+    rm_proff_temp
+    #get_version
+    #gem_update
+    site_build
+    run_htmlproof
+elif [ "$1" == "$site_run" ]
+then
+   clean_old_logs
+   rm_proff_temp
+   #get_version
+   #gem_update
+   site_run
+else
+   echo "    Error in usage ..."
+   echo "    ./build < -t | -r | -u> "
+   echo "    "
+   exit 1
+fi
+      
