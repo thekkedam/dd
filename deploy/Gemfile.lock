@@ -151,4 +151,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages (= 40)
   html-proofer
+  jekyll-gist (= 1.4.0)
+  jekyll-mentions (= 0.2.1)
+  jekyll-paginate (= 1.1.0)
   json
