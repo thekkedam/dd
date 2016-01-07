@@ -281,8 +281,8 @@ function site_run()
 
 function link_draft()
 {
-	if [ -L _drafts ]; then
-		echo "The link present ..."
+	if [ -d _draft ] || [ -L _drafts ]; then
+		echo "The draft present ..."
 	else
 		echo "Creting _draft link ..."
 		run_cmd ln -s ../../../work-personal/_drafts .
