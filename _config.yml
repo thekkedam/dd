@@ -5,3 +5,13 @@ timezone: 'Europe/Berlin'
 github:
   repo: "thekkedam/dd"
   branch: "gh-pages"
+
+# Exclude personal
+exclude:
+  - _drafts
+  - build
+  - update
+  - _toolScripts
+  - deploy
+  - vendor
+
