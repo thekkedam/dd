@@ -1,3 +1,4 @@
 _site/
 # Added by script - add other file before this.
 run-cmd.log
+bash_func.lock
