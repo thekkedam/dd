@@ -20,7 +20,7 @@ Report:
     id: cure2015
     year: 2016
     url: https://hal.inria.fr/hal-01270776/
-    publisher: RR-8858, INRIA; Paris 6
+    organization: 'RR-8858, INRIA; Paris 6.'
     keywords: geo replication ;  fault tolerance ; distributed database ;  transactions ;  causal consistency ; CRDT
     author: Deepthi Devaki Akkoorath, Alejandro Tomsic, Manuel Bravo, Zhongmiao Li, Tyler Crain, Annette Bieniusa, Nuno Pregui¸ca, Marc Shapiro
     language: English
