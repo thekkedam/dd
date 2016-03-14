@@ -24,4 +24,4 @@ Report:
     keywords: geo replication ;  fault tolerance ; distributed database ;  transactions ;  causal consistency ; CRDT
     author: Deepthi Devaki Akkoorath, Alejandro Tomsic, Manuel Bravo, Zhongmiao Li, Tyler Crain, Annette Bieniusa, Nuno Pregui¸ca, Marc Shapiro
     language: English
-    pdf: /files/Cure-Strong_semantics_meets_high_availability_and_low_latency-RR-8858.pdf
+    pdf: https://hal.inria.fr/hal-01270776/file/RR-8858.pdf
