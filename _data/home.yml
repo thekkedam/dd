@@ -3,5 +3,5 @@ intro:
   - 'My research is on weak memory consistency in concurrent and distributed systems. Currently I am working on <a href="/projects/#syncfree">SyncFree</a> project. I am also interested in the semantics and applicability of weak/eventual consistency in the context of shared memory concurrent programs and Software Transactional Memory (STM).'
   - 'I have worked previously as Software Engineer at <a href="http://www.multicorewareinc.com/">MulticoreWare</a> for <a href="/projects/#x265">x265 HEVC</a> development.'
 reach:
-  - '<a href="contact">Drop me a line</a> if you are interested in working with me.'
+  - '<a href="contact">Contact me</a>.'
 
