@@ -1,4 +1,13 @@
 Conference:
+  - title: Highly-scalable Concurrent Objects
+    id: papoc16
+    yearL 2016
+    isbn: 978-1-4503-4296-4/16/04
+    conference: Workshop on Principles and Practice of Consistency for Distributed Data
+    doi: http://dx.doi.org/10.1145/2911151.2911158
+    author: Deepthi Akkoorath, Annette Bieniusa
+    pdf: Highly-scalable_Concurrent_Objects.pdf
+    language: English
   - title: Transactions on Mergeable Objects
     id: mtm2015 
     year: 2015
