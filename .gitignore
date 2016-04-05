@@ -1,7 +1,26 @@
+# Jekyll
 _site/
-# Added by script - add other file before this.
+.sass-cache/
+
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Vagrant
+.vagrant
+
+# Gemfile
+Gemfile.lock
+
+# vendor
+vendor
+.bundle
+
 run-cmd.log
 bash_func.lock
+
+# Added by script - add other file before this.
 _data/#publications.yml#
 _data/.#publications.yml
 _data/research.yml~
