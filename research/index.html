@@ -22,7 +22,7 @@ description: Research of Deepthi Devaki Akkoorath, a software developer, researc
     {% for section in section_hash %}
       {% for pubtext in section %}
         {% if pubtext.title != null %}
-          <li><a id="{{ pubtext.id }}"></a>{{ pubtext.title }},
+          <li><a id="{{ pubtext.id }}"></a>&#10148; {{ pubtext.title }},
 	    {% if pubtext.author != null %}
               <i>{{ pubtext.author }}</i>,
             {% endif %}
