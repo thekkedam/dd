@@ -2,3 +2,7 @@ _site/
 # Added by script - add other file before this.
 run-cmd.log
 bash_func.lock
+_data/#publications.yml#
+_data/.#publications.yml
+_data/research.yml~
+research/index.html~
