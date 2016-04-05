@@ -145,6 +145,3 @@ DEPENDENCIES
   jekyll-mentions (= 1.1.2)
   jekyll-paginate (= 1.1.0)
   json
-
-BUNDLED WITH
-   1.11.2
