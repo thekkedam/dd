@@ -1,6 +1,6 @@
 Conference:
   - title: Highly-scalable Concurrent Objects
-    id: papoc16
+    id: hsco16
     year: 2016
     isbn: 978-1-4503-4296-4/16/04
     conference: PaPoC'16, Workshop on Principles and Practice of Consistency for Distributed Data
