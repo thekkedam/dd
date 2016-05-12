@@ -2,7 +2,7 @@ Conference:
   - title: 'Cure: Strong semantics meets high availability and low latency'
     id: cure2016
     year: 2016
-    conference: In Proceedings of 36th IEEE International Conference on Distributed Computing Systems, ICDCS
+    conference: Proceedings of 36th IEEE International Conference on Distributed Computing Systems, ICDCS
     author: Deepthi Devaki Akkoorath, Alejandro Tomsic, Manuel Bravo, Zhongmiao Li, Tyler Crain, Annette Bieniusa, Nuno Pregui¸ca, Marc Shapiro
     language: English
     pdf: http://lip6.fr/Marc.Shapiro/papers/Cure-final-ICDCS16.pdf
