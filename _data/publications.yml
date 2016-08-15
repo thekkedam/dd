@@ -1,10 +1,17 @@
 Conference:
+  - title: Observing the Consistency of Distributed Systems
+    id: ew16
+    year: 2016
+    author: Deepthi Akkoorath, Viktoria Fordos, Annette Bieniusa.
+    conference: Erlang 2016, ACM SIGPLAN workshop on Erlang.
+    year: September 2016.
   - title: 'Cure: Strong semantics meets high availability and low latency'
     id: cure2016
     year: 2016
     conference: Proceedings of 36th IEEE International Conference on Distributed Computing Systems, ICDCS
     author: Deepthi Devaki Akkoorath, Alejandro Tomsic, Manuel Bravo, Zhongmiao Li, Tyler Crain, Annette Bieniusa, Nuno Pregui¸ca, Marc Shapiro
     language: English
+    url: http://dx.doi.org/10.1109/ICDCS.2016.98
     pdf: http://lip6.fr/Marc.Shapiro/papers/Cure-final-ICDCS16.pdf
     language: English
   - title: Highly-scalable Concurrent Objects
@@ -17,10 +24,10 @@ Conference:
     pdf: /files/Highly-scalable_Concurrent_Objects.pdf
     language: English
   - title: Transactions on Mergeable Objects
-    id: mtm2015 
+    id: mtm2015
     year: 2015
     isbn: 978-3-319-26528-5
-    conference: Programming Languages and Systems - 13th Asian Symposium, APLAS 
+    conference: Programming Languages and Systems - 13th Asian Symposium, APLAS
     booktitle: Programming Languages and Systems
     volume: 9458
     series: Lecture Notes in Computer Science
