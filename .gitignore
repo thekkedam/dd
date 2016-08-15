@@ -25,3 +25,5 @@ _data/#publications.yml#
 _data/.#publications.yml
 _data/research.yml~
 research/index.html~
+deploy/versions.json
+deploy/Gemfile.lock
