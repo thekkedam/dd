@@ -2,10 +2,11 @@
 - name: "LightKone"
   name_long: "Lightweight computation for networks at the edge"
   id: "lightkone"
+  org: "TU Kaiserslautern"
   date: "Jan 2017 - Now"
   url: "http://lightkone.eu/"
   url_label: "Project Homepage"
-  
+
 - name: "SyncFree"
   name_long: "Synchronisation free computations over large-scale replicated system"
   id: "syncfree"
