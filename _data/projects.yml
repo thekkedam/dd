@@ -1,9 +1,16 @@
 
+- name: "LightKone"
+  name_long: "Lightweight computation for networks at the edge"
+  id: "lightkone"
+  date: "Jan 2017 - Now"
+  url: "http://lightkone.eu/"
+  url_label: "Project Homepage"
+  
 - name: "SyncFree"
   name_long: "Synchronisation free computations over large-scale replicated system"
   id: "syncfree"
   org: "TU Kaiserslautern"
-  date: "Feb 2014-Now"
+  date: "Feb 2014 - Dec 2016"
   description: |
     SyncFree is a European research project. Large-scale on-line services including social
     networks and multiplayer games handle huge quantities of frequently changing shared
