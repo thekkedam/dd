@@ -5,6 +5,7 @@ Conference:
     author: Deepthi Akkoorath, Viktoria Fordos, Annette Bieniusa.
     conference: Erlang 2016, ACM SIGPLAN workshop on Erlang.
     year: September 2016.
+    url: https://doi.org/10.1145/2975969.2975975
   - title: 'Cure: Strong semantics meets high availability and low latency'
     id: cure2016
     year: 2016
@@ -49,7 +50,7 @@ Report:
     author: Deepthi Devaki Akkoorath, Alejandro Tomsic, Manuel Bravo, Zhongmiao Li, Tyler Crain, Annette Bieniusa, Nuno Pregui¸ca, Marc Shapiro
     language: English
     pdf: https://hal.inria.fr/hal-01270776/file/RR-8858.pdf
-Whitepaper:
+White paper:
   - title: 'Antidote: the highly-available geo-replicated database with strongest
 guarantees'
     id: antidotewp
