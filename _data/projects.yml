@@ -5,21 +5,21 @@
   org: "TU Kaiserslautern"
   date: "Feb 2014-Now"
   description: |
-    SyncFree is a European research project. Large-scale on-line services including social 
-    networks and multiplayer games handle huge quantities of frequently changing shared 
-    data. Maintaining its consistency is relatively simple in a centralised cloud, but 
-    no longer possible due to increased scalability requirements. Instead, data must 
-    replicated across several distributed data centres, requiring new principled approaches 
-    to consistency that will be explored by the SyncFree project. 
-    Antidote (the reference 
-    platform) is a scalable key-value store for synchronisation free computations 
+    SyncFree is a European research project. Large-scale on-line services including social
+    networks and multiplayer games handle huge quantities of frequently changing shared
+    data. Maintaining its consistency is relatively simple in a centralised cloud, but
+    no longer possible due to increased scalability requirements. Instead, data must
+    replicated across several distributed data centres, requiring new principled approaches
+    to consistency that will be explored by the SyncFree project.
+    [Antidote](http://antidotedb.org) (the reference
+    platform) is a scalable key-value store for synchronisation free computations
     using CRDTs and causal consistent transaction.
   url: "http://syncfree.lip6.fr/"
   url_label: "Project Homepage"
   src_url: "https://github.com/SyncFree/antidote"
   src_label: "Antidote github"
-  doc_url: 
-  doc_label: 
+  doc_url: "http://antidotedb.org"
+  doc_label: "Antidote"
   image: "SyncFree.png"
 
 - name: "x265"
@@ -28,8 +28,8 @@
   org: "Multicoreware Inc"
   date: "Feb 2013-Dec 2013"
   description: |
-    x265 is an HEVC encoder. It is a free software library and application for encoding 
-    video streams into the H.265/MPEG-H HEVC compression format, and is released under 
+    x265 is an HEVC encoder. It is a free software library and application for encoding
+    video streams into the H.265/MPEG-H HEVC compression format, and is released under
     the terms of the GNU GPL
   url: "http://x265.org/"
   url_label: "x265.org"
@@ -62,14 +62,14 @@
   org: "Nationaal Instituut voor Kernfysica en Hoge-Energiefysica"
   date: "July 2011-Aug 2011"
   description: |
-    Adding different authentication mechanisms to a portal interface for 
-    grid access. The portal uses a robot certificate to allow users to run pre-configuration 
+    Adding different authentication mechanisms to a portal interface for
+    grid access. The portal uses a robot certificate to allow users to run pre-configuration
     applications on the grid. A single sign-on system using SimpleSAMLPHP was also developed.
   url: "http://www.nikhef.nl"
   url_label: "NIKHEF"
-  src_url: 
+  src_url:
   src_label:
-  doc_url: 
+  doc_url:
   doc_label:
   image: "NoImage.png"
 
@@ -102,13 +102,13 @@
   org: "Mälardalen University"
   date: "Oct 2007 - Jan 2008"
   description: |
-    Making semantic interpretation of CRL2 PowerPC assembler code constructs in terms of 
-    ALF code and data structures used for Worst Case Execution Time analysis of programs 
-    and built a system to extract information from the CRL2 PowerPC code representation 
+    Making semantic interpretation of CRL2 PowerPC assembler code constructs in terms of
+    ALF code and data structures used for Worst Case Execution Time analysis of programs
+    and built a system to extract information from the CRL2 PowerPC code representation
     and convert it to ALF.
   url: "http://www.idt.mdh.se/examensarbete/index.php?choice=show&lang=en&id=0917"
   url_label: "Details in Mälardalen University"
-  src_url: 
+  src_url:
   src_label:
   doc_url: "/files/A_Translator_from_CRL2_representation_of_PowerPC_Assembly_to_ALF_Deepthi_Devaki_Akkoorath.pdf"
   doc_label: "PDF document"
