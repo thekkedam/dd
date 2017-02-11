@@ -1,5 +1,5 @@
-#!/usr/bin/bash -x
+#!/usr/bin/env bash
 set -e # halt script on error
 
 bundle exec jekyll build --verbose --trace
-htmlproofer ./_site --check-favicon --check-html --check-img-http --check-opengraph --report-invalid-tags --report-missing-names --report-script-embeds --disable-external
+bundle exec htmlproofer ./_site --check-favicon --check-html --check-img-http --check-opengraph --report-invalid-tags --report-missing-names --report-script-embeds --disable-external
