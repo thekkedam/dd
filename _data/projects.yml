@@ -6,6 +6,7 @@
   date: "Jan 2017 - Now"
   url: "http://lightkone.eu/"
   url_label: "Project Homepage"
+  image: "NoImage.png"
 
 - name: "SyncFree"
   name_long: "Synchronisation free computations over large-scale replicated system"
