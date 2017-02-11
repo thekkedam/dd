@@ -44,7 +44,7 @@
   url_label: "x265.org"
   src_url: "https://bitbucket.org/multicoreware/x265/commits/all?search=deepthidevaki"
   src_label: "Multicoreware bitbucket source repo"
-  doc_url: "http://hg.videolan.org/x265/search/?rev=deepthidevaki&revcount=320"
+  doc_url: "http://hg.videolan.org/x265/log?rev=deepthidevaki&revcount=320"
   doc_label: "VideoLAN Mercurial source repo"
   image: "x265.png"
 
