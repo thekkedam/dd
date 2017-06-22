@@ -1,4 +1,11 @@
 Conference:
+  - title: FMKe: a Real-World Benchmark for Key-Value Data Stores
+    id: fmke17
+    year: 2017
+    author: Gonçalo Tomás, Peter Zeller, Valter Balegas, Deepthi Akkoorath, Annette Bieniusa, João Leitão, Nuno Preguiça.
+    conference: PaPoc 2017, Workshop on Principles and Practice of Consistency for Distributed Data.
+    year: April 2017.
+    url: https://doi.org/10.1145/3064889.3064897
   - title: Observing the Consistency of Distributed Systems
     id: ew16
     year: 2016
@@ -41,6 +48,12 @@ Conference:
     language: English
     pdf: /files/Transactions_on_Mergeable_Objects-Akkoorath-Bieniusa.pdf
 Report:
+  - title: 'Global-Local View: Scalable Consistency for Concurrent Data Types'
+    id: gl2017
+    year: 2017
+    url: https://arxiv.org/abs/1705.03704
+    author: Deepthi Devaki Akkoorath, José Brandão, Annette Bieniusa, Carlos Baquero.
+    language: English
   - title: 'Cure: Strong semantics meets high availability and low latency'
     id: cure2015
     year: 2016
