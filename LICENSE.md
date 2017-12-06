@@ -10,72 +10,25 @@ The content is Licensed undet two category
 
 ## Category - i
 
-Personal / propretry content of this work is licensed under 
-a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/).
+Personal / propretry  
 
 - Web links under and with
   - /files
   - /profile
   - /projects
+  - /research
+  - /publications
   - /posts
   - /photos
   - /assets/docs
-  - /assets/img/profile-photos
-  - /assets/img/projects
-  - /assets/img/*.jpg
+  - /assets/img/
 
 - github source under and with
   - _data/
   - _posts/
   - files/
-  - assets/img/blog/Fraction-of-Second
+  - assets/img/
   - assets/docs
-  - assets/img/profile-photos
-  - assets/img/projects
-  - assets/img/vipintm-*.jpg
-  - _config.yml 
-
-**Creative Commons 
-Attribution-NonCommercial-NoDerivatives
-4.0 International License.**
-
-#### You are free to:
-
-**Share** — copy and redistribute the material in any medium or format
-The licensor cannot revoke these freedoms as long as you follow the 
-license terms.
-
-#### Under the following terms:
-
-##### Attribution — 
-You must give appropriate credit, provide a link to the 
-license, and indicate if changes were made. You may do so in any 
-reasonable manner, but not in any way that suggests the licensor 
-endorses you or your use.
-
-##### NonCommercial — 
-You may not use the material for commercial purposes.
-
-##### NoDerivatives — 
-If you remix, transform, or build upon the material,
- you may not distribute the modified material.
-
-##### No additional restrictions — 
-You may not apply legal terms or 
-technological measures that legally restrict others from doing 
-anything the license permits.
-
-#### Notices:
-
-You do not have to comply with the license for elements of the 
-material in the public domain or where your use is permitted 
-by an applicable exception or limitation.
-No warranties are given. The license may not give you all of 
-the permissions necessary for your intended use. For example, other 
-rights such as publicity, privacy, or moral rights may limit how 
-you use the material.
-
-More : [http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode](http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode)
 
 ## Category - ii
 
@@ -83,7 +36,7 @@ Other source are Licensed under The MIT License (MIT)
 
 ### The MIT License (MIT)
 
-Copyright (c) 2015 Vipin Madhavanunni 
+Copyright (c) 2015 Deepthi Devaki Akkoorath 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
