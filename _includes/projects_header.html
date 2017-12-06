@@ -1,0 +1,10 @@
+<div class="container">
+  {% include header-h1.html %}
+  <h5 class="page-description body-font gray mt1 regular">
+    Projects: 
+    {% for project in site.data.projects %}
+      <a href="/projects/{{ project.id }}/" class="link-color" title="Go to {{ project.id }}">{{ project.name }}</a>
+      {% unless forloop.last %} ,{% endunless %}
+    {% endfor %}
+  </h5>
+</div>
