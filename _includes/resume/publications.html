@@ -9,12 +9,14 @@
 	    {% if pubtext.author != null %}
                 <i>{{ pubtext.author }}</i>,
             {% endif %}
+-->
             {% if pubtext.conference != null %}
                 {{ pubtext.conference }},
             {% endif %}
             {% if pubtext.degree != null %}
-                <b>{{ pubtext.degree }}</b> at
+                {{ pubtext.degree }},
             {% endif %}
+<!--
             {% if pubtext.place != null %}
                 {{ pubtext.place }},
             {% endif %}
