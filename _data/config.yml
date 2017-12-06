@@ -17,7 +17,7 @@ resume_path: "/files/Akkoorath_Deepthi-Devaki_CV.pdf"
 
 # Image CDN
 cdn:
-  state: "disable"
+  state: "enable"
   url: "https://cdn.rawgit.com"
   image: "thekkedam/dd/gh-pages/assets/img"
 
