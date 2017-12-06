@@ -1,3 +1,11 @@
+#
+# - org: <Company | University | Institute Name>
+#   role: <Department | course | Student type>
+#   when: <Time period>
+#   bullets:
+#       - <other details>
+#
+
 - org:  Software Technology Group, TU Kaiserslautern 
   role: Research Associate
   location: Kaiserslautern, Germany
