@@ -1,0 +1,26 @@
+---
+layout: default
+title: "Deepthi Devaki Akkoorath : Research"
+header_title: Research
+include_header: research_header.html
+nav_item: research
+---
+  {% for research in site.data.research %}
+  <div class="mxn2 clearfix mb2 border-bottom border-light-gray circle-line py3">
+    <h4 id="{{ research.id }}"><a href="/research/{{ research.id }}/">{{ research.topic }}</a></h4>
+    {% if project.sta != "old" %}
+    <ul class="list-unstyled"> 
+      <p>
+        {{ research.description | truncatewords: 30 }}
+       <a href="/research/{{ research.id }}/" class="link-color"><span> More >></span></a>
+      </p>
+    <p>
+    </ul>
+    <a href="#top" class="sm-col-right col dark-gray h6">
+       <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
+       Top
+    </a>
+    {% endif %}
+  </div>
+  {% endfor %}
+
