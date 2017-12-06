@@ -4,6 +4,6 @@
     publications: "/publications"
     projects: "/projects"
     profile: "/cv"
-    photos: "/photos"
+#    photos: "/photos"
     contact: "/contact"
     home: "/"
