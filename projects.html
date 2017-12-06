@@ -1,0 +1,86 @@
+---
+layout: default
+title: "Deepthi Devaki Akkoorath: Projects"
+header_title: Projects
+include_header: projects_header.html
+nav_item: projects
+---
+{% for project in site.data.projects %}
+  {% if project.sta != "old" %}
+  <div class="mxn2 clearfix mb2 border-bottom border-light-gray circle-line py3">
+  {% else %}
+  <div class="mxn2 clearfix">
+  {% endif %}
+    {% if project.sta != "old" %}
+    <div class="col sm-col-4 px2 mb2">
+        {% capture image_path %}projects/{{ project.image }}{% endcapture %}
+        {% include image.html path=image_path alt=project.name %}
+    </div>
+    {% endif %}
+    {% if project.sta != "old" %}
+    <div class="col sm-col-8 px2">
+    {% endif %}
+         <a id="{{ project.id }}"></a>
+         <h2 class="mt0 mb0"><a href="/projects/{{ project.id }}/">{{ project.name }}</a></h2>
+      {% if project.sta != "old" %}
+      <h5>{{ project.name_long }}</h5>
+      {% else %}
+          {{ project.name_long }}
+      {% endif %}
+<!--
+      {% if project.org != null %}
+        <i class="fa fa-fw fa-lg fa-building-o"></i>
+      	<span class="h5">{{ project.org }}</span>
+        <br>
+      {% endif %}
+      {% if project.date != null %}
+        <i class="fa fa-fw fa-lg fa-calendar"></i>
+        <span class="h5">{{ project.date }}</span>
+        <br>
+      {% endif %}
+-->
+      {% if project.sta != "old" %}
+      <p class="left-align">
+	  {{ project.description  | truncatewords: 25, " ...  "}}
+          <a href="/projects/{{ project.id }}/" class="link-color"><span> more>></span></a>
+      </p>
+      {% else %}
+      ... <a href="/projects/{{ project.id }}/" class="link-color"><span> more>></span></a>
+      {% endif %}
+<!--
+      {% for project_url in project.url %}
+          <a href="{{ project_url[1] }}" target="_blank" class="dark-gray">
+            <i class="fa fa-fw fa-lg fa-info-circle"></i>
+            <span class="h6">{{ project_url[0] }}</span>
+          </a><br>
+      {% endfor %}
+      {% for project_src in project.src %}
+          <a href="{{ project_src[1] }}" target="_blank" class="dark-gray">
+            <i class="fa fa-fw fa-lg fa-github-square"></i>
+            <span class="h6">{{ project_src[0] }}</span>
+          </a><br>
+      {% endfor %}
+      {% for project_doc in project.doc %}
+          <a href="{{ project_doc[1] }}" target="_blank" class="dark-gray">
+            <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
+            <span class="h6">{{ project_doc[0] }}</span>
+          </a><br>
+      {% endfor %}
+-->
+    {% if project.sta != "old" %}
+    </div>
+    {% endif %}
+    {% if project.sta != "old" %}
+    <a href="#top" class="sm-col-right col dark-gray h6">
+       <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
+       Top
+    </a>
+    {% endif %}
+  </div>
+{% endfor %}
+<a href="#top" class="sm-col-right col dark-gray h6">
+   <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
+   Top
+</a>
+<br>
+<br>
