@@ -6,11 +6,11 @@
 
 - name: Professional
   id: professional
-  layout: block
+  layout: experience
 
 - name: Education
   id: education
-  layout: block
+  layout: education
 
 - name: Projects
   id: projects
@@ -18,11 +18,15 @@
 
 - name: Publications
   id: publications
-  layout: publication
+  layout: publications
+
+- name: Talks
+  id: talks
+  layout: talks
 
 - name: Skills
   id: skills
-  layout: cloud
+  layout: skills
 
 - name: Achievements
   id: honors
