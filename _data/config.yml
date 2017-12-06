@@ -1,19 +1,32 @@
-# You
-name: Deepthi Devaki Akkoorath
-# universal ID :- Usedby disqus.com / ??
+# direct links 
+about: "/about-site"
+cms: "https://dd.thekkedam.org/cms.html"
+feed: "sitemap.xml"
+
+# Bio settings
+name: "Deepthi Akkoorath"
+full_name: "Deepthi Devaki Akkoorath"
+slogan: "If you can't explain it simply, you don't understand it well enough. - Albert Einstein"
+description: "The home page of Deepthi Devaki Akkoorath."
+thumbnail_path: "DeepthiAkkoorath.jpg"
+bitcoin_address: 
+website_repo_url: "https://github.com/thekkedam/dd"
+
+# PDF resume
+resume_path: "/files/Akkoorath_Deepthi-Devaki_CV.pdf"
+
+# Image CDN
+cdn:
+  state: "disable"
+  url: "https://cdn.rawgit.com"
+  image: "thekkedam/dd/gh-pages/assets/img"
+
+github:
+  repo: "thekkedam/dd"
+  branch: "gh-pages"
+
+# disqus id
 id: deepthidevaki
-# Show this in the footer
-copyright: All rights reserved
-# Site Name
-sitename: Deepthi Akkoorath
-# Resume PDF link
-pdfresume: /files/Akkoorath_Deepthi-Devaki_CV.pdf
 # Google Analatic id
 ga: UA-70817718-1
-# Domain name
-domain: dd.thekkedam.org
-# Profile image
-profile: /img/DeepthiAkkoorath.jpg
-# YouTube play list
-youtube:
 #
