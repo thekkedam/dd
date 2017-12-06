@@ -1,8 +1,3 @@
-<div class="header">
-	<ul class="nav nav-pills pull-right">
-            {% for click in site.data.nav %}
-                <li><a href="{{ click.link }}">{{ click.name }}</a></li>
-            {% endfor %}
-	</ul>
-	<h3 class="text-muted"><a href="/">{{ site.data.config.sitename }}</a></h3>
-</div> <!-- /header -->
+<header class="bg-splash-lblue px2 py2 border-bottom border-light-gray">
+  {% include {{ include.include_header }} %}
+</header>
