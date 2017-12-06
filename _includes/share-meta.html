@@ -1,0 +1,31 @@
+{% capture image_path %}{% if page.thumbnail_path %}{{ page.thumbnail_path }}{% else %}{{ site.data.config.thumbnail_path }}{% endif %}{% endcapture %}
+{% capture image_url %}{% include image-url.html path=image_path absolute=true %}{% endcapture %}
+{% capture description %}{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines }}{% else %}{{ site.data.config.description }}{% endif %}{% endcapture %}
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="{{ site.data.contact.twitter.username }}" />
+<meta name="twitter:title" content="{{ page.title }}" />
+<meta name="twitter:url" content="{% include canonical-url.html %}" />
+<meta name="twitter:description" content="{{ description }}" />
+<meta name="twitter:image" content="{{ image_url }}" />
+
+<meta property="og:title" content="{{ page.title }}"/>
+<meta property="og:url" content="{% include canonical-url.html %}"/>
+<meta property="og:site_name" content="{{ site.data.config.full_name }}"/>
+<meta property="article:author" content="{{ site.data.contact.facebook.url }}"/>
+<meta property="og:description" content="{{ description }}"/>
+<meta property="og:image" content="{{ image_url }}"/>
+
+<!--
+<PageMap>
+  <DataObject type="document">
+     <Attribute name="title">{{ page.title }}</Attribute>
+     <Attribute name="author">{{ site.data.config.full_name }}</Attribute>
+     <Attribute name="description">{{ description }}</Attribute>
+     <Attribute name="last_update">{{ site.time | date_to_xmlschema }}</Attribute>
+  </DataObject>
+  <DataObject type="thumbnail">
+     <Attribute name="src" value="{{ image_url }}" />
+  </DataObject>
+</PageMap>
+-->
