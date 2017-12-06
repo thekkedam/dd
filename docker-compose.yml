@@ -4,3 +4,7 @@ web:
     - .:/src
   ports:
     - "4000:4000"
+  dns_search: 
+    - dd.thekkedam.org
+    - thekkedam.org
+
