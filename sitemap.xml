@@ -1,36 +1,121 @@
 ---
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.9">
+    <!-- Posts -->
     {% for post in site.posts %}
     <url>
-        <loc>http://{{ site.data.config.domain }}{{ post.url | remove: 'index.html' }}</loc>
+        <loc>{% include canonical-url.html url=post.url %}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
     </url>
     {% endfor %}
-
+    <!-- Pages -->
     {% for page in site.pages %}
-    {% if page.layout != nil %}
-    {% if page.layout != 'feed' %}
+    {% if page.layout != null and page.layout != 'feed' and page.permalink != '/404.html' %}
     <url>
-        <loc>http://{{ site.data.config.domain }}{{ page.url | remove: 'index.html' }}</loc>
+        <loc>{% include canonical-url.html url=page.url %}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     {% endif %}
-    {% endif %}
     {% endfor %}
-
+    <!-- Project documents -->
     {% for project in site.data.projects %}
-    {% if project.doc_url != nil %}
-    {% if project.doc_url contains "/files" first %}
+    {% for project_doc in project.doc %}
+    {% if project_doc[1] != null %}
+    {% if project_doc[1] contains "/assets" first or project_doc[1] contains "/files" first %}
     <url>
-	<loc>http://{{ site.data.config.domain }}{{ project.doc_url }}</loc>
+        <loc>{{ site.url }}{{ project_doc[1] }}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.5</priority>
+    </url>
+    {% else %}
+    <url>
+        <loc>{{ project_doc[1] }}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.5</priority>
     </url>
     {% endif %}
     {% endif %}
     {% endfor %}
-
+    {% endfor %}
+    <!-- Publications -->
+    {% for event in site.data.publications %}
+      {% for section_hash in event %}
+          {% for section in section_hash %}
+              {% if section.id != null %}
+                  {% if section.pdf != null %}
+    	          <url>
+		      {% if section.pdf contains "http://" first or section.pdf contains "https://" first %}
+		      <loc>{{ section.pdf }}</loc>
+		      {% else %}
+                      <loc>{% include canonical-url.html url=section.pdf %}</loc>
+                      {% endif %}
+                      <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+                      <changefreq>never</changefreq>
+                      <priority>0.5</priority>
+                  </url>
+                  {% endif %}
+                  {% if section.presentation != null %}
+                  <url>
+		      {% if section.presentation contains "http://" first or section.presentation contains "https://" first %}
+		      <loc>{{ section.presentation }}</loc>
+		      {% else %}
+                      <loc>{% include canonical-url.html url=section.presentation %}</loc>
+		      {% endif %}
+                      <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+                      <changefreq>never</changefreq>
+                      <priority>0.5</priority>
+                  </url>
+                  {% endif %}
+              {% endif %}
+           {% endfor %}
+       {% endfor %}
+    {% endfor %}
+    <!-- Talks -->
+    {% for event in site.data.talks %}
+      {% for section_hash in event %}
+          {% for section in section_hash %}
+              {% if section.id != null %}
+                  {% if section.pdf != null %}
+                  <url>
+                      {% if section.pdf contains "http://" first or section.pdf contains "https://" first %}
+                      <loc>{{ section.pdf }}</loc>
+                      {% else %}
+                      <loc>{% include canonical-url.html url=section.pdf %}</loc>
+                      {% endif %}
+                      <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+                      <changefreq>never</changefreq>
+                      <priority>0.5</priority>
+                  </url>
+                  {% endif %}
+                  {% if section.presentation != null %}
+                  <url>
+                      {% if section.presentation contains "http://" first or section.presentation contains "https://" first %}
+                      <loc>{{ section.presentation }}</loc>
+                      {% else %}
+                      <loc>{% include canonical-url.html url=section.presentation %}</loc>
+                      {% endif %}
+                      <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+                      <changefreq>never</changefreq>
+                      <priority>0.5</priority>
+                  </url>
+                  {% endif %}
+              {% endif %}
+           {% endfor %}
+       {% endfor %}
+    {% endfor %}
+    <!-- Resume TODO find a way to do this-->
     <url>
-	<loc>http://{{ site.data.config.domain }}{{ site.data.config.pdfresume }}</loc>
+        <loc>{{ site.url }}{{ site.data.config.resume_path }}</loc>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
-
 </urlset>
+
