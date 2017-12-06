@@ -1,0 +1,21 @@
+{% for section_hash in blurb %}
+  {% for section in section_hash %}
+      <dl>
+       <dt>
+        <h5>{{ section[0] }}</h5>
+       </dt>
+       <dd>
+       <div class="w3-container" >
+       {% for item in section[1] %}
+          {% if item[1] != null %}
+	  {{ item[0] }}
+	  <div class="w3-tiny w3-light-blue" style="width:{{ item[1] }}%">&nbsp;</div>
+	  {% else %}
+	  <li>{{ item }}</li>
+          {% endif %}
+       {% endfor %}
+       </div>
+       </dd>
+      </dl>
+  {% endfor %}
+{% endfor %}
