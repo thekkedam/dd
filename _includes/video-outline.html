@@ -1,0 +1,13 @@
+<article>
+  <div class="border-bottom border-light-gray mt4 mb4 pb3 circle-line">
+  <a href="{{ include.post.url }}" target="_blank" name="{{ include.post.title | downcase | replace:' ','-' | remove:',' }}">
+	<h2>{{ include.post.title }}</h2>
+  </a>
+  {% include iframe.html url=include.post.embed_url %}
+  <p class="mb0 left-align">
+    {{ include.post.excerpt | strip_html | truncate: 165, '...'  }} 
+    <div><a href="{{ include.post.url }}" class="h6">Continue Reading &raquo;</a></div>
+  </p>
+  {% include post-metadata.html post=include.post %}
+  </div>
+</article>
