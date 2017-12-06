@@ -5,10 +5,17 @@
                 <span style="float:right;">
                         <h5>{{ section.when }}</h5>
                 </span>
+<!--
         </p>
         <p style="text-align:left;">
+-->
 		<h5>{{ section.location }}</h5>
-        	<h5>{{ section.role }}</h5>
+        	<h5>
+                    {{ section.role }}
+                    {% if section.group %}
+			at {{ section.group }}
+                    {% endif %}
+                </h5>
 	</p>
         {% if section.bullets %}
         <ul>
