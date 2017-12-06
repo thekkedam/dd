@@ -1,0 +1,24 @@
+---
+layout: default
+title: "Deepthi Devaki Akkoorath: About This Site"
+header_title: About This Site
+include_header: about_header.html
+nav_item: about-site
+---
+<div class="clearfix mxn2">
+  <div class="col sm-col-9 px2">
+    
+    <p><a href="{{ site.url }}">{{ site.url }}</a> is;</p>
+    
+  	{% for section in site.data.site %}
+             <p>{{ section[0] }}
+		<ul class="list-unstyled">
+  		{% for bullet in section[1] %}
+      			<li>{{ bullet }}</li>
+		{% endfor %}
+		</ul>
+	     </p>
+  	{% endfor %}
+  </div>
+</div>
+
