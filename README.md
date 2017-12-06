@@ -1,4 +1,4 @@
-# Vipin Madhavanunni
+# Deepthi Devaki Akkoorath
 
 This site is based on [Yevgeniy Brikman Home Page](http://www.ybrikman.com).
 
