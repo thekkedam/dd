@@ -1,0 +1,75 @@
+---
+layout: default
+---
+  <div>
+  {% for section_hash in site.data.talks %}
+  {% for section in section_hash %}
+    {% assign pubtype =  section_hash[0] %}
+    {% for pubtext in section %}
+	{% if pubtext.title != null and pubtext.id == page.dynaid %}
+            <h5 class="page-description body-font gray mt1 regular">
+              <a href="/cv" class="link-color" title="Go to Profile">Profile</a>/
+              <a href="/publications/#talks" class="link-color" title="Go to Publications">Talks</a>/
+	      <a href="/publications/#pub-{{ pubtype }}" class="link-color" title="Go to {{ pubtype }}">{{ pubtype }}</a>
+            </h5>
+
+            <div class="border-bottom border-light-gray">	
+	    <a id="{{ pubtext.id }}"></a><h4>{{ pubtext.title }}</h4>
+            </div>
+            {% if pubtext.author != null %}
+                <i class="fa fa-fw fa-lg fa-users"></i><i>{{ pubtext.author }}</i>
+		<br>
+            {% endif %}
+            <br>
+	    <p style="text-align:left;">
+            <i class="fa fa-fw fa-lg fa-bookmark-o"></i>
+            {% if pubtext.conference != null %}
+                {{ pubtext.conference }}
+            {% endif %}
+            {% if pubtext.degree != null %}
+                <b>{{ pubtext.degree }}</b>
+            {% endif %}
+            {% if pubtext.organization != null %}
+                , {{ pubtext.organization }}
+            {% endif %}
+            <br>
+            {% if pubtext.place != null %}
+		<i class="fa fa-fw fa-lg fa-map-marker"></i>
+                {{ pubtext.place }}
+            {% endif %}
+            {% if pubtext.year != null %}
+                <i class="fa fa-fw fa-lg fa-calendar"></i>
+                {{ pubtext.year }}
+            {% endif %}
+            </p>
+	    {% if pubtext.abstract != null %}
+		<p><i class="fa fa-fw fa-lg fa-bars"></i>
+		</i> {{ pubtext.abstract }}</p>
+            {% endif %}
+            {% if pubtext.keyword != null %}
+                <p><b>Keywords :</b> {{ pubtext.keyword }}</p>
+            {% endif %}
+            <span style="float:right;">
+            {% if pubtext.url != null %}
+                <i class="fa fa-fw fa-lg fa-book"></i>
+                <a href="{{ pubtext.url }}">Details </a>
+            {% endif %}
+            {% if pubtext.pdf != null %}
+                <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
+                <a href="{{ pubtext.pdf }}">PDF </a>
+            {% endif %}
+            {% if pubtext.presentation != null %}
+                <i class="fa fa-fw fa-lg fa-file-powerpoint-o"></i>
+                <a href="{{ pubtext.presentation }}">Presentation </a>
+            {% endif %}
+            {% if pubtext.media != null %}
+                <i class="fa fa-fw fa-lg fa-file-movie-o"></i>
+                <a href="{{ pubtext.media }}">Video / Audio </a>
+            {% endif %}
+	    </span>
+            <br>
+        {% endif %}
+    {% endfor %}
+  {% endfor %}
+  {% endfor %}
+  </div>
