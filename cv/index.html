@@ -1,6 +1,27 @@
 ---
-layout: resume
-title: CV
-cv: active
-description: Profile of Deepthi Devaki.
+layout: default
+title: "Deepthi Devaki Akkoorath: Profile"
+header_title: Profile
+include_header: profile_header.html
+nav_item: profile
 ---
+  <a href="{{ site.data.config.resume_path }}" target="_blank" class="sm-col-right col dark-gray width-120">
+    <i class="fa fa-fw fa-lg fa-download"></i>
+    <span class="h6">PDF CV</span>
+  </a>
+  {% for section in site.data.sections %}
+    <div class="border-bottom border-light-gray mt4 mb4 pb3 circle-line">
+            <h4 id="{{ section.id }}">
+                {{ section.name }}
+            </h4>
+            {% capture section_layout %}resume/{{section.layout}}.html{% endcapture %}
+            {% for hash in site.data %}
+              {% if hash[0] == section.id %}
+                {% assign blurb = hash[1] %}
+                {% include {{section_layout}} %}
+              {% endif %}
+            {% endfor %}
+        <a href="#top" class="sm-col-right col dark-gray h6"><i class="fa fa-fw fa-lg fa-angle-double-up"></i>Top</a>
+    </div>
+  {% endfor %}
+
