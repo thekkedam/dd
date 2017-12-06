@@ -1,25 +1,26 @@
 - Languages:
-      - Haskell
-      - Erlang
-      - C
-      - C++ 
-      - Java 
-      - Ruby
-      - Python
-      - PHP
+    Haskell: 75
+    Erlang: 75
+    C: 50
+    C++: 70
+    Java: 80
+    Ruby: 10
+    Python: 20
+    PHP: 10
 - Frameworks:
-      - MPI
-      - OpenMP
-      - riak-core
+    - MPI
+    - OpenMP
+    - riak-core
 - Documentation:
-      - latex
+    - latex
 - Systems:
-      - Debian/Ubutu
-      - Windows
-      - AWS
+    - Debian/Ubutu
+    - Windows
+    - AWS
 - Technical:
-      - Distributed Systems
-      - Concurrent and Parallel programming
-      - Weak/Eventual Consistency
-      - Software Transactional Memory
-      - Algorithms and Data structures
+    - Distributed Systems
+    - Concurrent and Parallel programming
+    - Weak/Eventual Consistency
+    - Software Transactional Memory
+    - Algorithms and Data structures
+
