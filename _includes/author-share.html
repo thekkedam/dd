@@ -1,0 +1,14 @@
+<div class="circle-line-image center mt1">
+  <a href="{{ site.baseurl }}">
+    {% include image.html path=site.data.config.thumbnail_path alt=site.data.config.full_name class="border bg-white border-light-gray circle square-100" %}
+  </a>
+</div>
+<div class="clearfix">
+  <div class="sm-col sm-col-7">
+    <a href="{{ site.baseurl }} "><h3>{{ site.data.config.full_name }}</h3></a>
+  </div>
+  <div class="sm-col-right">
+    <h3>Share this post</h3>
+    {% include share-buttons.html %}
+  </div>
+</div>
