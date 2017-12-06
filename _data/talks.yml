@@ -1,0 +1,55 @@
+Concurrent Programming:
+  - title: Multi-view data types for scalable concurrency in the multi-core era
+    id: Multi-view2
+    rid: stm
+    prid: mview
+    conference: New Challenges in Parallelism
+    organization: Dagstuhl Seminars
+    year: November 5 – 10 , 2017
+    place: Schloss Dagstuhl, Wadern, Germany
+    author: Deepthi Devaki Akkoorath, José Brandão, Annette Bieniusa, Carlos Baquero
+    presentation: http://materials.dagstuhl.de/files/17/17451/17451.DeepthiDevakiAkkoorath.Slides.pdf
+    url: http://www.dagstuhl.de/17451
+    keyword: Scalable Consistency, Concurrent Data Types, Parallel Computing
+    abstract: 'Concurrent linearizable access to shared objects can be prohibitively expensive in a high contention workload. Many applications apply ad-hoc techniques to eliminate the need of synchronous atomic updates, which may result in non-linearizable implementations. We propose a new programming model which leverages such patterns for concurrent access to objects in a shared memory system. In this model, each thread maintains different views on the shared object - a thread-local view and a global view. As the thread-local view is not shared, it can be updated without incurring synchronization costs. These local updates become visible to other threads only after the thread-local view is merged with the global view. This enables better performance at the expense of linearizability. We show that it is possible to maintain thread-local views and to perform merge efficiently for several data types and evaluate their performance and scalability compared to linearizable implementations. Further, we discuss the consistency semantics of the data types and the associated programming model.' 
+
+  - title: "Multi-view data types for scalable concurrency in the multi-core era"
+    id: Multi-view1
+    rid: stm
+    prid: mview
+    conference: Programming Models and Languages for Distributed Computing, PMLDC 2017 
+    organization: ECOOP 2017
+    place: Barcelona, Spain
+    year: Sun 18 - Fri 23 June 2017
+    url: https://2017.ecoop.org/event/pmldc-2017-papers-multi-view-data-types-for-scalable-concurrency-in-the-multi-core-era
+    presentation: /files/Multi-view_data_types_for_scalable_concurrency_in_the_multi-core_era_multiview_slides_Akkoorath.pdf
+    keyword: Scalable Consistency, Concurrent Data Types, Parallel Computing
+    abstract: 'With the rapid growth of number of cores, together with the heterogeneous access latencies, the cost of synchronization and communication between distant components keeps growing. As more general purpose programs exploit the many-core architectures, the speedup achieved will then be limited by the synchronization needed to access shared objects. When building Internet-scale systems, similar concerns lead to the design of scalable systems that limit global synchronization and operate locally when possible. CRDTs succeed in capturing data types with clear concurrency semantics and are now common components in Internet-scale systems. However, they do not migrate trivially to shared-memory architectures due to high computational costs from merge functions, which becomes apparent once network communication is removed. In this talk, we discuss multi-view data types for shared-memory architectures, that leverages a global-local view model that distinguishes between a local fast state and a distant shared state. By executing operations on the local state without synchronization, while only synchronizing with the shared state when needed, applications can achieve better scalability at the expense of linearizability - the default correctness criteria for concurrent objects.'
+
+  - title: Observing the Consistency of Distributed Systems
+    id: consistency2
+    year: Sun 18 - Sat 24 September 2016
+    rid: crdt
+    prid: syncfree
+    conference: Erlang 2016, Workshop on Erlang
+    place: Nara, Japan
+    author: Deepthi Akkoorath, Viktoria Fordos, Annette Bieniusa.
+    url: http://erlang.org/workshop/2016/
+    pdf: /files/Observing_the_Consistency_of_Distributed_Systems_Akkoorath.Bieniusa.ew2016.pdf
+    abstract: 'In distributed Erlang systems temporary network issues are very likely; and can affect the consistency of the system. If the system is a distributed data store relying on a weak consistency model, its data stored may diverge as a result of connectivity issues. Even worse, there is no indicator of the divergence. In this paper we present our initial work on divergence metrics and give a preliminary evaluation on exposing divergence to the system operator.'
+    media: https://www.youtube.com/watch?v=TVrY-VOJg4w
+    keyword: Data store, weak consistency, divergence metrics
+
+Scalable Distributed Systems:
+  - title: Causal consistency in geo-replicated systems
+    id: consistency1
+    rid: crdt
+    prid: syncfree
+    conference: Research Training Group Weak Consistency (weacon)
+    organization: TU Kaiserslautern
+    year: July 25th, 2014
+    url: https://www.tcs.cs.tu-bs.de/gkweacon.html
+    presentation: https://www.tcs.cs.tu-bs.de/documents/weacon/weacon_akkoorath_07_2014.pdf
+    keyword: Weak Consistency, Causal consistency, Geo-replicated Systems  
+    abstract: 'TBA'
+
