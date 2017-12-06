@@ -1,8 +1,23 @@
-<!-- javascript at the end of the doc so page loads faster -->
-<script src="http://code.jquery.com/jquery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/library.js"></script>
-<!--
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
--->
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/javascript">
+var host = "{{ site.domain }}";
+if ((host == window.location.host) && (window.location.protocol != "https:"))
+    window.location.protocol = "https";
+</script>
+<script type="text/javascript" src="/assets/js/main.js"></script>
+{% if site.production %}
+  {% include disqus-scripts.html %}
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{{ site.data.config.ga }}', 'auto');
+  ga('send', 'pageview');
+</script>
+{% endif %}
+{% if page.extra_scripts %}
+  {% for script in page.extra_scripts %}
+    <script type="text/javascript" src="{{ script }}"></script>
+  {% endfor %}
+{% endif %}
