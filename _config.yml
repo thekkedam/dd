@@ -1,10 +1,27 @@
-permalink: /notes/:year/:month/:day/:title
-markdown: kramdown
+# Website settings
+baseurl: "/"
+base_url: "https://dd.thekkedam.org"
+url: "https://dd.thekkedam.org"
+domain: "dd.thekkedam.org"
+production: true
+
+# Jekyll build settings
+paginate: 6
+paginate_path: "/writing/page:num"
+permalink: "/writing/:year/:month/:day/:title/"
+sass:
+  sass_dir: "/assets/css"
+  style: :compressed  
+highlighter: rouge
 timezone: 'Europe/Berlin'
 
-github:
-  repo: "thekkedam/dd"
-  branch: "gh-pages"
+# Need to change this
+#feed:
+#  path: atom.xml
+
+# TO start using
+jekyll-mentions:
+  base_url: https://twitter.com
 
 # Exclude personal
 exclude:
@@ -12,6 +29,19 @@ exclude:
   - build
   - update
   - _toolScripts
+  - skip.html
   - deploy
   - vendor
 
+# include
+include:
+  - ".htaccess"
+
+# Plugins (GitHub Pages only support a few)
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-mentions
+  - jekyll-gist
+  - jekyll-paginate
+  - rouge
