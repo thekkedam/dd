@@ -1,0 +1,30 @@
+<div class="clearfix mxn2">
+  <div class="col sm-col-9 px2">
+    {% for section in site.data.about %}
+      <h3 class="mb2">{{ section[0] }}</h3>
+      {% for bullet in section[1] %}
+      	<p>
+         {{ bullet }}
+      	</p>
+      {% endfor %}
+    {% endfor %} 
+
+<!-- 
+    <h3 class="mb2">Recent posts</h3>
+    {% for post in site.posts limit:5 %}
+      <a href="{{ post.url }}">{{ post.title }}</a>  <small>{{ post.date | date:"%b %d, %Y" }}</small><br>
+    {% endfor %}
+-->
+  </div>
+  <div class="col sm-col-3 px2">
+    <a href="{{ site.base_url }}">
+      {% include image.html path=site.data.config.thumbnail_path alt=site.data.config.full_name class="mb2 p4 max-width-120" %}
+    </a>
+  </div>
+<!--
+  <div class="col sm-col-3 px2">
+    <h3 class="mb2 p4">Contact</h3>
+    {% include contact.html %}
+  </div> 
+-->
+</div>
