@@ -1,29 +1,15 @@
 ---
 layout: default
-notes: active
+bottom_include: "comments.html"
+include_header: "post_header.html"
+include_comments:
+  embed: true
+  count: true
 ---
-
-<div class="notes">
-		<div class="note single">
-			<h1 class="title">{{ page.title }}</h1>
-			
-			<h2 class="date"><info datetime="{{ page.date }}">
-				{{ page.date | date_to_string }} {% if page.author %} by {{ page.author }} {% endif %}
-			</info></h2>
-			<!-- Post content -->
-			<div class="notebody">
-				{{ content }}
-			</div>
-			<!-- Post info -->
-			<div class="noteinfo">
-			<!-- include some categories and tags maybe? -->
-			</div>
-
-			<hr>
-
-			<!-- Post comments -->
-			<div class="notecomments">
-				{% include disqus.html %}	 
-			</div>
-		</div><!-- / .note .single -->
-</div><!-- /.notes -->
+<article class="post">
+  <div class="post-content">
+    {{ content }}
+  </div>
+  <div class="mt4 mb4">{% include post-navigation.html %}</div>
+  <div class="mt4">{% include author-share.html %}</div>
+</article>
