@@ -1,19 +1,9 @@
 ---
 layout: default
-title: Home 
-description: Deepthi Devaki Akkoorath, a software developer, researcher in distributed systems and eventual consistency. 
+title: "Deepthi Devaki Akkoorath: Home Page"
+header_title: Deepthi Devaki Akkoorath
+include_header: home_header.html
+nav_item: home
 ---
-<div class="row marketing">
-	<div class="col-sm-4">
-	    <img  class="img avatar" alt="{{ site.data.config.name }}" src="{{ site.data.config.profile }}">
-	</div>
 
-	<div class="col-sm-8">
-        {% for section in site.data.home %}
-                {% for bullet in section[1] %}
-                        <p>{{ bullet }}</p>
-                {% endfor %}
-	<br>
-        {% endfor %}
-	</div>
-</div>
+{% include about.html %}
