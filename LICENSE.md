@@ -14,13 +14,16 @@ Personal / propretry
 
 - Web links under and with
   - /files
-  - /profile
+  - /writing
+  - /cv
+  - /talks
+  - /speeking
   - /projects
   - /research
   - /publications
   - /posts
   - /photos
-  - /assets/docs
+  - /assets/docs/
   - /assets/img/
 
 - github source under and with
@@ -28,7 +31,7 @@ Personal / propretry
   - _posts/
   - files/
   - assets/img/
-  - assets/docs
+  - assets/docs/
 
 ## Category - ii
 
