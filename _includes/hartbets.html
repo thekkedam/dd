@@ -1,0 +1,37 @@
+<script type="text/javascript">
+(function getHeartBeat(date,format) {
+var bdate = 20 
+var bmonth = 8 
+var byear = 1981 
+var currentTime = new Date()
+var year = currentTime.getFullYear()
+var month = currentTime.getMonth() + 1
+var date = currentTime.getDate()
+var hour = currentTime.getHours()
+var minutes = currentTime.getMinutes()
+
+var myage =  ( year - byear )
+
+if ( date > ( bdate - 1 ) ) {
+ date = ( date - bdate )
+} else {
+ month = ( month - 1 )
+ date = ( date + ( 31 - bdate ) )
+}
+
+if ( month > ( bmonth - 1 ) ) {
+ month = ( month - bmonth )
+} else {
+ myage = ( myage - 1 )
+ month = ( month + ( 12 - bmonth ) )
+}
+
+month = month - 1 
+
+var hartbeets = ( (minutes * 70 ) + ( hour * 4200 ) + ( date * 100800 ) + ( month * 3024000 ) + ( myage * 36288000 ) )
+document.write("My heart finished more than ")
+document.write(hartbeets)
+document.write(" beatings from 20th August 1981.")
+})();
+</script>
+
