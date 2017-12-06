@@ -1,0 +1,1 @@
+{% capture full_path %}{% if include.external %}{{ include.path }}{% elsif site.data.config.cdn.state == "enable" %}{{ site.data.config.cdn.url }}/{{ site.data.config.cdn.image }}/{{ include.path }}{% else %}/assets/img/{{ include.path }}{% endif %}{% endcapture %}{% if include.absolute %}{{ site.url }}{{ full_path }}{% else %}{{ full_path }}{% endif %}
