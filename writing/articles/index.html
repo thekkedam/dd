@@ -1,0 +1,18 @@
+---
+layout: default
+title: "Deepthi Devaki Akkoorath: Articles"
+nav_item: articles
+nav_item_writing: articles 
+header_title: Articles
+include_header: writing_header.html
+include_comments:
+  count: true
+---
+
+{% include writing-nav.html %}
+
+{% for post in site.posts %}
+  {% if post.tags contains 'Article' %}  
+    {% include post-outline.html post=post %}
+  {% endif %}
+{% endfor %}
