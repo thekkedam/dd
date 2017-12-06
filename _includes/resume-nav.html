@@ -1,0 +1,6 @@
+<div class="mt2 h5 gray right-align pr2">
+  {% for section in site.data.sections %}
+    <a href="#{{ section.id }}" class="link-color">{{ section.name }}</a>
+    {% unless forloop.last %}<span class="px1">|</span>{% endunless %}
+  {% endfor %}    
+</div>
