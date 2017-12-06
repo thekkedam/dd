@@ -1,12 +1,54 @@
-- type: Softech TU-KL
-  link: https://softech.cs.uni-kl.de/homepage/de/staff/DeepthiAkkoorath/
-- type: LinkedIn
-  link: https://www.linkedin.com/in/deepthidevaki/
-- type: GitHub
-  link: https://github.com/deepthidevaki
-- type: Bitbucket
-  link: https://bitbucket.org/deepthidevaki
-- type: Facebook
-  link: https://www.facebook.com/deepthi.devaki
-- type: email
-  link: moc.liamg@ikavedihtpeed
+# ShortName:
+#   url: <link>
+#   label: <Lable to show in text>
+#   value: 
+#   icon: <use -square>
+
+
+  TUgroup:
+    url: "https://softech.cs.uni-kl.de/homepage/de/staff/DeepthiAkkoorath/"
+    label: "TUKL"
+    icon: "pencil-square"
+  github:
+    url: "https://github.com/deepthidevaki/"
+    label: "GitHub"
+    icon: "github-square"
+  bitbucket:
+    url: "https://bitbucket.org/deepthidevaki/"
+    label: "BitBucket"
+    icon: "bitbucket-square"
+  linkedin:
+    url: "https://www.linkedin.com/in/deepthidevaki"
+    label: "LinkedIn"
+    icon: "linkedin-square"
+  researchGate:
+    url: "https://www.researchgate.net/profile/Deepthi_Akkoorath"
+    label: "ResearchGate"
+    icon: "h-square"
+  scholar:
+    url: "https://scholar.google.de/citations?user=5AQ2s1oAAAAJ"
+    label: "GoogleScholar"
+    icon: "plus-square"
+  email:
+    url: "mailto:deepthidevaki@gmail.com"
+    label: "Email"
+    value: "deepthidevaki@gmail.com"
+    icon: "envelope-square"
+  twitter:
+    url: "https://twitter.com/deepthidevaki"
+    label: "Twitter"
+    icon: "twitter-square"
+    username: "@deepthidevaki"
+  facebook:
+    url: "https://www.facebook.com/deepthi.devaki"
+    label: "Facebook"
+    icon: "facebook-square"
+  google:
+    url: "https://plus.google.com/110945786880557718364"
+    label: "Google+"
+    icon: "google-plus-square"
+  feed:
+    url: "/sitemap.xml"
+    label: "Feed"
+    icon: "rss-square"
+
