@@ -1,0 +1,19 @@
+---
+layout: default
+title: "Deepthi Devaki Akkoorath: Videos"
+nav_item: video
+nav_item_writing: video 
+header_title: Videos
+include_header: video_header.html
+include_comments:
+  count: true
+---
+
+{% include writing-nav.html %}
+
+{% for post in site.posts %}
+  {% if post.tags contains 'Short Film' %}  
+    {% include video-outline.html post=post %}
+  {% endif %}
+{% endfor %}
+
