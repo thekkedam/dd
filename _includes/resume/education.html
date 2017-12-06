@@ -1,0 +1,37 @@
+{% for section in blurb %}
+    <div>
+	<p style="text-align:left;">
+		<h5>
+			<i class="fa fa-fw fa-lg fa-university"></i>
+			{{ section.org }}
+		</h5>
+                <span style="float:right;">
+                        <h6>
+				{{ section.when }}
+				<i class="fa fa-fw fa-lg fa-calendar"></i>
+			</h6>
+                </span>
+		<h6>
+			<i class="fa fa-fw fa-lg fa-map-marker"></i>
+			{{ section.location }}
+		</h6>
+        	<h6>
+		    <i class="fa fa-fw fa-lg fa-graduation-cap"></i>
+                    {{ section.role }}
+                    {% if section.group %}
+			at {{ section.group }}
+                    {% endif %}
+                </h6>
+	</p>
+        {% if section.bullets %}
+	    <ul class="fa-ul">
+            {% for bullet in section.bullets %}
+		<li>
+	    	    <i class="fa fa-li fa-angle-double-right"></i>
+		    {{ bullet | markdownify }}
+		</li>
+            {% endfor %}
+	    </ul>
+        {% endif %}
+    </div>
+{% endfor %}
