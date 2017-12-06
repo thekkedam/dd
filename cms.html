@@ -1,23 +1,24 @@
 ---
 layout: default
-title: Post
-post: active
-description: Post directely from web.
+title: "Deepthi Devaki Akkoorath: Create new post"
+header_title: New post
+include_header: cms_header.html
+nav_item: cms
 permalink: /cms.html
 init_scripts:
   - '/assets/js/bootstrap.min.js'
   - '/assets/js/jquery-2.1.4.min.js'
 extra_styles:
-  - 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'
-  - 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css'
+  - '/assets/css/bootstrap.css'
+  - '/assets/css/bootstrap-theme.css'
 ---
   <div class="mxn2 clearfix mb2 border-bottom border-light-gray circle-line py3">
 	<div class="container" id="container1" >
         <br>
-	{% if site.github.repo == none %}
+	{% if site.data.config.github.repo == none %}
 		<div class="alert alert-danger" role="alert"><code>github.repo</code> is not set.</div>
 	{% endif %}
-	{% if site.github.branch == none %}
+	{% if site.data.config.github.branch == none %}
 		<div class="alert alert-danger" role="alert"><code>github.branch</code> is not set.</div>
 	{% endif %}
 	<div id="messages"></div>
@@ -91,7 +92,7 @@ extra_styles:
 		return d.toISOString()
 	}
 
-	var API_NEW_POST = 'https://api.github.com/repos/{{ site.github.repo }}/contents/_posts/' ;
+	var API_NEW_POST = 'https://api.github.com/repos/{{ site.data.config.github.repo }}/contents/_posts/' ;
 
 	$("#go").click(function() {
 		var user = $('#username').val() ;
@@ -119,7 +120,7 @@ extra_styles:
 	        data: JSON.stringify({
 	        	content: btoa(unescape(encodeURIComponent(p_body))),
 	        	message: 'posted via web',
-	        	branch: '{{ site.github.branch }}'
+	        	branch: '{{ site.data.config.github.branch }}'
 	        }),
 	        beforeSend: function(xhr) { 
 	        	xhr.setRequestHeader("Authorization", "Basic " + btoa(user+":"+password)); 
