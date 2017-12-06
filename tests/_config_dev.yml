@@ -1,0 +1,7 @@
+# Website settings
+baseurl: "/"
+base_url: "/"
+url: "http://dd.thekkedam.org"
+domain: "dd.thekkedam.org"
+production: false
+
