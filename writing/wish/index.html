@@ -1,0 +1,19 @@
+---
+layout: default
+title: "Deepthi Devaki Akkoorath: Wish"
+nav_item: wish
+nav_item_writing: wish
+header_title: Wish
+include_header: wish_header.html
+include_comments:
+  count: true
+---
+
+{% include writing-nav.html %}
+
+{% for post in site.posts %}
+  {% if post.tags contains 'Wish' %}  
+    {% include wish-outline.html post=post %}
+  {% endif %}
+{% endfor %}
+
