@@ -1,0 +1,12 @@
+- name: "Observing the Consistency of Distributed Systems"
+  date: "Sun 18 - Sat 24 September 2016"
+  description: 'In distributed Erlang systems temporary network issues are very likely; and can affect the consistency of the system. If the system is a distributed data store relying on a weak consistency model, its data stored may diverge as a result of connectivity issues. Even worse, there is no indicator of the divergence. In this paper we present our initial work on divergence metrics and give a preliminary evaluation on exposing divergence to the system operator.'
+  embed_url: "//www.youtube.com/embed/TVrY-VOJg4w"
+  links:
+    - label: "Video"
+      url: "https://www.youtube.com/watch?v=TVrY-VOJg4w"
+    - label: "Slides"
+      url: "http://www.slideshare.net/deepthidevaki/whatisthis"
+    - label: "Erlang 2016, Workshop on Erlang"
+      url: "http://erlang.org/workshop/2016/"
+
