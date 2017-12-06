@@ -1,35 +1,122 @@
 ---
 layout: default
 ---
-<div class="cv">
+  <h5 class="page-description body-font gray mt1 regular">
+    <a href="/projects" class="link-color" title="Go to Projects">Projects</a>/
+    {{ page.dynaid | capitalize }}
+  </h5>
+  <div>
 {% for project in site.data.projects %}
-   <a href="#{{ project.id }}" class="btn btn-default" title="Go to {{ project.name }}">{{ project.name }}</a>
-{% endfor %}
-{% for project in site.data.projects %}
-  <a id="{{ project.id }}"></a><h3>{{ project.name }}</h3>
-  <h5>{{ project.name_long }}</h5>
-  {{ project.org }}<br>
-  {{ project.date }}<br>
-  <dl class="dl-horizontal">
-    <dt>
-      <a href="{{ project.url }}" target="_blank">
+  {% if project.id == page.dynaid %}
+  <div class="mxn2 clearfix mb2 py3">
+    <div class="col sm-col-4 px2 mb2">
         {% capture image_path %}projects/{{ project.image }}{% endcapture %}
         {% include image.html path=image_path alt=project.name %}
-      </a>
-    </dt>
-    <dd>
-      <p align="justify" class="left-align">{{ project.description }}</p>
-      {% if project.url != null %}
-          <a href="{{ project.url }}" target="_blank">{{ project.url_label }}</a><br>
+    </div>
+    <div class="col sm-col-8 px2">
+         <a id="{{ project.id }}"></a>
+         <h2 class="mt0 mb0">{{ project.name }}</h2>
+      <h5>{{ project.name_long }}</h5>
+      {% if project.org != null %}
+        <i class="fa fa-fw fa-lg fa-building-o"></i>
+      	<span class="h5">{{ project.org }}</span>
+        <br>
       {% endif %}
-      {% if project.src_url != null %}
-          <a href="{{ project.src_url }}" target="_blank">{{ project.src_label }}</a><br>
+      {% if project.date != null %}
+        <i class="fa fa-fw fa-lg fa-calendar"></i>
+        <span class="h5">{{ project.date }}</span>
+        <br>
       {% endif %}
-      {% if project.doc_url != null %}       
-          <a href="{{ project.doc_url }}" target="_blank">{{ project.doc_label }}</a><br>
+      {% if project.sta != null %}
+        <i class="fa fa-fw fa-lg fa-bullseye"></i>
+        <span class="h5">{{ project.sta | capitalize }}</span>
+        <br>
       {% endif %}
-    </dd>
-  </dl>
+    <br>
+    </div>
+      <p class="left-align">
+          <br>
+	  {{ project.description }}
+      </p>
+      {% for project_url in project.url %}
+          <a href="{{ project_url[1] }}" target="_blank" class="dark-gray">
+            <i class="fa fa-fw fa-lg fa-info-circle"></i>
+            <span class="h6">{{ project_url[0] }}</span>
+          </a><br>
+      {% endfor %}
+      {% for project_src in project.src %}
+          <a href="{{ project_src[1] }}" target="_blank" class="dark-gray">
+            <i class="fa fa-fw fa-lg fa-github-square"></i>
+            <span class="h6">{{ project_src[0] }}</span>
+          </a><br>
+      {% endfor %}
+      {% for project_doc in project.doc %}
+          <a href="{{ project_doc[1] }}" target="_blank" class="dark-gray">
+            <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
+            <span class="h6">{{ project_doc[0] }}</span>
+          </a><br>
+      {% endfor %}
+      <p>
+      <br>
+  {% assign onlyonce = 0 %}
+  {% for section_hash in site.data.publications %}
+    {% for section in section_hash %}
+      {% for pubtext in section %}
+        {% if pubtext.title != null and pubtext.prid == project.id %}
+          {% if onlyonce == 0 %} Related Publications : {% assign onlyonce = 1 %} {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+  {% for section_hash in site.data.publications %}
+    <ul class="list-unstyled">
+    {% for section in section_hash %}
+      {% for pubtext in section %}
+        {% if pubtext.title != null and pubtext.prid == project.id %}
+          <li><a id="{{ pubtext.id }}"></a><a href="/publications/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
+            {% if pubtext.year != null %}
+              , {{ pubtext.year }}
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    </ul>
+  {% endfor %}
+  {% assign onlyonce1 = 0 %}
+  {% for section_hash in site.data.publications %}
+    {% for section in section_hash %}
+      {% for pubtext in section %}
+        {% if pubtext.title != null and pubtext.prid == project.id %}
+          {% if onlyonce1 == 0 %} Related Talks : {% assign onlyonce1 = 1 %} {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+  {% for section_hash in site.data.talks %}
+    <ul class="list-unstyled">
+    {% for section in section_hash %}
+      {% for pubtext in section %}
+        {% if pubtext.title != null and pubtext.prid == project.id %}
+          <li><a id="{{ pubtext.id }}"></a><a href="/talks/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
+            {% if pubtext.year != null %}
+              , {{ pubtext.year }}
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    </ul>
+  {% endfor %}
+
+  </p>
+
+
+    <a href="#top" class="sm-col-right col dark-gray h6">
+       <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
+       Top
+    </a>
+  </div>
+  {% endif %}
 {% endfor %}
-</div>
 
