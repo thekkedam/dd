@@ -1,11 +1,11 @@
-about:
-     - 'Is a remix of <a href="http://jmcglone.com/">Jonathan McGlone</a>.'
-     - 'Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a> except contents under links /projects /notes /cv /img /files and github source under _data/ _posts/ /img /files.'
-     - 'Marked up with <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fdd.thekkedam.org%2F" title="HTML5 Validator">W3C validated HTML5</a>'
-     - '<a href="http://www.w3.org/TR/WCAG20/" title="WCAG 2.0">WCAG 2.0</a> compliant.'
-     - '<a href="http://alistapart.com/article/responsive-web-design" title="Responsive Web Design at A List Apart">Responsive</a> and compatible with a variety of devices.'
-     - 'Built with <a href="http://getbootstrap.com/" title="Bootstrap 3.0">Bootstrap 3.0</a>.'
-     - 'Using typefaces <a href="http://www.google.com/fonts/specimen/Merriweather" title ="Merriweather">Merriweather</a> by <a href="https://plus.google.com/106288796449831139244/about" title="Eben Sorkin">Eben Sorkin</a> and <a href="http://www.google.com/fonts/specimen/Montserrat" title="Montserrat">Montserrat</a> by <a href="http://www.zkysky.com.ar/" title="ZkySky Design">Julieta Ulanovsky</a>.'
-     - 'Powered by <a href="http://jekyllrb.com/" title="Jekyll">Jekyll</a>.'
-     - 'Hosted on <a href="https://github.com/thekkedam/dd" title="This site hosted on GitHub">GitHub</a> with <a href="http://pages.github.com/" title="GitHub Pages">GitHub Pages</a>.'
-     - 'Find how to use <a href="/guides/github-pages/">github pages</a>, <a href="/swatches/">Swatches</a> and <a href="/guides/bibtex/">BibTex</a>.'
+#
+#Title1:
+#    - text
+#    - text
+#Title2:
+#    - text
+#
+About Me:
+     - 'Hi, I am Deepthi Devaki Akkoorath and I am a PhD student in the <a href="https://softech.informatik.uni-kl.de/" class="link-color" target="_blank">Software Technology Group</a> at <a href="http://www.uni-kl.de/" class="link-color" target="_blank">TU Kaiserslautern</a>, supervised by <a href="https://softech.cs.uni-kl.de/homepage/de/staff/AnnetteBieniusa/" class="link-color" target="_blank">Dr. rer. nat. Annette Bieniusa</a> and <a href="https://softech.cs.uni-kl.de/homepage/de/staff/PoetzschHeffter/" class="link-color" target="_blank">Prof. Dr. Arnd Poetzsch-Heffter</a>.'
+     - 'My research is on weak memory consistency in concurrent and distributed systems. Currently I am working on <a href="/projects/lightkone/" class="link-color" target="_blank">LightKone</a> project. I am also interested in the semantics and applicability of weak/eventual consistency in the context of shared memory concurrent programs and Software Transactional Memory (STM).'
+     - 'I have worked previously as Software Engineer at <a href="http://www.multicorewareinc.com/" class="link-color" target="_blank">MulticoreWare</a> for <a href="/projects/x265/" class="link-color" target="_blank">x265 HEVC</a> development.'
