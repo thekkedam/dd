@@ -1,71 +1,138 @@
 Conference:
-  - title: 'FMKe: a Real-World Benchmark for Key-Value Data Stores'
+  - title: "FMKe: a Real-World Benchmark for Key-Value Data Stores"
     id: fmke17
-    year: 2017
-    author: Gonçalo Tomás, Peter Zeller, Valter Balegas, Deepthi Akkoorath, Annette Bieniusa, João Leitão, Nuno Preguiça.
-    conference: PaPoc 2017, Workshop on Principles and Practice of Consistency for Distributed Data.
-    year: April 2017.
-    url: https://doi.org/10.1145/3064889.3064897
+    rid: crdt
+    prid: syncfree
+    author: "Gonçalo Tomás, Peter Zeller, Valter Balegas, Deepthi Akkoorath, Annette Bieniusa, João Leitão, Nuno Preguiça"
+    conference: PaPoc 2017, Workshop on Principles and Practice of Consistency for Distributed Data
+    year: April 2017
+    organization: ACM SIGOPS
+    place: Belgrade, Serbia
+    url: "https://doi.org/10.1145/3064889.3064897"
+    pdf: /files/FMKe_a_Real-World_Benchmark_for_Key-Value_Data_Stores_Akkoorath.pdf
+    keyword: Benchmark, Key-Value Store
+    abstract: 'Standard benchmarks are essential tools to enable developers to validate and evaluate their systems design in terms of both relevant properties and  performance. Benchmarks provide the means to evaluate a system with workloads that mimics real use cases. Although a large number of benchmarks exist for database system, there is a lack of standard benchmarks for an increasingly relevant class of storage systems - geo-replicated key-value stores providing weak consistency guarantees. This has led developers and researchers to rely on ad-hoc tools, whose results are both hard to reproduce and compare. In this paper, we propose the first standardized benchmark specially tailored for weakly consistent key-value stores. The benchmark, named FMKe, is modeled after a real application - the Danish National Joint Medicine Card. The benchmark is scalable, it can be parameterized to emulate a large number of access patterns, and it is also highly flexible, enabling its application on systems that offer different consistency guarantees and mechanisms.'
+
   - title: Observing the Consistency of Distributed Systems
     id: ew16
-    year: 2016
-    author: Deepthi Akkoorath, Viktoria Fordos, Annette Bieniusa.
-    conference: Erlang 2016, ACM SIGPLAN workshop on Erlang.
-    year: September 2016.
-    url: https://doi.org/10.1145/2975969.2975975
-  - title: 'Cure: Strong semantics meets high availability and low latency'
+    rid: crdt
+    prid: syncfree
+    conference: Erlang 2016, Proceedings of the 15th International Workshop on Erlang
+    year: September 2016
+    place: Nara, Japan
+    author: Deepthi Akkoorath, Viktoria Fordos, Annette Bieniusa
+    organization: ACM SIGPLAN
+    url: "https://doi.org/10.1145/2975969.2975975"
+    pdf: /files/Observing_the_Consistency_of_Distributed_Systems_Akkoorath.Bieniusa.ew2016.pdf
+    abstract: 'In distributed Erlang systems temporary network issues are very likely; and can affect the consistency of the system. If the system is a distributed data store relying on a weak consistency model, its data stored may diverge as a result of connectivity issues. Even worse, there is no indicator of the divergence. In this paper we present our initial work on divergence metrics and give a preliminary evaluation on exposing divergence to the system operator.'
+    keyword: Data store, weak consistency, divergence metrics
+
+  - title: "Cure: Strong semantics meets high availability and low latency"
     id: cure2016
-    year: 2016
-    conference: Proceedings of 36th IEEE International Conference on Distributed Computing Systems, ICDCS
-    author: Deepthi Devaki Akkoorath, Alejandro Tomsic, Manuel Bravo, Zhongmiao Li, Tyler Crain, Annette Bieniusa, Nuno Pregui¸ca, Marc Shapiro
+    rid: crdt
+    prid: syncfree
+    year: August 2016
+    place: Nara, Japan
+    conference: 36th IEEE International Conference on Distributed Computing Systems, ICDCS
+    organization: IEEE Computer Society
+    author: "Deepthi Devaki Akkoorath, Alejandro Tomsic, Manuel Bravo, Zhongmiao Li, Tyler Crain, Annette Bieniusa, Nuno Pregui¸ca, Marc Shapiro"
     language: English
-    url: http://dx.doi.org/10.1109/ICDCS.2016.98
-    pdf: http://lip6.fr/Marc.Shapiro/papers/Cure-final-ICDCS16.pdf
-    language: English
+    url: "http://dx.doi.org/10.1109/ICDCS.2016.98"
+    pdf: "http://lip6.fr/Marc.Shapiro/papers/Cure-final-ICDCS16.pdf"
+    keyword: Protocols, Databases, Clocks, Semantics, Programming, Convergence, Servers
+    abstract: 'Developers of cloud-scale applications face a difficult decision of which kind of storage to use, summarised by the CAP theorem. Currently the choice is between classical CP databases, which provide strong guarantees but are slow, expensive, and unavailable under partition; and NoSQL-style AP databases, which are fast and available, but too hard to program against. We present an alternative - Cure provides the highest level of guarantees that remains compatible with availability. These guarantees include - causal consistency (no ordering anomalies), atomicity (consistent multi-key updates), and support for high-level data types (developer friendly API) with safe resolution of concurrent updates (guaranteeing convergence). These guarantees minimise the anomalies caused by parallelism and distribution, thus facilitating the development of applications. This paper presents the protocols for highly available transactions, and an experimental evaluation showing that Cure is able to achieve scalability similar to eventuallyconsistent NoSQL databases, while providing stronger guarantees.'
+
   - title: Highly-scalable Concurrent Objects
     id: hsco16
-    year: 2016
+    rid: stm
+    prid: mview
+    year: April 2016
+    place: London, United Kingdom
+    conference: PaPoC 2016, Proceedings of the 2nd Workshop on the Principles and Practice of Consistency for Distributed Data
+    organization: ACM
     isbn: 978-1-4503-4296-4/16/04
-    conference: PaPoC'16, Workshop on Principles and Practice of Consistency for Distributed Data
-    url: http://dx.doi.org/10.1145/2911151.2911158
+    url: "http://dx.doi.org/10.1145/2911151.2911158"
     author: Deepthi Akkoorath, Annette Bieniusa
     pdf: /files/Highly-scalable_Concurrent_Objects.pdf
     language: English
+    abstract: 'Synchronisation is a bottleneck in shared memory concurrent programs. In this paper, we present Mergeable Data Types (MDTs) for relaxing synchronisation in shared memory system analogously to CRDTs in replicated systems. We present the key properties of MDTs and discuss the design of several MDTs.'
+    keyword: Concurrent Data Structures, Weak Consistency
+
   - title: Transactions on Mergeable Objects
     id: mtm2015
-    year: 2015
+    rid: stm
+    prid: mview
+    year: December 2015
+    place: Pohang, South Korea
     isbn: 978-3-319-26528-5
-    conference: Programming Languages and Systems - 13th Asian Symposium, APLAS
+    conference: Programming Languages and Systems, 13th Asian Symposium, APLAS
+    organization: Lecture Notes in Computer Science (LNCS volume 9458), Springer
     booktitle: Programming Languages and Systems
     volume: 9458
     series: Lecture Notes in Computer Science
     doi: 10.1007/978-3-319-26529-2_23
-    url: http://dx.doi.org/10.1007/978-3-319-26529-2_23
+    url: "http://dx.doi.org/10.1007/978-3-319-26529-2_23"
     publisher: Springer International Publishing
-    keywords: Concurrent programming; Transactional memory; Mergeable objects; Relaxed consistency
+    keyword: Concurrent programming; Transactional memory; Mergeable objects; Relaxed consistency
     author: Deepthi Akkoorath, Annette Bieniusa
     pages: 427-444
     language: English
     pdf: /files/Transactions_on_Mergeable_Objects-Akkoorath-Bieniusa.pdf
+    keyword: Concurrent programming, Transactional memory, Mergeable objects, Relaxed consistency 
+    abstract: 'Destructible updates on shared objects require careful handling of concurrent accesses in multi-threaded programs. Paradigms such as Transactional Memory support the programmer in correctly synchronizing access to mutable shared data by serializing the transactional reads and writes. But under high contention, serializable transactions incur frequent aborts and limit parallelism. This can lead to a severe performance degradation. In this paper, we propose mergeable transactions which provide a consistency semantics that allows for more scalability even under contention. Instead of aborting and re-executing, object versions from conflicting updates on shared objects are merged using data-type specific semantics. The evaluation of our prototype implementation in Haskell shows that mergeable transactions outperform serializable transactions even under low contention while providing a structured and type-safe interface.'
+
+
 Report:
-  - title: 'Global-Local View: Scalable Consistency for Concurrent Data Types'
+  - title: "Global-Local View: Scalable Consistency for Concurrent Data Types"
     id: gl2017
-    year: 2017
-    url: https://arxiv.org/abs/1705.03704
+    rid: stm
+    prid: mview
+    conference: arxiv.org
+    year: May 2017
+    url: "https://arxiv.org/abs/1705.03704"
+    pdf: /files/Global-Local_View_Scalable_Consistency_for_Concurrent_Data_Types_Akkoorath.pdf
     author: Deepthi Devaki Akkoorath, José Brandão, Annette Bieniusa, Carlos Baquero.
     language: English
-  - title: 'Cure: Strong semantics meets high availability and low latency'
+    keyword: Scalable Consistency, Concurrent Data Types, Parallel Computing
+    abstract: 'Concurrent linearizable access to shared objects can be prohibitively expensive in a high contention workload. Many applications apply ad-hoc techniques to eliminate the need of synchronous atomic updates, which may result in non-linearizable implementations. We propose a new programming model which leverages such patterns for concurrent access to objects in a shared memory system. In this model, each thread maintains different views on the shared object - a thread-local view and a global view. As the thread-local view is not shared, it can be updated without incurring synchronization costs. These local updates become visible to other threads only after the thread-local view is merged with the global view. This enables better performance at the expense of linearizability. We show that it is possible to maintain thread-local views and to perform merge efficiently for several data types and evaluate their performance and scalability compared to linearizable implementations. Further, we discuss the consistency semantics of the data types and the associated programming model.'
+
+  - title: "Cure: Strong semantics meets high availability and low latency"
     id: cure2015
-    year: 2016
-    url: https://hal.inria.fr/hal-01270776/
-    organization: 'RR-8858, INRIA; Paris 6.'
-    keywords: geo replication ;  fault tolerance ; distributed database ;  transactions ;  causal consistency ; CRDT
+    rid: crdt
+    prid: syncfree
+    year: February 2016
+    url: "https://hal.inria.fr/hal-01270776/"
+    conference: Research Report, RR-8858
+    organization: INRIA, Paris 6
+    keyword: geo replication,  fault tolerance, distributed database, transactions,  causal consistency, CRDT
     author: Deepthi Devaki Akkoorath, Alejandro Tomsic, Manuel Bravo, Zhongmiao Li, Tyler Crain, Annette Bieniusa, Nuno Pregui¸ca, Marc Shapiro
     language: English
-    pdf: https://hal.inria.fr/hal-01270776/file/RR-8858.pdf
-White paper:
-  - title: 'Antidote: the highly-available geo-replicated database with strongest
-guarantees'
+    pdf: "https://hal.inria.fr/hal-01270776/file/RR-8858.pdf"
+    abstract: 'Developers of cloud-scale applications face a difficult decision of which kind of storage to use, summarised by the CAP theorem. Currently the choice is between classical CP databases, which provide strong guarantees but are slow, expensive, and unavailable under partition; and NoSQL-style AP databases, which are fast and available, but too hard to program against. We present an alternative - Cure provides the highest level of guarantees that remains compatible with availability. These guarantees include - causal consistency (no ordering anomalies), atomicity (consistent multi-key updates), and high-level data types (developer friendly) with safe resolution of concurrent updates (guaranteeing convergence). These guarantees minimise the anomalies caused by parallelism and distribution, and facilitate the development of applications. This paper presents the protocols for highly available transactions , and an experimental evaluation showing that Cure is able to achieve performance similar to eventually-consistent NoSQL databases, while providing stronger guarantees.'
+
+Whitepaper:
+  - title: "Antidote: the highly-available geo-replicated database with strongest guarantees"
     id: antidotewp
-    year: 2016
-    pdf: https://syncfree.lip6.fr/attachments/article/59/antidote-white-paper.pdf
+    rid: crdt
+    prid: syncfree
+    author: Deepthi Devaki Akkoorath, Annette Bieniusa
+    year: August 2016
+    url: "https://syncfree.lip6.fr/index.php/white-papers"
+    pdf: "https://syncfree.lip6.fr/attachments/article/59/antidote-white-paper.pdf"
+    conference: SyncFree Project
+    keyword: Antidote, SyncFree, CRDT, Geo-replication, Partial replication
+    abstract: 'Cloud-scale applications need highly available, low latency responses to serve millions of users around the world. To meet this need, applications have to carefully choose a high performance distributed database. Traditional databases provide strong guarantees but are slow and unavailable under failures and network partition. Hence, they are not suitable for geo-replication. The alternatives are NoSQLstyle databases which are fast and available even under network partition. They provide a low-level key-value interface and expose data inconsistencies due to asynchronous communication among the servers. It takes significant effort and expertise from programmers to deal with these inconsistencies and develop correct applications on top of these databases. For example, consider that your application stores a counter which counts the number of ads displayed to a user. For scalability, the database replicates all data in different locations. What will be the value of the counter, when it is incremented at two locations at the same time? As an application programmer, you have to detect such concurrent updates and resolve conflicting modifications.'
+
+Thesis:
+  - title: Improving Quality of Experience of Internet Applications by Dynamic Placement of Application Components 
+    id: master
+    rid: edge
+    prid: cloudedge
+    author: "Deepthi Devaki Akkoorath , Supervisors : Rudolf Strijkers, Oskar van Deventer"
+    organization: University of Amsterdam, The Netherlands
+    degree: Master
+    year: July 2012
+    url: "http://www.scriptiesonline.uba.uva.nl/en/scriptie/425875"
+    pdf: /files/Improving_Quality_of_Experience_of_Internet_Applications_Deepthi_Devaki_Akkoorath.pdf
+    keyword: Edge, Quality of Experience, distributed system
+    abstract: 'The Quality of Experience(QoE) of distributed internet applications can be improved by placing servers closer to the clients. In this thesis, we analyse and quantify the impact of application component placement on the QoE. To determine optimal application component placement we propose a metric Communication Affinity. Communication Affinity indicates the coupling between two application components (stretch). Moreover, the presented concepts lead to a novel approach to schedule the  virtual machines on distributed clouds.'
