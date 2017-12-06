@@ -74,8 +74,14 @@ layout: default
       {% for pubtext in section %}
         {% if pubtext.title != null and pubtext.prid == project.id %}
           <li><a id="{{ pubtext.id }}"></a><a href="/publications/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
+            {% if pubtext.conference != null %}
+                {{ pubtext.conference }},
+            {% endif %}
+            {% if pubtext.degree != null %}
+                {{ pubtext.degree }},
+            {% endif %}
             {% if pubtext.year != null %}
-              , {{ pubtext.year }}
+               {{ pubtext.year }}
             {% endif %}
           </li>
         {% endif %}
@@ -99,8 +105,14 @@ layout: default
       {% for pubtext in section %}
         {% if pubtext.title != null and pubtext.prid == project.id %}
           <li><a id="{{ pubtext.id }}"></a><a href="/talks/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
+            {% if pubtext.conference != null %}
+                {{ pubtext.conference }},
+            {% endif %}
+            {% if pubtext.degree != null %}
+                {{ pubtext.degree }},
+            {% endif %}
             {% if pubtext.year != null %}
-              , {{ pubtext.year }}
+               {{ pubtext.year }}
             {% endif %}
           </li>
         {% endif %}
