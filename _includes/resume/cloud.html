@@ -1,19 +1,14 @@
 {% for section_hash in blurb %}
   {% for section in section_hash %}
-      <dl class="dl-horizontal">
+      <dl>
        <dt>
-        <h4>{{ section[0] }}</h4>
+        <h5>{{ section[0] }}</h5>
        </dt>
        <dd>
-       <br>
        {% for item in section[1] %}
           <li>{{ item }}</li>
-	<!--
-          {% unless forloop.last %}, {% endunless %}
-	-->
        {% endfor %}
        </dd>
       </dl>
   {% endfor %}
-
 {% endfor %}
