@@ -6,9 +6,14 @@ include_header: research_header.html
 nav_item: research
 ---
   {% for research in site.data.research %}
+  {% if research.sta != "old" %}
   <div class="mxn2 clearfix mb2 border-bottom border-light-gray circle-line py3">
     <h4 id="{{ research.id }}"><a href="/research/{{ research.id }}/">{{ research.topic }}</a></h4>
-    {% if project.sta != "old" %}
+  {% else %}
+  <div class="mxn2 clearfix">
+    <h4 id="{{ research.id }}"><a href="/research/{{ research.id }}/">{{ research.topic }}</a></h4>
+  {% endif %}
+    {% if research.sta != "old" %}
     <ul class="list-unstyled"> 
       <p>
         {{ research.description | truncatewords: 30 }}
@@ -24,3 +29,8 @@ nav_item: research
   </div>
   {% endfor %}
 
+<a href="#top" class="sm-col-right col dark-gray h6">
+   <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
+   Top
+</a>
+ 
