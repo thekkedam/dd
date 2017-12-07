@@ -40,6 +40,11 @@ function yaml2json()
 if [ $ptype == "pub" ]
 then
 	echo "Publications ..."
+	TDIR=$PUB_DIR
+	if [ -d $TDIR ]
+	then
+        	rm -rf $TDIR/*.html
+	fi
 	FileN=$PUB_data
 	run="first"
 	index=0
@@ -52,7 +57,7 @@ then
 		then
 					
 			echo "$fieldid ::::::: $filename"
-			cat > $PUB_DIR/$fieldid.html << EOL
+			cat > $TDIR/$fieldid.html << EOL
 ---
 layout: publications
 title: "$title - (Deepthi Devaki Akkoorath)"
@@ -72,6 +77,11 @@ elif [ $ptype == "talk" ]
 then
         echo "Talks ..."
         FileN=$TALK_data
+        TDIR=$TALK_DIR
+        if [ -d $TDIR ]
+        then
+                rm -rf $TDIR/*.html
+        fi
         run="first"
         index=0
         while [ $run != "null" ]
@@ -83,7 +93,7 @@ then
                 then
 
                         echo "$fieldid ::::::: $filename"
-                        cat > $TALK_DIR/$fieldid.html << EOL
+                        cat > $TDIR/$fieldid.html << EOL
 ---
 layout: talks
 title: "$title - (Deepthi Devaki Akkoorath)"
@@ -104,6 +114,11 @@ elif [ $ptype == "pro" ]
 then
 	echo "Projects ..."
         FileN=$PRO_data
+        TDIR=$PRO_DIR
+        if [ -d $TDIR ]
+        then
+                rm -rf $TDIR/*.html
+        fi
         run="first"
         index=0
         while [ $run != "null" ]
@@ -116,7 +131,7 @@ then
                 then
 
                         echo "$fieldid ::::::: $filename"
-                        cat > $PRO_DIR/$fieldid.html << EOL
+                        cat > $TDIR/$fieldid.html << EOL
 ---
 layout: projects
 title: "$title - (Deepthi Devaki Akkoorath)"
@@ -137,6 +152,11 @@ elif [ $ptype == "res" ]
 then
         echo "Research ..."
         FileN=$RES_data
+        TDIR=$RES_DIR
+        if [ -d $TDIR ]
+        then
+                rm -rf $TDIR/*.html
+        fi
         run="first"
         index=0
         while [ $run != "null" ]
@@ -149,7 +169,7 @@ then
                 then
 
                         echo "$fieldid ::::::: $filename"
-                        cat > $RES_DIR/$fieldid.html << EOL
+                        cat > $TDIR/$fieldid.html << EOL
 ---
 layout: research
 title: "$title - (Deepthi Devaki Akkoorath)"
