@@ -25,13 +25,17 @@ jekyll-mentions:
 
 # Exclude personal
 exclude:
-  - _drafts
   - build
-  - update
-  - _toolScripts
-  - skip.html
   - deploy
-  - vendor
+  - docker-compose.yml
+  - Dockerfile
+  - dynabuild.txt
+  - Gemfile
+  - Gemfile.lock
+  - run-cmd.log
+  - tests
+  - update
+  - versions.json
 
 # include
 include:
@@ -44,4 +48,7 @@ plugins:
   - jekyll-mentions
   - jekyll-gist
   - jekyll-paginate
+  - jekyll-feed
+  - jemoji
+  - jekyll-avatar
   - rouge
