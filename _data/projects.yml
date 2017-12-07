@@ -74,7 +74,7 @@
 - name: "QoE"
   name_long: "Optimizing Placement of Internet Application Components on Distributed Clouds"
   id: "cloudedge"
-  rid: "edge"
+  rid: "edgecomp"
   org: "TNO, The Netherlands and University of Amsterdam"
   date: "Jan 2012-July 2012"
   description: |
