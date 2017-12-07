@@ -16,10 +16,15 @@ layout: default
       </p>
 
     <p>
+    {% assign onlyonce0 = 0 %}
     {% for project in site.data.projects %}
       {% if project.rid == research.id %}
-        {% if forloop.first %} Related Project : {% endif %}
-	{% unless forloop.first %} ,{% endunless %}
+	 {% if onlyonce0 == 0 %} Related Project : {% assign onlyonce0 = 1 %} {% endif %}
+      {% endif %}
+   {% endfor %}
+   {% for project in site.data.projects %}
+      {% if project.rid == research.id %}
+        {% unless forloop.first %} ,{% endunless %}
         <a href="/projects/{{ project.id }}/" class="link-color"><span>{{ project.name }}</span></a>
       {% endif %}
     {% endfor %}
@@ -58,7 +63,7 @@ layout: default
     </ul>
   {% endfor %}
   {% assign onlyonce = 0 %}
-  {% for section_hash in site.data.publications %}
+  {% for section_hash in site.data.talks %}
     {% for section in section_hash %}
       {% for pubtext in section %}
         {% if pubtext.title != null and pubtext.rid == research.id %}
