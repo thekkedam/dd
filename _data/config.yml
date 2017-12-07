@@ -1,7 +1,7 @@
 # direct links 
 about: "/about-site"
 cms: "https://dd.thekkedam.org/cms.html"
-feed: "sitemap.xml"
+feed: "feed.xml"
 
 # Bio settings
 name: "Deepthi Akkoorath"
