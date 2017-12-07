@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-  <div>
+<div>
   {% for section_hash in site.data.publications %}
   {% for section in section_hash %}
     {% assign pubtype =  section_hash[0] %}
@@ -43,7 +43,7 @@ layout: default
             {% endif %}
             </p>
 	    {% if pubtext.abstract != null %}
-		<p><i class="fa fa-fw fa-lg fa-bars"></i>
+	        <p><i class="fa fa-fw fa-lg fa-bars"> </i>	
 		</i> {{ pubtext.abstract }}</p>
             {% endif %}
             {% if pubtext.keyword != null %}
@@ -72,4 +72,4 @@ layout: default
     {% endfor %}
   {% endfor %}
   {% endfor %}
-  </div>
+</div>
