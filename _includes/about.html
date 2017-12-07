@@ -1,30 +1,28 @@
 <div class="clearfix mxn2">
-  <div class="col sm-col-9 px2">
     {% for section in site.data.about %}
-      <h3 class="mb2">{{ section[0] }}</h3>
+      <div class="clearfix mxn2 mb2 border-bottom border-light-gray circle-line py3">
+      {% if section[0] == "About" %}
+	<div class="col sm-col-4 px2 mb2">
+      	  {% include image.html path=site.data.config.thumbnail_path alt=site.data.config.full_name class="max-width-120" %}
+        </div>
+      {% else %}
+        <h3 class="mb2">{{ section[0] }}</h3>
+      {% endif %}
       {% for bullet in section[1] %}
-      	<p>
+         <p>
          {{ bullet }}
-      	</p>
+         </p>
       {% endfor %}
     {% endfor %} 
-
-<!-- 
+    </div>
+<!--
     <h3 class="mb2">Recent posts</h3>
     {% for post in site.posts limit:5 %}
       <a href="{{ post.url }}">{{ post.title }}</a>  <small>{{ post.date | date:"%b %d, %Y" }}</small><br>
     {% endfor %}
 -->
-  </div>
-  <div class="col sm-col-3 px2">
-    <a href="{{ site.base_url }}">
-      {% include image.html path=site.data.config.thumbnail_path alt=site.data.config.full_name class="mb2 p4 max-width-120" %}
-    </a>
-  </div>
 <!--
-  <div class="col sm-col-3 px2">
-    <h3 class="mb2 p4">Contact</h3>
-    {% include contact.html %}
-  </div> 
+ :+1:!
+{% avatar bieniusa %}
 -->
 </div>
