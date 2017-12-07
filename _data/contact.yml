@@ -48,7 +48,7 @@
     label: "Google+"
     icon: "google-plus-square"
   feed:
-    url: "/sitemap.xml"
+    url: "/feed.xml"
     label: "Feed"
     icon: "rss-square"
 
