@@ -11,3 +11,7 @@
   id: stm
   sta: current
   description: Developing programming models and techniques for scalable multicore programming. Currently I am studying the applicability of weak consistency in the context of shared memory concurrent programs and Software Transactional Memory (STM). The work aims to provide a programming model based on STM that provides weaker but well defined consistency semantics that enables programmers to write efficient concurrent programs with less effort.  
+- topic: Edge computing
+  id: edgecomp
+  sta: old
+  description: TBA
