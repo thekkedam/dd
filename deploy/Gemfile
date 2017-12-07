@@ -13,5 +13,8 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap', versions['jekyll-sitemap']
   gem 'jekyll-gist', versions['jekyll-gist']
   gem 'jekyll-paginate', versions['jekyll-paginate']
+  gem 'jekyll-feed' , versions['jekyll-feed']
+  gem 'jekyll-avatar' , versions['jekyll-avatar']
+  gem 'jemoji' , versions['jemoji']
   gem 'html-proofer'
 end
