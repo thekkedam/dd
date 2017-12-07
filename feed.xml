@@ -4,9 +4,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>{{ site.data.config.full_name | xml_escape }}</title>
-    <description>{% if site.data.config.description %}{{ site.data.config.description | xml_escape }}{% endif %}</description>    
+    
+<description>{% if site.data.config.description %}{{ site.data.config.description | xml_escape }}{% endif %}</description>    
     <link>{{ site.url }}</link>
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
+    <!-- Posts -->
     {% for post in site.posts limit:100 %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
@@ -22,6 +24,19 @@
         <link>{% include canonical-url.html url=post.url %}</link>
         <guid isPermaLink="true">{% include canonical-url.html url=post.url %}</guid>
       </item>
+    {% endfor %}
+    <!-- Pages -->
+    {% for page in site.pages %}
+      {% if page.layout != null and page.layout != 'feed' and page.permalink != '/404.html' %}
+	<item>
+	  <title>{{ page.title | xml_escape }}</title>
+          {% if post.author %}
+            <dc:creator>{{ page.author | xml_escape }}</dc:creator>
+          {% endif %}
+          <link>{% include canonical-url.html url=page.url %}</link>
+          <guid isPermaLink="true">{% include canonical-url.html url=page.url %}</guid>
+        </item>
+      {% endif %}
     {% endfor %}
   </channel>
 </rss>
