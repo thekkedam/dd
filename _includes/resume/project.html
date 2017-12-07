@@ -1,8 +1,11 @@
 <div>
-   These are some of the projects which I was involved.
+   Recent projects :
    <ul>
    {% for project in blurb %}
+      {% if project.sta != "old" %}
       <li><a href="/projects/#{{ project.id }}" class="link-color">{{ project.name }}</a></li>
+      {% endif %}
    {% endfor %}
-   <ul>
+   </ul>
+   <a href="/projects/" class="link-color">For project list >></a>
 </div>
