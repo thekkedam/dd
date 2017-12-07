@@ -10,6 +10,11 @@ nav_item: profile
     <span class="h6">PDF CV</span>
   </a>
   {% for section in site.data.sections %}
+        {% if section.id == "publications"  or section.id == "talks" %}
+    <div class="border-bottom border-light-gray circle-line pb3">
+            <h4 id="{{ section.id }}">{{ section.name }}</h4>
+	    <a href="/publications/#{{ section.id }}" class="link-color">For {{ section.name }} list >></a>
+        {% else %}
     <div class="border-bottom border-light-gray mt4 mb4 pb3 circle-line">
             <h4 id="{{ section.id }}">
                 {{ section.name }}
@@ -22,6 +27,7 @@ nav_item: profile
               {% endif %}
             {% endfor %}
         <a href="#top" class="sm-col-right col dark-gray h6"><i class="fa fa-fw fa-lg fa-angle-double-up"></i>Top</a>
+        {% endif %}
     </div>
   {% endfor %}
 
