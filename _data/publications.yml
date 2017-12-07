@@ -126,7 +126,7 @@ Whitepaper:
 Thesis:
   - title: Improving Quality of Experience of Internet Applications by Dynamic Placement of Application Components 
     id: master
-    rid: edge
+    rid: edgecomp
     prid: cloudedge
     author: "Deepthi Devaki Akkoorath , Supervisors : Rudolf Strijkers, Oskar van Deventer"
     organization: University of Amsterdam, The Netherlands
