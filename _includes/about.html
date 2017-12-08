@@ -1,6 +1,6 @@
-<div class="clearfix mxn2">
+<div class="clearfix">
     {% for section in site.data.about %}
-      <div class="clearfix mxn2 mb2 border-bottom border-light-gray circle-line py3">
+      <div class="clearfix mb2 border-bottom border-light-gray circle-line py3">
       {% if section[0] == "About" %}
 	<div class="col sm-col-4 px2 mb2">
       	  {% include image.html path=site.data.config.thumbnail_path alt=site.data.config.full_name class="max-width-120" %}
