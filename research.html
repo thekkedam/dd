@@ -9,28 +9,32 @@ nav_item: research
   {% if research.sta != "old" %}
   <div class="mxn2 clearfix mb2 border-bottom border-light-gray circle-line py3">
     <h4 id="{{ research.id }}"><a href="/research/{{ research.id }}/">{{ research.topic }}</a></h4>
-  {% else %}
-  <div class="mxn2 clearfix">
-    <h4 id="{{ research.id }}"><a href="/research/{{ research.id }}/">{{ research.topic }}</a></h4>
-  {% endif %}
-    {% if research.sta != "old" %}
-    <ul class="list-unstyled"> 
+    <ul class="list-unstyled">
       <p>
-        {{ research.description | truncatewords: 30 }}
+        {{ research.description | truncatewords: 30, " ... " }}
        <a href="/research/{{ research.id }}/" class="link-color"><span> More >></span></a>
       </p>
-    <p>
     </ul>
     <a href="#top" class="sm-col-right col dark-gray h6">
        <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
        Top
     </a>
-    {% endif %}
   </div>
+  {% else %}
+  <div class="mxn2 clearfix">
+    <a id="{{ research.id }}"><a href="/research/{{ research.id }}/"><h5>{{ research.topic }}</h5></a> 
+      <ul class="list-unstyled">
+      <p>{{ research.description | truncatewords: 5, " ... " }} 
+      <a href="/research/{{ research.id }}/" class="link-color"><span> More >></span></a></p>
+      </ul>
+  </div>
+  {% endif %}
   {% endfor %}
 
+<div class="mxn2 clearfix mb2 border-bottom border-light-gray circle-line py3">
 <a href="#top" class="sm-col-right col dark-gray h6">
    <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
    Top
 </a>
+</div>
  
