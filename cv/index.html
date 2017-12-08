@@ -8,10 +8,12 @@ nav_item: profile
   <h5 class="page-description body-font gray mt1 regular">
     <a href="/" class="link-color" title="Go to Home">Home</a>/Profile
   </h5>
+  <div>
   <a href="{{ site.data.config.resume_path }}" target="_blank" class="sm-col-right col dark-gray width-120">
     <i class="fa fa-fw fa-lg fa-download"></i>
     <span class="h6">PDF CV</span>
   </a>
+  </div>
   {% for section in site.data.sections %}
         {% if section.id == "publications"  or section.id == "talks" %}
     <div class="border-bottom border-light-gray circle-line pb3">
