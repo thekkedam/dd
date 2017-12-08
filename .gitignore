@@ -1,9 +1,3 @@
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
-node_modules
-
 # Jekyll
 _site/
 .sass-cache/
@@ -13,18 +7,8 @@ _site/
 .AppleDouble
 .LSOverride
 
-
-# Vagrant
-.vagrant
-
 # Gemfile
 Gemfile.lock
-
-# Temp blogger xml files
-blogger
-
-# Drafts
-_drafts
 
 # vendor
 vendor
@@ -36,11 +20,6 @@ vendor
 # Added by script - add other file before this.
 run-cmd.log
 bash_func.lock
-assets/video/No_Upload_Observing_the_consistency_of_distributed_systems.mp4
-.gitmodules
-_scripts/bash_func
-_scripts/blog_import
-_scripts/blogger_convert.rb
 _toolScripts/LICENSE
 _toolScripts/README.md
 _toolScripts/bash_func
