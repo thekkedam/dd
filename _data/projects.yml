@@ -53,7 +53,7 @@
     Antidote Github: "https://github.com/SyncFree/antidote"
     SyncFree Github: "https://github.com/SyncFree"
   image: "SyncFree.png"
-  sta: current
+  sta: "Concluded and working on follow up project LightKone"
 - name: "x265"
   name_long: "High performance video encoder for HEVC standard"
   id: "x265"
@@ -70,7 +70,7 @@
     Multicoreware Bitbucket: "https://bitbucket.org/multicoreware/x265/commits/all?search=deepthidevaki"
     VideoLan x265 repo: "http://hg.videolan.org/x265/log?rev=deepthidevaki&revcount=320"
   image: "x265.png"
-  sta: last
+  sta: "No more contributing"
 - name: "QoE"
   name_long: "Optimizing Placement of Internet Application Components on Distributed Clouds"
   id: "cloudedge"
