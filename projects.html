@@ -21,10 +21,11 @@ nav_item: projects
     <div class="col sm-col-8 px2">
     {% endif %}
          <a id="{{ project.id }}"></a>
-         <h2 class="mt0 mb0"><a href="/projects/{{ project.id }}/">{{ project.name }}</a></h2>
       {% if project.sta != "old" %}
+         <h2 class="mt0 mb0"><a href="/projects/{{ project.id }}/">{{ project.name }}</a></h2>
       <h5>{{ project.name_long }}</h5>
       {% else %}
+          <h3 class="mt0 mb0"><a href="/projects/{{ project.id }}/">{{ project.name }}</a></h3>
           {{ project.name_long }}
       {% endif %}
 <!--
@@ -78,9 +79,11 @@ nav_item: projects
     {% endif %}
   </div>
 {% endfor %}
+<div class="mxn2 clearfix mb2 border-bottom border-light-gray circle-line py3">
 <a href="#top" class="sm-col-right col dark-gray h6">
    <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
    Top
 </a>
+</div>
 <br>
 <br>
