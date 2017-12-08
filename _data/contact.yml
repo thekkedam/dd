@@ -7,7 +7,7 @@
 
   TUgroup:
     url: "https://softech.cs.uni-kl.de/homepage/de/staff/DeepthiAkkoorath/"
-    label: "TUKL"
+    label: "TU Kaiserslautern"
     icon: "pencil-square"
   github:
     url: "https://github.com/deepthidevaki/"
@@ -27,8 +27,13 @@
     icon: "h-square"
   scholar:
     url: "https://scholar.google.de/citations?user=5AQ2s1oAAAAJ"
-    label: "GoogleScholar"
+    label: "Google Scholar"
     icon: "plus-square"
+  emailTU:
+    url: "mailto:akkoorath@cs.uni-kl.de"
+    label: "University Email"
+    value: "akkoorath@cs.uni-kl.de"
+    icon: "envelope-square"
   email:
     url: "mailto:deepthidevaki@gmail.com"
     label: "Email"
