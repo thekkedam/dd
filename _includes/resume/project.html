@@ -3,7 +3,7 @@
    <ul>
    {% for project in blurb %}
       {% if project.sta != "old" %}
-      <li><a href="/projects/#{{ project.id }}" class="link-color">{{ project.name }}</a></li>
+      <li><a href="/projects/{{ project.id }}/" class="link-color">{{ project.name }}</a></li>
       {% endif %}
    {% endfor %}
    </ul>
