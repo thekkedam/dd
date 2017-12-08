@@ -8,8 +8,8 @@ layout: default
     {% for pubtext in section %}
 	{% if pubtext.title != null and pubtext.id == page.dynaid %}
             <h5 class="page-description body-font gray mt1 regular">
-              <a href="/cv" class="link-color" title="Go to Profile">Profile</a>/
-              <a href="/publications" class="link-color" title="Go to Publications">Publications</a>/
+              <a href="/" class="link-color" title="Go to Home">Home</a>/
+              <a href="/publications/#publications" class="link-color" title="Go to Publications">Publications</a>/
 	      <a href="/publications/#pub-{{ pubtype }}" class="link-color" title="Go to {{ pubtype }}">{{ pubtype }}</a>
             </h5>
 
