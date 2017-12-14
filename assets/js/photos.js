@@ -16,7 +16,7 @@
   };
 
   var picasaUrlIdRegex = new RegExp("http://picasaweb.google.com/data/entry/base/user/(\\d.+?)/albumid/(\\d.+?)\\?alt=json-in-script&hl=en_US");
-  var googlePlusAlbumUrlBase = "https://plus.google.com/photos/+VipinM/albums/";
+  var googlePlusAlbumUrlBase = "https://plus.google.com/photos/+DeepthiDevakiAkkoorath/albums/";
 
   var convertPicassaToGooglePlusUrl = function(album, title) {
     var id = album.id.$t;
