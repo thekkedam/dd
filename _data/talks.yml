@@ -26,6 +26,7 @@ Concurrent Programming:
     keyword: Scalable Consistency, Concurrent Data Types, Parallel Computing
     abstract: 'With the rapid growth of number of cores, together with the heterogeneous access latencies, the cost of synchronization and communication between distant components keeps growing. As more general purpose programs exploit the many-core architectures, the speedup achieved will then be limited by the synchronization needed to access shared objects. When building Internet-scale systems, similar concerns lead to the design of scalable systems that limit global synchronization and operate locally when possible. CRDTs succeed in capturing data types with clear concurrency semantics and are now common components in Internet-scale systems. However, they do not migrate trivially to shared-memory architectures due to high computational costs from merge functions, which becomes apparent once network communication is removed. In this talk, we discuss multi-view data types for shared-memory architectures, that leverages a global-local view model that distinguishes between a local fast state and a distant shared state. By executing operations on the local state without synchronization, while only synchronizing with the shared state when needed, applications can achieve better scalability at the expense of linearizability - the default correctness criteria for concurrent objects.'
 
+Scalable Distributed Systems:
   - title: Observing the Consistency of Distributed Systems
     id: consistency2
     year: Sun 18 - Sat 24 September 2016
@@ -40,7 +41,6 @@ Concurrent Programming:
     media: https://www.youtube.com/watch?v=TVrY-VOJg4w
     keyword: Data store, weak consistency, divergence metrics
 
-Scalable Distributed Systems:
   - title: Causal consistency in geo-replicated systems
     id: consistency1
     rid: crdt
