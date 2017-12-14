@@ -1,14 +1,13 @@
 ---
 layout: default
 ---
+  {% for research in site.data.research %}
+  {% if research.id == page.dynaid %}
   <h5 class="page-description body-font gray mt1 regular">
     <a href="/" class="link-color" title="Go to Home">Home</a>/
     <a href="/research" class="link-color" title="Go to Research">Research</a>/
-    {{ page.dynasta | capitalize }}
+    {{ research.topic }} ({{ page.dynasta | capitalize }})
   </h5>
-  <div>
-  {% for research in site.data.research %}
-  {% if research.id == page.dynaid %}
   <div class="clearfix">
     <h4 id="{{ research.id }}">{{ research.topic }}</h4>
     <ul class="list-unstyled"> 
@@ -25,8 +24,8 @@ layout: default
    {% endfor %}
    {% for project in site.data.projects %}
       {% if project.rid == research.id %}
-        {% unless forloop.first %} ,{% endunless %}
         <a href="/projects/{{ project.id }}/" class="link-color"><span>{{ project.name }}</span></a>
+        &nbsp;
       {% endif %}
     {% endfor %}
     </p>
