@@ -1,6 +1,6 @@
 # Deepthi Devaki Akkoorath
 
-This site is based on [Yevgeniy Brikman Home Page](http://www.ybrikman.com).
+Personal site of Deepthi Devaki Akkoorath.
 
 ## This site is 
 
@@ -13,21 +13,21 @@ and [Post via web](https://github.com/vrypan/jekyll-post-via-web).
 1. IPv6, https support and made faster by [CloudFlare](https://www.cloudflare.com/).
 1. Images are served by [RawGit](http://rawgit.com/).
 
-# Quick start
+## Run dd.thekkedam.org
 
-1. Use Git to clone this repo  git clone https://github.com/thekkedam/dd.git
-1. run git submodule update --init --recursive
+1. Use Git to clone this repo  `git clone https://github.com/thekkedam/dd.git`
+1. run `git submodule update --init --recursive` to get submodules
 1. Make sure you have [Jekyll](http://jekyllrb.com/docs/installation/) installed
-1. Update all data under _data _config.yml
-1. run ./build -u to update all required packages
-1. run ./build -r to run the site
+1. Update all data under `_data` and `_config.yml`
+1. run `./build -u` to update all required packages
+1. run `./build -r` to run the site
 1. To test: `http://localhost:4000`
-1. run ./update to update git
+1. run `./update` to update git
 
 See the [Jekyll](http://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/)
 documentation for more info.
 
-# Technologies
+## Technologies
 
 1. Built with [Jekyll](http://jekyllrb.com/). This website is completely static
    and I use basic HTML or Markdown for everything.
