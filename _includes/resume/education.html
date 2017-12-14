@@ -26,8 +26,8 @@
         {% if section.bullets %}
 	    <ul class="fa-ul">
             {% for bullet in section.bullets %}
-		<li>
-	    	    <i class="fa fa-li fa-angle-double-right"></i>
+               <li>
+                   <i class="fa fa-li fa-angle-double-right"></i>
 		    {{ bullet | markdownify }}
 		</li>
             {% endfor %}
