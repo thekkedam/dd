@@ -26,6 +26,19 @@ Concurrent Programming:
     keyword: Scalable Consistency, Concurrent Data Types, Parallel Computing
     abstract: 'With the rapid growth of number of cores, together with the heterogeneous access latencies, the cost of synchronization and communication between distant components keeps growing. As more general purpose programs exploit the many-core architectures, the speedup achieved will then be limited by the synchronization needed to access shared objects. When building Internet-scale systems, similar concerns lead to the design of scalable systems that limit global synchronization and operate locally when possible. CRDTs succeed in capturing data types with clear concurrency semantics and are now common components in Internet-scale systems. However, they do not migrate trivially to shared-memory architectures due to high computational costs from merge functions, which becomes apparent once network communication is removed. In this talk, we discuss multi-view data types for shared-memory architectures, that leverages a global-local view model that distinguishes between a local fast state and a distant shared state. By executing operations on the local state without synchronization, while only synchronizing with the shared state when needed, applications can achieve better scalability at the expense of linearizability - the default correctness criteria for concurrent objects.'
 
+  - title: "Transactions on Mergeable Objects"
+    id: MTM
+    rid: stm
+    prid: mview
+    conference: CS department's Talk Series, Winter Term 2015/16
+    organization: TU Kaiserslautern
+    place: Kaiserslautern, Germany
+    year: Tue 10 November 2015
+    url: https://phd.cs.uni-kl.de/events/talks/
+    presentation: /files/to-add.pdf
+    keyword: Scalable Consistency, Concurrent Data Types, Parallel Computing
+    abstract: Destructible updates on shared objects require careful handling of concurrent accesses in multi-threaded programs. Paradigms such as Transactional Memory support the programmer in correctly synchronizing access to mutable shared data by serializing the transactional reads and writes. But under high contention, serializable transactions incur frequent aborts and limit parallelism. This can lead to a severe performance degradation. We propose mergeable transactions which provide a consistency semantics that allows for more scalability even under contention. Instead of aborting and re-executing, object versions from conflicting updates on shared objects are merged using data-type specific semantics. The evaluation of our prototype implementation in Haskell shows that mergeable transactions outperform serializable transactions even under low contention while providing a structured and type-safe interface.
+
 Scalable Distributed Systems:
   - title: Observing the Consistency of Distributed Systems
     id: consistency2
