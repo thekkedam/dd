@@ -1,0 +1,29 @@
+# ShortName:
+#   url: <link>
+#   label: <Lable to show in text>
+#   value: 
+#   icon: <use -square>
+
+
+  researchGate:
+    url: "https://www.researchgate.net/profile/Deepthi_Akkoorath"
+    label: "Research Gate"
+    icon: "plus-square"
+  scholar:
+    url: "https://scholar.google.de/citations?user=5AQ2s1oAAAAJ"
+    label: "Google Scholar"
+    icon: "plus-square"
+  semanticscholar:
+    url: "https://www.semanticscholar.org/author/Deepthi-Devaki-Akkoorath/2194882"
+    label: "SemanticScholar"
+    icon: "plus-square"
+  dblp:
+    url: "http://dblp2.uni-trier.de/pers/hd/a/Akkoorath:Deepthi_Devaki"
+    label: "dblp"
+    icon: "plus-square"
+  MicrosoftAcademic:
+    url: "https://academic.microsoft.com/#/detail/2397621350"
+    label: "Microsoft Academic"
+    icon: "plus-square"
+
+
