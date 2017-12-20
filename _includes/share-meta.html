@@ -9,12 +9,16 @@
 <meta name="twitter:description" content="{{ description }}" />
 <meta name="twitter:image" content="{{ image_url }}" />
 
+{% seo %}
+
+<!--
 <meta property="og:title" content="{{ page.title }}"/>
 <meta property="og:url" content="{% include canonical-url.html %}"/>
 <meta property="og:site_name" content="{{ site.data.config.full_name }}"/>
 <meta property="article:author" content="{{ site.data.contact.facebook.url }}"/>
 <meta property="og:description" content="{{ description }}"/>
 <meta property="og:image" content="{{ image_url }}"/>
+-->
 
 <!--
 <PageMap>
@@ -29,5 +33,3 @@
   </DataObject>
 </PageMap>
 -->
-
-{% seo %}
