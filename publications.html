@@ -9,6 +9,7 @@ nav_item: publications
     <a href="/" class="link-color" title="Go to Home">Home</a>/Publications & Talks
   </h5>
   <div class="mb4 pb3">
+  {% include publications_list.html %}
   {% for section in site.data.sections %}
 	{% if section.id == "publications"  or section.id == "talks" %}
             <h4 id="{{ section.id }}">
@@ -23,6 +24,11 @@ nav_item: publications
             {% endfor %}
 	{% endif %}
   {% endfor %}
-  <a href="#top" class="sm-col-right col dark-gray h6"><i class="fa fa-fw fa-lg fa-angle-double-up"></i>Top</a>
+  <div class="clearfix mb2 border-bottom border-light-gray circle-line py3">
+    <a href="#top" class="sm-col-right col dark-gray h6">
+      <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
+      Top
+    </a>
+  </div>
   </div>
 
