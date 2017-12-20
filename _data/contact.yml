@@ -21,14 +21,10 @@
     url: "https://www.linkedin.com/in/deepthidevaki"
     label: "LinkedIn"
     icon: "linkedin-square"
-  researchGate:
-    url: "https://www.researchgate.net/profile/Deepthi_Akkoorath"
-    label: "ResearchGate"
-    icon: "h-square"
-  scholar:
-    url: "https://scholar.google.de/citations?user=5AQ2s1oAAAAJ"
-    label: "Google Scholar"
-    icon: "plus-square"
+  xing:
+    url: "https://www.xing.com/profile/DeepthiDevaki_Akkoorath"
+    label: "Xing"
+    icon: "xing-square"
   emailTU:
     url: "mailto:akkoorath@cs.uni-kl.de"
     label: "University Email"
