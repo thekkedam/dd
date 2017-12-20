@@ -16,5 +16,6 @@ group :jekyll_plugins do
   gem 'jekyll-feed' , versions['jekyll-feed']
   gem 'jekyll-avatar' , versions['jekyll-avatar']
   gem 'jemoji' , versions['jemoji']
+  gem 'jekyll-seo-tag' , versions['jekyll-seo-tag']
   gem 'html-proofer'
 end
