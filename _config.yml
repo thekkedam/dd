@@ -51,4 +51,5 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-avatar
+  - jekyll-seo-tag
   - rouge
