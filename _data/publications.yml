@@ -1,9 +1,19 @@
 Conference:
   - title: "FMKe: a Real-World Benchmark for Key-Value Data Stores"
     id: fmke17
-    rid: crdt
-    prid: syncfree
-    author: "Gonçalo Tomás, Peter Zeller, Valter Balegas, Deepthi Akkoorath, Annette Bieniusa, João Leitão, Nuno Preguiça"
+    rid:
+      - crdt
+    prid:
+      - lightkone 
+      - syncfree
+    author: 
+      - Gonçalo Tomás
+      - Peter Zeller
+      - Valter Balegas
+      - Deepthi Akkoorath
+      - Annette Bieniusa
+      - João Leitão
+      - Nuno Preguiça
     conference: PaPoc 2017, Workshop on Principles and Practice of Consistency for Distributed Data
     year: April 2017
     organization: ACM SIGOPS
@@ -15,12 +25,17 @@ Conference:
 
   - title: Observing the Consistency of Distributed Systems
     id: ew16
-    rid: crdt
-    prid: syncfree
+    rid: 
+      - crdt
+    prid: 
+      - syncfree
     conference: Erlang 2016, Proceedings of the 15th International Workshop on Erlang
     year: September 2016
     place: Nara, Japan
-    author: Deepthi Akkoorath, Viktoria Fordos, Annette Bieniusa
+    author: 
+      - Deepthi Akkoorath
+      - Viktoria Fordos
+      - Annette Bieniusa
     organization: ACM SIGPLAN
     url: "https://doi.org/10.1145/2975969.2975975"
     pdf: /files/Observing_the_Consistency_of_Distributed_Systems_Akkoorath.Bieniusa.ew2016.pdf
@@ -29,13 +44,23 @@ Conference:
 
   - title: "Cure: Strong semantics meets high availability and low latency"
     id: cure2016
-    rid: crdt
-    prid: syncfree
+    rid: 
+      - crdt
+    prid: 
+      - syncfree
     year: August 2016
     place: Nara, Japan
     conference: 36th IEEE International Conference on Distributed Computing Systems, ICDCS
     organization: IEEE Computer Society
-    author: "Deepthi Devaki Akkoorath, Alejandro Tomsic, Manuel Bravo, Zhongmiao Li, Tyler Crain, Annette Bieniusa, Nuno Pregui¸ca, Marc Shapiro"
+    author: 
+      - Deepthi Devaki Akkoorath
+      - Alejandro Tomsic
+      - Manuel Bravo
+      - Zhongmiao Li
+      - Tyler Crain
+      - Annette Bieniusa
+      - Nuno Preguica
+      - Marc Shapiro
     language: English
     url: "http://dx.doi.org/10.1109/ICDCS.2016.98"
     pdf: "http://lip6.fr/Marc.Shapiro/papers/Cure-final-ICDCS16.pdf"
@@ -44,15 +69,19 @@ Conference:
 
   - title: Highly-scalable Concurrent Objects
     id: hsco16
-    rid: stm
-    prid: mview
+    rid: 
+       - stm
+    prid: 
+       - mview
     year: April 2016
     place: London, United Kingdom
     conference: PaPoC 2016, Proceedings of the 2nd Workshop on the Principles and Practice of Consistency for Distributed Data
     organization: ACM
     isbn: 978-1-4503-4296-4/16/04
     url: "http://dx.doi.org/10.1145/2911151.2911158"
-    author: Deepthi Akkoorath, Annette Bieniusa
+    author: 
+      - Deepthi Akkoorath
+      - Annette Bieniusa
     pdf: /files/Highly-scalable_Concurrent_Objects.pdf
     language: English
     abstract: 'Synchronisation is a bottleneck in shared memory concurrent programs. In this paper, we present Mergeable Data Types (MDTs) for relaxing synchronisation in shared memory system analogously to CRDTs in replicated systems. We present the key properties of MDTs and discuss the design of several MDTs.'
@@ -60,8 +89,10 @@ Conference:
 
   - title: Transactions on Mergeable Objects
     id: mtm2015
-    rid: stm
-    prid: mview
+    rid: 
+      - stm
+    prid: 
+      - mview
     year: December 2015
     place: Pohang, South Korea
     isbn: 978-3-319-26528-5
@@ -74,48 +105,105 @@ Conference:
     url: "http://dx.doi.org/10.1007/978-3-319-26529-2_23"
     publisher: Springer International Publishing
     keyword: Concurrent programming; Transactional memory; Mergeable objects; Relaxed consistency
-    author: Deepthi Akkoorath, Annette Bieniusa
+    author: 
+      - Deepthi Akkoorath
+      - Annette Bieniusa
     pages: 427-444
     language: English
     pdf: /files/Transactions_on_Mergeable_Objects-Akkoorath-Bieniusa.pdf
     keyword: Concurrent programming, Transactional memory, Mergeable objects, Relaxed consistency 
     abstract: 'Destructible updates on shared objects require careful handling of concurrent accesses in multi-threaded programs. Paradigms such as Transactional Memory support the programmer in correctly synchronizing access to mutable shared data by serializing the transactional reads and writes. But under high contention, serializable transactions incur frequent aborts and limit parallelism. This can lead to a severe performance degradation. In this paper, we propose mergeable transactions which provide a consistency semantics that allows for more scalability even under contention. Instead of aborting and re-executing, object versions from conflicting updates on shared objects are merged using data-type specific semantics. The evaluation of our prototype implementation in Haskell shows that mergeable transactions outperform serializable transactions even under low contention while providing a structured and type-safe interface.'
 
+Thesis:
+  - title: Improving Quality of Experience of Internet Applications by Dynamic Placement of Application Components
+    id: master
+    rid:
+      - edgecomp
+    prid:
+      - cloudedge
+    author:
+      - Deepthi Devaki Akkoorath
+    supervisors: "Rudolf Strijkers, Oskar van Deventer"
+    organization: University of Amsterdam, The Netherlands
+    degree: Master thesis
+    year: July 2012
+    url: "http://www.scriptiesonline.uba.uva.nl/en/scriptie/425875"
+    pdf: /files/Improving_Quality_of_Experience_of_Internet_Applications_Deepthi_Devaki_Akkoorath.pdf
+    keyword: Edge, Quality of Experience, distributed system
+    abstract: 'The Quality of Experience(QoE) of distributed internet applications can be improved by placing servers closer to the clients. In this thesis, we analyse and quantify the impact of application component placement on the QoE. To determine optimal application component placement we propose a metric Communication Affinity. Communication Affinity indicates the coupling between two application components (stretch). Moreover, the presented concepts lead to a novel approach to schedule the  virtual machines on distributed clouds.'
 
 Report:
   - title: "Global-Local View: Scalable Consistency for Concurrent Data Types"
     id: gl2017
-    rid: stm
-    prid: mview
+    rid: 
+      - stm
+    prid: 
+      - mview
     conference: arxiv.org
     year: May 2017
     url: "https://arxiv.org/abs/1705.03704"
     pdf: /files/Global-Local_View_Scalable_Consistency_for_Concurrent_Data_Types_Akkoorath.pdf
-    author: Deepthi Devaki Akkoorath, José Brandão, Annette Bieniusa, Carlos Baquero.
+    author: 
+      - Deepthi Devaki Akkoorath
+      - José Brandão
+      - Annette Bieniusa
+      - Carlos Baquero.
     language: English
     keyword: Scalable Consistency, Concurrent Data Types, Parallel Computing
     abstract: 'Concurrent linearizable access to shared objects can be prohibitively expensive in a high contention workload. Many applications apply ad-hoc techniques to eliminate the need of synchronous atomic updates, which may result in non-linearizable implementations. We propose a new programming model which leverages such patterns for concurrent access to objects in a shared memory system. In this model, each thread maintains different views on the shared object - a thread-local view and a global view. As the thread-local view is not shared, it can be updated without incurring synchronization costs. These local updates become visible to other threads only after the thread-local view is merged with the global view. This enables better performance at the expense of linearizability. We show that it is possible to maintain thread-local views and to perform merge efficiently for several data types and evaluate their performance and scalability compared to linearizable implementations. Further, we discuss the consistency semantics of the data types and the associated programming model.'
 
   - title: "Cure: Strong semantics meets high availability and low latency"
     id: cure2015
-    rid: crdt
-    prid: syncfree
+    rid: 
+      - crdt
+    prid: 
+      - syncfree
     year: February 2016
     url: "https://hal.inria.fr/hal-01270776/"
     conference: Research Report, RR-8858
     organization: INRIA, Paris 6
     keyword: geo replication,  fault tolerance, distributed database, transactions,  causal consistency, CRDT
-    author: Deepthi Devaki Akkoorath, Alejandro Tomsic, Manuel Bravo, Zhongmiao Li, Tyler Crain, Annette Bieniusa, Nuno Pregui¸ca, Marc Shapiro
+    author:
+      - Deepthi Devaki Akkoorath
+      - Alejandro Tomsic
+      - Manuel Bravo
+      - Zhongmiao Li
+      - Tyler Crain
+      - Annette Bieniusa
+      - Nuno Preguica
+      - Marc Shapiro
     language: English
     pdf: "https://hal.inria.fr/hal-01270776/file/RR-8858.pdf"
     abstract: 'Developers of cloud-scale applications face a difficult decision of which kind of storage to use, summarised by the CAP theorem. Currently the choice is between classical CP databases, which provide strong guarantees but are slow, expensive, and unavailable under partition; and NoSQL-style AP databases, which are fast and available, but too hard to program against. We present an alternative - Cure provides the highest level of guarantees that remains compatible with availability. These guarantees include - causal consistency (no ordering anomalies), atomicity (consistent multi-key updates), and high-level data types (developer friendly) with safe resolution of concurrent updates (guaranteeing convergence). These guarantees minimise the anomalies caused by parallelism and distribution, and facilitate the development of applications. This paper presents the protocols for highly available transactions , and an experimental evaluation showing that Cure is able to achieve performance similar to eventually-consistent NoSQL databases, while providing stronger guarantees.'
 
+
+  - title: "A Translator from CRL2 representation of PowerPC Assembly to ALF"
+    id: crl2-alf
+    rid:
+      - rtsystem
+    prid:
+      - powerpc
+    year: Jan 2008
+    url: "http://www.idt.mdh.se/examensarbete/index.php?choice=show&lang=en&id=0917"
+    conference: Report
+    organization: Malardalen University
+    keyword: PowerPC, ALF translator, WCET tool
+    author: 
+      - Deepthi Devaki Akkoorath
+    language: English
+    pdf: "/files/A_Translator_from_CRL2_representation_of_PowerPC_Assembly_to_ALF_Deepthi_Devaki_Akkoorath.pdf"
+    abstract: 'Making semantic interpretation of CRL2 PowerPC assembler code constructs in terms of ALF code and data structures used for Worst Case Execution Time analysis of programs and built a system to extract information from the CRL2 PowerPC code representation and convert it to ALF.'
+
 Whitepaper:
   - title: "Antidote: the highly-available geo-replicated database with strongest guarantees"
     id: antidotewp
-    rid: crdt
-    prid: syncfree
-    author: Deepthi Devaki Akkoorath, Annette Bieniusa
+    rid: 
+      - crdt
+    prid: 
+      - syncfree
+    author: 
+      - Deepthi Devaki Akkoorath
+      - Annette Bieniusa
     year: August 2016
     url: "https://syncfree.lip6.fr/index.php/white-papers"
     pdf: "https://syncfree.lip6.fr/attachments/article/59/antidote-white-paper.pdf"
@@ -123,16 +211,3 @@ Whitepaper:
     keyword: Antidote, SyncFree, CRDT, Geo-replication, Partial replication
     abstract: 'Cloud-scale applications need highly available, low latency responses to serve millions of users around the world. To meet this need, applications have to carefully choose a high performance distributed database. Traditional databases provide strong guarantees but are slow and unavailable under failures and network partition. Hence, they are not suitable for geo-replication. The alternatives are NoSQLstyle databases which are fast and available even under network partition. They provide a low-level key-value interface and expose data inconsistencies due to asynchronous communication among the servers. It takes significant effort and expertise from programmers to deal with these inconsistencies and develop correct applications on top of these databases. For example, consider that your application stores a counter which counts the number of ads displayed to a user. For scalability, the database replicates all data in different locations. What will be the value of the counter, when it is incremented at two locations at the same time? As an application programmer, you have to detect such concurrent updates and resolve conflicting modifications.'
 
-Thesis:
-  - title: Improving Quality of Experience of Internet Applications by Dynamic Placement of Application Components 
-    id: master
-    rid: edgecomp
-    prid: cloudedge
-    author: "Deepthi Devaki Akkoorath , Supervisors : Rudolf Strijkers, Oskar van Deventer"
-    organization: University of Amsterdam, The Netherlands
-    degree: Master
-    year: July 2012
-    url: "http://www.scriptiesonline.uba.uva.nl/en/scriptie/425875"
-    pdf: /files/Improving_Quality_of_Experience_of_Internet_Applications_Deepthi_Devaki_Akkoorath.pdf
-    keyword: Edge, Quality of Experience, distributed system
-    abstract: 'The Quality of Experience(QoE) of distributed internet applications can be improved by placing servers closer to the clients. In this thesis, we analyse and quantify the impact of application component placement on the QoE. To determine optimal application component placement we propose a metric Communication Affinity. Communication Affinity indicates the coupling between two application components (stretch). Moreover, the presented concepts lead to a novel approach to schedule the  virtual machines on distributed clouds.'
