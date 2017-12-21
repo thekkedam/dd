@@ -76,16 +76,14 @@
   id: "cloudedge"
   rid: "edgecomp"
   org: "TNO, The Netherlands and University of Amsterdam"
-  date: "Jan 2012-July 2012"
+  date: "Jan 2012 - July 2012"
   description: |
     An individual project carried out at TNO. The project contributed with a new model to optimize
     the placement of application components which improves the Quality of Experience of Internet
     Applications.
   url: 
-    TU Delft: "http://repository.tudelft.nl/view/tno/uuid%3A69a704b9-8cbe-4815-9d72-531dec628620/"
+    TNO repository by TU Delft: "http://resolver.tudelft.nl/uuid:69a704b9-8cbe-4815-9d72-531dec628620"
     UVA: "http://dare.uva.nl/en/scriptie/425875"
-  doc: 
-    Thesis Report: "/files/Improving_Quality_of_Experience_of_Internet_Applications_Deepthi_Devaki_Akkoorath.pdf"
   image: "NoImage.png"
   sta: old
 - name: "Grid access"
@@ -128,17 +126,36 @@
 - name: "ALF translator"
   name_long: "PowerPC assembler to ALF translator in cooperation with world-leading WCET tool providers"
   id: "powerpc"
-  rid: "interpreter"
+  rid: "rtsystem"
   org: "Mälardalen University"
   date: "Oct 2007 - Jan 2008"
   description: |
-    Making semantic interpretation of CRL2 PowerPC assembler code constructs in terms of
-    ALF code and data structures used for Worst Case Execution Time analysis of programs
-    and built a system to extract information from the CRL2 PowerPC code representation
-    and convert it to ALF.
+    Real Time systems are systems which must give accurate results within a precise time period. 
+    These systems have now become an indispensable aspect of
+    our day to day lives. As the importance of real time system increases, the need to
+    ensure safety increases.
+    Imagine an intelligent sentry android with decision making ability which
+    guards a frontier. It has to make quick analysis of images in order to decide
+    whether it has to shoot, warn or say howdy partner. In such cases, it is desirable
+    to make a correct calculation (to identify friends and foes) and also to make a
+    correct timely behaviour after analysing data from its sensors. This is done by the
+    inbuilt software of the android. There lies the risk of the sentry robot not matching
+    the image within a given time and failing in functionality. For safety reasons, in
+    such real time applications, where meeting deadlines is critical, it is sought-after to
+    obtain the worst case execution time of programs.
+    Worst Case Execution Time (WCET) analysis finds the upper bound on the
+    execution time of a program. By obtaining this, we can design a system which
+    works fine even in the most stressed state. SWEdish Execution time Tool
+    (SWEET) is a tool for WCET analysis developed by the Mälardalen WCET
+    research group. SWEET performs static analyses on an intermediate code format
+    named ALF (Artist2 Language for WCET flow Analysis) and finds an upper bound
+    of the worst case execution time. aiT is another WCET tool developed by AbsInt
+    company for static analysis in real time system. They maintain a format known as
+    CRL (Control flow Representation Language) to represent various types of object
+    code formats in terms of control flow graphs.
+    The main objective of this thesis work is to write a translator from
+    CRL2's representation of PowerPC assembler code to ALF. 
   url: 
     Mälardalen University: "http://www.idt.mdh.se/examensarbete/index.php?choice=show&lang=en&id=0917"
-  doc:
-    Project Report: "/files/A_Translator_from_CRL2_representation_of_PowerPC_Assembly_to_ALF_Deepthi_Devaki_Akkoorath.pdf"
   image: "NoImage.png"
   sta: old
