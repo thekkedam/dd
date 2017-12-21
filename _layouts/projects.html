@@ -42,7 +42,7 @@ layout: default
       </p>
       {% for project_url in project.url %}
           <a href="{{ project_url[1] }}" target="_blank" class="dark-gray">
-            <i class="fa fa-fw fa-lg fa-info-circle"></i>
+            <i class="fa fa-fw fa-lg fa-globe"></i>
             <span class="h6">{{ project_url[0] }}</span>
           </a><br>
       {% endfor %}
@@ -64,8 +64,12 @@ layout: default
   {% for section_hash in site.data.publications %}
     {% for section in section_hash %}
       {% for pubtext in section %}
-        {% if pubtext.title != null and pubtext.prid == project.id %}
+        {% if pubtext.title != null %}
+          {% for prid in pubtext.prid %}
+          {% if prid == project.id %}
           {% if onlyonce == 0 %} Related Publications : {% assign onlyonce = 1 %} {% endif %}
+          {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
     {% endfor %}
@@ -74,7 +78,9 @@ layout: default
     <ul class="list-unstyled">
     {% for section in section_hash %}
       {% for pubtext in section %}
-        {% if pubtext.title != null and pubtext.prid == project.id %}
+        {% if pubtext.title != null %} 
+          {% for prid in pubtext.prid %}
+          {% if prid == project.id %}
           <li><a id="{{ pubtext.id }}"></a><a href="/publications/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
             {% if pubtext.conference != null %}
                 {{ pubtext.conference }},
@@ -86,6 +92,8 @@ layout: default
                {{ pubtext.year }}
             {% endif %}
           </li>
+          {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
     {% endfor %}
@@ -95,8 +103,12 @@ layout: default
   {% for section_hash in site.data.talks %}
     {% for section in section_hash %}
       {% for pubtext in section %}
-        {% if pubtext.title != null and pubtext.prid == project.id %}
+        {% if pubtext.title != null %}
+          {% for prid in pubtext.prid %}
+          {% if prid == project.id %}
           {% if onlyonce1 == 0 %} Related Talks : {% assign onlyonce1 = 1 %} {% endif %}
+          {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
     {% endfor %}
@@ -105,7 +117,9 @@ layout: default
     <ul class="list-unstyled">
     {% for section in section_hash %}
       {% for pubtext in section %}
-        {% if pubtext.title != null and pubtext.prid == project.id %}
+        {% if pubtext.title != null %}
+          {% for prid in pubtext.prid %}
+          {% if prid == project.id %}
           <li><a id="{{ pubtext.id }}"></a><a href="/talks/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
             {% if pubtext.conference != null %}
                 {{ pubtext.conference }},
@@ -117,6 +131,8 @@ layout: default
                {{ pubtext.year }}
             {% endif %}
           </li>
+          {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
     {% endfor %}
