@@ -35,8 +35,12 @@ layout: default
   {% for section_hash in site.data.publications %}
     {% for section in section_hash %}
       {% for pubtext in section %}
-        {% if pubtext.title != null and pubtext.rid == research.id %}
+        {% if pubtext.title != null %}
+          {% for rid in pubtext.rid %} 
+          {% if rid == research.id %}
           {% if onlyonce == 0 %} Related Publications : {% assign onlyonce = 1 %} {% endif %}
+          {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
     {% endfor %}
@@ -45,7 +49,9 @@ layout: default
     <ul class="list-unstyled">
     {% for section in section_hash %}
       {% for pubtext in section %}
-        {% if pubtext.title != null and pubtext.rid == research.id %}
+        {% if pubtext.title != null %}
+          {% for rid in pubtext.rid %} 
+          {% if rid == research.id %}
           <li><a id="{{ pubtext.id }}"></a><a href="/publications/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
             {% if pubtext.conference != null %}
                 {{ pubtext.conference }},
@@ -57,6 +63,8 @@ layout: default
               {{ pubtext.year }}
             {% endif %}
           </li>
+          {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
     {% endfor %}
@@ -66,8 +74,12 @@ layout: default
   {% for section_hash in site.data.talks %}
     {% for section in section_hash %}
       {% for pubtext in section %}
-        {% if pubtext.title != null and pubtext.rid == research.id %}
+        {% if pubtext.title != null %}
+          {% for rid in pubtext.rid %} 
+          {% if rid == research.id %}
           {% if onlyonce == 0 %} Related Talks : {% assign onlyonce = 1 %} {% endif %}
+          {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
     {% endfor %}
@@ -76,7 +88,9 @@ layout: default
     <ul class="list-unstyled">
     {% for section in section_hash %}
       {% for pubtext in section %}
-        {% if pubtext.title != null and pubtext.rid == research.id %}
+        {% if pubtext.title != null %}
+          {% for rid in pubtext.rid %} 
+          {% if rid == research.id %}
           <li><a id="{{ pubtext.id }}"></a><a href="/talks/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
             {% if pubtext.conference != null %}
                 {{ pubtext.conference }},
@@ -88,6 +102,8 @@ layout: default
               {{ pubtext.year }}
             {% endif %}
           </li>
+	  {% endif %}
+	  {% endfor %}
         {% endif %}
       {% endfor %}
     {% endfor %}
