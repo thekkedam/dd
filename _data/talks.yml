@@ -1,8 +1,10 @@
 Concurrent Programming:
   - title: Multi-view data types for scalable concurrency in the multi-core era
     id: Multi-view2
-    rid: stm
-    prid: mview
+    rid: 
+      - stm
+    prid: 
+      - mview
     conference: New Challenges in Parallelism
     organization: Dagstuhl Seminars
     year: November 5 – 10 , 2017
@@ -15,8 +17,10 @@ Concurrent Programming:
 
   - title: "Multi-view data types for scalable concurrency in the multi-core era"
     id: Multi-view1
-    rid: stm
-    prid: mview
+    rid: 
+      - stm
+    prid: 
+      - mview
     conference: Programming Models and Languages for Distributed Computing, PMLDC 2017 
     organization: ECOOP 2017
     place: Barcelona, Spain
@@ -28,8 +32,10 @@ Concurrent Programming:
 
   - title: "Transactions on Mergeable Objects"
     id: MTM
-    rid: stm
-    prid: mview
+    rid: 
+       - stm
+    prid: 
+       - mview
     conference: CS department's Talk Series, Winter Term 2015/16
     organization: TU Kaiserslautern
     place: Kaiserslautern, Germany
@@ -43,8 +49,10 @@ Scalable Distributed Systems:
   - title: Observing the Consistency of Distributed Systems
     id: consistency2
     year: Sun 18 - Sat 24 September 2016
-    rid: crdt
-    prid: syncfree
+    rid: 
+       - crdt
+    prid: 
+       - syncfree
     conference: Erlang 2016, Workshop on Erlang
     place: Nara, Japan
     author: Deepthi Akkoorath, Viktoria Fordos, Annette Bieniusa.
@@ -56,8 +64,10 @@ Scalable Distributed Systems:
 
   - title: Causal consistency in geo-replicated systems
     id: consistency1
-    rid: crdt
-    prid: syncfree
+    rid: 
+      - crdt
+    prid: 
+      - syncfree
     conference: Research Training Group Weak Consistency (weacon)
     organization: TU Kaiserslautern
     year: July 25th, 2014
