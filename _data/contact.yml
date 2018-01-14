@@ -10,8 +10,6 @@
     url: "https://softech.cs.uni-kl.de/homepage/de/staff/DeepthiAkkoorath/"
     label: "TU Kaiserslautern"
     icon: "pencil-square"
-    disc: "Personal home page at university group"
-    
   github:
     url: "https://github.com/deepthidevaki/"
     label: "GitHub"
@@ -30,16 +28,14 @@
     icon: "xing-square"
   emailTU:
     url: "mailto:akkoorath@cs.uni-kl.de"
-    label: "University Email"
     value: "akkoorath@cs.uni-kl.de"
     icon: "envelope-square"
-    disc: "akkoorath@cs.uni-kl.de" 
+    label: "akkoorath@cs.uni-kl.de" 
   email:
     url: "mailto:deepthidevaki@gmail.com"
-    label: "Personal Email"
     value: "deepthidevaki@gmail.com"
     icon: "envelope-square"
-    disc: "deepthidevaki@gmail.com"
+    label: "deepthidevaki@gmail.com"
   twitter:
     url: "https://twitter.com/deepthidevaki"
     label: "Twitter"
