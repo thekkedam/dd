@@ -15,7 +15,7 @@
   id: edgecomp
   sta: old
   description: TBA
-- topic: Real-time systems
-  id: rtsystem
-  sta: old
-  description: TBA
+#- topic: Real-time systems
+#  id: rtsystem
+#  sta: old
+#  description: TBA
