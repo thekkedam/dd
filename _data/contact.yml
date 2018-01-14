@@ -3,12 +3,15 @@
 #   label: <Lable to show in text>
 #   value: 
 #   icon: <use -square>
+#   disc: A small discription
 
 
   TUgroup:
     url: "https://softech.cs.uni-kl.de/homepage/de/staff/DeepthiAkkoorath/"
     label: "TU Kaiserslautern"
     icon: "pencil-square"
+    disc: "Personal home page at university group"
+    
   github:
     url: "https://github.com/deepthidevaki/"
     label: "GitHub"
@@ -32,7 +35,7 @@
     icon: "envelope-square"
   email:
     url: "mailto:deepthidevaki@gmail.com"
-    label: "Email"
+    label: "Personal Email"
     value: "deepthidevaki@gmail.com"
     icon: "envelope-square"
   twitter:
