@@ -1,11 +1,11 @@
 - Languages:
-    Haskell: 75
     Erlang: 75
-    C: 50
+    Java: 75
     C++: 70
-    Java: 80
-    Ruby: 10
+    C: 70
+    Haskell: 50
     Python: 20
+    Ruby: 10
     PHP: 10
 - Frameworks:
     - MPI
@@ -22,5 +22,4 @@
     - Concurrent and Parallel programming
     - Weak/Eventual Consistency
     - Software Transactional Memory
-    - Algorithms and Data structures
-
+    - CRDTs
