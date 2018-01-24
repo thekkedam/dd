@@ -6,28 +6,41 @@
 #       - <other details>
 #
 
-- org:  Software Technology Group, TU Kaiserslautern 
+- org:  Software Technology Group, TU Kaiserslautern
   role: Research Associate
   location: Kaiserslautern, Germany
   when: Feb 2014 - Now
   bullets:
-    - Research on eventual consistency semantics in large scale distributed systems
-    - Building highly scalable geo-replicated key-value store that provides causal consistency and transactional guarantees using CRDTs
+    - Research on scalable protocols for large scale distributed systems and multi-core programs.
+    - Collaborated on 2 EU projects, [SyncFree](http://syncfree.lip6.fr/) and [LightKone](https://www.lightkone.eu/).
+    - Co-developed [AntidoteDB](http://antidotedb.org), a scalable and highly available geo-replicated database that 
+      supports [CRDTs](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type).
+      AntidoteDB is now used by our academic and industrial research partners.
+    - Co-designed Cure, the decentralized algorithm implemented in AntidoteDB that
+      provides causal consistency and highly available transactions in a geo-replicated
+      systems with large number of servers.
+    - Developed a model for highly scalable concurrent objects to scale multi-core
+      programs by reducing the synchronization needed.
+    - Developed a scalable software transactional memory algorithm for multi-core programs.
 - org:  Multicoreware Inc
   role: Software Engineer
   location: Chennai, India
   when: Feb 2013 - Dec 2013
-  bullets: 
+  bullets:
     - Developing high performance video encoder for HEVC standard.
+    - Improved encoding speed by parallelizing key computations by converting them
+      to vectorized instructions using intel SSE instruction set.
+    - Implemented features that encode videos with tunable bitrate and encoding speed.
 - org: TNO
-  role: Intern
-  location: Delft, Netherlands
+  role: Research Intern
+  location: Delft, The Netherlands
   when: Jan 2012 - Jun 2012
   bullets:
-     - Research topic on improving quality of experience of Internet applications using distributed cloud
+     - Developed a new model to optimize the placement of application components
+       on distributed clouds which improves the Quality of Experience of Internet Applications.
 - org: NIKHEF
-  role: Intern
-  location: Amsterdam, Netherlands
+  role: Software Development Intern
+  location: Amsterdam, The Netherlands
   when: July 2011 - Aug 2011
   bullets:
-     - Adding different authentication mechanisms to a portal interface for grid access
+     - Implemented a single sign-on system for a grid computing system.
