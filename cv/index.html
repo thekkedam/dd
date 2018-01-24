@@ -17,7 +17,7 @@ nav_item: profile
         {% if section.id == "publications"  or section.id == "talks" %}
     <div class="border-bottom border-light-gray circle-line pb3">
             <h4 id="{{ section.id }}">{{ section.name }}</h4>
-	    <a href="/publications/#{{ section.id }}" class="link-color">For {{ section.name }} list >></a>
+	    <a href="/publications/#{{ section.id }}" class="link-color">To {{ section.name }} list >></a>
         {% else %}
     <div class="border-bottom border-light-gray mt4 mb4 pb3 circle-line">
             <h4 id="{{ section.id }}">
@@ -34,4 +34,3 @@ nav_item: profile
         {% endif %}
     </div>
   {% endfor %}
-
