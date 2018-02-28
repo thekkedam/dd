@@ -1,4 +1,5 @@
 User-agent: *
+Sitemap: https://dd.thekkedam.org/sitemap.xml
 Disallow: BingSiteAuth.xml
 Disallow: cms.html
 Disallow: CNAME
