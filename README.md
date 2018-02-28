@@ -47,8 +47,6 @@ documentation for more info.
 1. I'm using [UptimeRobot](http://uptimerobot.com/) and 
    [Google Analytics](http://www.google.com/analytics/) for monitoring and
    metrics.
-1. Most of the blog posts were imported from my old Blogger account, so there 
-   are a few hacky Ruby scripts in `_scripts` left over from that migration.
 
 # License
 
