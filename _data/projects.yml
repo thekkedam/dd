@@ -97,6 +97,7 @@
     grid access. The portal uses a robot certificate to allow users to run pre-configuration
     applications on the grid. A single sign-on system using SimpleSAMLPHP was also developed.
   url: 
+    LGIportal source: "https://github.com/deepthid/LGIportal"
     NIKHEF Homepage: "http://www.nikhef.nl"
   image: "NoImage.png"
   sta: old
