@@ -12,6 +12,12 @@
         <i class="fa fa-fw fa-lg fa-{{ external_url.icon }}"></i>
       </a>
     {% endfor %} | 
+    {% for bib_url_hash in site.data.bibliography_link %}
+      {% assign bib_url = bib_url_hash[1] %}
+      <a href="{{ bib_url.url }}" target="_blank" class="gray hint--top" data-hint="{{ bib_url.label }}">
+        <i class="fa fa-fw fa-lg fa-{{ bib_url.icon }}"></i>
+      </a>
+    {% endfor %} |
     <a href="{{ site.data.config.cms }}" class="gray hint--top" data-hint="Post from web">
         <i class="fa fa-fw fa-lg fa-pencil-square"></i>
     </a>
