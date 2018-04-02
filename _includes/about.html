@@ -3,13 +3,13 @@
       <div class="clearfix mb2 border-bottom border-light-gray circle-line py3">
       {% if section[0] == "About" %}
 	<div class="col sm-col-3 px2">
-      	  {% include image.html path=site.data.config.thumbnail_path alt=site.data.config.full_name class="max-width-120" %}
+      	  {% include image.html path=site.data.config.thumbnail_path_s alt=site.data.config.full_name class="max-width-120" %}
         </div>
       {% else %}
         <h3 class="mb2">{{ section[0] }}</h3>
       {% endif %}
       {% for bullet in section[1] %}
-         <p>
+         <p align="justify">
          {{ bullet }}
          </p>
       {% endfor %}
