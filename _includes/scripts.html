@@ -1,8 +1,8 @@
-<script>
-  // register ServiceWorker
-  if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/assets/js/sw.js', {scope: '/'})
-  }
+<script type="text/javascript">
+// register ServiceWorker
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('/sw.js', {scope: './'})
+}
 </script>
 <script type="text/javascript">
 var host = "{{ site.domain }}";
