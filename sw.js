@@ -1,5 +1,5 @@
 var APP_PREFIX = 'DeepthiAkkoorath_'     // Identifier for this app (this needs to be consistent across every cache update)
-var VERSION = 'Web_00002'              // Version of the off-line cache (change this value everytime you want to update cache)
+var VERSION = 'Web_00003'              // Version of the off-line cache (change this value everytime you want to update cache)
 var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [                            // Add URL you want to cache in this list.
   '/assets/css/',                     // If you have separate JS/CSS files,
