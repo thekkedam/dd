@@ -1,4 +1,4 @@
-{% if page.permalink == '/index.html' %}
+<!--{% if page.permalink == '/index.html' %}-->
 <script type="text/javascript">
 if('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js', {
@@ -6,7 +6,7 @@ if('serviceWorker' in navigator) {
   });
 }
 </script>
-{% endif %}
+<!--{% endif %}-->
 <script type="text/javascript">
 var host = "{{ site.domain }}";
 if ((host == window.location.host) && (window.location.protocol != "https:"))
