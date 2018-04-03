@@ -60,7 +60,7 @@ then
 			cat > $TDIR/$fieldid.html << EOL
 ---
 layout: publications
-title: "$title - (Deepthi Devaki Akkoorath)"
+title: "Deepthi Devaki Akkoorath: $title"
 header_title: Publication
 include_header: publications_header.html
 nav_item: publications 
@@ -96,7 +96,7 @@ then
                         cat > $TDIR/$fieldid.html << EOL
 ---
 layout: talks
-title: "$title - (Deepthi Devaki Akkoorath)"
+title: "Deepthi Devaki Akkoorath: $title"
 header_title: Talk
 include_header: publications_header.html
 nav_item: publications 
@@ -134,7 +134,7 @@ then
                         cat > $TDIR/$fieldid.html << EOL
 ---
 layout: projects
-title: "$title - (Deepthi Devaki Akkoorath)"
+title: "Deepthi Devaki Akkoorath: $title"
 header_title: Project
 include_header: projects_header.html
 nav_item: projects
@@ -172,7 +172,7 @@ then
                         cat > $TDIR/$fieldid.html << EOL
 ---
 layout: research
-title: "$title - (Deepthi Devaki Akkoorath)"
+title: "Deepthi Devaki Akkoorath: $title"
 header_title: Research
 include_header: research_header.html
 nav_item: research
