@@ -43,7 +43,7 @@
     no longer possible due to increased scalability requirements. Instead, data must
     replicated across several distributed data centres, requiring new principled approaches
     to consistency that will be explored by the SyncFree project.
-    <a href="http://antidotedb.org" class="link-color" target="_blank">AntidoteDB</a> (the reference
+    <a href="http://antidotedb.org" class="link-color" target="_blank" rel="noopener">AntidoteDB</a> (the reference
     platform) is a scalable key-value store for synchronisation free computations
     using CRDTs and causal consistent transaction.
   url: 
