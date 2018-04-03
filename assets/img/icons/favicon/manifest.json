@@ -1,7 +1,8 @@
 {
  "name": "DeepthiDevakiAkkoorath",
  "short_name": "Deepthi",
- "start_url": "/",
+ "start_url": "/index.html",
+ "display": "minimal-ui",
  "theme_color": "#ffffff",
  "background_color": "#dbd6d2",
  "icons": [
