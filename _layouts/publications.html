@@ -57,19 +57,19 @@ layout: default
             <span style="float:right;">
             {% if pubtext.url != null %}
                 <i class="fa fa-fw fa-lg fa-book"></i>
-                <a href="{{ pubtext.url }}" target="_blank">Publication </a>
+                <a href="{{ pubtext.url }}" target="_blank" rel="noopener">Publication </a>
             {% endif %}
             {% if pubtext.pdf != null %}
                 <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
-                <a href="{{ pubtext.pdf }}" target="_blank" class="citation_pdf_url">PDF </a>
+                <a href="{{ pubtext.pdf }}" target="_blank" rel="noopener" class="citation_pdf_url">PDF </a>
             {% endif %}
             {% if pubtext.presentation != null %}
                 <i class="fa fa-fw fa-lg fa-file-powerpoint-o"></i>
-                <a href="{{ pubtext.presentation }}"target="_blank">Presentation </a>
+                <a href="{{ pubtext.presentation }}"target="_blank" rel="noopener">Presentation </a>
             {% endif %}
             {% if pubtext.media != null %}
                 <i class="fa fa-fw fa-lg fa-file-movie-o"></i>
-                <a href="{{ pubtext.media }}" target="_blank">Video / Audio </a>
+                <a href="{{ pubtext.media }}" target="_blank" rel="noopener">Video / Audio </a>
             {% endif %}
 	    </span>
             <br>
