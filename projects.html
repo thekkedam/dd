@@ -53,19 +53,19 @@ nav_item: projects
       {% endif %}
 <!--
       {% for project_url in project.url %}
-          <a href="{{ project_url[1] }}" target="_blank" class="dark-gray">
+          <a href="{{ project_url[1] }}" target="_blank"  rel="noopener" class="dark-gray">
             <i class="fa fa-fw fa-lg fa-info-circle"></i>
             <span class="h6">{{ project_url[0] }}</span>
           </a><br>
       {% endfor %}
       {% for project_src in project.src %}
-          <a href="{{ project_src[1] }}" target="_blank" class="dark-gray">
+          <a href="{{ project_src[1] }}" target="_blank"  rel="noopener" class="dark-gray">
             <i class="fa fa-fw fa-lg fa-github-square"></i>
             <span class="h6">{{ project_src[0] }}</span>
           </a><br>
       {% endfor %}
       {% for project_doc in project.doc %}
-          <a href="{{ project_doc[1] }}" target="_blank" class="dark-gray">
+          <a href="{{ project_doc[1] }}" target="_blank"  rel="noopener" class="dark-gray">
             <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
             <span class="h6">{{ project_doc[0] }}</span>
           </a><br>
