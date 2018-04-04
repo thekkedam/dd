@@ -1,0 +1,9 @@
+{% if page.permalink == '/index.html' %}
+<script type="text/javascript">
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js', {
+    scope: '/'
+  });
+}
+</script>
+{% endif %}
