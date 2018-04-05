@@ -8,20 +8,20 @@
   <div class="sm-col-right px2">
     {% for external_url_hash in site.data.contact %}
       {% assign external_url = external_url_hash[1] %}
-      <a href="{{ external_url.url }}" target="_blank" class="gray hint--top" data-hint="{{ external_url.label }}">
+      <a href="{{ external_url.url }}" target="_blank" rel="noopener" data-hint="{{ external_url.label }}">
         <i class="fa fa-fw fa-lg fa-{{ external_url.icon }}"></i>
       </a>
     {% endfor %} | 
     {% for bib_url_hash in site.data.bibliography_link %}
       {% assign bib_url = bib_url_hash[1] %}
-      <a href="{{ bib_url.url }}" target="_blank" class="gray hint--top" data-hint="{{ bib_url.label }}">
+      <a href="{{ bib_url.url }}" target="_blank" rel="noopener" data-hint="{{ bib_url.label }}">
         <i class="fa fa-fw fa-lg fa-{{ bib_url.icon }}"></i>
       </a>
     {% endfor %} |
-    <a href="{{ site.data.config.cms }}" class="gray hint--top" data-hint="Post from web">
+    <a href="{{ site.data.config.cms }}" data-hint="Post from web">
         <i class="fa fa-fw fa-lg fa-pencil-square"></i>
     </a>
-    <a href="{{ site.data.config.about }}" class="gray hint--top" data-hint="About this site">
+    <a href="{{ site.data.config.about }}" data-hint="About this site">
         <i class="fa fa-fw fa-lg fa-info-circle"></i>
     </a>
   </div>
