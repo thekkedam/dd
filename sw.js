@@ -4,7 +4,7 @@
 const version = 'v000000002';
 const offlineResources = [
   '/',
-  '/offline.html',
+  '/200.html',
   '/offline.svg'
 ];
 
@@ -108,7 +108,7 @@ function offlineResponse(request) {
   if (request.url.match(/\.(jpg|png|gif|svg|jpeg)(\?.*)?$/)) {
     return caches.match('/offline.svg');
   } else {
-    return caches.match('/offline.html');
+    return caches.match('/200.html');
   }
 }
 
