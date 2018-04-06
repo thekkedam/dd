@@ -3,4 +3,4 @@ set -e # halt script on error
 
 bundle exec jekyll build --verbose --trace
 #bundle exec htmlproofer ./_site --check-favicon --check-html --check-img-http --check-opengraph --report-invalid-tags --report-missing-names --report-script-embeds --disable-external
-bundle exec htmlproofer ./_site --check-html --check-opengraph --report-script-embeds --disable-external
+bundle exec htmlproofer ./_site --disable-external
