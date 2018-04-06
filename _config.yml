@@ -40,6 +40,7 @@ exclude:
 # include
 include:
   - ".htaccess"
+  - ".message"
 
 # Plugins (GitHub Pages only support a few)
 plugins:
