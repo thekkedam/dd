@@ -286,13 +286,13 @@
 						<meta name="citation_lastpage" content="11766">
 						-->
             					{% if pubtext.pdf != null %}
-							{% if pubtext.pdf contains "http://" first or pubtest.pdf contains "https://" first %}
+							{% if pubtext.pdf contains "http://" first or pubtext.pdf contains "https://" first %}
                 						<meta name="citation_pdf_url" content="{{ pubtext.pdf }}">
 							{% else %}
 								<meta name="citation_pdf_url" content="{% include canonical-url.html url=pubtext.pdf %}">
 							{% endif %}
 						{% elsif pubtext.presentation != null %}
-                                                        {% if pubtext.presentation contains "http://" first or pubtest.presentation contains "https://" first %}
+                                                        {% if pubtext.presentation contains "http://" first or pubtext.presentation contains "https://" first %}
                                                                 <meta name="citation_pdf_url" content="{{ pubtext.presentation }}">
                                                         {% else %}
                                                                 <meta name="citation_pdf_url" content="{% include canonical-url.html url=pubtext.presentation %}">
@@ -336,13 +336,13 @@
 						<meta name="citation_lastpage" content="11766">
 						-->
             					{% if pubtext.pdf != null %}
-							{% if pubtext.pdf contains "http://" first or pubtest.pdf contains "https://" first %}
+							{% if pubtext.pdf contains "http://" first or pubtext.pdf contains "https://" first %}
                 						<meta name="citation_pdf_url" content="{{ pubtext.pdf }}">
 							{% else %}
 								<meta name="citation_pdf_url" content="{% include canonical-url.html url=pubtext.pdf %}">
 							{% endif %}
 						{% elsif pubtext.presentation != null %}
-                                                        {% if pubtext.presentation contains "http://" first or pubtest.presentation contains "https://" first %}
+                                                        {% if pubtext.presentation contains "http://" first or pubtext.presentation contains "https://" first %}
                                                                 <meta name="citation_pdf_url" content="{{ pubtext.presentation }}">
                                                         {% else %}
                                                                 <meta name="citation_pdf_url" content="{% include canonical-url.html url=pubtext.presentation %}">
