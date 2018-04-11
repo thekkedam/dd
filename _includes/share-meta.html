@@ -254,6 +254,7 @@
 	{% endif %}
 {% elsif page.type == "publications" %}
         {% if page.dynaid %}
+		<meta property="og:type" content="article" />
 		{% for section_hash in site.data.publications %}
 			{% for section in section_hash %}
 				{% assign pubtype =  section_hash[0] %}
@@ -303,6 +304,7 @@
         {% endif %}
 {% elsif page.type == "talks" %}
         {% if page.dynaid %}
+		<meta property="og:type" content="article" />
 		{% for section_hash in site.data.talks %}
 			{% for section in section_hash %}
 				{% assign pubtype =  section_hash[0] %}
