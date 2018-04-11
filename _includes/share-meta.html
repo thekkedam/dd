@@ -146,11 +146,7 @@
 		{% endfor %}
 		{% capture description %}{{ description }} details.{% endcapture %}
 
-                {% if page.thumbnail_path %}
-                        {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
-                {% else %}
-                        {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
-                {% endif %}
+                {% capture image_path %}cv/profile.jpeg{% endcapture %}
 
 		{% capture type %}profile{% endcapture %}
         {% elsif page.type == "contact" %}
