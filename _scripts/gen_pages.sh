@@ -55,7 +55,7 @@ then
         if [ $CV_FILE != "null" ] && [ -f $CV_FILE ]
        	then
         	echo "$CV_FILE ::::"
-                gs -o assets/img/cv/profile.jpeg -sDEVICE=jpeg -dLastPage=1 $CV_FILE 
+                gs -o assets/img/cv/Deepthi_Devaki_Akkoorath_profile.jpeg -sDEVICE=jpeg -dLastPage=1 $CV_FILE 
 	fi
 elif [ $ptype == "pub" ]
 then
