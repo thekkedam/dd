@@ -31,6 +31,11 @@ function rm_quotes()
     sed -e 's/^"//' -e 's/"$//'
 }
 
+function rm_leading_slash()
+{
+     sed -e 's/^\///'
+}
+
 function yaml2json()
 {
     ruby -ryaml -rjson -e \
@@ -53,6 +58,8 @@ then
 		title=$(cat $FileN | rm_sections | yaml2json | jq .[$index].title | rm_quotes )
 		filename=$(echo $title | rm_special | space2under)
 		fieldid=$(cat $FileN | rm_sections | yaml2json | jq .[$index].id | rm_quotes )
+		pdffile=$(cat $FileN | rm_sections | yaml2json | jq .[$index].pdf | rm_quotes | rm_leading_slash )
+		
 		if [ $filename != "null" ] && [ $fieldid != "null" ]
 		then
 					
@@ -61,13 +68,31 @@ then
 ---
 layout: publications
 title: "Deepthi Devaki Akkoorath, Publication: $title"
+type: publications
 header_title: Publication
 include_header: publications_header.html
 nav_item: publications 
 dynaid: $fieldid
 ---
 EOL
+
 			index=$((index +1))
+
+                	if [ $pdffile != "null" ] && [ $fieldid != "null" ] && [ ! -f assets/img/publications/$fieldid.jpeg ]
+                	then
+                        	if [ ! -f $pdffile ]
+                        	then
+                                	wget $pdffile -O /tmp/$fieldid.pdf --no-check-certificate
+                                	if [ -f /tmp/$fieldid.pdf ]
+                                	then
+                                        	pdffile="/tmp/$fieldid.pdf" 
+                                	else
+                                        	continue
+                                	fi
+                        	fi
+                        	echo "$fieldid ::::::: $pdffile"
+                        	gs -o assets/img/publications/$fieldid.jpeg -sDEVICE=jpeg -dLastPage=1 $pdffile 
+                	fi
 		else
 			run="null"
 		fi
@@ -89,6 +114,8 @@ then
                 title=$(cat $FileN | rm_sections | yaml2json | jq .[$index].title | rm_quotes )
                 filename=$(echo $title | rm_special | space2under)
                 fieldid=$(cat $FileN | rm_sections | yaml2json | jq .[$index].id | rm_quotes )
+		pdffile=$(cat $FileN | rm_sections | yaml2json | jq .[$index].presentation | rm_quotes | rm_leading_slash )
+
                 if [ $filename != "null" ] && [ $fieldid != "null" ]
                 then
 
@@ -97,13 +124,31 @@ then
 ---
 layout: talks
 title: "Deepthi Devaki Akkoorath, Talk: $title"
+type: talks
 header_title: Talk
 include_header: publications_header.html
 nav_item: publications 
 dynaid: $fieldid
 ---
 EOL
-                        index=$((index +1))
+
+			index=$((index +1))
+
+                	if [ $pdffile != "null" ] && [ $fieldid != "null" ] && [ ! -f assets/img/talks/$fieldid.jpeg ]
+                	then
+                        	if [ ! -f $pdffile ]
+                        	then
+                                	wget $pdffile -O /tmp/$fieldid.pdf --no-check-certificate
+                                	if [ -f /tmp/$fieldid.pdf ]
+                                	then
+                                        	pdffile="/tmp/$fieldid.pdf"
+                                	else
+                                        	continue
+                                	fi
+                        	fi
+                        	echo "$fieldid ::::::: $pdffile"
+                        	gs -o assets/img/talks/$fieldid.jpeg -sDEVICE=jpeg -dLastPage=1 $pdffile 
+                	fi
                 else
                         run="null"
                 fi
@@ -135,6 +180,7 @@ then
 ---
 layout: projects
 title: "Deepthi Devaki Akkoorath, Project: $title"
+type: projects
 header_title: Project
 include_header: projects_header.html
 nav_item: projects
@@ -173,6 +219,7 @@ then
 ---
 layout: research
 title: "Deepthi Devaki Akkoorath, Research: $title"
+type: research
 header_title: Research
 include_header: research_header.html
 nav_item: research
