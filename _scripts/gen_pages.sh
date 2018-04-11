@@ -10,6 +10,8 @@ PRO_data="_data/projects.yml"
 PRO_DIR="projects"
 RES_data="_data/research.yml"
 RES_DIR="research"
+CV_data="_data/config.yml"
+CV_DIR="cv"
 
 function rm_special()
 {
@@ -42,7 +44,20 @@ function yaml2json()
          'puts JSON.pretty_generate(YAML.load(ARGF))' $*
 }
 
-if [ $ptype == "pub" ]
+if [ $ptype == "cv" ]
+then
+	echo "Profile ..."
+	TDIR=$CV_DIR
+	FileN=$CV_data
+
+	CV_FILE=$(cat $FileN | grep resume_path | cut -d"\"" -f2 | rm_leading_slash )
+
+        if [ $CV_FILE != "null" ] && [ -f $CV_FILE ]
+       	then
+        	echo "$CV_FILE ::::"
+                gs -o assets/img/cv/profile.jpeg -sDEVICE=jpeg -dLastPage=1 $CV_FILE 
+	fi
+elif [ $ptype == "pub" ]
 then
 	echo "Publications ..."
 	TDIR=$PUB_DIR
