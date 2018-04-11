@@ -205,8 +205,8 @@ Whitepaper:
       - Deepthi Devaki Akkoorath
       - Annette Bieniusa
     year: August 2016
-    url: "https://syncfree.lip6.fr/index.php/white-papers"
-    pdf: "https://syncfree.lip6.fr/attachments/article/59/antidote-white-paper.pdf"
+    url: "https://pages.lip6.fr/syncfree/index.php/white-papers.html"
+    pdf: "https://pages.lip6.fr/syncfree/attachments/article/59/antidote-white-paper.pdf"
     conference: SyncFree Project
     keyword: Antidote, SyncFree, CRDT, Geo-replication, Partial replication
     abstract: 'Cloud-scale applications need highly available, low latency responses to serve millions of users around the world. To meet this need, applications have to carefully choose a high performance distributed database. Traditional databases provide strong guarantees but are slow and unavailable under failures and network partition. Hence, they are not suitable for geo-replication. The alternatives are NoSQLstyle databases which are fast and available even under network partition. They provide a low-level key-value interface and expose data inconsistencies due to asynchronous communication among the servers. It takes significant effort and expertise from programmers to deal with these inconsistencies and develop correct applications on top of these databases. For example, consider that your application stores a counter which counts the number of ads displayed to a user. For scalability, the database replicates all data in different locations. What will be the value of the counter, when it is incremented at two locations at the same time? As an application programmer, you have to detect such concurrent updates and resolve conflicting modifications.'
