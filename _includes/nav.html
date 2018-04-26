@@ -1,10 +1,10 @@
 <nav class="clearfix border-bottom border-light-gray">
   <div class="left">
-    <a href="{{ site.base_url }}" class="button py2 button-transparent nav-button caps">
+    <a href="{{ site.base_url }}" class="button button-transparent nav-button">
+	{% include image.html path=site.data.config.user_ico_path class="square-30" %}
 <!--
-	{% include image.html path=site.data.config.user_ico_path class="border bg-white border-light-gray square-20" %}
--->
 	<i class="fa fa-home"></i>
+-->
 <!--
 	{{ site.data.config.name }}
 -->
@@ -13,17 +13,13 @@
   <ul class="right list-reset m0 nav-collapse">
     {% for nav_item in site.data.nav.main %}
       <li class="inline-block m0">
-<!--
         {% if nav_item[0] != 'home' %}
--->
 	    <a href="{{ nav_item[1] }}" class="button button-transparent py2 h6 nav-button caps{% if page.nav_item == nav_item[0] %} link-color{% endif %}">{{ nav_item[0] }}</a>
-<!--
 	{% else %}
             {% if page.nav_item != 'home' %}
                 <a href="{{ nav_item[1] }}" class="button button-transparent py2 h6 nav-button caps{% if page.nav_item == nav_item[0] %} link-color{% endif %}">Home</a>
             {% endif %}
         {% endif %}
--->
       </li>
     {% endfor %}
   </ul>
