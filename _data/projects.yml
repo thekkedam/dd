@@ -84,7 +84,7 @@
   url: 
     TNO repository by TU Delft: "http://resolver.tudelft.nl/uuid:69a704b9-8cbe-4815-9d72-531dec628620"
     UVA: "http://dare.uva.nl/en/scriptie/425875"
-  image: "NoImage.png"
+  image: "cloudedge.jpg"
   sta: old
 - name: "Grid access"
   name_long: "Authentication using SURF-federated logon for grid access"
@@ -119,8 +119,6 @@
   url:
     Prof. Dr. Cees de Laat netbuf page: "https://homepages.staff.os3.nl/~delaat/netbuf/"
     Document in OS3: "https://homepages.staff.os3.nl/~delaat/netbuf/bufferbloat_BG-DD.pdf"
-  doc:
-    Project Report: "/files/Performance_simulation_of_buffer_bloat_in_routers_Deepthi_Devaki_Akkoorath.pdf"
   image: "NoImage.png"
   sta: old
 
