@@ -68,7 +68,7 @@
     x265.org: "http://x265.org/"
   src:
     Multicoreware Bitbucket: "https://bitbucket.org/multicoreware/x265/commits/all?search=deepthidevaki"
-    VideoLan x265 repo: "http://hg.videolan.org/x265/log?rev=deepthidevaki&revcount=320"
+    VideoLan x265 repo: "http://hg.videolan.org/x265/log?rev=deepthidevaki&revcount=123"
   image: "x265.png"
   sta: "No more contributing"
 - name: "QoE"
