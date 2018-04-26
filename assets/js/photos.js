@@ -39,7 +39,7 @@
     }
   };
 
-  var titlesOfAlbumsToSkip = ["Profile Photos", "Photos from posts", "Scrapbook Photos"];
+  var titlesOfAlbumsToSkip = ["Profile Photos", "Photos from posts", "Scrapbook Photos"]; 
   var dateRegex1 = new RegExp("\\d\\d?/\\d\\d?/\\d\\d");
   var dateRegex2 = new RegExp("\\d\\d?-\\d\\d?-\\d\\d");
 
