@@ -1,75 +1,208 @@
 ---
 layout: default
 ---
-  <div>
+<div>
   {% for section_hash in site.data.talks %}
   {% for section in section_hash %}
     {% assign pubtype =  section_hash[0] %}
     {% for pubtext in section %}
 	{% if pubtext.title != null and pubtext.id == page.dynaid %}
             <h5 class="page-description body-font gray mt1 regular">
-	      <a href="/" class="link-color" title="Go to Home">Home</a>/
-              <a href="/publications/#talks" class="link-color" title="Go to Talks">Talks</a>/
+              <a href="/" class="link-color" title="Go to Home">Home</a>/
+              <a href="/publications/#talks" class="link-color" title="Go to Talks">Publications</a>/
 	      <a href="/publications/#pub-{{ pubtype }}" class="link-color" title="Go to {{ pubtype }}">{{ pubtype }}</a>
             </h5>
 
-            <div class="border-bottom border-light-gray">	
-	    <a id="{{ pubtext.id }}"></a><h4>{{ pubtext.title }}</h4>
+	    <div class="mxn2 clearfix mb2 py3">
+	    <!-- https://stackoverflow.com/questions/16528783/check-for-existence-of-file-using-jekyll -->
+	    {% assign pub_image = false %}
+            {% capture pub_image %}talks/{{ pubtext.id }}.jpeg{% endcapture %}
+            {% for static_file in site.static_files %}
+              {% if static_file.path == '{{ pub_image }}' %}
+                {% if static_file.name == '{{ pubtext.id }}.jpeg' %}
+                  {% assign pub_image = true %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+	    {% if pub_image and pubtext.presentation != null %}
+            <div class="col sm-col-4 px2 mb2">
+              <a href="{{ pubtext.presentation }}" target="_blank" rel="noopener" class="citation_pdf_url">
+                {% include image.html path=pub_image alt=pubtext.title %}
+	      </a>
             </div>
+            {% endif %}
+
+            <div class="border-bottom border-light-gray">	
+	      <a id="{{ pubtext.id }}"></a><h4 class="citation_title">{{ pubtext.title }}</h4>
+            </div>
+
             {% if pubtext.author != null %}
-                <i class="fa fa-fw fa-lg fa-users"></i><i>{{ pubtext.author }}</i>
-		<br>
+                <p>
+                <i class="fa fa-fw fa-lg fa-users"></i>
+                <span class="h5">
+                <i class="citation_author px2">
+		  {% for author in pubtext.author %}
+		    {{ author }}{% unless forloop.last %}, {% endunless %}
+		  {% endfor %}
+                </i>
+                </span>
+                </p>
             {% endif %}
-            <br>
-	    <p style="text-align:left;">
-            <i class="fa fa-fw fa-lg fa-bookmark-o"></i>
-            {% if pubtext.conference != null %}
-                {{ pubtext.conference }}
+
+            {% if pubtext.short_name != null %}
+              <p>
+		<i class="fa fa-fw fa-lg fa-bookmark-o"></i>
+                <span class="h5">{{ pubtext.short_name }}</span>
+              </p>
             {% endif %}
-            {% if pubtext.degree != null %}
-                <b>{{ pubtext.degree }}</b>
-            {% endif %}
-            {% if pubtext.organization != null %}
-                , {{ pubtext.organization }}
-            {% endif %}
-            <br>
+
+            <p>
             {% if pubtext.place != null %}
-		<i class="fa fa-fw fa-lg fa-map-marker"></i>
-                {{ pubtext.place }}
+                <i class="fa fa-fw fa-lg fa-map-marker"></i>
+                <span class="h5">{{ pubtext.place }}</span>
             {% endif %}
             {% if pubtext.year != null %}
                 <i class="fa fa-fw fa-lg fa-calendar"></i>
-                {{ pubtext.year }}
+                <span class="h5">{{ pubtext.year }}</span>
             {% endif %}
             </p>
-	    {% if pubtext.abstract != null %}
-		<p align="justify"><i class="fa fa-fw fa-lg fa-bars"></i>
-		</i> {{ pubtext.abstract }}</p>
+
+            <p>
+            {% if pubtext.institution != null %}
+                <i class="fa fa-fw fa-lg fa-university"></i>
+                <span class="h5">{{ pubtext.institution }}</span>
             {% endif %}
-            {% if pubtext.keyword != null %}
-                <p><b>Keywords :</b> {{ pubtext.keyword }}</p>
-            {% endif %}
-            <span style="float:right;">
-            {% if pubtext.url != null %}
+            </p>
+
+            {% if pubtext.conference != null or pubtext.degree != null or pubtext.organization != null %}
+	      <p align="justify">
                 <i class="fa fa-fw fa-lg fa-book"></i>
-                <a href="{{ pubtext.url }}" target="_blank" rel="noopener">Details </a>
+                <span class="h5">
+                {% if pubtext.conference != null and pubtext.short_name != pubtext.conference %}
+                  {{ pubtext.conference }}
+                {% endif %}
+                {% if pubtext.degree != null %}
+                  {{ pubtext.degree }}
+                {% endif %}
+                {% if pubtext.page != null %}
+                  ({{ pubtext.page }})
+                {% endif %}
+	        {% if pubtext.conference != null or pubtext.degree != null %}
+                  {% if pubtext.organization != null %}
+                    ,&nbsp; 
+                  {% endif %}
+                {% else %}
+                  <br>
+                  <br>
+                {% endif %}
+                {% if pubtext.organization != null %}
+                  {{ pubtext.organization }}
+                {% endif %}
+                </span>
+              </p>
+            {% else %}
+              <br>
+              <br>
+              <br>
+	    {% endif %}
+
+	    {% if pubtext.abstract != null %}
+	      <p align="justify"><i class="fa fa-fw fa-lg fa-bars"> </i>	
+	        {{ pubtext.abstract }}</p>
             {% endif %}
-            {% if pubtext.pdf != null %}
+
+            {% if pubtext.keyword != null %}
+              <p align="justify">
+              <span class="h5">
+                <b>Keywords :</b>
+                {% for keyword in pubtext.keyword %}
+                  {{ keyword }}{% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+              </span>
+              </P>
+            {% endif %}
+ 
+            {% if pubtext.embed_url != null %}
+              {% include iframe.html url=pubtext.embed_url %}
+            {% endif %}
+
+            <span style="float:right;">
+              {% if pubtext.pdf != null %}
                 <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
-                <a href="{{ pubtext.pdf }}" target="_blank" rel="noopener">PDF </a>
-            {% endif %}
-            {% if pubtext.presentation != null %}
+                <span class="h5"><a href="{{ pubtext.pdf }}" target="_blank" rel="noopener" class="citation_pdf_url">PDF </a></span>
+              {% endif %}
+              {% if pubtext.presentation != null %}
                 <i class="fa fa-fw fa-lg fa-file-powerpoint-o"></i>
-                <a href="{{ pubtext.presentation }}" target="_blank" rel="noopener">Presentation </a>
-            {% endif %}
-            {% if pubtext.media != null %}
+                <span class="h5"><a href="{{ pubtext.presentation }}"target="_blank" rel="noopener">Presentation </a></span>
+              {% endif %}
+              {% if pubtext.media != null %}
                 <i class="fa fa-fw fa-lg fa-file-movie-o"></i>
-                <a href="{{ pubtext.media }}" target="_blank" rel="noopener">Video / Audio </a>
-            {% endif %}
+                <span class="h5"><a href="{{ pubtext.media }}" target="_blank" rel="noopener">Media</a></span>
+              {% endif %}
 	    </span>
+ 
+            <span style="float:left;">
+              {% if pubtext.url != null %}
+                {% for pub_url in pubtext.url %}
+                  <a href="{{ pub_url[1] }}" target="_blank" rel="noopener" class="link-color">
+                  <i class="fa fa-fw fa-lg fa-globe"></i>
+                    <span class="h5">{{ pub_url[0] }}</span>
+                  </a><br>
+                {% endfor %}
+              {% endif %}
+            </span>
+
+	    <br>
+	    <br>
+
+<!--
+            <span style="float:left;">
+              <span class="h5">
+              {% if pubtext.src != null %} 
+                {% for pub_src in pubtext.src %}
+                  <a href="{{ pub_src[1] }}" target="_blank" rel="noopener" class="link-color">
+                  <i class="fa fa-fw fa-lg fa-github"></i>
+                    {{ pub_src[0] }}
+                  </a><br>
+                {% endfor %}
+              {% endif %}
+              </span>
+            </span>
+-->
+
+	    <br>
             <br>
-        {% endif %}
+
+            <span style="float:left;">
+              <span class="h5">
+              {% assign onlyonce0 = 0 %}
+              {% for project in site.data.projects %}
+                {% for pub_prid in pubtext.prid %}
+                  {% if project.id == pub_prid %}
+                    {% if onlyonce0 == 0 %}<b>Related Project :</b>{% assign onlyonce0 = 1 %} {% endif %}
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+              {% for project in site.data.projects %}
+                {% for pub_prid in pubtext.prid %}
+                  {% if project.id == pub_prid %}
+                    <a href="/projects/{{ project.id }}/" class="link-color"><span>{{ project.name }}</span></a>
+                    &nbsp;
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+              </span>
+            </span>
+
+          </div>
+	</div>
+      {% endif %}
     {% endfor %}
   {% endfor %}
   {% endfor %}
-  </div>
+  <a href="#top" class="sm-col-right col dark-gray h6">
+    <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
+    Top
+  </a>
+  <br>
+</div>
