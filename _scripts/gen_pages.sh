@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 ptype=$1
 
@@ -44,6 +44,40 @@ function yaml2json()
          'puts JSON.pretty_generate(YAML.load(ARGF))' $*
 }
 
+function get_file()
+{
+	wget $1 -O $2 --no-check-certificate
+}
+
+function gen_image_1pdf()
+{
+	gs -o $1 -sDEVICE=jpeg -dLastPage=1 $2
+}
+
+function gen_image()
+{
+        pdfimages -j $1 $2
+	for ppmimg in $(ls -1 "$2"-*.ppm)
+	do
+		imgsz=$(ls -l $ppmimg | cut -d" " -f5)
+		if [ "$imgsz" -gt "200000"  ]
+		then
+			filenp=$( echo $ppmimg | cut -f 1 -d '.')
+			jpegimg="$filenp.jpeg"
+			convert $ppmimg $jpegimg
+		fi
+		rm -f $ppmimg
+	done
+	for img in $(ls -1 "$2"-*)
+	do
+		imgsz=$(ls -l $img | cut -d" " -f5)
+		if [ "$imgsz" -lt "10000"  ]
+		then
+			rm -f $img
+		fi
+	done
+}
+
 if [ $ptype == "cv" ]
 then
 	echo "Profile ..."
@@ -55,7 +89,7 @@ then
         if [ $CV_FILE != "null" ] && [ -f $CV_FILE ]
        	then
         	echo "$CV_FILE ::::"
-                gs -o assets/img/cv/Deepthi_Devaki_Akkoorath_profile.jpeg -sDEVICE=jpeg -dLastPage=1 $CV_FILE 
+                gen_image_1pdf assets/img/cv/Deepthi_Devaki_Akkoorath_profile.jpeg $CV_FILE 
 	fi
 elif [ $ptype == "pub" ]
 then
@@ -82,9 +116,7 @@ then
 			cat > $TDIR/$fieldid.html << EOL
 ---
 layout: publications
-title: "Deepthi Devaki Akkoorath, Publication: $title"
 type: publications
-header_title: Publication
 include_header: publications_header.html
 nav_item: publications 
 dynaid: $fieldid
@@ -97,7 +129,7 @@ EOL
                 	then
                         	if [ ! -f $pdffile ]
                         	then
-                                	wget $pdffile -O /tmp/$fieldid.pdf --no-check-certificate
+                                	get_file $pdffile /tmp/$fieldid.pdf
                                 	if [ -f /tmp/$fieldid.pdf ]
                                 	then
                                         	pdffile="/tmp/$fieldid.pdf" 
@@ -106,7 +138,13 @@ EOL
                                 	fi
                         	fi
                         	echo "$fieldid ::::::: $pdffile"
-                        	gs -o assets/img/publications/$fieldid.jpeg -sDEVICE=jpeg -dLastPage=1 $pdffile 
+                        	gen_image_1pdf assets/img/publications/$fieldid.jpeg $pdffile 
+
+				if [ ! -d assets/img/publications/$fieldid ]
+				then
+					mkdir -p assets/img/publications/$fieldid
+				fi
+				gen_image $pdffile assets/img/publications/$fieldid/fig
                 	fi
 		else
 			run="null"
@@ -138,9 +176,7 @@ then
                         cat > $TDIR/$fieldid.html << EOL
 ---
 layout: talks
-title: "Deepthi Devaki Akkoorath, Talk: $title"
 type: talks
-header_title: Talk
 include_header: publications_header.html
 nav_item: publications 
 dynaid: $fieldid
@@ -153,7 +189,7 @@ EOL
                 	then
                         	if [ ! -f $pdffile ]
                         	then
-                                	wget $pdffile -O /tmp/$fieldid.pdf --no-check-certificate
+                                	get_file $pdffile /tmp/$fieldid.pdf 
                                 	if [ -f /tmp/$fieldid.pdf ]
                                 	then
                                         	pdffile="/tmp/$fieldid.pdf"
@@ -162,7 +198,13 @@ EOL
                                 	fi
                         	fi
                         	echo "$fieldid ::::::: $pdffile"
-                        	gs -o assets/img/talks/$fieldid.jpeg -sDEVICE=jpeg -dLastPage=1 $pdffile 
+                        	gen_image_1pdf assets/img/talks/$fieldid.jpeg $pdffile
+
+                                if [ ! -d assets/img/publications/$fieldid ]
+                                then
+                                        mkdir -p assets/img/talks/$fieldid
+                                fi
+                                gen_image $pdffile assets/img/talks/$fieldid/fig
                 	fi
                 else
                         run="null"
@@ -194,9 +236,7 @@ then
                         cat > $TDIR/$fieldid.html << EOL
 ---
 layout: projects
-title: "Deepthi Devaki Akkoorath, Project: $title"
 type: projects
-header_title: Project
 include_header: projects_header.html
 nav_item: projects
 dynaid: $fieldid
@@ -233,9 +273,7 @@ then
                         cat > $TDIR/$fieldid.html << EOL
 ---
 layout: research
-title: "Deepthi Devaki Akkoorath, Research: $title"
 type: research
-header_title: Research
 include_header: research_header.html
 nav_item: research
 dynaid: $fieldid
