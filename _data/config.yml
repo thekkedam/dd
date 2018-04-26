@@ -10,12 +10,12 @@ slogan: "If you can't explain it simply, you don't understand it well enough. - 
 description: "The home page of Deepthi Devaki Akkoorath."
 thumbnail_path: "DeepthiDevakiAkkoorath.jpg"
 thumbnail_path_s: "DeepthiDevakiAkkoorath_s.jpg"
-user_ico_path: "Deepthi_Devaki_Akkoorath_188X188_web.jpg"
+user_ico_path: "Deepthi_Devaki_Akkoorath_logo.jpg"
 bitcoin_address: 
 website_repo_url: "https://github.com/thekkedam/dd"
 
 # PDF resume
-resume_path: "/files/Akkoorath_Deepthi-Devaki_CV.pdf"
+resume_path: "/assets/documents/cv/Akkoorath_Deepthi-Devaki_CV.pdf"
 
 # Image CDN
 cdn:
