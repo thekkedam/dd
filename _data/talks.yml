@@ -81,9 +81,10 @@ Scalable Distributed Systems:
        - Annette Bieniusa.
     url: 
        Erlang Workshop: http://erlang.org/workshop/2016/
-    pdf: /assets/documents/Peer-reviewed/Observing_the_Consistency_of_Distributed_Systems_Akkoorath.Bieniusa.ew2016.pdf
+    pdf: /assets/documents/publications/Peer-reviewed/Observing_the_Consistency_of_Distributed_Systems_Akkoorath.Bieniusa.ew2016.pdf
     abstract: 'In distributed Erlang systems temporary network issues are very likely; and can affect the consistency of the system. If the system is a distributed data store relying on a weak consistency model, its data stored may diverge as a result of connectivity issues. Even worse, there is no indicator of the divergence. In this paper we present our initial work on divergence metrics and give a preliminary evaluation on exposing divergence to the system operator.'
     media: https://www.youtube.com/watch?v=TVrY-VOJg4w
+    embed_url: "//www.youtube.com/embed/TVrY-VOJg4w"
     keyword: 
       - Data store
       - Weak consistency
