@@ -1,16 +1,14 @@
 ---
 layout: default
-title: "Deepthi Devaki Akkoorath: Publications and Talks"
 type: publications
-header_title: Publications and Talks
 include_header: publications_header.html
 nav_item: publications
 ---
   <h5 class="page-description body-font gray mt1 regular">
     <a href="/" class="link-color" title="Go to Home">Home</a>/Publications & Talks
   </h5>
-  <div class="clearfix mb2 py3 border-bottom border-light-gray circle-line">
   {% include publications_list.html %}
+  <div class="clearfix mb2 border-bottom border-light-gray circle-line">
   {% for section in site.data.sections %}
 	{% if section.id == "publications"  or section.id == "talks" %}
             <h4 id="{{ section.id }}">
