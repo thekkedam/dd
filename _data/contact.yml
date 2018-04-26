@@ -30,12 +30,12 @@
     url: "mailto:akkoorath@cs.uni-kl.de"
     value: "akkoorath@cs.uni-kl.de"
     icon: "envelope-square"
-    label: "akkoorath@cs.uni-kl.de" 
+    label: "TU Kaiserslautern email" 
   email:
     url: "mailto:deepthidevaki@gmail.com"
     value: "deepthidevaki@gmail.com"
     icon: "envelope-square"
-    label: "deepthidevaki@gmail.com"
+    label: "Personal email"
   twitter:
     url: "https://twitter.com/deepthidevaki"
     label: "Twitter"
@@ -46,7 +46,7 @@
     label: "Facebook"
     icon: "facebook-square"
   google:
-    url: "https://plus.google.com/110945786880557718364"
+    url: "https://plus.google.com/+DeepthiDevakiAkkoorath"
     label: "Google+"
     icon: "google-plus-square"
   feed:
