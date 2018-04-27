@@ -1,0 +1,256 @@
+<!-- capture system -->
+	{% if page.type == "home" %}
+		{% for section in site.data.about %}
+			{% if section[0] == "About" %}
+				{% for bullet in section[1] %}
+					{% capture description %}{{ description }}{{ bullet | strip_html | strip_newlines }}{% endcapture %}
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+
+		{% if page.thumbnail_path %}
+			{% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+		{% else %}
+			{% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
+		{% endif %}
+
+		{% capture type %}profile{% endcapture %}
+
+		{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+
+		{% capture header_title %}{{ site.data.config.full_name }}{% endcapture %}
+	{% elsif page.type == "research" %}
+		{% if page.dynaid %}
+			{% for research in site.data.research %}
+				{% if research.id == page.dynaid %}
+					{% capture description %}{{ description }}{{ research.description | strip_html | strip_newlines }}{% endcapture %}
+
+					{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}: {{ research.topic }}{% endcapture %}
+				{% endif %}
+			{% endfor %}
+
+			{% capture type %}article{% endcapture %}
+
+		{% else %}
+			{% capture description %}{{ description }}Topics of research currently working are {% endcapture %}
+			{% for research in site.data.research %}
+				{% if research.sta != "old" %}
+					{% capture description %}{{ description }}{{ research.topic }}{% endcapture %}
+					{% capture description %}{{ description }}{% unless forloop.last %} ,{% endunless %}{% endcapture %}
+				{% endif %}
+			{% endfor %}
+			{% capture description %}{{ description }}.{% endcapture %}
+			{% capture description %}{{ description }}Topics of research previously worked are {% endcapture %}
+			{% for research in site.data.research %}
+                                {% if research.sta == "old" %}
+                                        {% capture description %}{{ description }}{{ research.topic }}{% endcapture %}
+					{% capture description %}{{ description }}{% unless forloop.last %} ,{% endunless %}{% endcapture %}
+                                {% endif %}
+                        {% endfor %}
+			{% capture description %}{{ description }}.{% endcapture %}
+
+			{% capture type %}website{% endcapture %}
+
+			{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+
+                {% endif %}
+
+		{% if page.thumbnail_path %}
+                	{% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                {% else %}
+                        {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
+                {% endif %}
+
+		{% capture header_title %}{{ page.type | capitalize }}{% endcapture %}
+
+	{% elsif page.type == "publications" %}
+		{% if page.dynaid %}
+			{% for section_hash in site.data.publications %}
+				{% for section in section_hash %}
+					{% for pubtext in section %}
+						{% if pubtext.title != null and pubtext.id == page.dynaid %}
+							{% capture description %}{{ description }}{{ pubtext.abstract | strip_html | strip_newlines }}{% endcapture %}
+							{% capture image_path %}publications/{{ page.dynaid }}.jpeg{% endcapture %}
+
+							{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}: {{ pubtext.title }}{% endcapture %}
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+			{% endfor %}
+
+			{% capture type %}article{% endcapture %}
+		{% else %}
+			{% capture description %}{{ description }}List of {% endcapture %}
+			{% for section in site.data.publications %}
+				{% capture description %}{{ description }}{{ section[0] }}{% endcapture %}
+				{% capture description %}{{ description }}{% unless forloop.last %} ,{% endunless %}{% endcapture %}
+			{% endfor %}
+			{% capture description %}{{ description }} and Talks.{% endcapture %}
+
+			{% if page.thumbnail_path %}
+                        	{% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                  	{% else %}
+                        	{% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
+                  	{% endif %}
+
+			{% capture type %}website{% endcapture %}
+
+			{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+
+		{% endif %}
+		
+		{% capture header_title %}{{ page.type | capitalize }}{% endcapture %}
+        {% elsif page.type == "talks" %}
+                {% if page.dynaid %}
+                        {% for section_hash in site.data.talks %}
+                                {% for section in section_hash %}
+                                        {% for pubtext in section %}
+                                                {% if pubtext.title != null and pubtext.id == page.dynaid %}
+                                                        {% capture description %}{{ description }}{{ pubtext.abstract | strip_html | strip_newlines }}{% endcapture %}
+							{% capture image_path %}talks/{{ page.dynaid }}.jpeg{% endcapture %}
+
+							{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}: {{ pubtext.title }}{% endcapture %}
+
+                                                {% endif %}
+                                        {% endfor %}
+                                {% endfor %}
+                        {% endfor %}
+
+			{% capture type %}article{% endcapture %}
+                {% else %}
+                        {% capture description %}{{ description }}List of topics are {% endcapture %}
+                        {% for section in site.data.talks %}
+                                {{ section[0] }}{% capture description %}{{ description }}{% endcapture %}
+                                {% capture description %}{{ description }}{% unless forloop.last %} ,{% endunless %}{% endcapture %}
+                        {% endfor %}
+                        {% capture description %}{{ description }}.{% endcapture %}
+
+                        {% if page.thumbnail_path %}
+                                {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                        {% else %}
+                                {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
+                        {% endif %}
+
+			{% capture type %}website{% endcapture %}
+
+			{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+
+                {% endif %}
+
+		{% capture header_title %}{{ page.type | capitalize }}{% endcapture %}
+        {% elsif page.type == "projects" %}
+                {% if page.dynaid %}
+                        {% for project in site.data.projects %}
+                                {% if project.id == page.dynaid %}
+                                        {% capture description %}{{ description }}{{ project.description | strip_html | strip_newlines }}{% endcapture %}
+					{% capture image_path %}projects/{{ project.image }}{% endcapture %}
+
+					{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}: {{ project.name }}{% endcapture %}
+                                {% endif %}
+                        {% endfor %}
+
+			{% capture type %}article{% endcapture %}
+                {% else %}
+                        {% capture description %}{{ description }}List of projects are {% endcapture %}
+                        {% for project in site.data.projects %}
+                                {% capture description %}{{ description }}{{ project.name_long }}{% endcapture %}
+                                {% capture description %}{{ description }}{% unless forloop.last %} ,{% endunless %}{% endcapture %}
+                        {% endfor %}
+                        {% capture description %}{{ description }}.{% endcapture %}
+
+                        {% if page.thumbnail_path %}
+                                {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                        {% else %}
+                                {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
+                        {% endif %}
+
+			{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+
+                {% endif %}
+
+		{% capture type %}website{% endcapture %}
+
+		{% capture header_title %}{{ page.type | capitalize }}{% endcapture %}
+        {% elsif page.type == "profile" %}
+         	{% capture description %}{{ description }}Profile of Deepti Devaki Akkoorath including {% endcapture %}
+                {% for section in site.data.sections %}
+			{% capture description %}{{ description }}{{ section.name }}{% endcapture %}
+			{% capture description %}{{ description }}{% unless forloop.last %} ,{% endunless %}{% endcapture %}
+		{% endfor %}
+		{% capture description %}{{ description }} details.{% endcapture %}
+
+                {% capture image_path %}cv/Deepthi_Devaki_Akkoorath_profile.jpeg{% endcapture %}
+
+		{% capture type %}profile{% endcapture %}
+
+		{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+
+		{% capture header_title %}{{ page.type | capitalize }}{% endcapture %}
+        {% elsif page.type == "contact" %}
+                {% capture description %}{{ description }}Email is the best way to get in touch with me.{% endcapture %}
+
+                {% if page.thumbnail_path %}
+                        {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                {% else %}
+                        {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
+                {% endif %}
+
+		{% capture type %}website{% endcapture %}
+
+		{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+
+		{% capture header_title %}{{ page.type | capitalize }} me{% endcapture %}
+	{% elsif page.type %}
+                {% if page.thumbnail_path %}
+                        {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                {% else %}
+                        {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
+                {% endif %}
+
+                {% capture type %}website{% endcapture %}
+
+                {% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+
+                {% capture header_title %}{{ page.type | capitalize }}{% endcapture %}		
+	{% else %}
+		<!-- discription -->
+		{% if page.excerpt %}
+			{% capture description %}{{ description }}{{ page.excerpt | strip_html | strip_newlines }}{% endcapture %}
+
+                        {% if page.thumbnail_path %}
+                                {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                        {% else %}
+                                {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
+                        {% endif %}
+
+			{% capture type %}{% if page.type %}{{ page.type }}{% else %}website{% endif %}{% endcapture %}
+		{% elsif page.description %}
+			{% capture description %}{{ description }}{{ page.description }}{% endcapture %}
+
+                        {% if page.thumbnail_path %}
+                                {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                        {% else %}
+                                {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
+                        {% endif %}
+
+			{% capture type %}{% if page.type %}{{ page.type }}{% else %}website{% endif %}{% endcapture %}
+		{% else %}
+			{% capture description %}{{ description }}{{ site.data.config.description }}{% endcapture %}
+
+                        {% if page.thumbnail_path %}
+                                {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                        {% else %}
+                                {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
+                        {% endif %}
+
+			{% capture type %}website{% endcapture %}
+		{% endif %}
+	{% endif %}
+
+<!-- description -->
+<!-- Nothing to chnage -->
+<!-- image -->
+{% capture image_url %}{% include image-url.html path=image_path absolute=true %}{% endcapture %}
+<!-- url -->
+{% capture url %}{% if page.url %}{{ page.url }}{% else %}{% include canonical-url.html %}{% endif %}{% endcapture %}
+
