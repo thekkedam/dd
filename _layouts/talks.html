@@ -122,9 +122,11 @@ layout: default
               </P>
             {% endif %}
  
+	    <!--
             {% if pubtext.embed_url != null %}
-              {% include no-lazy-iframe.html url=pubtext.embed_url %}
+              {% include iframe.html url=pubtext.embed_url %}
             {% endif %}
+  	    -->
 
             <span style="float:right;">
               {% if pubtext.pdf != null %}
