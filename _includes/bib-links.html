@@ -1,0 +1,12 @@
+<div class="clearfix">
+  {% if site.data.bibliography_link != null %}
+    {% for bib_url_hash in site.data.bibliography_link %}
+    {% assign bib_url = bib_url_hash[1] %}
+      <a href="{{ bib_url.url }}" class="hint--top dark-gray" target="_blank" rel="noopener">
+        <i class="fa fa-fw fa-lg fa-{{ bib_url.icon }}"></i>
+        <span class="h6 header-font">{{ bib_url.label }}</span>
+      </a>
+      <br>
+    {% endfor %}
+  {% endif % %}
+</div>
