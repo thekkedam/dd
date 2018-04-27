@@ -1,7 +1,10 @@
+---
+permalink: /sw.js
+---
 
 'use strict';
 
-const version = 'v000000002';
+const version = 'v{{ site.time | date: "%Y%m%d%H%M%S" }}';
 const offlineResources = [
   '/',
   '/200.html',
