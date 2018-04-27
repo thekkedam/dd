@@ -1,8 +1,3 @@
-# direct links 
-about: "/about-site"
-cms: "https://dd.thekkedam.org/cms.html"
-feed: "feed.xml"
-
 # Bio settings
 name: "Deepthi Akkoorath"
 full_name: "Deepthi Devaki Akkoorath"
@@ -12,9 +7,13 @@ thumbnail_path: "DeepthiDevakiAkkoorath.jpg"
 thumbnail_path_s: "DeepthiDevakiAkkoorath_s.jpg"
 user_ico_path: "Deepthi_Devaki_Akkoorath_logo.jpg"
 bitcoin_address: 
-website_repo_url: "https://github.com/thekkedam/dd"
 
-# PDF resume
+# direct links 
+about: "/about-site"
+cms: "https://dd.thekkedam.org/cms.html"
+feed: "/feed.xml"
+sitemap: "sitemap.xml"
+website_repo_url: "https://github.com/thekkedam/dd"
 resume_path: "/assets/documents/cv/Akkoorath_Deepthi-Devaki_CV.pdf"
 
 # Image CDN
@@ -31,4 +30,28 @@ github:
 id: deepthidevaki
 # Google Analatic id
 ga: UA-70817718-1
-#
+
+# worker
+sw:
+  offlineResources:
+    - 200.html
+    - offline.svg 
+  ignoreFetch:
+    - cms
+    - resume_path
+
+# robots.txt 
+disallow:
+  - BingSiteAuth.xml
+  - cms.html
+  - CNAME
+  - LICENSE
+  - nortonsw_26518600-9b7f-0.html
+  - speaking
+  - writing
+  - skype.html
+  - 200.html
+  - 404.html
+  - .htaccess
+  - .message
+
