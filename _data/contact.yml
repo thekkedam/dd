@@ -49,8 +49,4 @@
     url: "https://plus.google.com/+DeepthiDevakiAkkoorath"
     label: "Google+"
     icon: "google-plus-square"
-  feed:
-    url: "/feed.xml"
-    label: "Feed"
-    icon: "rss-square"
 
