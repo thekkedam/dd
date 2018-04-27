@@ -123,7 +123,7 @@ layout: default
             {% endif %}
  
             {% if pubtext.embed_url != null %}
-              {% include iframe.html url=pubtext.embed_url %}
+              {% include no-lazy-iframe.html url=pubtext.embed_url %}
             {% endif %}
 
             <span style="float:right;">
