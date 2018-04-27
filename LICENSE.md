@@ -1,19 +1,18 @@
 ---
 layout: default
-title: "Deepthi Devaki Akkoorath: License"
+type: license
 header_title: License
 include_header: license_header.html
-nav_item: home
 ---
 
 The content is Licensed undet two category
 
 ## Category - i
 
-Personal / propretry  
+Personal / propretry / Copyright contents
 
-- Web links under and with
-  - /files
+- Web links and documents under and with
+  - Home Page /
   - /writing
   - /cv
   - /talks
@@ -23,15 +22,14 @@ Personal / propretry
   - /publications
   - /posts
   - /photos
-  - /assets/docs/
+  - /assets/documents
   - /assets/img/
 
 - github source under and with
   - _data/
   - _posts/
-  - files/
+  - assets/documents/
   - assets/img/
-  - assets/docs/
 
 ## Category - ii
 
