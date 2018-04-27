@@ -1,14 +1,10 @@
+---
+permalink: /robots.txt
+---
 User-agent: *
-Sitemap: https://dd.thekkedam.org/sitemap.xml
-Disallow: BingSiteAuth.xml
-Disallow: cms.html
-Disallow: CNAME
-Disallow: LICENSE/*
-Disallow: nortonsw_26518600-9b7f-0.html
-Disallow: speaking/*
-Disallow: writing/*
-Disallow: skype.html
-Disallow: 200.html
-Disallow: 404.html
-Disallow: .htaccess
-Disallow: .message
+Sitemap: {{ site.url }}/{{ site.data.config.sitemap }}
+{% if site.data.config.disallow != null %}
+  {% for disallow in site.data.config.disallow %}
+Disallow: {{ disallow }}
+  {% endfor %}
+{% endif %}
