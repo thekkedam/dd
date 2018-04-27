@@ -1,0 +1,25 @@
+<div class="clearfix">
+  {% if site.data.config.feed %}
+    <a href="{{ site.data.config.feed }}" class="hint--top dark-gray" target="_blank" rel="noopener">
+      <i class="fa fa-fw fa-lg fa-rss-square"></i>
+      <span class="h6 header-font">Feed</span>
+    </a>
+  {% endif %}
+  <br>
+<!--
+  {% if site.data.config.cms %}
+    <a href="{{ site.data.config.cms }}" class="hint--top dark-gray">
+      <i class="fa fa-fw fa-lg fa-pencil-square"></i>
+      <span class="h6 header-font">Post from web</span>
+    </a>
+  {% endif % %}
+  <br>
+-->
+  {% if site.data.config.about %}
+    <a href="{{ site.data.config.about }}" class="hint--top dark-gray">
+      <i class="fa fa-fw fa-lg fa-info-circle"></i>
+      <span class="h6 header-font">About this site</span>
+    </a>
+  {% endif %}
+  <br>
+</div>
