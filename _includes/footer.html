@@ -23,6 +23,11 @@
       </a>
     {% endfor %} 
     |
+    {% if site.data.config.feed %}
+      <a href="{{ site.data.config.feed }}" class="hint--top" target="_blank" rel="noopener" data-hint="Site Feed">
+        <i class="fa fa-fw fa-lg fa-rss-square"></i>
+      </a>
+    {% endif %}
     {% if site.data.config.cms %}
       <a href="{{ site.data.config.cms }}" class="hint--top" data-hint="Post from web">
         <i class="fa fa-fw fa-lg fa-pencil-square"></i>
