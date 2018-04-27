@@ -1,11 +1,13 @@
 <footer class="sticky-footer bg-splash-hblue border-top border-light-gray gray h6">
 <div class="bg-splash-hblue gray h6">
   <div class="sm-col px2">
-    &copy; {{ site.time | date: "%Y" }} {{ site.data.config.full_name }}
+    <span class="hint--top" data-hint="Page generated at {{ site.time | date: "%a, %d %b %Y %H:%M:%S %Z" }}">&copy; {{ site.time | date: "%Y" }} {{ site.data.config.full_name }}</span>
   </div>
+<!--
   <div class="sm-col px2">
     Page generated at {{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}
   </div>
+-->
   <div class="sm-col-right px2">
     {% if site.data.bibliography_link %}
       {% for bib_url_hash in site.data.bibliography_link %}
