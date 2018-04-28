@@ -8,13 +8,14 @@
 <!-- globel -->
 <title>{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.data.config.full_name }}{% endif %}</title>
 
+<link rel="canonical" href="{% include canonical-url.html %}">
+
 <!-- OLD is GOLD -->
 <meta name="title" content="{{ title }}">
 <meta name="description" content="{{ description }}">
 <meta name="image" content="{{ image_url | strip }}">
 <meta name="generator" content="Jekyll v{{ site.data.versions.jekyll }}">
 <meta name="author" content="{{ site.data.config.full_name }}">
-<link rel="canonical" href="{% include canonical-url.html %}">
 
 <!-- Schema.org markup for Google+ -->
 
