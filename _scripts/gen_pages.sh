@@ -51,7 +51,20 @@ function get_file()
 
 function gen_image_1pdf()
 {
-	gs -o $1 -sDEVICE=jpeg -dLastPage=1 $2
+	if [ ! -f $1 ]
+	then
+		echo "Generating image ::: $1 "
+		gs -o $1 -sDEVICE=jpeg -dLastPage=1 $2
+	fi
+}
+
+function gen_text()
+{
+	if [ ! -f $2 ]
+	then
+		echo "Generating text ::: $2 "
+		pdftotext $1 $2
+	fi
 }
 
 function gen_image()
@@ -63,7 +76,7 @@ function gen_image()
 		if [ "$imgsz" -gt "200000"  ]
 		then
 			filenp=$( echo $ppmimg | cut -f 1 -d '.')
-			jpegimg="$filenp.jpeg"
+				jpegimg="$filenp.jpeg"
 			convert $ppmimg $jpegimg
 		fi
 		rm -f $ppmimg
@@ -84,13 +97,18 @@ then
 	TDIR=$CV_DIR
 	FileN=$CV_data
 
-	CV_FILE=$(cat $FileN | grep resume_path | cut -d"\"" -f2 | rm_leading_slash )
+	CV_FILE=$(cat $FileN | grep -e ^resume_path: | cut -d"\"" -f2 | rm_leading_slash )
 
-        if [ $CV_FILE != "null" ] && [ -f $CV_FILE ]
+        if [ -z $CV_FILE ] && [ -f $CV_FILE ]
        	then
-        	echo "$CV_FILE ::::"
                 gen_image_1pdf assets/img/cv/Deepthi_Devaki_Akkoorath_profile.jpeg $CV_FILE 
 	fi
+	if [ ! -d _includes/text/cv ]
+	then
+		mkdir -p _includes/text/cv
+	fi
+        gen_text $CV_FILE _includes/text/cv/Deepthi_Devaki_Akkoorath_cv.txt
+
 elif [ $ptype == "pub" ]
 then
 	echo "Publications ..."
@@ -137,7 +155,7 @@ EOL
                                         	continue
                                 	fi
                         	fi
-                        	echo "$fieldid ::::::: $pdffile"
+
                         	gen_image_1pdf assets/img/publications/$fieldid.jpeg $pdffile 
 
 				if [ ! -d assets/img/publications/$fieldid ]
@@ -145,6 +163,11 @@ EOL
 					mkdir -p assets/img/publications/$fieldid
 				fi
 				gen_image $pdffile assets/img/publications/$fieldid/fig
+                                if [ ! -d _includes/text/publications ]
+                                then
+                                        mkdir -p _includes/text/publications
+                                fi
+				gen_text $pdffile _includes/text/publications/$fieldid.txt
                 	fi
 		else
 			run="null"
@@ -200,11 +223,16 @@ EOL
                         	echo "$fieldid ::::::: $pdffile"
                         	gen_image_1pdf assets/img/talks/$fieldid.jpeg $pdffile
 
-                                if [ ! -d assets/img/publications/$fieldid ]
+                                if [ ! -d assets/img/talks/$fieldid ]
                                 then
                                         mkdir -p assets/img/talks/$fieldid
                                 fi
                                 gen_image $pdffile assets/img/talks/$fieldid/fig
+				if [ ! -d _includes/text/talks ]
+				then
+					mkdir -p _includes/text/talks
+				fi
+				gen_text $pdffile _includes/text/talks/$fieldid.txt
                 	fi
                 else
                         run="null"
