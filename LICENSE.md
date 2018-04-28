@@ -9,7 +9,7 @@ The content is Licensed undet two category
 
 ## Category - i
 
-Personal / propretry / Copyright contents
+Personal / propretry / Copyright contents, contact for any use.
 
 - Web links and documents under and with
   - Home Page /
@@ -23,13 +23,14 @@ Personal / propretry / Copyright contents
   - /posts
   - /photos
   - /assets/documents
-  - /assets/img/
+  - /assets/img
 
 - github source under and with
   - _data/
   - _posts/
-  - assets/documents/
-  - assets/img/
+  - _includes/text
+  - assets/documents
+  - assets/img
 
 ## Category - ii
 
