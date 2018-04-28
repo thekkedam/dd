@@ -75,7 +75,7 @@ layout: default
             </p>
 
             {% if pubtext.conference != null or pubtext.degree != null or pubtext.organization != null %}
-	      <p align="justify">
+	      <p class="justify">
                 <i class="fa fa-fw fa-lg fa-book"></i>
                 <span class="h5">
                 {% if pubtext.conference != null and pubtext.short_name != pubtext.conference %}
@@ -107,12 +107,12 @@ layout: default
 	    {% endif %}
 
 	    {% if pubtext.abstract != null %}
-	      <p align="justify"><i class="fa fa-fw fa-lg fa-bars"> </i>	
+	      <p class="justify"><i class="fa fa-fw fa-lg fa-bars"> </i>	
 	        {{ pubtext.abstract }}</p>
             {% endif %}
 
             {% if pubtext.keyword != null %}
-              <p align="justify">
+              <p class="justify">
               <span class="h5">
                 <b>Keywords :</b>
                 {% for keyword in pubtext.keyword %}
