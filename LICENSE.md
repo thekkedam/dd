@@ -1,7 +1,6 @@
 ---
 layout: default
 type: license
-header_title: License
 include_header: license_header.html
 ---
 
