@@ -1,5 +1,5 @@
 # Bio settings
-name: "Deepthi Akkoorath"
+name_short: "Deepthi Akkoorath"
 first_name: "Deepthi Devaki"
 last_name: "Akkoorath"
 full_name: "Deepthi Devaki Akkoorath"
@@ -12,7 +12,8 @@ bitcoin_address:
 
 # direct links 
 about: "/about-site"
-cms: "https://dd.thekkedam.org/cms.html"
+license: "/LICENSE"
+cms: "/cms.html"
 feed: "/feed.xml"
 sitemap: "sitemap.xml"
 website_repo_url: "https://github.com/thekkedam/dd"
