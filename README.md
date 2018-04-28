@@ -30,7 +30,7 @@ and [Post via web](https://github.com/vrypan/jekyll-post-via-web).
 1. run `git submodule update --init --recursive` to get submodules
 1. Make sure you have [Jekyll](http://jekyllrb.com/docs/installation/) installed
 1. Update all data under `_data`, `_config.yml` and page informations.
-1. run `./build -u` to update all required packages
+1. run `./build -u` to update all required packages ( if there any problem in updating - run `git submodule foreach git pull origin master`)
 1. run `./build -r` to run the site
 1. To test: `http://localhost:4000`
 1. run `./update` to update git
