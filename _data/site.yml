@@ -3,9 +3,20 @@ Remix of:
      - '<a class="link-color" target="_blank" rel="noopener" href="http://jmcglone.com/">Jonathan McGlone</a>'
      - '<a class="link-color" target="_blank" rel="noopener" href="https://github.com/philipithomas/jekyll-resume">jekyll-resume</a>'
      - '<a class="link-color" target="_blank" rel="noopener" href="https://github.com/vrypan/jekyll-post-via-web">Post via web</a>'
+     - '<a class="link-color" target="_blank" rel="noopener" href="https://github.com/rosario/kasper">Kasper</a>'
+     - '<a class="link-color" target="_blank" rel="noopener" href="http://pixyll.com/">Pixyll</a>'
+     - '<a class="link-color" target="_blank" rel="noopener" href="https://medium.com/">Medium</a>'
+
 Using:
-     - 'Icons <a class="link-color" target="_blank" rel="noopener" href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>.'
-     - 'Writen by <a class="link-color" target="_blank" rel="noopener" href="https://app.grammarly.com/">Grammarly</a>.'
+     - 'Icons <a class="link-color" target="_blank" rel="noopener" href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>'
+     - '<a class="link-color" target="_blank" rel="noopener" href="http://www.basscss.com/">Basscss</a>'
+     - '<a class="link-color" target="_blank" rel="noopener" href="http://sass-lang.com/">Sass</a>'
+     - '<a class="link-color" target="_blank" rel="noopener" href="http://kushagragour.in/lab/hint/">Hint.css</a>'
+     - 'Fonts <a class="link-color" target="_blank" rel="noopener" href="https://www.google.com/fonts">Google Fonts</a>'
+     - '<a class="link-color" target="_blank" rel="noopener" href="http://afarkas.github.io/lazysizes/">lazySizes</a>'
+     - '<a class="link-color" target="_blank" rel="noopener" href="https://jquery.com/">jQuery</a>'
+     - '<a class="link-color" target="_blank" rel="noopener" href="http://responsive-nav.com/">responsive-nav.js</a>'
+     - 'Writen by <a class="link-color" target="_blank" rel="noopener" href="https://app.grammarly.com/">Grammarly</a>'
 Hosted:
      - 'On <a class="link-color" target="_blank" rel="noopener" href="https://github.com/thekkedam/dd" title="This site hosted on GitHub">GitHub</a> with <a class="link-color" target="_blank" rel="noopener" href="http://pages.github.com/" title="GitHub Pages">GitHub Pages</a>.'
      - 'IPv6, https support and made faster by <a class="link-color" target="_blank" rel="noopener" href="https://www.cloudflare.com/">CloudFlare</a>.'
