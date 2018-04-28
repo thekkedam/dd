@@ -1,0 +1,541 @@
+Multi-view data types
+Scalable concurrency in the multi-core era
+Deepthi Akkoorath1 , José Brandão2 , Annette Bieniusa1 , Carlos Baquero3
+1
+
+Technical University of Kaiserslautern
+Germany
+2
+
+3
+
+Universidade do Minho
+Braga, Portugal
+
+HASLab, Universidade do Minho & INESC TEC
+Braga, Portugal
+
+Concurrent programs in multi-core
+Speedup
+
+Synchronization
+
+Threads
+
+2/13
+
+Overview
+
+Distributed systems
+• Eventual consistency + CRDTs
+
+: Synchronisation free
+
+• Fast, Scalable, Available
+
+Goal
+• Weak consistency
+
+: Less synchronisation
+
+• Speed up!
+
+3/13
+
+Overview
+
+Distributed systems
+• Eventual consistency + CRDTs
+
+: Synchronisation free
+
+• Fast, Scalable, Available
+
+Goal
+• Weak consistency
+
+: Less synchronisation
+
+• Speed up!
+
+Global-Local view model
+Multi-view data types
+
+3/13
+
+Global-local view model
+
+Local view
+
+Global view
+
+Thread A
+
+Thread B
+
+10
+
+10
+
+10
+
+4/13
+
+Global-local view model
+
+Thread A
+
+Thread B
+c.inc()
+
+Local view
+
+Global view
+
+10
+
+11
+
+10
+
+4/13
+
+Global-local view model
+
+Thread A
+
+Thread B
+c.inc()
+
+Local view
+
+Global view
+
+c.inc()
+
+11
+
+11
+
+10
+
+4/13
+
+Global-local view model
+
+Thread A
+
+Thread B
+c.inc()
+
+Local view
+
+Global view
+
+c.inc()
+c.inc()
+
+11
+
+12
+
+10
+
+4/13
+
+Global-local view model
+
+Thread A
+
+Thread B
+c.inc()
+
+Local view
+
+Global view
+
+c.inc()
+c.inc()
+c.merge()
+
+11
+
+12
+
+12
+
+4/13
+
+Global-local view model
+
+Thread A
+
+Thread B
+c.inc()
+c.merge()
+
+Local view
+
+Global view
+
+13
+
+c.inc()
+c.inc()
+c.merge()
+12
+
+13
+
+4/13
+
+Operations
+
+Local View: ( snapshot, local)
+Accumulates local
+Global view that was
+last seen by this thread updates
+
+Global View: g
+
+5/13
+
+Operations
+weakUpdate
+weakRead
+Local View: ( snapshot, local)
+Accumulates local
+Global view that was
+last seen by this thread updates
+
+Global View: g
+
+5/13
+
+Operations
+weakUpdate
+weakRead
+Local View: ( snapshot, local)
+Accumulates local
+Global view that was
+last seen by this thread updates
+
+Global View: g
+strongUpdate
+strongRead
+
+5/13
+
+Operations
+weakUpdate
+weakRead
+Local View: ( snapshot, local)
+Accumulates local
+Global view that was
+last seen by this thread updates
+
+merge
+
+Global View: g
+strongUpdate
+strongRead
+
+5/13
+
+Multi-view data types
+
+Mergeable types
+• Implements weak operations and merge
+Hybrid types
+• Implements weak, strong and merge operations
+• Hybrid counter
+
+synchronous increment when close to a target
+• Hybrid queue
+
+weak enqueue and synchronous dequeue
+
+6/13
+
+CRDTs?
+
+7/13
+
+CRDTs?
+• G-Set
+• merge = union of sets
+• Counter
+• Map: id → int
+• merge = max of each elem
+
+7/13
+
+CRDTs?
+• G-Set
+• merge = union of sets
+• Counter
+• Map: id → int
+• merge = max of each elem
+
+CRDT merge is expensive
+
+7/13
+
+CRDTs?
+• G-Set
+• merge = union of sets
+• Counter
+• Map: id → int
+• merge = max of each elem
+
+CRDT merge is expensive
+
+Multi-view data types
+• Multiple versions (view)
+• Isolated access to each view
+• Fast merge
+
+7/13
+
+Counter
+
+• Global view: int g
+• Local view :
+( int s, int l )
+
+Thread-local copies
+Exclusive access ⇒ no
+synchronization
+Synchronous merge
+
+weakInc ( ) {
+l ++;
+}
+weakValue ( ) {
+r e t u r n s+ l ;
+}
+merge ( ) {
+atomic {g += l ;
+s = g ; l = 0;}
+}
+strongInc ( ) {
+atomic {g ++;}
+}
+
+8/13
+
+Multi-view list
+T1
+head
+T2
+
+After T 1 commits:
+T1
+head
+T2
+
+After T 2 commits:
+T1
+head
+T2
+
+9/13
+
+Evaluation: Hybrid Counter
+Goal: increment until a target
+Periodic merge ⇒ Divergence from target
+Switches to strong update after a threshold
+�������
+
+�
+
+����
+�����
+������
+�������
+��������
+���������
+����
+
+�����
+
+�
+
+�������
+
+�������
+
+�
+
+�����
+
+�
+
+�����
+
+�
+
+�
+
+�
+
+�
+
+�
+
+�
+
+�
+
+�
+
+�
+
+��
+
+�
+
+��
+
+�
+
+�
+
+��
+
+��
+
+�
+
+��
+
+�
+
+��
+
+�
+
+��
+
+�
+
+�������
+
+10/13
+
+Evaluation: Breadth first traversal
+Using hybrid queue : weak enqueue and strong dequeue
+4.5
+4
+
+Speed up
+
+3.5
+3
+2.5
+2
+1.5
+
+Lin-Lockbased
+Lin-LockFree
+M-Lockbased
+M-LockFree
+
+1
+0.5
+
+1
+
+2
+
+4
+
+8
+
+12
+
+16
+
+20
+
+24
+
+No.of threads
+
+11/13
+
+Related work
+Mergeable types
+
+Weak consistency
+
+Doppel [Narula et al., 2014]
+
+Quasi linearizability [Afek et al., 2010]
+
+in-memory transactions
+Concurrent revisions
+[Burckhardt et al., 2010]
+
+fork join model
+“mergeable” types
+
+Weak/medium future linearizability
+[Kogan and Herlihy, 2014]
+
+K-linearizability [Aiyer et al., 2005]
+Quiescent consistency
+[Aspnes et al., 1994]
+
+12/13
+
+Summary
+
+Global-local view model
+• fast local state, distant global state
+
+Impact on underlying data structure design
+• Multiple versions, Merge
+
+Combination of weak and strong updates
+• A spectrum of consistency
+
+Thank you!
+akkoorath@cs.uni-kl.de
+
+13/13
+
+References I
+Afek, Y., Korland, G., and Yanovsky, E. (2010).
+Quasi-linearizability: Relaxed consistency for improved concurrency.
+In Proceedings of the 14th International Conference on Principles of Distributed
+Systems, OPODIS’10, pages 395–410, Berlin, Heidelberg. Springer-Verlag.
+Aiyer, A., Alvisi, L., and Bazzi, R. A. (2005).
+On the availability of non-strict quorum systems.
+In Proceedings of the 19th International Conference on Distributed Computing,
+DISC’05, pages 48–62, Berlin, Heidelberg. Springer-Verlag.
+Aspnes, J., Herlihy, M., and Shavit, N. (1994).
+Counting networks.
+J. ACM, 41(5):1020–1048.
+Burckhardt, S., Baldassin, A., and Leijen, D. (2010).
+Concurrent programming with revisions and isolation types.
+In Proceedings of the ACM International Conference on Object Oriented Programming
+Systems Languages and Applications, OOPSLA ’10, pages 691–707, New York, NY,
+USA. ACM.
+
+1/2
+
+References II
+
+Kogan, A. and Herlihy, M. (2014).
+The future(s) of shared data structures.
+In Proceedings of the 2014 ACM Symposium on Principles of Distributed Computing,
+PODC ’14, pages 30–39, New York, NY, USA. ACM.
+Narula, N., Cutler, C., Kohler, E., and Morris, R. (2014).
+Phase reconciliation for contended in-memory transactions.
+In Proceedings of the 11th USENIX Conference on Operating Systems Design and
+Implementation, OSDI’14, pages 511–524, Berkeley, CA, USA. USENIX Association.
+
+2/2
+
+
