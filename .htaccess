@@ -20,7 +20,8 @@ RewriteRule ^pre{{ event[0] }}{{ section.id }}  {{ site.url }}{{ section.present
 {% endfor %}
 
 {% for event in site.data.talks %}
-  {% for section_hash in event %}
+  {% for section_list in event %}
+      {% assign section_hash =  section_list[0] %}
       {% for section in section_hash %}
               {% if section.id != null %}
                   {% if section.pdf != null %}
