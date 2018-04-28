@@ -1,3 +1,4 @@
+_scripts/gen_versions.sh
 _scripts/gen_pages.sh pub
 _scripts/gen_pages.sh talk
 _scripts/gen_pages.sh res
