@@ -1,5 +1,5 @@
 <!-- capture system -->
-	{% if page.type == "home" %}
+	{% if include.page.type == "home" %}
 		{% for section in site.data.about %}
 			{% if section[0] == "About" %}
 				{% for bullet in section[1] %}
@@ -8,24 +8,24 @@
 			{% endif %}
 		{% endfor %}
 
-		{% if page.thumbnail_path %}
-			{% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+		{% if include.page.thumbnail_path %}
+			{% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
 		{% else %}
 			{% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
 		{% endif %}
 
 		{% capture type %}profile{% endcapture %}
 
-		{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+		{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
 
 		{% capture header_title %}{{ site.data.config.full_name }}{% endcapture %}
-	{% elsif page.type == "research" %}
-		{% if page.dynaid %}
+	{% elsif include.page.type == "research" %}
+		{% if include.page.dynaid %}
 			{% for research in site.data.research %}
-				{% if research.id == page.dynaid %}
+				{% if research.id == include.page.dynaid %}
 					{% capture description %}{{ description }}{{ research.description | strip_html | strip_newlines }}{% endcapture %}
 
-					{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}: {{ research.topic }}{% endcapture %}
+					{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}: {{ research.topic }}{% endcapture %}
 				{% endif %}
 			{% endfor %}
 
@@ -51,28 +51,28 @@
 
 			{% capture type %}website{% endcapture %}
 
-			{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+			{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
 
                 {% endif %}
 
-		{% if page.thumbnail_path %}
-                	{% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+		{% if include.page.thumbnail_path %}
+                	{% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
                 {% else %}
                         {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
                 {% endif %}
 
-		{% capture header_title %}{{ page.type | capitalize }}{% endcapture %}
+		{% capture header_title %}{{ include.page.type | capitalize }}{% endcapture %}
 
-	{% elsif page.type == "publications" %}
-		{% if page.dynaid %}
+	{% elsif include.page.type == "publications" %}
+		{% if include.page.dynaid %}
 			{% for section_hash in site.data.publications %}
 				{% for section in section_hash %}
 					{% for pubtext in section %}
-						{% if pubtext.title != null and pubtext.id == page.dynaid %}
+						{% if pubtext.title != null and pubtext.id == include.page.dynaid %}
 							{% capture description %}{{ description }}{{ pubtext.abstract | strip_html | strip_newlines }}{% endcapture %}
-							{% capture image_path %}publications/{{ page.dynaid }}.jpeg{% endcapture %}
+							{% capture image_path %}publications/{{ include.page.dynaid }}.jpeg{% endcapture %}
 
-							{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}: {{ pubtext.title }}{% endcapture %}
+							{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}: {{ pubtext.title }}{% endcapture %}
 						{% endif %}
 					{% endfor %}
 				{% endfor %}
@@ -87,29 +87,29 @@
 			{% endfor %}
 			{% capture description %}{{ description }} and Talks.{% endcapture %}
 
-			{% if page.thumbnail_path %}
-                        	{% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+			{% if include.page.thumbnail_path %}
+                        	{% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
                   	{% else %}
                         	{% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
                   	{% endif %}
 
 			{% capture type %}website{% endcapture %}
 
-			{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+			{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
 
 		{% endif %}
 		
-		{% capture header_title %}{{ page.type | capitalize }}{% endcapture %}
-        {% elsif page.type == "talks" %}
-                {% if page.dynaid %}
+		{% capture header_title %}{{ include.page.type | capitalize }}{% endcapture %}
+        {% elsif include.page.type == "talks" %}
+                {% if include.page.dynaid %}
                         {% for section_hash in site.data.talks %}
                                 {% for section in section_hash %}
                                         {% for pubtext in section %}
-                                                {% if pubtext.title != null and pubtext.id == page.dynaid %}
+                                                {% if pubtext.title != null and pubtext.id == include.page.dynaid %}
                                                         {% capture description %}{{ description }}{{ pubtext.abstract | strip_html | strip_newlines }}{% endcapture %}
-							{% capture image_path %}talks/{{ page.dynaid }}.jpeg{% endcapture %}
+							{% capture image_path %}talks/{{ include.page.dynaid }}.jpeg{% endcapture %}
 
-							{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}: {{ pubtext.title }}{% endcapture %}
+							{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}: {{ pubtext.title }}{% endcapture %}
 
                                                 {% endif %}
                                         {% endfor %}
@@ -125,27 +125,27 @@
                         {% endfor %}
                         {% capture description %}{{ description }}.{% endcapture %}
 
-                        {% if page.thumbnail_path %}
-                                {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                        {% if include.page.thumbnail_path %}
+                                {% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
                         {% else %}
                                 {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
                         {% endif %}
 
 			{% capture type %}website{% endcapture %}
 
-			{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+			{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
 
                 {% endif %}
 
-		{% capture header_title %}{{ page.type | capitalize }}{% endcapture %}
-        {% elsif page.type == "projects" %}
-                {% if page.dynaid %}
+		{% capture header_title %}{{ include.page.type | capitalize }}{% endcapture %}
+        {% elsif include.page.type == "projects" %}
+                {% if include.page.dynaid %}
                         {% for project in site.data.projects %}
-                                {% if project.id == page.dynaid %}
+                                {% if project.id == include.page.dynaid %}
                                         {% capture description %}{{ description }}{{ project.description | strip_html | strip_newlines }}{% endcapture %}
 					{% capture image_path %}projects/{{ project.image }}{% endcapture %}
 
-					{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}: {{ project.name }}{% endcapture %}
+					{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}: {{ project.name }}{% endcapture %}
                                 {% endif %}
                         {% endfor %}
 
@@ -158,20 +158,20 @@
                         {% endfor %}
                         {% capture description %}{{ description }}.{% endcapture %}
 
-                        {% if page.thumbnail_path %}
-                                {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                        {% if include.page.thumbnail_path %}
+                                {% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
                         {% else %}
                                 {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
                         {% endif %}
 
-			{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+			{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
 
                 {% endif %}
 
 		{% capture type %}website{% endcapture %}
 
-		{% capture header_title %}{{ page.type | capitalize }}{% endcapture %}
-        {% elsif page.type == "profile" %}
+		{% capture header_title %}{{ include.page.type | capitalize }}{% endcapture %}
+        {% elsif include.page.type == "profile" %}
          	{% capture description %}{{ description }}Profile of Deepti Devaki Akkoorath including {% endcapture %}
                 {% for section in site.data.sections %}
 			{% capture description %}{{ description }}{{ section.name }}{% endcapture %}
@@ -183,62 +183,64 @@
 
 		{% capture type %}profile{% endcapture %}
 
-		{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+		{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
 
-		{% capture header_title %}{{ page.type | capitalize }}{% endcapture %}
-        {% elsif page.type == "contact" %}
+		{% capture header_title %}{{ include.page.type | capitalize }}{% endcapture %}
+        {% elsif include.page.type == "contact" %}
                 {% capture description %}{{ description }}Email is the best way to get in touch with me.{% endcapture %}
 
-                {% if page.thumbnail_path %}
-                        {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                {% if include.page.thumbnail_path %}
+                        {% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
                 {% else %}
                         {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
                 {% endif %}
 
 		{% capture type %}website{% endcapture %}
 
-		{% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+		{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
 
-		{% capture header_title %}{{ page.type | capitalize }} me{% endcapture %}
-	{% elsif page.type %}
-                {% if page.thumbnail_path %}
-                        {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+		{% capture header_title %}{{ include.page.type | capitalize }} me{% endcapture %}
+	{% elsif include.page.type %}
+                {% if include.page.thumbnail_path %}
+                        {% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
                 {% else %}
                         {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
                 {% endif %}
 
                 {% capture type %}website{% endcapture %}
 
-                {% capture title %}{{ site.data.config.full_name }}, {{ page.type | capitalize }}{% endcapture %}
+                {% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
 
-                {% capture header_title %}{{ page.type | capitalize }}{% endcapture %}		
+                {% capture header_title %}{{ include.page.type | capitalize }}{% endcapture %}		
+
+		{% capture description %}{{ title }}{% endcapture %}
 	{% else %}
 		<!-- discription -->
-		{% if page.excerpt %}
-			{% capture description %}{{ description }}{{ page.excerpt | strip_html | strip_newlines }}{% endcapture %}
+		{% if include.page.excerpt %}
+			{% capture description %}{{ description }}{{ include.page.excerpt | strip_html | strip_newlines }}{% endcapture %}
 
-                        {% if page.thumbnail_path %}
-                                {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                        {% if include.page.thumbnail_path %}
+                                {% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
                         {% else %}
                                 {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
                         {% endif %}
 
-			{% capture type %}{% if page.type %}{{ page.type }}{% else %}website{% endif %}{% endcapture %}
-		{% elsif page.description %}
-			{% capture description %}{{ description }}{{ page.description }}{% endcapture %}
+			{% capture type %}{% if include.page.type %}{{ include.page.type }}{% else %}website{% endif %}{% endcapture %}
+		{% elsif include.page.description %}
+			{% capture description %}{{ description }}{{ include.page.description }}{% endcapture %}
 
-                        {% if page.thumbnail_path %}
-                                {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                        {% if include.page.thumbnail_path %}
+                                {% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
                         {% else %}
                                 {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
                         {% endif %}
 
-			{% capture type %}{% if page.type %}{{ page.type }}{% else %}website{% endif %}{% endcapture %}
+			{% capture type %}{% if include.page.type %}{{ include.page.type }}{% else %}website{% endif %}{% endcapture %}
 		{% else %}
 			{% capture description %}{{ description }}{{ site.data.config.description }}{% endcapture %}
 
-                        {% if page.thumbnail_path %}
-                                {% capture image_path %}{{ page.thumbnail_path }}{% endcapture %}
+                        {% if include.page.thumbnail_path %}
+                                {% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
                         {% else %}
                                 {% capture image_path %}{{ site.data.config.thumbnail_path }}{% endcapture %}
                         {% endif %}
@@ -252,5 +254,5 @@
 <!-- image -->
 {% capture image_url %}{% include image-url.html path=image_path absolute=true %}{% endcapture %}
 <!-- url -->
-{% capture url %}{% if page.url %}{{ page.url }}{% else %}{% include canonical-url.html %}{% endif %}{% endcapture %}
+{% capture url %}{% if include.page.url %}{{ include.page.url }}{% else %}{% include canonical-url.html %}{% endif %}{% endcapture %}
 
