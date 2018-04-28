@@ -1,0 +1,1720 @@
+Causal consistency in
+Geo-replicated Systems
+Deepthi Akkoorath
+AG SoftTech
+
+Geo-Replicated Distributed Application
+
+DC1
+
+DC2
+
+DC3
+
+11/07/2014
+
+2
+
+Geo-Replicated Distributed Application
+
+1. Create meeting
+
+DC1
+
+DC2
+
+DC3
+
+11/07/2014
+
+3
+
+Geo-Replicated Distributed Application
+
+1. Create meeting
+
+2. Create meeting
+DC1
+
+DC2
+
+DC3
+
+11/07/2014
+
+4
+
+Geo-Replicated Distributed Application
+
+1. Create meeting
+
+3. See meeting
+Delete meeting
+2. Create meeting
+
+DC1
+
+DC2
+
+DC3
+
+11/07/2014
+
+5
+
+Geo-Replicated Distributed Application
+
+1. Create meeting
+
+3. See meeting
+Delete meeting
+2. Create meeting
+DC2
+
+11/07/2014
+
+4.
+D
+
+DC3
+
+ele
+t
+
+em
+
+ee
+t in
+g
+
+DC1
+
+6
+
+Geo-Replicated Distributed Application
+
+1. Create meeting
+
+3. See meeting
+Delete meeting
+2. Create meeting
+
+DC1
+
+DC2
+
+11/07/2014
+
+4.
+D
+
+ele
+t
+
+em
+
+ee
+t in
+g
+
+te
+ea
+C r in g
+5. eet
+m
+
+DC3
+
+7
+
+Geo-Replicated Distributed Application
+
+1. Create meeting
+
+3. See meeting
+Delete meeting
+2. Create meeting
+
+DC1
+
+DC2
+6. Delete meeting
+
+11/07/2014
+
+4.
+D
+
+ele
+t
+
+em
+
+ee
+t in
+g
+
+te
+ea
+C r in g
+5. eet
+m
+
+DC3
+
+8
+
+Lamport's Timestamps
+●
+
+Total order of events satisfying Happened-before relation
+
+●
+
+Each process has a Logical clock
+
+●
+
+A process increments its clock for each event
+
+●
+
+Sends clock with each message it sends
+
+●
+
+On receiving a message
+–
+
+11/07/2014
+
+Sets clock = max(own clock, received clock)
+
+9
+
+Lamport's Timestamps
+●
+
+Total order of events satisfying Happened-before relation
+
+●
+
+Each process has a Logical clock
+
+●
+
+A process increments its clock for each event
+
+●
+
+Sends clock with each message it sends
+
+●
+
+On receiving a message
+–
+
+11/07/2014
+
+Sets clock = max(own clock, received clock)
+
+10
+
+Vectorclocks
+●
+
+Similar to Lamport's timestamp
+
+●
+
+Partial order and detect causality violations
+
+●
+
+A system on N process
+–
+
+Vectorclock = array of N logical clocks
+
+–
+
+Each process has a vectorclock
+
+–
+
+Increment its own logical clock for each event
+
+–
+
+On receiving a message
+●
+
+11/07/2014
+
+Set each entry in vc to be max(local entry, corresponding
+entry in received vc)
+
+11
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+
+11/07/2014
+
+DC2
+[0,0,0]
+
+DC3
+[0,0,0]
+
+12
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+
+DC2
+[0,0,0]
+
+DC3
+[0,0,0]
+
+Create meeting
+
+11/07/2014
+
+13
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+[1,0,0]
+
+11/07/2014
+
+DC2
+[0,0,0]
+
+DC3
+[0,0,0]
+
+Create meeting
+
+14
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+[1,0,0]
+
+11/07/2014
+
+DC2
+[0,0,0]
+
+DC3
+[0,0,0]
+
+Create meeting
+
+15
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+[1,0,0]
+
+DC2
+[0,0,0]
+
+DC3
+[0,0,0]
+
+Create meeting
+[2,1,0]
+
+11/07/2014
+
+16
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+[1,0,0]
+
+DC2
+
+[0,0,0]
+
+[0,0,0]
+Create meeting
+[2,1,0]
+
+11/07/2014
+
+DC3
+
+Delete meeting
+
+17
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+[1,0,0]
+
+DC2
+
+[0,0,0]
+
+[0,0,0]
+Create meeting
+[2,1,0]
+[2,2,0]
+
+11/07/2014
+
+DC3
+
+Delete meeting
+
+18
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+[1,0,0]
+
+[0,0,0]
+
+[0,0,0]
+Create meeting
+[2,1,0]
+[2,2,0]
+
+11/07/2014
+
+DC3
+
+DC2
+
+Delete meeting
+[2,2,0]
+
+19
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+[1,0,0]
+
+DC3
+
+DC2
+
+[0,0,0]
+
+[0,0,0]
+Create meeting
+[2,1,0]
+[2,2,0]
+
+Delete meeting
+[2,2,0]
+
+[2,3,1]
+
+11/07/2014
+
+20
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+[1,0,0]
+
+DC3
+
+DC2
+
+[0,0,0]
+
+[0,0,0]
+Create meeting
+[2,1,0]
+[2,2,0]
+
+Delete meeting
+[2,2,0]
+
+[1,0,0]
+
+11/07/2014
+
+[2,3,1]
+
+21
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+[1,0,0]
+
+DC3
+
+DC2
+
+[0,0,0]
+
+[0,0,0]
+Create meeting
+[2,1,0]
+[2,2,0]
+
+Delete meeting
+[2,2,0]
+
+[1,0,0]
+
+[2,3,1]
+[2,3,2]
+
+11/07/2014
+
+22
+
+Detect Causality violation using Vectorclocks
+DC1
+[0,0,0]
+[1,0,0]
+
+DC3
+
+DC2
+
+[0,0,0]
+
+[0,0,0]
+Create meeting
+[2,1,0]
+[2,2,0]
+
+Delete meeting
+[2,2,0]
+
+[1,0,0]
+
+[2,3,1]
+[2,3,2]
+
+11/07/2014
+
+23
+
+Version Vectors
+●
+
+Similar to vector clocks
+
+●
+
+Partial order among replicas of an object
+
+●
+
+Several mechanisms to keep size of version vector small
+
+●
+
+–
+
+Bounded Version Vectors
+
+–
+
+Dotted Version Vectors
+
+Causality across objects cannot be tracked
+
+11/07/2014
+
+24
+
+Partitioned and Geo-Replicated Distributed
+System
+
+11/07/2014
+
+25
+
+Partitioned and Geo-Replicated Distributed
+System
+
+1. remove photos
+
+11/07/2014
+
+26
+
+Partitioned and Geo-Replicated Distributed
+System
+
+1. remove photos
+
+11/07/2014
+
+2. addFriend(Bob)
+
+27
+
+Partitioned and Geo-Replicated Distributed
+System
+
+1. remove photos
+
+2. addFriend(Bob)
+
+3. addFriend(Bob)
+
+11/07/2014
+
+28
+
+Partitioned and Geo-Replicated Distributed
+System
+
+4. See photos of Alice
+1. remove photos
+
+2. addFriend(Bob)
+
+3. addFriend(Bob)
+
+11/07/2014
+
+29
+
+Partitioned and Geo-Replicated Distributed
+System
+
+4. See photos of Alice
+1. remove photos
+
+2. addFriend(Bob)
+
+3. addFriend(Bob)
+5. removePhotos
+
+11/07/2014
+
+30
+
+Orbe: Causal Consistency with Dependency
+Matrix
+
+11/07/2014
+
+Clock
+
+R1
+
+R2
+
+R3
+
+R4
+
+P1
+
+0
+
+2
+
+0
+
+0
+
+P2
+
+1
+
+0
+
+3
+
+0
+
+P3
+
+0
+
+0
+
+0
+
+1
+
+31
+
+Orbe: Causal Consistency with Dependency
+Matrix
+●
+
+Dependency matrices to track causality
+
+●
+
+Client updates its DM when ever it reads a new version
+Clock
+Clock
+
+P1
+P2
+P3
+●
+
+R1
+0
+
+R2
+2
+
+R3
+0
+
+R4
+0
+
+1
+0
+
+0
+0
+
+3
+0
+
+0
+1
+
+Client has seen 3rst 2 updates at replica 2 of partition 1
+
+11/07/2014
+
+32
+
+Orbe: Causal Consistency with Dependency
+Matrix
+●
+
+●
+
+Each Partition has its own version vector - VV
+VV
+
+R1
+
+R2
+
+R3
+
+R4
+
+P1/R1
+
+1
+
+2
+
+1
+
+0
+
+P1 at DC1 has
+
+11/07/2014
+
+–
+
+1 local update
+
+–
+
+2 updates from R2
+
+–
+
+1 update from R3
+
+33
+
+Orbe: Causal Consistency with Dependency
+Matrix
+●
+
+Client send put(k,v,DM) to partition P1 at DC1
+
+●
+
+P1 at DC1
+
+●
+
+–
+
+Increment its own VV[R1]
+
+–
+
+Ts = VV[R1]
+
+–
+
+New entry U<k, v, 2, DM, R1>
+
+–
+
+Replicate U to P1 at DC2 and DC3
+
+On receiving U< k, v, ts, DM, replicaid> at Pn
+
+11/07/2014
+
+–
+
+Check VV >= DM[n]
+
+–
+
+Check if causality is satis3ed at other partitions
+
+–
+
+Update VV[replicaid] = ts
+
+34
+
+Total order in a partitioned system
+●
+
+Snapshot isolation
+–
+
+●
+
+Reads a consistent snapshot
+
+Consistent Snapshot
+–
+
+Includes all updates committed before snapshot time
+
+●
+
+Transactions commit in total order
+
+●
+
+Snapshot identi3ed by its commit time
+
+●
+
+Update A is causally before B if A.commit-time <
+B.commit-time
+
+11/07/2014
+
+35
+
+Clock SI – Snapshot Isolation using physical
+clocks
+●
+
+Loosely synchronized clocks
+
+●
+
+No centralized time-stamp generator
+
+●
+
+Distributed protocol
+
+●
+
+Snapshot-time
+
+●
+
+–
+
+Time when transaction begins
+
+–
+
+Reads return values committed on or before this time
+
+Commit-time decided by transaction coordinator and
+partitions involved in transaction
+
+11/07/2014
+
+36
+
+ClockSI – Commit Protocol
+Txn Coordinator
+
+Partitions
+11/07/2014
+
+37
+
+ClockSI – Commit Protocol
+Txn Coordinator
+●
+
+T.snapshottime = Localclock
+=8
+
+●
+
+Send prepare to partitions
+
+●
+
+Commit-time = max(11,9,10)
+
+●
+
+Commit to partitions
+
+Partitions
+11/07/2014
+
+38
+
+ClockSI – Commit Protocol
+Txn Coordinator
+●
+
+T.snapshottime = Localclock
+=8
+
+●
+
+Send prepare to partitions
+
+●
+
+Commit-time = max(11,9,10)
+
+●
+
+Commit to partitions
+
+Partitions
+11/07/2014
+
+39
+
+ClockSI – Commit Protocol
+Txn Coordinator
+●
+
+T.snapshottime = Localclock
+=8
+
+●
+
+Send prepare to partitions
+
+●
+
+Commit-time = max(11,9,10)
+
+●
+
+Commit to partitions
+
+●
+
+Receive Prepare
+
+●
+
+Receive Prepare
+
+●
+
+Receive Prepare
+
+●
+
+Localclock = 11
+
+●
+
+Localclock = 9
+
+●
+
+Localclock = 10
+
+●
+
+Reply 11
+
+●
+
+Reply 9
+
+●
+
+Reply 10
+
+●
+
+Commit-time = 11
+
+●
+
+Commit-time = 11
+
+●
+
+Commit-time = 11
+
+Partitions
+11/07/2014
+
+40
+
+ClockSI – Commit Protocol
+Txn Coordinator
+●
+
+T.snapshottime = Localclock
+=8
+
+●
+
+Send prepare to partitions
+
+●
+
+Commit-time = max(11,9,10)
+
+●
+
+Commit to partitions
+
+●
+
+Receive Prepare
+
+●
+
+Receive Prepare
+
+●
+
+Receive Prepare
+
+●
+
+Localclock = 11
+
+●
+
+Localclock = 9
+
+●
+
+Localclock = 10
+
+●
+
+Reply 11
+
+●
+
+Reply 9
+
+●
+
+Reply 10
+
+●
+
+Commit-time = 11
+
+●
+
+Commit-time = 11
+
+●
+
+Commit-time = 11
+
+Partitions
+11/07/2014
+
+41
+
+ClockSI – Commit Protocol
+Txn Coordinator
+●
+
+T.snapshottime = Localclock
+=8
+
+●
+
+Send prepare to partitions
+
+●
+
+Commit-time = max(11,9,10)
+
+●
+
+Commit to partitions
+
+●
+
+Receive Prepare
+
+●
+
+Receive Prepare
+
+●
+
+Receive Prepare
+
+●
+
+Localclock = 11
+
+●
+
+Localclock = 9
+
+●
+
+Localclock = 10
+
+●
+
+Reply 11
+
+●
+
+Reply 9
+
+●
+
+Reply 10
+
+●
+
+Commit-time = 11
+
+●
+
+Commit-time = 11
+
+●
+
+Commit-time = 11
+
+Partitions
+11/07/2014
+
+42
+
+ClockSI – Commit Protocol
+Txn Coordinator
+●
+
+T.snapshottime = Localclock
+=8
+
+●
+
+Send prepare to partitions
+
+●
+
+Commit-time = max(11,9,10)
+
+●
+
+Commit to partitions
+
+●
+
+Receive Prepare
+
+●
+
+Receive Prepare
+
+●
+
+Receive Prepare
+
+●
+
+Localclock = 11
+
+●
+
+Localclock = 9
+
+●
+
+Localclock = 10
+
+●
+
+Reply 11
+
+●
+
+Reply 9
+
+●
+
+Reply 10
+
+●
+
+Commit-time = 11
+
+●
+
+Commit-time = 11
+
+●
+
+Commit-time = 11
+
+Partitions
+11/07/2014
+
+43
+
+ClockSI – Commit Protocol
+Txn Coordinator
+●
+
+T.snapshottime = Localclock
+=8
+
+●
+
+Send prepare to partitions
+
+●
+
+Commit-time = max(11,9,10)
+
+●
+
+Commit to partitions
+
+●
+
+Receive Prepare
+
+●
+
+Receive Prepare
+
+●
+
+Receive Prepare
+
+●
+
+Localclock = 11
+
+●
+
+Localclock = 9
+
+●
+
+Localclock = 10
+
+●
+
+Reply 11
+
+●
+
+Reply 9
+
+●
+
+Reply 10
+
+●
+
+Commit-time = 11
+
+●
+
+Commit-time = 11
+
+●
+
+Commit-time = 11
+
+Partitions
+11/07/2014
+
+44
+
+Clock SI – Read protocol
+Read(Transaction T, dataitem Obj)
+●
+●
+
+Wait if T.snapshotime > localclock
+If any pending Transaction T' with possible commit-time <
+T'.snapshottime
+–
+
+●
+
+wait until T' is committed
+
+Return latest snapshot before snapshot-time
+
+11/07/2014
+
+45
+
+Extended ClockSI: Partitioned and Replicated
+System
+●
+
+Vectorclock per partition
+P1/R1
+–
+
+●
+
+●
+
+●
+
+R1
+
+R2
+
+R3
+
+R4
+
+10
+
+9
+
+13
+
+8
+
+P1 at DC1 has seen all updates from DC2 before time 9
+
+Snapshot-time is Vectorclock of coordinator at the time
+when transaction begins
+Updates in a transaction depends on Snapshot which it
+reads from
+Snapshot-time encodes causal dependency
+
+11/07/2014
+
+46
+
+Extended ClockSI: Replication
+●
+
+●
+●
+
+P1 at DC1 sends updates to P1 at DC2 in Commi
+t
+t
+i
+me
+or
+der
+Send snapshot-time and commit-time with every update
+On receiving an update U<DC, Commit-time,
+Snapshot-time> from a partition
+
+11/07/2014
+
+–
+
+Apply U if local vectorclock > Snapshot-time
+
+–
+
+Set vectorclock[DC] = Commit-time
+
+47
+
+Extended ClockSI: Read
+●
+
+Upon receiving a read request in a partition
+–
+
+Wait until local vectorclock >= snapshot-time
+
+–
+
+Return latest value before snapshot-time
+
+●
+
+Causality metadata = O(N)
+
+●
+
+No communication between partitions
+
+11/07/2014
+
+48
+
+Social Network Application
+
+11/07/2014
+
+49
+
+Social Network Application
+
+1. remove photos
+S=[0,0],C[2,0]
+
+11/07/2014
+
+50
+
+Social Network Application
+
+1. remove photos
+S=[0,0],C[2,0]
+
+11/07/2014
+
+2. addFriend(Bob)
+S[3,0], C[4,0]
+
+51
+
+Social Network Application
+
+1. remove photos
+S=[0,0],C[2,0]
+
+2. addFriend(Bob)
+S[3,0], C[4,0]
+VV=[4,0]
+
+3. addFriend(Bob)
+
+11/07/2014
+
+52
+
+Social Network Application
+
+1. remove photos
+S=[0,0],C[2,0]
+
+4. Friends? Yes !!
+S = [4,0]
+2. addFriend(Bob)
+S[3,0], C[4,0]
+VV=[4,0]
+
+3. addFriend(Bob)
+
+11/07/2014
+
+53
+
+Social Network Application
+
+1. remove photos
+S=[0,0],C[2,0]
+
+4. Friends? Yes !!
+S = [4,0]
+
+SeePhotos?S = [4,0]
+
+2. addFriend(Bob)
+S[3,0], C[4,0]
+VV=[4,0]
+
+3. addFriend(Bob)
+
+11/07/2014
+
+54
+
+Social Network Application
+
+1. remove photos
+S=[0,0],C[2,0]
+
+4. Friends? Yes !!
+S = [4,0]
+
+SeePhotos?S = [4,0]
+
+2. addFriend(Bob)
+S[3,0], C[4,0]
+VV=[4,0]
+
+3. addFriend(Bob)
+
+11/07/2014
+
+VV=[0,0]
+
+55
+
+Social Network Application
+
+1. remove photos
+S=[0,0],C[2,0]
+
+4. Friends? Yes !!
+S = [4,0]
+
+SeePhotos?S = [4,0]
+
+2. addFriend(Bob)
+S[3,0], C[4,0]
+VV=[4,0]
+
+3. addFriend(Bob)
+
+VV=[2,0]
+
+5. removePhotos
+
+11/07/2014
+
+56
+
+Social Network Application
+
+1. remove photos
+S=[0,0],C[2,0]
+
+4. Friends? Yes !!
+S = [4,0]
+2. addFriend(Bob)
+S[3,0], C[4,0]
+
+SeePhotos?S = [4,0]
+No photos
+
+VV=[4,0]
+
+3. addFriend(Bob)
+
+VV=[2,0]
+
+5. removePhotos
+
+11/07/2014
+
+57
+
+Conclusion
+●
+
+Total ordering using Lamport's timestamp
+
+●
+
+Causality tracking using Vectorclocks
+
+●
+
+Explicit causality tracking
+
+11/07/2014
+
+–
+
+Orbe using dependency matrix
+
+–
+
+ClockSI using physical clock and dependency vector
+
+58
+
+Reference
+1. Leslie Lamport, 1978, “Ti
+me,
+Cl
+ock
+sandt
+heOr
+der
+i
+ngofEv
+ent
+si
+na
+Di
+s
+t
+r
+i
+but
+edSy
+s
+t
+em”
+,Communications of the ACM, Vol. 21
+2. Colin J. Fidge, 1988, "Ti
+mes
+t
+ampsi
+nMes
+s
+agePas
+si
+ngSy
+s
+t
+emsThat
+Pr
+eser
+v
+et
+hePar
+t
+i
+al
+Or
+der
+i
+ng". In K. Raymond (Ed.). Proc. of the 11th
+Australian Computer Science Conference (ACSC'88). pp. 56–66.
+Retrieved 2009-02-13.
+3. D. Stott Parker et.al, “Det
+ect
+i
+onofmut
+ual
+i
+nconsi
+s
+t
+enc
+yi
+ndi
+s
+t
+r
+i
+but
+ed
+s
+y
+s
+t
+ems” Transactions on Software Engineering, 9(3):240–246, 1983.
+4. B. Charron-Bost, “Concer
+ni
+ngt
+hesi
+z
+eofl
+ogi
+cal
+cl
+ock
+si
+ndi
+s
+t
+r
+i
+but
+ed
+s
+y
+s
+t
+ems”, Information Processing Letter, Vol. 39, 1991
+5. Jiaqing Du et.al, “Or
+be:scal
+abl
+ecaus
+al
+consi
+s
+t
+enc
+yusi
+ng
+dependenc
+ymat
+r
+i
+cesandphy
+si
+cal
+cl
+ock
+s” SOCC'13 Proceedings of
+4th annual Symposium on Cloud Computing, 2013
+6. Jiaqing Du et.al, “Cl
+ockSI
+:SnapshotI
+sol
+at
+i
+onf
+orPar
+t
+i
+t
+i
+onedDat
+a
+St
+or
+edUsi
+ngLoosel
+ySy
+nchr
+oni
+z
+edCl
+ock
+s”, SRDS'13 Proceedings of
+the 2013 IEEE International Symposium of Reliable Distributed
+Systems
+11/07/2014
+
+59
+
+
