@@ -17,9 +17,10 @@ layout: default
 	    <!-- https://stackoverflow.com/questions/16528783/check-for-existence-of-file-using-jekyll -->
 	    {% assign pub_image = false %}
             {% capture pub_image %}talks/{{ pubtext.id }}.jpeg{% endcapture %}
+            {% capture img_file_name %}{{ pubtext.id }}.jpeg{% endcapture %}
             {% for static_file in site.static_files %}
-              {% if static_file.path == '{{ pub_image }}' %}
-                {% if static_file.name == '{{ pubtext.id }}.jpeg' %}
+              {% if static_file.path == pub_image %}
+                {% if static_file.name == img_file_name %}
                   {% assign pub_image = true %}
                 {% endif %}
               {% endif %}
