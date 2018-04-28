@@ -1,0 +1,97 @@
+Deepthi Akkoorath
+Software Engineer & Researcher
+Distributed systems engineer with key focus on scalability and performance. Has built a highly available geo-replicated
+data store. Has collaborated with distributed teams and open source projects.
+
+Education
+PhD in Computer Science
+Technical University of Kaiserslautern, Germany.
+
+Expected Sep 2018
+
+MSc. in Computer Science
+Sep 2010 - Aug 2012
+University of Amsterdam, The Netherlands.
+Thesis: Improving Quality of Experience of Internet Applications by Dynamic
+Placement of Application Components.
+BTech. in Computer Science and Engineering
+Amrita Vishwavidyapeetham, Amritapuri, India.
+
+Aug 2005 - Jul 2009
+
+Experience
+Personal Info
+
+
+
+
+
+Research Assistant
+deepthidevaki@gmail.com
+dd.thekkedam.org
+github.com/deepthidevaki
+in/deepthidevaki
+
+Areas
+Distributed Systems
+Parallel Computing
+Databases
+
+Coding
+Erlang
+Java, C, C++
+Haskell
+
+■■■■■
+■■■■□
+■■□□□
+
+Languages
+English (fluent)
+Malayalam (native)
+German (B1)
+
+■■■■■
+■■■■■
+■■■□□
+
+Technical University of Kaiserslautern, Germany.
+Feb 2014-Now
+Research on scalable synchronization-free protocols for large-scale
+distributed systems and multi-core concurrent programs.
+• Co-developed AntidoteDB, a scalable and highly available
+geo-replicated database. AntidoteDB is now used by our academic and
+industrial research partners.
+• Co-designed Cure, the decentralized algorithm implemented in
+AntidoteDB that provides causal consistency and highly available
+transactions in a geo-replicated systems with large number of servers.
+• Developed techniques for scalable concurrent objects for fast
+multi-threaded programs.
+• Mentored several master thesis, student seminars and projects.
+• Gave talks, tutorials and demos and guided new developers on
+AntidoteDB.
+
+Software Engineer
+Multicoreware. Inc, Chennai, India.
+Feb 2013 – Dec 2013
+Development of X265, an open source, high performance video encoder.
+• Improved encoding speed by parallelizing key computations.
+• Implemented features that encode videos with tunable bitrate and
+encoding speed.
+
+Research Intern
+TNO, Delft, The Netherlands.
+Jan 2012 – Jun 2012
+Research on dynamic content and application delivery over distributed cloud
+infrastructures.
+• Developed a new model to optimize the placement of application
+components on distributed clouds to improve the Quality of Experience of
+Internet Applications.
+
+Software Development Intern
+NIKHEF, Amsterdam, The Netherlands.
+Jul 2011 - Aug 2011
+• Built a web portal that enables users to single sign-on using their existing
+institution account to access grid computing resources easily.
+
+
