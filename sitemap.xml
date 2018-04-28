@@ -26,7 +26,7 @@
     {% for project in site.data.projects %}
     {% for project_doc in project.doc %}
     {% if project_doc[1] != null %}
-    {% if project_doc[1] contains "/assets" first or project_doc[1] contains "/files" first %}
+    {% if project_doc[1] contains "/assets" first %}
     <url>
         <loc>{{ site.url }}{{ project_doc[1] }}</loc>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
@@ -110,7 +110,7 @@
            {% endfor %}
        {% endfor %}
     {% endfor %}
-    <!-- Resume TODO find a way to do this-->
+    <!-- Resume -->
     <url>
         <loc>{{ site.url }}{{ site.data.config.resume_path }}</loc>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
