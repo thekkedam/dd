@@ -16,8 +16,11 @@ license: "/LICENSE"
 cms: "/cms.html"
 feed: "/feed.xml"
 sitemap: "sitemap.xml"
+search: "/search"
+opensearch: "search/opensearch.xml"
 website_repo_url: "https://github.com/thekkedam/dd"
 resume_path: "/assets/documents/cv/Akkoorath_Deepthi-Devaki_CV.pdf"
+base_favicon_url: "/assets/img/icons/favicon" 
 
 # Image CDN
 cdn:
@@ -33,6 +36,10 @@ github:
 id: deepthidevaki
 # Google Analatic id
 ga: UA-70817718-1
+# Google Custom Search
+gcs: "010555979106730228922:r0o2cyogtfu"
+# Google tag manager
+gtm: "GTM-PWWLD7J"
 
 # worker
 sw:
