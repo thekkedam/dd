@@ -23,7 +23,7 @@
       </li>
     {% endfor %}
     <li class="inline-block button button-transparent">
-      <form action="{{ site.url }}/{{ site.data.config.search }}/" method="GET">
+      <form action="{{ site.url }}{{ site.data.config.search }}/" method="GET">
       <input class="input-text" type="text" name="q" placeholder="Search">
       <button type="submit" value="search" class="fa fa-search"></button>
       </form>
