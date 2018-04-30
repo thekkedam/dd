@@ -30,6 +30,11 @@
         <i class="fa fa-fw fa-lg fa-pencil-square"></i>
       </a>
     {% endif % %}
+    {% if site.data.config.cms %}
+      <a href="{{ site.data.config.search }}" class="hint--top" data-hint="Search">
+        <i class="fa fa-fw fa-lg fa-search"></i>
+      </a>
+    {% endif % %}
     <a href="{{ site.data.config.about }}" class="hint--top" data-hint="About this site">
         <i class="fa fa-fw fa-lg fa-info-circle"></i>
     </a>
