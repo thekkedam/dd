@@ -1,0 +1,14 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription  xmlns="http://a9.com/-/spec/opensearch/1.1/">
+	<InputEncoding>UTF-8</InputEncoding>
+	<ShortName>{{ site.data.config.full_name }}</ShortName>
+	<Description>search at {{ site.domain }}</Description>
+	<Image height="16" width="16" type="image/x-icon">{{ site.url }}/{{ site.data.config.base_favicon_url }}/favicon-16x16.png</Image>
+	<Developer>{{ site.data.config.full_name }}</Developer>
+	<Attribution>Search data copyright {{ site.data.config.full_name }}</Attribution>
+	<AdultContent>false</AdultContent>
+	<Language>en-us</Language>
+	<Url type="text/html" template="{{ site.url }}/{{ site.data.config.search }}/?q={searchTerms}"/>
+</OpenSearchDescription>
