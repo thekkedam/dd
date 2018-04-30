@@ -12,6 +12,27 @@
   ga('create', '{{ site.data.config.ga }}', 'auto');
   ga('send', 'pageview');
 </script>
+<script>
+  (function() {
+    var cx = '{{ site.data.config.gcs }}';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+{% if page.type == 'search' %}
+<script>
+  window.onload = function()
+  { 
+    var searchBox =  document.getElementById("gsc-i-id1");
+    searchBox.placeholder="Search in {{ site.data.config.full_name }}";
+    searchBox.title="Search in {{ site.data.config.full_name }}"; 
+  }
+</script>
+{% endif %}
 {% endif %}
 {% if page.extra_scripts %}
   {% for script in page.extra_scripts %}
