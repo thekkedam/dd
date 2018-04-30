@@ -79,6 +79,8 @@
 			{% endfor %}
 
 			{% capture type %}article{% endcapture %}
+
+			{% capture header_title %}{{ include.page.type | capitalize }}{% endcapture %}
 		{% else %}
 			{% capture description %}{{ description }}List of {% endcapture %}
 			{% for section in site.data.publications %}
@@ -95,11 +97,12 @@
 
 			{% capture type %}website{% endcapture %}
 
-			{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
+			{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }} and Talks{% endcapture %}
+
+			{% capture header_title %}{{ include.page.type | capitalize }} and Talks{% endcapture %}
 
 		{% endif %}
 		
-		{% capture header_title %}{{ include.page.type | capitalize }}{% endcapture %}
         {% elsif include.page.type == "talks" %}
                 {% if include.page.dynaid %}
                         {% for section_hash in site.data.talks %}
