@@ -15,6 +15,13 @@
   {% endif % %}
   <br>
 -->
+  {% if site.data.config.search %}
+    <a href="{{ site.data.config.search }}" class="hint--top dark-gray">
+      <i class="fa fa-fw fa-lg fa-search"></i>
+      <span class="h6 header-font">Search</span>
+    </a>
+  {% endif %}
+  <br>
   {% if site.data.config.about %}
     <a href="{{ site.data.config.about }}" class="hint--top dark-gray">
       <i class="fa fa-fw fa-lg fa-info-circle"></i>
