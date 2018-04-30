@@ -1,13 +1,20 @@
+
 {% include dns-prefetch.html %}
-<!-- Don't add any thing before this -->
+
 {% include google_tag_head.html %}
+<!-- Don't add any thing before this -->
+
 {% include share-meta.html %}
+
 {% include favicon.html %}
+
 {% include styles.html %}
+
 <!-- Hack to load some script in start of file -->
 {% if page.init_scripts %}
   {% for script in page.init_scripts %}
     <script type="text/javascript" src="{{ script }}"></script>
+
   {% endfor %}
 {% endif %}
 
