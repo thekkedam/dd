@@ -25,6 +25,5 @@ And:
      - 'Powered by <a class="link-color" target="_blank" rel="noopener" href="http://jekyllrb.com/" title="Jekyll">Jekyll</a>.'
      - 'Marked up with <a class="link-color" target="_blank" rel="noopener" href="http://validator.w3.org/check?uri=http%3A%2F%2Fdd.thekkedam.org%2F" title="HTML5 Validator">W3C validated HTML5</a>'
      - '<a class="link-color" target="_blank" rel="noopener" href="http://www.w3.org/TR/WCAG20/" title="WCAG 2.0">WCAG 2.0</a> compliant.'
-     - 'The site contents/source <a rel="license" class="link-color" href="/LICENSE/">License details</a>.'
-
-
+     - 'The site contents/source <a class="link-color" href="/LICENSE/">License details</a>.'
+     - 'Privacy and Cookie Usage of this <a class="link-color" href="/privacy/">website</a>.'
