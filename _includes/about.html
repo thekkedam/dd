@@ -1,20 +1,21 @@
 <div class="clearfix">
-    {% for section in site.data.about %}
+  {% for section in site.data.about %}
+    {% if section[0] == "About" %}
+      <div class="clearfix mb2 border-bottom border-light-gray">
+      <div class="col sm-col-3 px2">
+        {% include image.html path=site.data.config.thumbnail_path_s alt=site.data.config.full_name class="max-width-120" %}
+      </div>
+    {% else %}
       <div class="clearfix mb2 border-bottom border-light-gray circle-line py3">
-      {% if section[0] == "About" %}
-	<div class="col sm-col-3 px2">
-      	  {% include image.html path=site.data.config.thumbnail_path_s alt=site.data.config.full_name class="max-width-120" %}
-        </div>
-      {% else %}
-        <h3 class="mb2">{{ section[0] }}</h3>
-      {% endif %}
-      {% for bullet in section[1] %}
-         <p class="justify">
-         {{ bullet }}
-         </p>
-      {% endfor %}
-    {% endfor %} 
+      <h3 class="mb2">{{ section[0] }}</h3>
+    {% endif %}
+    {% for bullet in section[1] %}
+      <p class="justify">
+        {{ bullet }}
+       </p>
+    {% endfor %}
     </div>
+  {% endfor %} 
 <!--
     <h3 class="mb2">Recent posts</h3>
     {% for post in site.posts limit:5 %}
