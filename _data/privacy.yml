@@ -1,0 +1,12 @@
+#Title1:
+#    - text
+#    - text
+#Title2:
+#    - text
+#
+Privacy:
+     - 'We and other service used in this website may collect information about your computer, including your IP address, operating system and browser type, in order to improve the user experience of this website. This is statistical data about our users’ browsing actions and patterns, and does not identify any individual.'
+Cookie Usage:
+     - 'This website is using <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage" class="link-color" target="_blank" rel="noopener">Google Analytics</a> and <a href="https://support.cloudflare.com/hc/en-us/articles/200170156-What-does-the-Cloudflare-cfduid-cookie-do-" class="link-color" target="_blank" rel="noopener">Cloudflare</a> cookies.'
+     - 'Google Analytics is a web analytics tool that helps website owners understand how visitors engage with their website. Google Analytics customers can view a variety of reports about how visitors interact with their website so that they can improve it. Like many services, Google Analytics uses first-party cookies to track visitor interactions as in our case, where they are used to collect information about how visitors use our website, such as the time that the current visit occurred, whether the visitor has been to the site before and what site referred the visitor to the web page. Google Analytics collects information anonymously. It reports website trends without identifying individual visitors.'
+     - 'The Cloudflare cookie is used to identify individual clients behind a shared IP address and apply security settings on a per-client basis. For example, if the visitor is in a coffee shop where there are a bunch of infected machines, but the specific visitors machine is trusted (e.g. because they have completed a challenge within your Challenge Passage period), the cookie allows Cloudflare to identify that client and not challenge them again. It does not correspond to any user ID in your web application, and does not store any personally identifiable information.'
