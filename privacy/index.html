@@ -1,0 +1,28 @@
+---
+layout: default
+type: "privacy"
+include_header: privacy_header.html
+nav_item: privacy
+---
+<div>
+  <h5 class="page-description body-font gray mt1 regular">
+    <a href="/" class="link-color" title="Go to Home">Home</a>/
+    {{ page.type | capitalize }}
+  </h5>
+<div>
+<div class="clearfix mb2 border-bottom border-light-gray circle-line py3">
+  {% for section in site.data.privacy %}
+    <h3 class="mb2">{{ section[0] }}</h3>
+    {% for bullet in section[1] %}
+      <p class="justify">
+        {{ bullet }}
+      </p>
+    {% endfor %}
+  {% endfor %}
+  {% include opt-out_ga.html %}
+  <a href="#top" class="sm-col-right col dark-gray h6">
+    <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
+    Top
+  </a>
+</div>
+
