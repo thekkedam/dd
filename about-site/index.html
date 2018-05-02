@@ -15,16 +15,6 @@ nav_item: about-site
     Page last generated at {{ site.time | date: "%a, %d %b %Y %H:%M:%S %Z" }}
   </p>
   <p><a href="{{ site.url }}">{{ site.url }}</a> is;</p>
-<!--
-  <p>
-    <script data-cfbadgetype="f" data-cfbadgeskin="icon" type="text/javascript">
-      //<![CDATA[
-        try{window.CloudFlare||function(){var a=window.document,b=a.createElement("script"),a=a.getElementsByTagName("script")[0];window.CloudFlare=[];b.type="text/javascript";b.async=!0;b.src="//ajax.cloudflare.com/cdn-cgi/nexp/cloudflare.js";a.parentNode.insertBefore(b,a)}(),CloudFlare.push(function(a){a(["cloudflare/badge"])})}catch(e$$5){try{console.error("CloudFlare badge code could not be loaded. "+e$$5.message)}catch(e$$6){}};
-//]]>
-     </script>
-     <a href='http://ipv6-test.com/validate.php?url={{ site.url }}'><img src='http://ipv6-test.com/button-ipv6-80x15.png' alt='ipv6 ready' title='ipv6 ready' border='0' /></a>
-  </p>
--->
   {% for section in site.data.site %}
     <p>{{ section[0] }}
       <ul class="list-unstyled">
@@ -34,6 +24,18 @@ nav_item: about-site
       </ul>
     </p>
   {% endfor %}
+<!--
+  <div class="col sm-col-left">
+  <p>
+    <script data-cfbadgetype="f" data-cfbadgeskin="icon" type="text/javascript">
+      //<![CDATA[
+        try{window.CloudFlare||function(){var a=window.document,b=a.createElement("script"),a=a.getElementsByTagName("script")[0];window.CloudFlare=[];b.type="text/javascript";b.async=!0;b.src="//ajax.cloudflare.com/cdn-cgi/nexp/cloudflare.js";a.parentNode.insertBefore(b,a)}(),CloudFlare.push(function(a){a(["cloudflare/badge"])})}catch(e$$5){try{console.error("CloudFlare badge code could not be loaded. "+e$$5.message)}catch(e$$6){}};
+//]]>
+     </script>
+     <a href='http://ipv6-test.com/validate.php?url={{ site.url }}'><img src='http://ipv6-test.com/button-ipv6-80x15.png' alt='ipv6 ready' title='ipv6 ready' border='0' /></a>
+  </p>
+  </div>
+-->
   <a href="#top" class="sm-col-right col dark-gray h6">
     <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
     Top
