@@ -140,6 +140,7 @@ Peer-reviewed:
       ACM Digital Library: https://dl.acm.org/citation.cfm?doid=2911151.2911158
     pdf: /assets/documents/publications/Peer-reviewed/Highly-scalable_Concurrent_Objects.pdf
     language: English
+    presentation: /assets/documents/talks/Highly_scalable_concurrent_objects.pdf
     abstract: 'Synchronisation is a bottleneck in shared memory concurrent programs. In this paper, we present Mergeable Data Types (MDTs) for relaxing synchronisation in shared memory system analogously to CRDTs in replicated systems. We present the key properties of MDTs and discuss the design of several MDTs.'
     keyword:
       - Concurrent Data Structures
