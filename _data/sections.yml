@@ -32,6 +32,10 @@
   id: honors
   layout: list
 
+- name: Teaching
+  id: teaching
+  layout: list
+
 - name: Other
   id: other
   layout: list
