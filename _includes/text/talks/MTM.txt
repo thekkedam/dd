@@ -1,0 +1,700 @@
+Transactions on Mergeable Objects
+Deepthi Akkoorath1
+
+1
+
+Annette Bieniusa1
+
+University of Kaiserslautern
+AG Software Technology
+
+10. Nov 2015
+
+Overview
+1 Software Transactional Memory
+2 Weakly Consistent Transactions
+3 Mergeable Data Types
+4 Evaluation
+5 Conclusion
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+2/ 14
+
+Software Transactional Memory
+Normal
+acquire lock(x)
+acquire lock(y)
+if (x > 0)
+y++
+release lock(x)
+release lock(y)
+
+Deepthi Akkoorath, Annette Bieniusa
+
+STM
+atomic
+{
+if (x > 0)
+y++
+}
+
+Transactions on Mergeable Objects
+
+3/ 14
+
+Software Transactional Memory
+Normal
+acquire lock(x)
+acquire lock(y)
+if (x > 0)
+y++
+release lock(x)
+release lock(y)
+
+STM
+atomic
+{
+if (x > 0)
+y++
+}
+
+Composable
+Deadlock freedom
+Semantics (often): serializability
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+3/ 14
+
+Software Transactional Memory
+
+Pessimistic Approach
+Acquires exclusive access to data before processing transaction
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+4/ 14
+
+Software Transactional Memory
+
+Pessimistic Approach
+Acquires exclusive access to data before processing transaction
+Optimistic Approach
+Execute updates and buffers writes (multi-versioning)
+Consistency check during commit
+Abort if check failed
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+4/ 14
+
+Software Transactional Memory
+
+Pessimistic Approach
+Acquires exclusive access to data before processing transaction
+Optimistic Approach
+Execute updates and buffers writes (multi-versioning)
+Consistency check during commit
+Abort if check failed
+More Conflicts → Performance degrade
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+4/ 14
+
+Mechanisms to reduce conflicts
+Delayed Operations
+Explicit delaying of some
+operations to commit time
+Transactional “RMW”
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+5/ 14
+
+Mechanisms to reduce conflicts
+Delayed Operations
+Explicit delaying of some
+operations to commit time
+Transactional “RMW”
+
+Commutativity
+Transactional Boosting
+[Herlihy/Koskinen (PPoPP’11),
+Hassan et al. (PPoPP’14)]
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+5/ 14
+
+Mechanisms to reduce conflicts
+Delayed Operations
+Explicit delaying of some
+operations to commit time
+Transactional “RMW”
+
+Commutativity
+Transactional Boosting
+[Herlihy/Koskinen (PPoPP’11),
+Hassan et al. (PPoPP’14)]
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Alternative Programming
+Models
+RMW [Ruan et al. (TACO’15)]
+Twilight [Bieniusa et
+al.(PODC’10)]
+Concurrent revisions [Burckhardt
+et al.(ESOP’12)]
+
+Transactions on Mergeable Objects
+
+5/ 14
+
+Mechanisms to reduce conflicts
+Delayed Operations
+Explicit delaying of some
+operations to commit time
+Transactional “RMW”
+
+Commutativity
+Transactional Boosting
+[Herlihy/Koskinen (PPoPP’11),
+Hassan et al. (PPoPP’14)]
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Alternative Programming
+Models
+RMW [Ruan et al. (TACO’15)]
+Twilight [Bieniusa et
+al.(PODC’10)]
+Concurrent revisions [Burckhardt
+et al.(ESOP’12)]
+
+Transactions on Mergeable Objects
+
+5/ 14
+
+Mechanisms to reduce conflicts
+Delayed Operations
+Explicit delaying of some
+operations to commit time
+Transactional “RMW”
+
+Commutativity
+Transactional Boosting
+[Herlihy/Koskinen (PPoPP’11),
+Hassan et al. (PPoPP’14)]
+
+Alternative Programming
+Models
+RMW [Ruan et al. (TACO’15)]
+Twilight [Bieniusa et
+al.(PODC’10)]
+Concurrent revisions [Burckhardt
+et al.(ESOP’12)]
+
+Serializability → performance degradation
+Weaken Serializability, but no defined semantics
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+5/ 14
+
+Weakly Consistent Transactions
+On Shared Memory
+
+0
+
+Shared Global Copy
+
+Weakly Consistent Transactions
+On Shared Memory
+
+T1
+
+0
+
+Shared Global Copy
+Read from Consistent Snapshot
+
+Weakly Consistent Transactions
+On Shared Memory
+
+T1
+
+0
+
+T2
+
+Shared Global Copy
+Read from Consistent Snapshot
+
+Weakly Consistent Transactions
+On Shared Memory
+
+T1
+
+0
+
+T2
+
+Shared Global Copy
+Read from Consistent Snapshot
+Update thread local copy
+
+Weakly Consistent Transactions
+On Shared Memory
+
+T1
+
+0
+
+T2
+
+Shared Global Copy
+1
+
+Read from Consistent Snapshot
+Update thread local copy
+Commit → New Snapshot
+
+Weakly Consistent Transactions
+On Shared Memory
+
+T1
+
+0
+
+T2
+
+Shared Global Copy
+1
+
+2
+
+Read from Consistent Snapshot
+Update thread local copy
+Commit → New Snapshot
+Merge local to global copy
+
+Weakly Consistent Transactions
+On Shared Memory
+
+T1
+
+0
+
+T2
+
+Shared Global Copy
+1
+
+2
+
+Read from Consistent Snapshot
+Update thread local copy
+Commit → New Snapshot
+Merge local to global copy
+
+3
+
+4
+
+5
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+6/ 14
+
+Weakly Consistent Transactions
+On Shared Memory
+
+T1
+
+0
+
+T2
+
+Shared Global Copy
+1
+
+2
+
+Read from Consistent Snapshot
+Update thread local copy
+Commit → New Snapshot
+Merge local to global copy
+
+3
+
+No aborts
+4
+
+Multi-versioning
+Mergeable objects
+
+5
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+6/ 14
+
+Mergeable Data Type
+Mergeable Counter
+
+data Counter = Counter Int Int
+incrBy :: Int → Counter → Counter
+incrBy i (Counter g l) = Counter g (l+i)
+value :: Counter → Int
+value (Counter g l) = g+l
+merge (Counter g ) (Counter
+
+Deepthi Akkoorath, Annette Bieniusa
+
+l) = Counter (g+l) 0
+
+Transactions on Mergeable Objects
+
+7/ 14
+
+Mergeable Bag
+Add only
+T1
+head
+T2
+
+After T 1 commits:
+T1
+head
+T2
+
+After T 2 commits:
+T1
+head
+T2
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+8/ 14
+
+MTM: Transactions on Mergeable Objects
+Semantics
+
+addToBag(e, bag, size) {
+add(bag,e)
+incrBy(size,1)
+}
+
+Thread 1
+startTxn {
+addToBag(1, b, s)
+addToBag( 2, b, s)
+print b
+}
+endTxn
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Thread 2
+startTxn {
+addToBag( 3, b, s)
+addToBag(4, b, s)
+print b
+}
+endTxn
+
+Transactions on Mergeable Objects
+
+9/ 14
+
+MTM: Transactions on Mergeable Objects
+Semantics
+
+addToBag(e, bag, size) {
+add(bag,e)
+incrBy(size,1)
+}
+
+Thread 1
+startTxn {
+addToBag(1, b, s)
+addToBag( 2, b, s)
+print b
+}
+endTxn
+1, 2
+Deepthi Akkoorath, Annette Bieniusa
+
+Thread 2
+startTxn {
+addToBag( 3, b, s)
+addToBag(4, b, s)
+print b
+}
+endTxn
+3, 4
+Transactions on Mergeable Objects
+
+9/ 14
+
+MTM: Transactions on Mergeable Objects
+A Haskell Implementation
+
+data MTM a = ...
+data CVar a = ...
+– MTM Functions
+eventually :: MTM a → IO a
+newCVar :: Mergeable a ⇒ a → MTM (CVar a)
+readCVar :: Mergeable a ⇒ CVar a → MTM a
+modifyCVar :: Mergeable a ⇒ CVar a → (a → a) → MTM a
+– Mergeable Objects
+class Mergeable a where
+merge :: a → a → a
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+10/ 14
+
+MTM: Transactions on Mergeable Objects
+Evaluation: Kmeans Clustering
+
+function main
+chunks=divide data into N chunks
+In Parallel
+for n in N do
+thread[n].cluster(chunks[n])
+end for
+end function
+Atomic
+function cluster(points)
+for p in points do
+index=findNearestCluster(clusters,p)
+beginTxn
+inc(new centers len[index],1)
+add(new centers[index][0],p[0])
+add(new centers[index][1],p[1])
+endTxn
+end for
+end function
+
+Deepthi Akkoorath, Annette Bieniusa
+
+MTM-opt
+function cluster(points)
+beginTxn
+for p in points do
+index=findNearestPoint(clusters,p)
+inc(new centers len[index],1)
+inc(new centers[index][0],p[0])
+inc(new centers[index][1],p[1])
+end for
+endTxn
+end function
+
+Transactions on Mergeable Objects
+
+11/ 14
+
+MTM: Transactions on Mergeable Objects
+Evaluation: Kmeans clustering
+
+High contention
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Low Contention
+
+Transactions on Mergeable Objects
+
+12/ 14
+
+MTM: Transactions on Mergeable Objects
+Conclusion
+
+No conflicts → No aborts → More performance
+Longer transactions → Less synchronisation → More parallelism
+Weaker consistency semantics
+Requires efficient merge (space / time complexity)
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+13/ 14
+
+Thank You!
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+14/ 14
+
+MTM: Transactions on Mergeable Objects
+A Haskell Implementation
+
+data MTM a = ...
+data CVar a = ...
+– MTM Functions
+eventually :: MTM a → IO a
+newCVar :: Mergeable a ⇒ a → MTM (CVar a)
+readCVar :: Mergeable a ⇒ CVar a → MTM a
+modifyCVar :: Mergeable a ⇒ CVar a → (a → a) → MTM a
+– Mergeable Objects
+class Mergeable a where
+merge :: a → a → a
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Transactions on Mergeable Objects
+
+1/ 4
+
+MTM: Transactions on Mergeable Objects
+Example
+
+addToBag :: Int → CVar (Bag Int) → CVar (Counter) → MTM [Int]
+addToBag e bag size = do {
+; b ← modifyCVar bag (add e)
+; s ← modifyCVar size (incrBy 1)
+; return (toList b) }
+
+Thread 1
+b1 ← eventually $ do
+addToBag 1 b s
+addToBag 2 b s
+print b1
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Thread 2
+b2 ← eventually $ do
+addToBag 3 b s
+addToBag 4 b s
+print b2
+
+Transactions on Mergeable Objects
+
+2/ 4
+
+MTM: Transactions on Mergeable Objects
+Example
+
+addToBag :: Int → CVar (Bag Int) → CVar (Counter) → MTM [Int]
+addToBag e bag size = do {
+; b ← modifyCVar bag (add e)
+; s ← modifyCVar size (incrBy 1)
+; return (toList b) }
+
+Thread 1
+b1 ← eventually $ do
+addToBag 1 b s
+addToBag 2 b s
+print b1
+1, 2
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Thread 2
+b2 ← eventually $ do
+addToBag 3 b s
+addToBag 4 b s
+print b2
+3, 4
+
+Transactions on Mergeable Objects
+
+2/ 4
+
+MTM: Transactions on Mergeable Objects
+Algorithm
+txn: {sid, Map writeset, Map readset}
+var: {versions, lock}
+versions : [{val, versionid}]
+function beginTransaction(txn)
+txn.sid ← globalclock
+txn.writeset ← ∅
+txn.readset ← ∅
+end function
+function commit(txn)
+lockAll(txn.writeset)
+versionid ← globalclock++
+for all (var,val) ∈ txn.writeset do
+merge val to the latest version
+end for
+unlockAll(txn.writeset)
+end function
+function readVersion(var, versionid)
+v ← var.versions
+if v.head.versionid ≥ vid then
+vr ← v.head
+else
+waituntil (not locked(var))
+vr ← var.versions.head
+end if
+while vr.versionid > vid do
+vr ← vr.next
+end while
+return vr.val
+end function
+
+Deepthi Akkoorath, Annette Bieniusa
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Transactions on Mergeable Objects
+
+3/ 4
+
+MTM: Transactions on Mergeable Objects
+Evaluation: Micro benchmarks
+
+Time vs No.of Threads
+
+Deepthi Akkoorath, Annette Bieniusa
+
+Throughput vs. No.of Objects
+
+Transactions on Mergeable Objects
+
+4/ 4
+
+
