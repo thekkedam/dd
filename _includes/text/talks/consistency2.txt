@@ -1,0 +1,238 @@
+Observing the Consistency of Distributed
+Systems
+Deepthi Akkoorath1
+
+Viktória Fördős2
+
+1 University
+
+of Kaiserslautern
+
+2 Erlang
+
+Solutions
+
+Erlang Workshop ’16
+
+Annette Bieniusa1
+
+Weakly Consistent Geo-replicated System
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+2/ 15
+
+Weakly Consistent Geo-replicated System
+=1
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+2/ 15
+
+Weakly Consistent Geo-replicated System
+=1
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+=1
+
+2/ 15
+
+Weakly Consistent Geo-replicated System
+=2
+
+=2
+
+=1
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+2/ 15
+
+Weakly Consistent Geo-replicated System
+=2
+
+=2
+
+=1
+
+Divergence!
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+2/ 15
+
+Weakly Consistent Geo-replicated System
+=2
+
+=2
+
+=2
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+2/ 15
+
+Problem
+
+Application built on EC databases may tolerate some divergence.
+But large divergence may result in SLA violations or
+unsatisfactory client experiences.
+How to quantify divergence?
+How to monitor divergence?
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+3/ 15
+
+Divergence
+Measure of how different the state of a replica compared to
+others
+Number of missing updates
+Require information about all updates in other replicas
+Not practical to measure
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+4/ 15
+
+Divergence
+Measure of how different the state of a replica compared to
+others
+Number of missing updates
+Require information about all updates in other replicas
+Not practical to measure
+Goal
+Estimate divergence from local knowledge
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+4/ 15
+
+Staleness
+
+How old is the data?
+≈ Time elapsed from last synchronisation
+Only potential staleness
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+5/ 15
+
+Antidote
+
+Georeplicated Key-value store
+Written in Erlang
+Weak consistency (Eventual/Causal)
+Conflict-free Replicated Data Types for convergence
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+6/ 15
+
+WombatOAM
+
+An operation and maintenance tool
+For systems running on BEAM virtual machines
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+7/ 15
+
+Measuring Staleness in Antidote
+Consistency protocol: Cure
+Based on timestamps from real clocks such as NTP
+Maintains a vector of timestamps
+Eg:- [{dc1 , 10}, {dc2 , 11}]
+Received all updates with timestamps ≤ 10 from dc1
+Received all updates with timestamp ≤ 11 from dc2
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+8/ 15
+
+Measuring Staleness in Antidote
+Consistency protocol: Cure
+Based on timestamps from real clocks such as NTP
+Maintains a vector of timestamps
+Eg:- [{dc1 , 10}, {dc2 , 11}]
+Received all updates with timestamps ≤ 10 from dc1
+Received all updates with timestamp ≤ 11 from dc2
+
+Staleness = difference between local timestamp and the
+observed
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+8/ 15
+
+Measuring Staleness in Antidote
+
+An erlang process running in each node
+Periodically probes vector clock and calculates staleness
+Store result in Exometer histogram
+Exometer - package for instrumenting Erlang code
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+9/ 15
+
+Monitoring Divergence
+WombatOAM plugin for antidote
+Read metrics stored in Exometer
+Communicates to Wombat
+
+WombatOAM
+Configure threshold values
+Exposes the maximum and median values
+Raise alarms when divergence exceeds the threshold
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+10/ 15
+
+DEMO
+
+Results
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+13/ 15
+
+Questions?
+
+Antidote https://antidotedb.org
+WombatOAM https://www.erlang-solutions.com/
+products/wombat-oam.html
+akkoorath@cs.uni-kl.de
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+14/ 15
+
+Thank You!
+
+Deepthi Akkoorath, Viktória Fördős, Annette Bieniusa
+Observing the Consistency of Distributed Systems
+
+15/ 15
+
+
