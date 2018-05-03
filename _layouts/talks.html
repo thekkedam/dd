@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-<div>
   {% for section_hash in site.data.talks %}
   {% for section in section_hash %}
     {% assign pubtype =  section_hash[0] %}
@@ -13,7 +12,7 @@ layout: default
 	      <a href="/publications/#pub-{{ pubtype }}" class="link-color" title="Go to {{ pubtype }}">{{ pubtype }}</a>
             </h5>
 
-	    <div class="mxn2 clearfix mb2 py3">
+	    <div class="clearfix">
 	    <!-- https://stackoverflow.com/questions/16528783/check-for-existence-of-file-using-jekyll -->
 	    {% assign pub_image = false %}
             {% capture pub_image %}talks/{{ pubtext.id }}.jpeg{% endcapture %}
@@ -208,4 +207,3 @@ layout: default
     Top
   </a>
   <br>
-</div>
