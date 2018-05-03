@@ -7,14 +7,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- globel -->
-<title>{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.data.config.full_name }}{% endif %}</title>
+<title>{{ title }}</title>
 
 <link rel="canonical" href="{% include canonical-url.html %}">
 
 <!-- OLD is GOLD -->
 <meta name="title" content="{{ title }}">
 <meta name="description" content="{{ description }}">
-<meta name="keywords" content="{{ keyword }}">
+<!-- TODO - capture in all sections and default keywords in _data/config.yml
+<meta name="keywords" content="{{ keywords }}">
+-->
 <meta name="image" content="{{ image_url | strip }}">
 <meta name="generator" content="Jekyll v{{ site.data.versions.jekyll }}">
 <meta name="robots" content="index, follow">
@@ -24,6 +26,9 @@
 <meta name="rating" content="general">
 
 <!-- Google+ Card data -->
+<meta itemprop="name" content="{{ title }}">
+<meta itemprop="description" content="{{ description }}">
+<meta itemprop="image" content="{{ image_url | strip }}">
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary">
