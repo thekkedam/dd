@@ -1,9 +1,9 @@
 Concurrent Programming:
   - title: Multi-view data types for scalable concurrency in the multi-core era
     id: Multi-view2
-    rid: 
+    rid:
       - stm
-    prid: 
+    prid:
       - mview
     short_name: Seminar @ Dagstuhl
     conference: New Challenges in Parallelism
@@ -17,30 +17,30 @@ Concurrent Programming:
       - Annette Bieniusa
       - Carlos Baquero
     presentation: /assets/documents/talks/Multi-view_data_types-17451.DeepthiDevakiAkkoorath.Slides.pdf
-    url: 
+    url:
       Seminar Homepage: http://www.dagstuhl.de/17451
       Presentation: http://materials.dagstuhl.de/files/17/17451/17451.DeepthiDevakiAkkoorath.Slides.pdf
     keyword:
       - Scalable Consistency
       - Concurrent Data Types
       - Parallel Computing
-    abstract: 'Concurrent linearizable access to shared objects can be prohibitively expensive in a high contention workload. Many applications apply ad-hoc techniques to eliminate the need of synchronous atomic updates, which may result in non-linearizable implementations. We propose a new programming model which leverages such patterns for concurrent access to objects in a shared memory system. In this model, each thread maintains different views on the shared object - a thread-local view and a global view. As the thread-local view is not shared, it can be updated without incurring synchronization costs. These local updates become visible to other threads only after the thread-local view is merged with the global view. This enables better performance at the expense of linearizability. We show that it is possible to maintain thread-local views and to perform merge efficiently for several data types and evaluate their performance and scalability compared to linearizable implementations. Further, we discuss the consistency semantics of the data types and the associated programming model.' 
+    abstract: 'Concurrent linearizable access to shared objects can be prohibitively expensive in a high contention workload. Many applications apply ad-hoc techniques to eliminate the need of synchronous atomic updates, which may result in non-linearizable implementations. We propose a new programming model which leverages such patterns for concurrent access to objects in a shared memory system. In this model, each thread maintains different views on the shared object - a thread-local view and a global view. As the thread-local view is not shared, it can be updated without incurring synchronization costs. These local updates become visible to other threads only after the thread-local view is merged with the global view. This enables better performance at the expense of linearizability. We show that it is possible to maintain thread-local views and to perform merge efficiently for several data types and evaluate their performance and scalability compared to linearizable implementations. Further, we discuss the consistency semantics of the data types and the associated programming model.'
 
   - title: "Multi-view data types for scalable concurrency in the multi-core era"
     id: Multi-view1
-    rid: 
+    rid:
       - stm
-    prid: 
+    prid:
       - mview
     short_name: PMLDC @ ECOOP
     conference: Programming Models and Languages for Distributed Computing
     organization: ECOOP 2017
     place: Barcelona, Spain
     year: Sun 18 - Fri 23 June 2017
-    url: 
+    url:
       PMLDC at ECOOP: https://2017.ecoop.org/event/pmldc-2017-papers-multi-view-data-types-for-scalable-concurrency-in-the-multi-core-era
     presentation: /assets/documents/talks/Multi-view_data_types_for_scalable_concurrency_in_the_multi-core_era_multiview_slides_Akkoorath.pdf
-    keyword: 
+    keyword:
       - Scalable Consistency
       - Concurrent Data Types
       - Parallel Computing
@@ -48,65 +48,66 @@ Concurrent Programming:
 
   - title: "Transactions on Mergeable Objects"
     id: MTM
-    rid: 
+    rid:
        - stm
-    prid: 
+    prid:
        - mview
     short_name: Talk @ TU Kaiserslautern
     conference: CS department's Talk Series, Winter Term 2015/16
     organization: TU Kaiserslautern
     place: Kaiserslautern, Germany
     year: Tue 10 November 2015
-    url: 
+    url:
       Uni KL: https://phd.cs.uni-kl.de/events/talks/
-    keyword: 
+    keyword:
       - Scalable Consistency
       - Concurrent Data Types
-      - Parallel Computing
+      - Software transactional memory
+    presentation: /assets/documents/talks/Transactions_on_mergeable_objects_slides.pdf
     abstract: Destructible updates on shared objects require careful handling of concurrent accesses in multi-threaded programs. Paradigms such as Transactional Memory support the programmer in correctly synchronizing access to mutable shared data by serializing the transactional reads and writes. But under high contention, serializable transactions incur frequent aborts and limit parallelism. This can lead to a severe performance degradation. We propose mergeable transactions which provide a consistency semantics that allows for more scalability even under contention. Instead of aborting and re-executing, object versions from conflicting updates on shared objects are merged using data-type specific semantics. The evaluation of our prototype implementation in Haskell shows that mergeable transactions outperform serializable transactions even under low contention while providing a structured and type-safe interface.
 
 Scalable Distributed Systems:
   - title: Observing the Consistency of Distributed Systems
     id: consistency2
     year: Sun 18 - Sat 24 September 2016
-    rid: 
+    rid:
        - crdt
-    prid: 
+    prid:
        - syncfree
     conference: Erlang 2016, Workshop on Erlang
     place: Nara, Japan
-    author: 
+    author:
        - Deepthi Devaki Akkoorath
        - Viktoria Fordos
-       - Annette Bieniusa.
-    url: 
+       - Annette Bieniusa
+    url:
        Erlang Workshop: http://erlang.org/workshop/2016/
     pdf: /assets/documents/publications/Peer-reviewed/Observing_the_Consistency_of_Distributed_Systems_Akkoorath.Bieniusa.ew2016.pdf
+    presentation: /assets/documents/talks/Observing_the_consistency_of_distributed_systems.pdf
     abstract: 'In distributed Erlang systems temporary network issues are very likely; and can affect the consistency of the system. If the system is a distributed data store relying on a weak consistency model, its data stored may diverge as a result of connectivity issues. Even worse, there is no indicator of the divergence. In this paper we present our initial work on divergence metrics and give a preliminary evaluation on exposing divergence to the system operator.'
     media: https://www.youtube.com/watch?v=TVrY-VOJg4w
     embed_url: "//www.youtube.com/embed/TVrY-VOJg4w"
-    keyword: 
+    keyword:
       - Data store
       - Weak consistency
       - Divergence metrics
 
   - title: Causal consistency in geo-replicated systems
     id: consistency1
-    rid: 
+    rid:
       - crdt
-    prid: 
+    prid:
       - syncfree
     conference: Research Training Group Weak Consistency (weacon)
     organization: TU Kaiserslautern
     year: July 25th, 2014
-    url: 
+    url:
       Weacon: https://www.tcs.cs.tu-bs.de/gkweacon.html
       Presentation: https://www.tcs.cs.tu-bs.de/documents/weacon/weacon_akkoorath_07_2014.pdf
     presentation: /assets/documents/talks/Weacon_DeepthiDevakiAkkoorath.pdf
     author:
        - Deepthi Devaki Akkoorath
-    keyword: 
+    keyword:
       - Weak Consistency
       - Causal consistency
-      - Geo-replicated Systems  
-
+      - Geo-replicated Systems
