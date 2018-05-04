@@ -50,19 +50,16 @@
 
       // Opt-in function
       function gaOptin() {
-        if(window.ga && ga.create)
+        if (document.cookie.indexOf(disableStr + '=true') > -1)
         {
-          if (document.cookie.indexOf(disableStr + '=true') > -1)
-          {
-            document.cookie = disableStr + '=false; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
-            window[disableStr] = false;
-            alert("Google Analytics opted in");
-          } else {
-            alert("Google Analytics is allready opted in");
-            ga(function() {
-              var tracker = ga.create('{{ site.data.config.ga }}', 'auto');
-            });
-          }
+          document.cookie = disableStr + '=false; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+          window[disableStr] = false;
+          alert("Google Analytics opted in");
+        } else {
+          alert("Google Analytics is allready opted in");
+          ga(function() {
+            var tracker = ga.create('{{ site.data.config.ga }}', 'auto');
+          });
         }
       }
    {% endif %}
