@@ -1,0 +1,12 @@
+<div class="clearfix">
+  {% for section in site.data.update %}
+    <div class="bg-splash-lblue px2">
+      <h5 class="mb2">{{ section[0] }}</h5>
+      {% for bullet in section[1] %}
+        <p class="justify">
+          {{ bullet }}
+        </p>
+      {% endfor %}
+    </div>
+  {% endfor %} 
+</div>
