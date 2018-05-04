@@ -58,6 +58,7 @@
             window[disableStr] = false;
             alert("Google Analytics opted in");
           } else {
+            alert("Google Analytics is allready opted in");
             ga(function() {
               var tracker = ga.create('{{ site.data.config.ga }}', 'auto');
             });
