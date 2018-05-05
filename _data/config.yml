@@ -42,15 +42,6 @@ gcs: "010555979106730228922:r0o2cyogtfu"
 # Google tag manager
 gtm: "GTM-PWWLD7J"
 
-# worker
-sw:
-  offlineResources:
-    - 200.html
-    - offline.svg 
-  ignoreFetch:
-    - cms
-    - resume_path
-
 # robots.txt 
 disallow:
   - BingSiteAuth.xml
@@ -58,6 +49,7 @@ disallow:
   - CNAME
   - LICENSE
   - nortonsw_26518600-9b7f-0.html
+  - yandex_cc5b775180faf832.html
   - speaking
   - writing
   - skype.html
@@ -65,4 +57,8 @@ disallow:
   - 404.html
   - .htaccess
   - .message
-
+  - upup.js
+  - sw.js
+  - assets/css
+  - assets/fonts
+  - assets/js
