@@ -1,95 +1,11 @@
 {% include serviceworker.html %} 
-{% include https-redirect.html %}
 <script type="text/javascript" src="/assets/js/main.js"></script>
+{% include https-redirect.html %}
 {% if site.production %}
   {% include disqus-scripts.html %}
-  <script type="text/javascript" data-cfasync='false'>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', '{{ site.data.config.ga }}', 'auto');
-
-    ga('send', 'pageview');
-
-  </script>
-  <script data-cfasync='false'>
-    // Set to the same value as the web property used on the site
-    var gaProperty = '{{ site.data.config.ga }}';
-
-    // Disable tracking if the opt-out cookie exists.
-    var disableStr = 'ga-disable-' + gaProperty;
-    if (document.cookie.indexOf(disableStr + '=true') > -1) {
-      window[disableStr] = true;
-    }
-
-    {% if page.type == 'privacy' %}
-      // Opt-out function
-      function gaOptout() {
-        if (document.cookie.indexOf(disableStr + '=true') > -1) 
-        {
-          alert("Google Analytics is allready opted out");
-        } else {
-          document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
-          window[disableStr] = true;
-          alert("Google Analytics opted out");
-        }
-      }
-
-      // Opt-in function
-      function gaOptin() {
-        if (document.cookie.indexOf(disableStr + '=true') > -1)
-        {
-          document.cookie = disableStr + '=false; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
-          window[disableStr] = false;
-          alert("Google Analytics opted in");
-        } else {
-          alert("Google Analytics is allready opted in");
-          ga(function() {
-            var tracker = ga.create('{{ site.data.config.ga }}', 'auto');
-          });
-        }
-      }
-   {% endif %}
-  </script>
+  {% include google_analytics.html %}
   {% if page.type == 'search' %}
-    <script data-cfasync='false'>
-      (function() {
-        var cx = '{{ site.data.config.gcs }}';
-        var gcse = document.createElement('script');
-        gcse.type = 'text/javascript';
-        gcse.async = true;
-        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(gcse, s);
-      })();
-    </script>
-    <script data-cfasync='false'>
-      window.onload = function()
-      { 
-        var searchBox =  document.getElementById("gsc-i-id1");
-        searchBox.placeholder="Search in {{ site.data.config.full_name }}";
-        searchBox.title="Search in {{ site.data.config.full_name }}"; 
-      }
-    </script>
-    <script data-cfasync='false'>
-      //  $('.gsc-adBlock').hide();
-      $(document).ready(function () {
-        is_expired = 0;
-        $(function (){
-          var timer = setInterval(hidead, 100);
-          if (is_expired > 0) {
-            clearInterval(timer);
-          }
-        }); 
-
-        function hidead() {
-          $(".gsc-adBlock").hide();
-        };
-
-      });
-    </script>
+    {% include google_search.html %}
   {% endif %}
 {% endif %}
 {% if page.extra_scripts %}
