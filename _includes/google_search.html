@@ -1,0 +1,35 @@
+<script data-cfasync='false'>
+  (function() {
+    var cx = '{{ site.data.config.gcs }}';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<script data-cfasync='false'>
+  window.onload = function()
+  { 
+    var searchBox =  document.getElementById("gsc-i-id1");
+    searchBox.placeholder="Search in {{ site.data.config.full_name }}";
+    searchBox.title="Search in {{ site.data.config.full_name }}"; 
+  }
+</script>
+<script data-cfasync='false'>
+  //  $('.gsc-adBlock').hide();
+  $(document).ready(function () {
+    is_expired = 0;
+    $(function (){
+      var timer = setInterval(hidead, 100);
+      if (is_expired > 0) {
+        clearInterval(timer);
+      }
+    }); 
+
+    function hidead() {
+      $(".gsc-adBlock").hide();
+    };
+  });
+</script>
