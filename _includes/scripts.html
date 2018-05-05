@@ -1,4 +1,4 @@
-<!-- {% include serviceworker.html %} -->
+{% include serviceworker.html %} 
 {% include https-redirect.html %}
 <script type="text/javascript" src="/assets/js/main.js"></script>
 {% if site.production %}
@@ -13,17 +13,6 @@
 
     ga('send', 'pageview');
 
-  </script>
-  <script data-cfasync='false'>
-    (function() {
-      var cx = '{{ site.data.config.gcs }}';
-      var gcse = document.createElement('script');
-      gcse.type = 'text/javascript';
-      gcse.async = true;
-      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(gcse, s);
-    })();
   </script>
   <script data-cfasync='false'>
     // Set to the same value as the web property used on the site
@@ -65,6 +54,17 @@
    {% endif %}
   </script>
   {% if page.type == 'search' %}
+    <script data-cfasync='false'>
+      (function() {
+        var cx = '{{ site.data.config.gcs }}';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
     <script data-cfasync='false'>
       window.onload = function()
       { 
