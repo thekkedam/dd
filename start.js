@@ -24,13 +24,13 @@ while (i--) {
     continue;
   }
   if (links[i].getAttribute("href").slice(-1) == "/") {
-    links[i].href = links[i].href + "{{ site.data.config.utm }}";
+    links[i].href = links[i].href + "?{{ site.data.config.utm }}";
   } else {
     var href = links[i].getAttribute("href");
     if ( href.search(/\?/) > -1) {
       links[i].href = links[i].href + "&{{ site.data.config.utm }}";
     } else {
-      links[i].href = links[i].href + "{{ site.data.config.utm }}";
+      links[i].href = links[i].href + "?{{ site.data.config.utm }}";
     }
   }
 }
