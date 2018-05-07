@@ -18,3 +18,22 @@ UpUp.start({
     {% endfor %}
   {% endfor %}
 });
+
+// load ofline css when ofline
+//if(navigator.onLine == false ) {
+//  $('head').append('<link rel="stylesheet" type="text/css" href="/assets/css/offline.css">');
+//}
+
+// https://stackoverflow.com/questions/13549997/how-to-append-all-href-link-with-redirector-url-via-javascript
+var links = document.links;
+var i = links.length;
+while (i--) {
+  if (links[i].getAttribute("href").slice(0, 4) != "http") {
+    continue;
+  }
+  if (links[i].getAttribute("href").slice(-1) != "/") {
+    links[i].href = links[i].href + "&{{ site.data.config.utm }}";
+  } else {
+    links[i].href = links[i].href + "{{ site.data.config.utm }}";
+  }
+}
