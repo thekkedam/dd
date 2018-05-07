@@ -125,15 +125,15 @@ layout: default
             <span style="float:right;">
               {% if pubtext.pdf != null %}
                 <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
-                <span class="h5"><a href="{{ pubtext.pdf }}" target="_blank" rel="noopener" class="citation_pdf_url">PDF </a></span>
+                <span class="h5"><a href="{{ pubtext.pdf }}" target="_blank" rel="noopener" class="citation_pdf_url" onClick="ga(‘send’, ‘event’, ‘ PDF Downloads’, ‘Click’, ‘Publications-{{ pubtext.id }}’);">PDF </a></span>
               {% endif %}
               {% if pubtext.presentation != null %}
                 <i class="fa fa-fw fa-lg fa-file-powerpoint-o"></i>
-                <span class="h5"><a href="{{ pubtext.presentation }}"target="_blank" rel="noopener">Presentation </a></span>
+                <span class="h5"><a href="{{ pubtext.presentation }}"target="_blank" rel="noopener" onClick="ga(‘send’, ‘event’, ‘ Presentation Downloads’, ‘Click’, ‘Publications-{{ pubtext.id }}’);">Presentation </a></span>
               {% endif %}
               {% if pubtext.media != null %}
                 <i class="fa fa-fw fa-lg fa-file-movie-o"></i>
-                <span class="h5"><a href="{{ pubtext.media }}" target="_blank" rel="noopener">Media</a></span>
+                <span class="h5"><a href="{{ pubtext.media }}" target="_blank" rel="noopener" onClick="ga(‘send’, ‘event’, ‘ Media Downloads’, ‘Click’, ‘Publications-{{ pubtext.id }}’);">Media</a></span>
               {% endif %}
 	    </span>
  
