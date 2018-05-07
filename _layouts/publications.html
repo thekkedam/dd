@@ -26,7 +26,7 @@ layout: default
             {% endfor %}
 	    {% if pub_image and pubtext.pdf != null %}
             <div class="col sm-col-4 px2 mb2">
-              <a href="{{ pubtext.pdf }}" target="_blank" rel="noopener" class="citation_pdf_url">
+              <a href="{{ pubtext.pdf }}" target="_blank" rel="noopener" class="citation_pdf_url" onClick="ga(‘send’, ‘event’, ‘ PDF Downloads’, ‘Click’, ‘Publications-{{ pubtext.id }}’);">
                 {% include image.html path=pub_image alt=pubtext.title %}
 	      </a>
             </div>
