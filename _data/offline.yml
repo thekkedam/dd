@@ -7,10 +7,12 @@
      - assets/img/icons/favicon/favicon-16x16.png
      - assets/img/icons/favicon/favicon.ico
      - assets/img/nav/hamburger.gif
+     - assets/img/icons/ajax-loader.gif
      - assets/css/main.css
      - assets/img/Deepthi_Devaki_Akkoorath_logo.jpg
      - assets/js/main.js
      - assets/css/offline.css
+     - assets/js/change-css.js
      - assets/fonts/offline/merriweather/v19/u-4l0qyriQwlOrhSvowK_l5-eR71Wvf1jvzRPA.woff2
      - assets/fonts/offline/merriweather/v19/u-4l0qyriQwlOrhSvowK_l5-eR71Wvf2jvzRPA.woff2
      - assets/fonts/offline/merriweather/v19/u-4l0qyriQwlOrhSvowK_l5-eR71Wvf3jvzRPA.woff2
