@@ -19,7 +19,8 @@ UpUp.start({
 var links = document.links;
 var i = links.length;
 while (i--) {
-  if (links[i].getAttribute("href").slice(0, 4) != "http") {
+  if (links[i].getAttribute("href").slice(0, 4) != "http" ||
+         links[i].getAttribute("href").slice(-4) == ".pdf") {
     continue;
   }
   if (links[i].getAttribute("href").slice(-1) == "/") {
