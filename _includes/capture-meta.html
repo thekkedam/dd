@@ -20,9 +20,10 @@
 
 		{% capture header_title %}{{ site.data.config.full_name }}{% endcapture %}
 
-		{% capture keywords %}{{ site.data.config.last_name }}, {{ site.data.config.first_name }}, profile{% endcapture %}
+		{% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
 
-		{% capture schema_type %}Person{% endcapture %}
+		{% capture schema_type %}Website{% endcapture %}
+
 	{% elsif include.page.type == "research" %}
 		{% if include.page.dynaid %}
 			{% for research in site.data.research %}
@@ -30,6 +31,15 @@
 					{% capture description %}{{ description }}{{ research.description | strip_html | strip_newlines }}{% endcapture %}
 
 					{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}: {{ research.topic }}{% endcapture %}
+
+                                        {% if research.tags != null %}
+                                          {% for tag in research.tags %}
+                                            {% capture keywords %}{{ keywords }}{{ tag }}{% unless forloop.last %}, {% endunless %}{% endcapture %}
+                                          {% endfor %}
+			                {% else %}
+					  {% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
+                                        {% endif %}
+
 				{% endif %}
 			{% endfor %}
 
@@ -57,6 +67,8 @@
 
 			{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
 
+			{% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
+
                 {% endif %}
 
 		{% if include.page.thumbnail_path %}
@@ -79,6 +91,15 @@
 							{% capture image_path %}publications/{{ include.page.dynaid }}.jpeg{% endcapture %}
 
 							{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}: {{ pubtext.title }}{% endcapture %}
+
+                                                        {% if pubtext.keyword != null %}
+                                                          {% for keyword in pubtext.keyword %}
+                                                            {% capture keywords %}{{ keywords }}{{ keyword }}{% unless forloop.last %}, {% endunless %}{% endcapture %}
+                                                          {% endfor %}
+							{% else %}
+							   {% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
+                                                        {% endif %}
+
 						{% endif %}
 					{% endfor %}
 				{% endfor %}
@@ -107,6 +128,8 @@
 
 			{% capture header_title %}{{ include.page.type | capitalize }} and Talks{% endcapture %}
 
+			{% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
+
 		{% endif %}
 
 		{% capture schema_type %}Article{% endcapture %}
@@ -121,6 +144,14 @@
 							{% capture image_path %}talks/{{ include.page.dynaid }}.jpeg{% endcapture %}
 
 							{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}: {{ pubtext.title }}{% endcapture %}
+
+                                                        {% if pubtext.keyword != null %}
+                                                          {% for keyword in pubtext.keyword %}
+                                                            {% capture keywords %}{{ keywords }}{{ keyword }}{% unless forloop.last %}, {% endunless %}{% endcapture %}
+                                                          {% endfor %}
+                                                        {% else %}
+                                                           {% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
+                                                        {% endif %}
 
                                                 {% endif %}
                                         {% endfor %}
@@ -145,6 +176,8 @@
 			{% capture type %}website{% endcapture %}
 
 			{% capture title %}{{ site.data.config.full_name }}, {{ include.page.type | capitalize }}{% endcapture %}
+
+			{% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
 
                 {% endif %}
 
@@ -186,6 +219,9 @@
 		{% capture header_title %}{{ include.page.type | capitalize }}{% endcapture %}
 
 		{% capture schema_type %}SoftwareApplication{% endcapture %}
+
+		{% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
+
         {% elsif include.page.type == "profile" %}
          	{% capture description %}{{ description }}Profile of Deepti Devaki Akkoorath including {% endcapture %}
                 {% for section in site.data.sections %}
@@ -203,6 +239,9 @@
 		{% capture header_title %}{{ include.page.type | capitalize }}{% endcapture %}
 
 		{% capture schema_type %}Person{% endcapture %}
+
+		{% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
+
         {% elsif include.page.type == "contact" %}
                 {% capture description %}{{ description }}Email is the best way to get in touch with me.{% endcapture %}
 
@@ -219,6 +258,9 @@
 		{% capture header_title %}{{ include.page.type | capitalize }} me{% endcapture %}
 
 		{% capture schema_type %}WebSite{% endcapture %}
+
+		{% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
+
 	{% elsif include.page.type %}
                 {% if include.page.thumbnail_path %}
                         {% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
@@ -235,6 +277,9 @@
 		{% capture description %}{{ site.data.config.full_name }}, {{ title }}{% endcapture %}
 
 		{% capture schema_type %}WebSite{% endcapture %}
+
+		{% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
+
 	{% else %}
 		{% if include.page.excerpt %}
 			{% capture description %}{{ description }}{{ include.page.excerpt | strip_html | strip_newlines }}{% endcapture %}
@@ -259,6 +304,9 @@
 		{% capture title %}{% if include.page.title %}{{ include.page.title }}{% else %}{{ site.data.config.full_name }}{% endif %}{% endcapture %}
 
 		{% capture schema_type %}WebSite{% endcapture %}
+
+		{% capture keywords %}{{ site.data.config.keywords}}{% endcapture %}
+
 	{% endif %}
 
 <!-- description -->
