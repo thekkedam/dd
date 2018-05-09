@@ -1,87 +1,153 @@
-<!-- Open Graph data -->
-<meta property="og:title" content="{{ title }}"/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="{% include canonical-url.html %}"/>
-<meta property="og:site_name" content="{{ site.data.config.full_name }}"/>
-<meta property="og:description" content="{{ description }}"/>
-<meta property="og:image" content="{{ image_url | strip }}"/>
-
-<!-- Open Graph extendend fields from http://ogp.me/ns -->
+<script type='application/ld+json'>
+{
+	"@context": "http://schema.org/",
+	"@type": "WebSite",
+	"about": "Person",
+	"url": "{% include canonical-url.html %}",
+	"mainEntityOfPage": "https://dd.thekkedam.org/",
+	"name": "Deepthi Devaki Akkoorath",
+	"headline": "{{ title }}",
+	"keywords": "{{ keywords }}",
+	"description": "{{ description }}",
+	"copyrightYear": "2018",
+	"datePublished": "09-05-2018",
+	"isAccessibleForFree": true,
+	"isFamilyFriendly": true,
+	"version": "1.1",
+	"author": {
+		"@type": "Person",
+		"name": "Deepthi Devaki Akkoorath",
+		"familyName": "Akkoorath Mana",
+		"givenName": "Deepthi Devaki",
+		"homeLocation": "Kaiserslautern",
+		"jobTitle": "Research Assistant",
+		"alternateName": [
+			"Deepthi",
+			"Devaki",
+			"Akkoorath",
+			"Deepthi Devaki",
+			"Deepthi Akkoorath",
+			"deepthidevaki",
+			"Deepthi Devaki A R"
+		],
+		"url": "https://dd.thekkedam.org/",
+		"image": "https://dd.thekkedam.org/assets/img/DeepthiDevakiAkkoorath_s.jpg",
+		"sameAs": [
+			"https://www.facebook.com/deepthi.devaki",
+			"https://twitter.com/deepthidevaki",
+			"https://plus.google.com/+DeepthiDevakiAkkoorath",
+			"https://www.linkedin.com/in/deepthidevaki",
+			"https://github.com/deepthidevaki/",
+			"https://softech.cs.uni-kl.de/homepage/de/staff/DeepthiAkkoorath/",
+			"https://bitbucket.org/deepthidevaki/",
+			"https://angel.co/deepthi-devaki-akkoorath",
+			"https://www.researchgate.net/profile/Deepthi_Akkoorath",
+			"https://scholar.google.de/citations?user=5AQ2s1oAAAAJ",
+			"https://www.semanticscholar.org/author/Deepthi-Devaki-Akkoorath/2194882",
+			"https://dblp2.uni-trier.de/pers/hd/a/Akkoorath:Deepthi_Devaki",
+			"https://academic.microsoft.com/#/profile/DeepthiDevaki",
+			"https://dl.acm.org/author_page.cfm?id=99659007507"
+		],
+		"colleague": [
+			"https://softech.cs.uni-kl.de/homepage/de/staff/AnnetteBieniusa/",
+			"https://softech.cs.uni-kl.de/homepage/de/staff/PoetzschHeffter/",
+			"https://softech.cs.uni-kl.de/homepage/de/staff/MalteBrunnlieb/",
+			"https://softech.cs.uni-kl.de/homepage/de/staff/SebastianSchweizer/",
+			"https://softech.cs.uni-kl.de/homepage/de/staff/MathiasWeber/",
+			"https://softech.cs.uni-kl.de/homepage/de/staff/PeterZeller/"
+		],
+		"spouse": {
+			"@type": "Person",
+			"mainEntityOfPage": "https://vm.thekkedam.org/",
+			"url": "https://vm.thekkedam.org/",
+			"name": "Vipin Madhavanunni"
+		},
+		"workLocation": "Kaiserslautern",
+		"worksFor": {
+			"@type": "Organization",
+			"alternateName": "Kaiserslautern University",
+			"description": "Software Technology Group",
+			"mainEntityOfPage": "https://www.uni-kl.de/",
+			"name": "TU Kaiserslautern"
+		},
+		"address": {
+			"@type": "PostalAddress",
+			"addressCountry": "Germany",
+			"addressRegion": "Kaiserslautern",
+		},
+		"alumniOf": [
+			"University of Amsterdam",
+			"Amrita Vishwa Vidyapeetham"
+		]
+	},
+	"image": {
+		"@type": "ImageObject",
+		"contentUrl": "https://dd.thekkedam.org/assets/img/DeepthiDevakiAkkoorath_s.jpg"
+	},
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "https://dd.thekkedam.org/search/?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	},
+	"alternateName": [
+		"Deepthi home page",
+		"Deepthi profile"
+		"Deepthi Devaki home page",
+		"Deepthi Devaki profile",
+		"Deepthi Akkoorath home page",
+		"Deepthi Akkoorath profile"
+		"Deepthi Devaki",
+		"Deepthi Akkoorath",
+		"deepthidevaki",
+		"Deepthi Devaki A R"
+	]
+}
+</script>
 {% if page.type == "home" %}
-  <meta property="og:type" content="profile"/>
-  <meta property="profile:first_name" content="{{ site.data.config.first_name }}"/>
-  <meta property="profile:last_name" content="{{ site.data.config.last_name }}"/>
-  <meta property="profile:username" content="{{ site.data.config.id }}"/>
-  <!--<meta property="profile:gender" content="female"/>-->
+<!-- this goes here -->
 {% elsif page.type == "research" %}
   {% if page.dynaid %}
-    <meta property="og:type" content="article"/>
-    <meta property="article:published_time" content="{{ site.time | date_to_xmlschema }}"/>
-    <meta property="article:author" content="{{ site.data.config.full_name }}"/>
     {% for research in site.data.research %}
       {% if research.id == page.dynaid %}
-        <meta property="article:section" content="{{ research.topic }}"/>
         {% for research in site.data.research %}
           {% if research.id == page.dynaid %}
             {% for tag in research.tags %}
-              <meta property="article:tag" content="{{ tag }}"/>
             {% endfor %}
           {% endif %}
         {% endfor %}
         {% for project in site.data.projects %}
           {% if project.rid == research.id %}
-            <meta property="article:tag" content="{{ project.name }}"/>
           {% endif %}
         {% endfor %}
       {% endif %}
     {% endfor %}	
   {% else %}
-    <meta property="og:type" content="website" />
   {% endif %}
 {% elsif page.type == "publications" %}
   {% if page.dynaid %}
-    <meta property="og:type" content="article" />
     {% for section_hash in site.data.publications %}
       {% for section in section_hash %}
         {% assign pubtype =  section_hash[0] %}
         {% for pubtext in section %}
           {% if pubtext.title != null and pubtext.id == page.dynaid %}
-            <meta name="citation_title" content="{{ pubtext.title }}">
             {% if pubtext.author != null %}
               {% for author in pubtext.author %}
-                <meta name="citation_author" content="{{ author }}">
               {% endfor %}
             {% endif %}
             {% for tag in pubtext.keyword %}
-              <meta property="article:tag" content="{{ tag }}"/>
             {% endfor %}
             {% if pubtext.year != null %}
-              <meta name="citation_publication_date" content="{{ pubtext.year }}">
             {% endif %}
-            <!-- need fix in yml matter -->
             {% if pubtext.conference != null %}
-              <meta name="citation_journal_title" content="{{ pubtext.conference }}">
             {% elsif pubtext.organization != null %}
-              <meta name="citation_journal_title" content="{{ pubtext.organization }}">
             {% endif %}
-              <!-- need to seperate this infos in yml matter -->
-              <!--
-              <meta name="citation_volume" content="271">
-              <meta name="citation_issue" content="20">
-              <meta name="citation_firstpage" content="11761">
-              <meta name="citation_lastpage" content="11766">
-              -->
             {% if pubtext.pdf != null %}
               {% if pubtext.pdf contains "http://" first or pubtext.pdf contains "https://" first %}
-                <meta name="citation_pdf_url" content="{{ pubtext.pdf }}">
               {% else %}
-                <meta name="citation_pdf_url" content="{% include canonical-url.html url=pubtext.pdf %}">
               {% endif %}
             {% elsif pubtext.presentation != null %}
               {% if pubtext.presentation contains "http://" first or pubtext.presentation contains "https://" first %}
-                <meta name="citation_pdf_url" content="{{ pubtext.presentation }}">
               {% else %}
-                <meta name="citation_pdf_url" content="{% include canonical-url.html url=pubtext.presentation %}">
               {% endif %}
             {% endif %}
           {% endif %}
@@ -89,53 +155,32 @@
       {% endfor %}
     {% endfor %}
   {% else %}
-    <meta property="og:type" content="website" />
   {% endif %}
 {% elsif page.type == "talks" %}
   {% if page.dynaid %}
-    <meta property="og:type" content="article" />
     {% for section_hash in site.data.talks %}
       {% for section in section_hash %}
         {% assign pubtype =  section_hash[0] %}
         {% for pubtext in section %}
           {% if pubtext.title != null and pubtext.id == page.dynaid %}
-            <meta name="citation_title" content="{{ pubtext.title }}">
-            <!-- auther seperation required in yml -->
             {% if pubtext.author != null %}
               {% for author in pubtext.author %}
-                <meta name="citation_author" content="{{ author }}">
               {% endfor %}
             {% endif %}
             {% if pubtext.year != null %}
-              <meta name="citation_publication_date" content="{{ pubtext.year }}">
             {% endif %}
             {% for tag in pubtext.keyword %}
-              <meta property="article:tag" content="{{ tag }}"/>
             {% endfor %}
-            <!-- need fix in yml matter -->
             {% if pubtext.conference != null %}
-              <meta name="citation_journal_title" content="{{ pubtext.conference }}">
             {% elsif pubtext.organization != null %}
-              <meta name="citation_journal_title" content="{{ pubtext.organization }}">
             {% endif %}
-            <!-- need to seperate this infos in yml matter -->
-            <!--
-            <meta name="citation_volume" content="271">
-            <meta name="citation_issue" content="20">
-            <meta name="citation_firstpage" content="11761">
-            <meta name="citation_lastpage" content="11766">
-            -->
             {% if pubtext.pdf != null %}
               {% if pubtext.pdf contains "http://" first or pubtext.pdf contains "https://" first %}
-                <meta name="citation_pdf_url" content="{{ pubtext.pdf }}">
               {% else %}
-                <meta name="citation_pdf_url" content="{% include canonical-url.html url=pubtext.pdf %}">
               {% endif %}
             {% elsif pubtext.presentation != null %}
               {% if pubtext.presentation contains "http://" first or pubtext.presentation contains "https://" first %}
-                <meta name="citation_pdf_url" content="{{ pubtext.presentation }}">
               {% else %}
-                <meta name="citation_pdf_url" content="{% include canonical-url.html url=pubtext.presentation %}">
               {% endif %}
             {% endif %}
           {% endif %}
@@ -143,36 +188,18 @@
       {% endfor %}
     {% endfor %}
   {% else %}
-    <meta property="og:type" content="website" />
   {% endif %}
 {% elsif page.type == "projects" %}
   {% if page.dynaid %}
-    <meta property="og:type" content="article"/>
-    <meta property="article:author" content="{{ site.data.config.full_name }}"/>
     {% for project in site.data.projects %}
       {% if project.id == page.dynaid %}
-        <meta property="article:published_time" content="{{ project.date }}"/>
-        <meta property="article:section" content="{{ project.name_long }}"/>
-        <!-- need to update yml matter for tags -->
-        <!--
-        <meta property="article:tag" content="article"/>
-        -->
       {% endif %}
     {% endfor %}
   {% else %}
-    <meta property="og:type" content="website" />
   {% endif %}
 {% elsif page.type == "profile" %}
-  <meta property="og:type" content="profile"/>
-  <meta property="profile:first_name" content="{{ site.data.config.first_name }}"/>
-  <meta property="profile:last_name" content="{{ site.data.config.last_name }}"/>
-  <meta property="profile:username" content="{{ site.data.config.id }}"/>
-  <!--<meta property="profile:gender" content="female"/>-->
 {% elsif page.type == "blog" %}
-  <meta property="og:type" content="blog" />
 {% elsif page.type == "contact" %}
-  <meta property="og:type" content="website" />
 {% else %}
-  <meta property="og:type" content="website" />
 {% endif %}
 
