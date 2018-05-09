@@ -23,7 +23,7 @@ opensearch: "/search/opensearch.xml"
 website_repo_url: "https://github.com/thekkedam/dd"
 resume_path: "/assets/documents/cv/Akkoorath_Deepthi-Devaki_CV.pdf"
 base_favicon_url: "/assets/img/icons/favicon" 
-utm: "utm_source=dd.thekkedam.org&utm_medium=Website&utm_content=textlink"
+utm: "utm_source=dd.thekkedam.org&utm_medium=Website&utm_content=textlink&ref=dd.thekkedam.org"
 
 # Image CDN
 cdn:
