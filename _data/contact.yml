@@ -49,4 +49,7 @@
     url: "https://plus.google.com/+DeepthiDevakiAkkoorath"
     label: "Google+"
     icon: "google-plus-square"
-
+  angellist:
+    url: "https://angel.co/deepthi-devaki-akkoorath"
+    label: "AngelList"
+    icon: "angellist"
