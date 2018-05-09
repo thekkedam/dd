@@ -14,15 +14,18 @@
     icon: "plus-square"
   semanticscholar:
     url: "https://www.semanticscholar.org/author/Deepthi-Devaki-Akkoorath/2194882"
-    label: "SemanticScholar"
+    label: "Semantic Scholar"
     icon: "share-square"
   dblp:
     url: "https://dblp2.uni-trier.de/pers/hd/a/Akkoorath:Deepthi_Devaki"
-    label: "dblp"
+    label: "DBLP Bibliography"
     icon: "share-alt-square"
   MicrosoftAcademic:
     url: "https://academic.microsoft.com/#/profile/DeepthiDevaki"
     label: "Microsoft Academic"
     icon: "check-square"
-
+  ACMProfile:
+    url: "https://dl.acm.org/author_page.cfm?id=99659007507"
+    label: "ACM Author Profile"
+    icon: "h-square"
 
