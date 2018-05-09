@@ -1,3 +1,4 @@
+{% if page.type == "home" %}
 <script type='application/ld+json'>
 {
 	"@context": "http://schema.org/",
@@ -103,8 +104,6 @@
 	]
 }
 </script>
-{% if page.type == "home" %}
-<!-- this goes here -->
 {% elsif page.type == "research" %}
   {% if page.dynaid %}
     {% for research in site.data.research %}
