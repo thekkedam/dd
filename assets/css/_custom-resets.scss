@@ -204,3 +204,8 @@ a .circle:hover {
 
 .citation_pdf_url {
 }
+
+.obfuscate { 
+  unicode-bidi: bidi-override; 
+  direction: rtl; 
+}
