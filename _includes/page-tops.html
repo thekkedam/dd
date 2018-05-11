@@ -1,0 +1,13 @@
+<div class="clearfix">
+  {% if page.type != "home" %}
+    <div class="sm-col-4 col h5 gray">
+      <a href="/" class="link-color" title="Go to Home">Home</a>/{{ page.type | capitalize }}<span>                  </span>            
+    </div>
+  {% endif %}
+  <div class="sm-col-right col h5 gray">
+    <span>Share {% include share-buttons.html %}</span>
+    {% if page.type == "profile" %}
+      <span> | <a href="{{ site.data.config.resume_path }}" target="_blank" rel="noopener" onClick="ga(‘send’, ‘event’, ‘ CV Downloads’, ‘Click’, ‘CV-PDF’);"><i class="h6 fa fa-fw fa-lg fa-download"></i>CV</a></span>
+    {% endif %}
+  </div>
+</div>
