@@ -1,5 +1,6 @@
  - content-url: 200.html
  - assets:
+     - sw.js
      - upup.js
      - start.js
      - offline.svg
