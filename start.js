@@ -20,14 +20,15 @@ var links = document.links;
 var i = links.length;
 while (i--) {
   if (links[i].getAttribute("href").slice(0, 4) != "http" ||
-         links[i].getAttribute("href").slice(-4) == ".pdf") {
+         links[i].getAttribute("href").slice(-4) == ".pdf" || 
+         // fb share link ToDO
+         links[i].getAttribute("href").search(/facebook.com/) > -1 ) {
     continue;
   }
   if (links[i].getAttribute("href").slice(-1) == "/") {
     links[i].href = links[i].href + "?{{ site.data.config.utm }}";
   } else {
-    var href = links[i].getAttribute("href");
-    if ( href.search(/\?/) > -1) {
+    if ( links[i].getAttribute("href").search(/\?/) > -1) {
       links[i].href = links[i].href + "&{{ site.data.config.utm }}";
     } else {
       links[i].href = links[i].href + "?{{ site.data.config.utm }}";
