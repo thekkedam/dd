@@ -64,3 +64,4 @@ disallow:
   - assets/css
   - assets/fonts
   - assets/js
+  - cdn-cgi
