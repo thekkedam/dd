@@ -3,7 +3,7 @@
 		{% for section in site.data.about %}
 			{% if section[0] == "About" %}
 				{% for bullet in section[1] %}
-					{% capture description %}{{ description }}{{ bullet | strip_html | strip_newlines }}{% endcapture %}
+					{% capture description %}{{ description }}{{ bullet | strip_html | strip_newlines | replace_first: 'I am', 'Deepthi Devaki Akkoorath is' | replace: 'I am', 'She is' | replace: 'My', 'Her' | replace: 'I have', 'She has' }}{% endcapture %}
 				{% endfor %}
 			{% endif %}
 		{% endfor %}
