@@ -7,7 +7,7 @@
 				{% endfor %}
 			{% endif %}
 		{% endfor %}
-		<!-- Langauge hack self discription to third person --!>
+		<!-- Langauge hack self discription to third person -->
                 {% if site.data.config.gender == "female" %}
                 	{% capture description %}{{ description | replace_first: 'I', site.data.config.full_name | replace: 'I', 'She' | replace: ' am ', ' is ' | replace: 'My ', 'Her ' | replace: 'have ', 'has ' }}{% endcapture %}
                 {% else %}
