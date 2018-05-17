@@ -9,9 +9,9 @@
 		{% endfor %}
 		<!-- Langauge hack self discription to third person --!>
                 {% if site.data.config.gender == "female" %}
-                	{% capture description %}{{ description | replace_first: 'I', site.data.config.name_short | replace: 'I', 'She' | replace: ' am ', ' is ' | replace: 'My ', 'Her ' | replace: 'have ', 'has ' }}{% endcapture %}
+                	{% capture description %}{{ description | replace_first: 'I', site.data.config.full_name | replace: 'I', 'She' | replace: ' am ', ' is ' | replace: 'My ', 'Her ' | replace: 'have ', 'has ' }}{% endcapture %}
                 {% else %}
-                	{% capture description %}{{ description | replace_first: 'I', site.data.config.name_short | replace: 'I', 'He' | replace: ' am ', ' is ' | replace: 'My ', 'His ' | replace: 'have ', 'has ' }}{% endcapture %}
+                	{% capture description %}{{ description | replace_first: 'I', site.data.config.full_name | replace: 'I', 'He' | replace: ' am ', ' is ' | replace: 'My ', 'His ' | replace: 'have ', 'has ' }}{% endcapture %}
 		{% endif %}
 
 		{% if include.page.thumbnail_path %}
