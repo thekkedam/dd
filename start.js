@@ -22,7 +22,7 @@ while (i--) {
   if (links[i].getAttribute("href").slice(0, 4) != "http" ||
          links[i].getAttribute("href").slice(-4) == ".pdf" || 
          // fb share link ToDO
-         links[i].getAttribute("href").search(/facebook.com/) > -1 ) {
+         links[i].getAttribute("href").search(/facebook.com\/sharer.php/) > -1 ) {
     continue;
   }
   if (links[i].getAttribute("href").slice(-1) == "/") {
