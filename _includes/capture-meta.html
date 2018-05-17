@@ -3,10 +3,16 @@
 		{% for section in site.data.about %}
 			{% if section[0] == "About" %}
 				{% for bullet in section[1] %}
-					{% capture description %}{{ description }}{{ bullet | strip_html | strip_newlines | replace_first: 'I am', 'Deepthi Devaki Akkoorath is' | replace: 'I am', 'She is' | replace: 'My', 'Her' | replace: 'I have', 'She has' }}{% endcapture %}
+					{% capture description %}{{ description }}{{ bullet | strip_html | strip_newlines }}{% endcapture %}
 				{% endfor %}
 			{% endif %}
 		{% endfor %}
+		<!-- Langauge hack self discription to third person --!>
+                {% if site.data.config.gender == "female" %}
+                	{% capture description %}{{ description | replace_first: 'I', site.data.config.name_short | replace: 'I', 'She' | replace: ' am ', ' is ' | replace: 'My ', 'Her ' | replace: 'have ', 'has ' }}{% endcapture %}
+                {% else %}
+                	{% capture description %}{{ description | replace_first: 'I', site.data.config.name_short | replace: 'I', 'He' | replace: ' am ', ' is ' | replace: 'My ', 'His ' | replace: 'have ', 'has ' }}{% endcapture %}
+		{% endif %}
 
 		{% if include.page.thumbnail_path %}
 			{% capture image_path %}{{ include.page.thumbnail_path }}{% endcapture %}
