@@ -26,7 +26,16 @@
     {% endfor %}
     <!-- Pages -->
     {% for page in site.pages %}
-      {% if page.layout != null and page.layout != 'feed' and page.permalink != '/404.html' %}
+      {% assign isallow = 1 %}
+      {% if site.data.config.disallow != null %}
+        {% for disallow in site.data.config.disallow %}
+          {% capture adis %}/{{ disallow}}{% endcapture %}
+          {% if page.url == adis %}
+            {% assign isallow = 0 %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      {% if page.layout != null and page.layout != 'feed' and page.permalink != '/404.html' and isallow == 1 %}
 	<item>
 	  <title>{{ page.title | xml_escape }}</title>
           {% if post.author %}
