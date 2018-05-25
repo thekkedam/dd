@@ -5,23 +5,23 @@
 	"@type": "WebSite",
 	"about": "Person",
 	"url": "{% include canonical-url.html %}",
-	"mainEntityOfPage": "https://dd.thekkedam.org/",
-	"name": "Deepthi Devaki Akkoorath",
+	"mainEntityOfPage": "{{ site.base_url }}",
+	"name": "{{ site.data.config.full_name }}",
 	"headline": "{{ title }}",
 	"keywords": "{{ keywords }}",
 	"description": "{{ description }}",
-	"copyrightYear": "2018",
-	"datePublished": "17-05-2018",
+	"copyrightYear": "{{ site.time | date: "%Y" }}",
+	"datePublished": "{{ site.time | date: "%d-%m-%Y" }}",
 	"isAccessibleForFree": true,
 	"isFamilyFriendly": true,
-	"version": "1.2",
+	"version": "{{ site.data.config.version }}",
 	"author": {
 		"@type": "Person",
-		"name": "Deepthi Devaki Akkoorath",
-		"familyName": "Akkoorath Mana",
-		"givenName": "Deepthi Devaki",
-		"homeLocation": "Kaiserslautern",
-		"jobTitle": "Research Assistant",
+		"name": "{{ site.data.config.full_name }}",
+		"familyName": "{{ site.data.config.last_name }}",
+		"givenName": "{{ site.data.config.first_name }}",
+		"homeLocation": "{{ site.data.config.location }}",
+		"jobTitle": "{{ site.data.config.job }}",
 		"alternateName": [
 			"Deepthi",
 			"Devaki",
@@ -31,23 +31,17 @@
 			"deepthidevaki",
 			"Deepthi Devaki A R"
 		],
-		"url": "https://dd.thekkedam.org/",
-		"image": "https://dd.thekkedam.org/assets/img/DeepthiDevakiAkkoorath_s.jpg",
+		"url": "{{ site.base_url }}",
+		"image": "{{ image_url | strip }}",
 		"sameAs": [
-			"https://www.facebook.com/deepthi.devaki",
-			"https://twitter.com/deepthidevaki",
-			"https://plus.google.com/+DeepthiDevakiAkkoorath",
-			"https://www.linkedin.com/in/deepthidevaki",
-			"https://github.com/deepthidevaki/",
-			"https://softech.cs.uni-kl.de/homepage/en/staff/DeepthiAkkoorath/",
-			"https://bitbucket.org/deepthidevaki/",
-			"https://angel.co/deepthidevaki",
-			"https://www.researchgate.net/profile/Deepthi_Akkoorath",
-			"https://scholar.google.de/citations?user=5AQ2s1oAAAAJ",
-			"https://www.semanticscholar.org/author/Deepthi-Devaki-Akkoorath/2194882",
-			"https://dblp2.uni-trier.de/pers/hd/a/Akkoorath:Deepthi_Devaki",
-			"https://academic.microsoft.com/#/profile/DeepthiDevaki",
-			"https://dl.acm.org/author_page.cfm?id=99659007507"
+                        {% for external_url_hash in site.data.contact %}
+                          {% assign external_url = external_url_hash[1] %}
+                          "{{ external_url.url }}",
+                        {% endfor %}
+                        {% for bib_url_hash in site.data.bibliography_link %}
+                          {% assign bib_url = bib_url_hash[1] %}
+                          "{{ bib_url.url }}"{% unless forloop.last %}, {% endunless %}
+                        {% endfor %}
 		],
 		"colleague": [
 			"https://softech.cs.uni-kl.de/homepage/en/staff/AnnetteBieniusa/",
@@ -84,7 +78,7 @@
 	},
 	"image": {
 		"@type": "ImageObject",
-		"contentUrl": "https://dd.thekkedam.org/assets/img/DeepthiDevakiAkkoorath_s.jpg"
+		"contentUrl": "{{ image_url | strip }}"
 	},
 	"potentialAction": {
 		"@type": "SearchAction",
