@@ -36,9 +36,10 @@ Concurrent Programming:
     conference: Programming Models and Languages for Distributed Computing
     organization: ECOOP 2017
     place: Barcelona, Spain
-    year: Sun 18 - Fri 23 June 2017
+    year: June 20, 2017
     url:
       PMLDC at ECOOP: https://2017.ecoop.org/event/pmldc-2017-papers-multi-view-data-types-for-scalable-concurrency-in-the-multi-core-era
+      ACM Digital Library: https://dl.acm.org/citation.cfm?id=3166089.3168448
     presentation: /assets/documents/talks/Multi-view_data_types_for_scalable_concurrency_in_the_multi-core_era_multiview_slides_Akkoorath.pdf
     keyword:
       - Scalable Consistency
