@@ -20,6 +20,7 @@
       {
         alert("Google Analytics is allready opted out");
       } else {
+        ga(‘send’, ‘event’, ‘ OptOut’, ‘Submit’, ‘Privacy-OptOut’);
         document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
         window[disableStr] = true;
         alert("Google Analytics opted out");
@@ -32,6 +33,7 @@
         document.cookie = disableStr + '=false; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
         window[disableStr] = false;
         alert("Google Analytics opted in");
+        ga(‘send’, ‘event’, ‘ OptIn’, ‘Submit’, ‘Privacy-OptIn’);
       } else {
         alert("Google Analytics is allready opted in");
         ga(function() {
