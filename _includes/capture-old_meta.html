@@ -3,10 +3,23 @@
 <meta name="keywords" content="{{ keywords }}">
 <meta name="image" content="{{ image_url | strip }}">
 <meta name="generator" content="Jekyll v{{ site.data.versions.jekyll }}">
-<meta name="web_author" content="Deepthi Devaki Akkoorath, Vipin Madhavanunni">
-<!-- need to check against site.data.config.disallow and put one of bellow -->
-<meta name="robots" content="index, follow">
-<!-- <meta name="robots" content="noindex, follow"> -->
+<meta name="web_author" content="{{ site.data.config.full_name }}, {{ site.data.config.site_admin }}">
+{% assign isallow = 1 %}
+{% if site.data.config.disallow != null %}
+  {% for disallow in site.data.config.disallow %}
+    {% capture adis %}/{{ disallow}}{% endcapture %}
+    {% if page.url == adis %}
+      {% assign isallow = 0 %}
+    {% endif %}
+  {% endfor %}
+{% else %}
+  <meta name="robots" content="index, follow">
+{% endif %}
+{% if isallow == 1 %}
+  <meta name="robots" content="index, follow">
+{% else %}
+  <meta name="robots" content="noindex, follow">
+{% endif %}
 <meta name="author" content="{{ site.data.config.full_name }}">
 <meta name="copyright" content="{{ site.data.config.full_name }}">  
 <meta name="distribution" content="global">
