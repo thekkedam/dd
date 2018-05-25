@@ -1,6 +1,10 @@
+---
+permalink: /assets/img/icons/favicon/manifest.json
+---
+
 {
- "name": "Personal home page of Deepthi Devaki Akkoorath",
- "short_name": "Deepthi",
+ "name": "{{ site.data.config.description }}",
+ "short_name": "{{ site.data.config.name_short }}",
  "start_url": "/index.html",
  "display": "minimal-ui",
  "theme_color": "#ffffff",
