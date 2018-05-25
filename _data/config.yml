@@ -1,9 +1,12 @@
+version: "1.2"
 # Bio settings
 name_short: "Deepthi Akkoorath"
 first_name: "Deepthi Devaki"
 last_name: "Akkoorath"
 full_name: "Deepthi Devaki Akkoorath"
 gender: "female"
+location: "Kaiserslautern"
+job: "Research Assistant"
 slogan: "If you can't explain it simply, you don't understand it well enough. - Albert Einstein"
 description: "The home page of Deepthi Devaki Akkoorath."
 keywords: "Scalable Distributed Systems, Concurrent Programming, Edge computing, Eventual consistency, CRDT, Causal consistency, Weak consistency, Software Transactional Memory"
@@ -11,6 +14,7 @@ thumbnail_path: "DeepthiDevakiAkkoorath.jpg"
 thumbnail_path_s: "DeepthiDevakiAkkoorath_s.jpg"
 user_ico_path: "Deepthi_Devaki_Akkoorath_logo.jpg"
 bitcoin_address: 
+site_admin: "Vipin Madhavanunni"
 
 # direct links 
 about: "/about-site"
@@ -50,11 +54,10 @@ disallow:
   - BingSiteAuth.xml
   - cms.html
   - CNAME
-  - LICENSE
+  - LICENSE/
   - nortonsw_26518600-9b7f-0.html
   - yandex_cc5b775180faf832.html
-  - speaking
-  - writing
+  - speaking/
   - skype.html
   - 200.html
   - 404.html
@@ -62,7 +65,19 @@ disallow:
   - .message
   - upup.js
   - sw.js
-  - assets/css
-  - assets/fonts
-  - assets/js
-  - cdn-cgi
+  - assets/css/
+  - assets/fonts/
+  - assets/js/
+  - cdn-cgi/
+  - search/
+  - privacy/
+  - contact/thanks.html
+  - writing/
+  - writing/popular/
+  - writing/video/
+  - writing/wish/
+  - writing/tags/
+  - writing/articles/
+  - photos/
+  - blog
+  - ToDO/
