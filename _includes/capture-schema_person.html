@@ -1,0 +1,62 @@
+{
+	"@type": "Person",
+	"name": "{{ site.data.config.full_name }}",
+	"familyName": "{{ site.data.config.last_name }}",
+	"givenName": "{{ site.data.config.first_name }}",
+	"homeLocation": "{{ site.data.config.location }}",
+	"jobTitle": "{{ site.data.config.job }}",
+	"alternateName": [
+		"Deepthi",
+		"Devaki",
+		"Akkoorath",
+		"Deepthi Devaki",
+		"Deepthi Akkoorath",
+		"deepthidevaki",
+		"Deepthi Devaki A R"
+	],
+	"url": "{{ site.base_url }}",
+	"image": "{{ image_url | strip }}",
+	"sameAs": [
+		{% for external_url_hash in site.data.contact %}
+		  {% assign external_url = external_url_hash[1] %}
+		  "{{ external_url.url }}",
+		{% endfor %}
+		{% for bib_url_hash in site.data.bibliography_link %}
+		  {% assign bib_url = bib_url_hash[1] %}
+		  "{{ bib_url.url }}",
+		{% endfor %}
+	],
+	"colleague": [
+		"https://softech.cs.uni-kl.de/homepage/en/staff/AnnetteBieniusa/",
+		"https://softech.cs.uni-kl.de/homepage/en/staff/PoetzschHeffter/",
+		"https://softech.cs.uni-kl.de/homepage/en/staff/MalteBrunnlieb/",
+		"https://softech.cs.uni-kl.de/homepage/en/staff/SebastianSchweizer/",
+		"https://softech.cs.uni-kl.de/homepage/en/staff/MathiasWeber/",
+		"https://softech.cs.uni-kl.de/homepage/en/staff/PeterZeller/"
+	],
+	"spouse": {
+		"@type": "Person",
+		"mainEntityOfPage": "https://vm.thekkedam.org/",
+		"url": "https://vm.thekkedam.org/",
+		"name": "Vipin Madhavanunni"
+	},
+	"workLocation": "Kaiserslautern",
+	"worksFor": {
+		"@type": "Organization",
+		"alternateName": "Kaiserslautern University",
+		"description": "Software Technology Group",
+		"mainEntityOfPage": "https://www.uni-kl.de/",
+		"url": "https://softech.cs.uni-kl.de/",
+		"name": "TU Kaiserslautern"
+	},
+	"address": {
+		"@type": "PostalAddress",
+		"addressCountry": "Germany",
+		"addressRegion": "Kaiserslautern"
+	},
+	"alumniOf": [
+		"University of Amsterdam",
+		"Amrita Vishwa Vidyapeetham"
+	]
+}
+
