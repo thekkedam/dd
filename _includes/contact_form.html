@@ -1,0 +1,71 @@
+<div class="section--white">
+  <div class="btn" data-cta-target=".js-sidebar">Open the Sidebar</div>
+</div>
+
+<div class="js-sidebar  modal sidebar">
+  <span class="modal-close-btn"></span>
+    <p>The message will be filtered, so please careful not to include any suspicious links in the message. Make sure your email in the submission field is correct so that I will be able to contact you.</p>
+  <form id="contactform" method="POST">
+    <input type="hidden" name="_format" value="plain" />
+    <input type="hidden" name="_next" value="//dd.thekkedam.org/contact/thanks.html" />
+    <div class="sidebar__block">
+      <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="sidebar__block">
+      <input type="email" name="_replyto" placeholder="Your email" required>
+    </div>
+    <div class="sidebar__block">
+      <input type="text" name="_subject" placeholder="Subject for contact" required>
+    </div>
+    <div class="sidebar__block">
+      <textarea name="message" placeholder="Your message" required></textarea>
+    </div>
+    <input type="text" name="_gotcha" style="display:none" />
+    <input type="submit" value="Send">
+  </form>
+</div>
+
+<script>
+  var contactform =  document.getElementById('contactform');
+  contactform.setAttribute('action', '//formspree.io/' + 'deepthidevaki+DDwebCONTACT' + '@' + 'gmail' + '.' + 'com');
+</script>
+<script src="/assets/js/cta.min.js"></script>
+<script>
+		var closeFn;
+		function closeShowingModal(liked) {
+			if (liked !== undefined) {
+				_gaq.push(['_trackEvent', 'ctajs', liked ? 'liked' : 'unliked']);
+			}
+			var showingModal = document.querySelector('.modal.show');
+			if (!showingModal) return;
+			showingModal.classList.remove('show');
+			document.body.classList.remove('disable-mouse');
+			document.body.classList.remove('disable-scroll');
+			if (closeFn) {
+				closeFn();
+				closeFn = null;
+			}
+		}
+		document.addEventListener('click', function (e) {
+			var target = e.target;
+			if (target.dataset.ctaTarget) {
+				_gaq.push(['_trackEvent', 'ctajs', 'modal']);
+				closeFn = cta(target, document.querySelector(target.dataset.ctaTarget), { relativeToWindow: true }, function showModal(modal) {
+					modal.classList.add('show');
+					document.body.classList.add('disable-mouse');
+					if (target.dataset.disableScroll) {
+						document.body.classList.add('disable-scroll');
+					}
+				});
+			}
+			else if (target.classList.contains('modal-close-btn')) {
+				closeShowingModal();
+			}
+		});
+		document.addEventListener('keyup', function (e) {
+			if (e.which === 27) {
+				closeShowingModal();
+			}
+		})
+</script>
+
