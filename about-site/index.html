@@ -4,13 +4,8 @@ type: "about this site"
 include_header: about_header.html
 nav_item: about-site
 ---
-<div>
-  <h5 class="page-description body-font gray mt1 regular">
-    <a href="/" class="link-color" title="Go to Home">Home</a>/
-    {{ page.type | capitalize }}
-  </h5>
-<div>
-<div class="clearfix">
+{% include page-tops.html %}
+<div class="clearfix mb2 border-bottom border-light-gray py3">
   <p>
     Page last generated at {{ site.time | date: "%a, %d %b %Y %H:%M:%S %Z" }}
   </p>
