@@ -1,12 +1,29 @@
 ---
 layout: default
 ---
-<div>
-  <h5 class="page-description body-font gray mt1 regular">
-    <a href="/" class="link-color" title="Go to Home">Home</a>/
-    <a href="/projects" class="link-color" title="Go to Projects">Projects</a>/
-    {{ page.dynaid | capitalize }}
-  </h5>
+  <div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div class="col h5 gray">
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />/
+      </span>
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/projects/" class="link-color" title="Go to Projects">
+          <span itemprop="name">Projects</span>
+        </a>
+        <meta itemprop="position" content="2" />/
+      </span>
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/projects/{{ page.dynaid }}/" class="link-color" title="Go to {{ page.dynaid | capitalize }}">
+          <span itemprop="name">{{ page.dynaid | capitalize }}</span>
+        </a>
+        <meta itemprop="position" content="3" />
+      </span>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
 <div>
 {% for project in site.data.projects %}
   {% if project.id == page.dynaid %}
