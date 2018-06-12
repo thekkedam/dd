@@ -1,7 +1,29 @@
-<div class="clearfix">
+<div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
   {% if page.type != "home" %}
-    <div class="sm-col-4 col h5 gray">
-      <a href="/" class="link-color" title="Go to Home">Home</a>/{{ page.type | capitalize }}<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>            
+    <div class="col h5 gray">
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />/
+      </span>
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"> 
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/{{ page.type }}" class="link-color" title="Go to {{ page.type | capitalize }}">
+          <span itemprop="name">{{ page.type | capitalize }}</span>
+        </a>
+        <meta itemprop="position" content="2" />
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </span>
+    </div>
+  {% else %}
+    <div class="col h5 gray">
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </span>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </div>
   {% endif %}
   <div class="sm-col-right col h5 gray">
