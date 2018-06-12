@@ -6,13 +6,37 @@ layout: default
     {% assign pubtype =  section_hash[0] %}
     {% for pubtext in section %}
 	{% if pubtext.title != null and pubtext.id == page.dynaid %}
-            <h5 class="page-description body-font gray mt1 regular">
-              <a href="/" class="link-color" title="Go to Home">Home</a>/
-              <a href="/publications/#talks" class="link-color" title="Go to Talks">Talks</a>/
-	      <a href="/publications/#pub-{{ pubtype }}" class="link-color" title="Go to {{ pubtype }}">{{ pubtype }}</a>
-            </h5>
-	    </br>
-	    <div class="clearfix">
+          <div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <div class="col h5 gray">
+              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
+                  <span itemprop="name">Home</span>
+                </a>
+                <meta itemprop="position" content="1" />/
+              </span>
+              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/publications/#talks" class="link-color" title="Go to Talks">
+                  <span itemprop="name">Talks</span>
+                </a>
+                <meta itemprop="position" content="2" />
+              </span>
+              <span>
+                (<a href="/publications/#pub-{{ pubtype }}" class="link-color" title="Go to {{ pubtype }}">
+                  <span>{{ pubtype }}</span>
+                </a>)
+                /
+              </span>
+              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/talks/{{ page.dynaid }}" class="link-color" title="Go to {{ pubtext.title }}">
+                  <span itemprop="name">{{ page.dynaid }}</span>
+                </a>
+                <meta itemprop="position" content="3" />
+              </span>
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+          </div>
+	  </br>
+	  <div class="clearfix">
 	    <!-- https://stackoverflow.com/questions/16528783/check-for-existence-of-file-using-jekyll -->
 	    {% assign pub_image = false %}
             {% capture pub_image %}talks/{{ pubtext.id }}.jpeg{% endcapture %}
