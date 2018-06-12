@@ -6,7 +6,7 @@ nav_item: publications
 ---
   {% include page-tops.html %}
   {% include publications_list.html %}
-  <div class="clearfix mb2 border-bottom border-light-gray circle-line">
+  <div class="clearfix mb2 border-bottom border-light-gray">
   {% for section in site.data.sections %}
 	{% if section.id == "publications"  or section.id == "talks" %}
             <h4 id="{{ section.id }}">
