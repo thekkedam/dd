@@ -3,11 +3,30 @@ layout: default
 ---
   {% for research in site.data.research %}
   {% if research.id == page.dynaid %}
-  <h5 class="page-description body-font gray mt1 regular">
-    <a href="/" class="link-color" title="Go to Home">Home</a>/
-    <a href="/research" class="link-color" title="Go to Research">Research</a>/
-    {{ research.topic }}  <!-- ({{ page.dynasta | capitalize }}) -->
-  </h5>
+  <div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <div class="col h5 gray">
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />/
+      </span>
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/research" class="link-color" title="Go to Research">
+          <span itemprop="name">Research</span>
+        </a>
+        <meta itemprop="position" content="2" />/
+      </span>
+      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/research/{{ page.dynaid }}/" class="link-color" title="Go to {{ research.topic }}">
+	  <span itemprop="name">{{ research.topic }}</span>
+        </a>
+        <meta itemprop="position" content="3" />
+      </span>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+  <!-- ({{ page.dynasta | capitalize }}) -->
   <div class="clearfix">
     <h4 id="{{ research.id }}">{{ research.topic }}</h4>
     <ul class="list-unstyled"> 
