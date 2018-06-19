@@ -1,0 +1,202 @@
+{% if page.type == "home" %}
+<script type='application/ld+json'>
+{
+	"@context": "http://schema.org/",
+	"@type": "WebSite",
+	"about": "Person",
+	"url": "{% include canonical-url.html %}",
+	"mainEntityOfPage": "{{ site.base_url }}",
+	"name": "{{ site.data.config.full_name }}",
+	"headline": "{{ title }}",
+	"keywords": "{{ keywords }}",
+	"description": "{{ description }}",
+	"copyrightYear": "{{ site.time | date: "%Y" }}",
+	"datePublished": "{{ site.time | date: "%d-%m-%Y" }}",
+	"isAccessibleForFree": true,
+	"isFamilyFriendly": true,
+	"version": "{{ site.data.config.version }}",
+	"author": {
+		"@type": "Person",
+		"name": "{{ site.data.config.full_name }}",
+		"familyName": "{{ site.data.config.last_name }}",
+		"givenName": "{{ site.data.config.first_name }}",
+		"homeLocation": "{{ site.data.config.location }}",
+		"jobTitle": "{{ site.data.config.job }}",
+		"alternateName": [
+			"Deepthi",
+			"Devaki",
+			"Akkoorath",
+			"Deepthi Devaki",
+			"Deepthi Akkoorath",
+			"deepthidevaki",
+			"Deepthi Devaki A R"
+		],
+		"url": "{{ site.base_url }}",
+		"image": "{{ image_url | strip }}",
+		"sameAs": [
+                        {% for external_url_hash in site.data.contact %}
+                          {% assign external_url = external_url_hash[1] %}
+                          {% capture test_str %}{{ external_url.url | slice: 0, 7 }}{% endcapture %}
+                            {% unless test_str == 'mailto:' %}
+                              "{{ external_url.url }}", 
+                            {% endunless %}
+                        {% endfor %}
+                        {% for bib_url_hash in site.data.bibliography_link %}
+                          {% assign bib_url = bib_url_hash[1] %}
+                          "{{ bib_url.url }}"{% unless forloop.last %}, {% endunless %}
+                        {% endfor %}
+		],
+		"colleague": [
+			"https://softech.cs.uni-kl.de/homepage/en/staff/AnnetteBieniusa/",
+			"https://softech.cs.uni-kl.de/homepage/en/staff/PoetzschHeffter/",
+			"https://softech.cs.uni-kl.de/homepage/en/staff/MalteBrunnlieb/",
+			"https://softech.cs.uni-kl.de/homepage/en/staff/SebastianSchweizer/",
+			"https://softech.cs.uni-kl.de/homepage/en/staff/MathiasWeber/",
+			"https://softech.cs.uni-kl.de/homepage/en/staff/PeterZeller/"
+		],
+		"spouse": {
+			"@type": "Person",
+			"mainEntityOfPage": "https://vm.thekkedam.org/",
+			"url": "https://vm.thekkedam.org/",
+			"name": "Vipin Madhavanunni"
+		},
+		"workLocation": "Kaiserslautern",
+		"worksFor": {
+			"@type": "Organization",
+			"alternateName": "Kaiserslautern University",
+			"description": "Software Technology Group",
+			"mainEntityOfPage": "https://www.uni-kl.de/",
+                        "url": "https://softech.cs.uni-kl.de/",
+			"name": "TU Kaiserslautern"
+		},
+		"address": {
+			"@type": "PostalAddress",
+			"addressCountry": "Germany",
+			"addressRegion": "Kaiserslautern"
+		},
+		"alumniOf": [
+			"University of Amsterdam",
+			"Amrita Vishwa Vidyapeetham"
+		]
+	},
+	"image": {
+		"@type": "ImageObject",
+		"contentUrl": "{{ image_url | strip }}"
+	},
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "https://dd.thekkedam.org/search/?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	},
+	"alternateName": [
+		"Deepthi home page",
+		"Deepthi profile",
+		"Deepthi Devaki home page",
+		"Deepthi Devaki profile",
+		"Deepthi Akkoorath home page",
+		"Deepthi Akkoorath profile",
+		"Deepthi Devaki",
+		"Deepthi Akkoorath",
+		"deepthidevaki",
+		"Deepthi Devaki A R"
+	]
+}
+</script>
+{% elsif page.type == "research" %}
+  {% if page.dynaid %}
+    {% for research in site.data.research %}
+      {% if research.id == page.dynaid %}
+        {% for research in site.data.research %}
+          {% if research.id == page.dynaid %}
+            {% for tag in research.tags %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        {% for project in site.data.projects %}
+          {% if project.rid == research.id %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}	
+  {% else %}
+  {% endif %}
+{% elsif page.type == "publications" %}
+  {% if page.dynaid %}
+    {% for section_hash in site.data.publications %}
+      {% for section in section_hash %}
+        {% assign pubtype =  section_hash[0] %}
+        {% for pubtext in section %}
+          {% if pubtext.title != null and pubtext.id == page.dynaid %}
+            {% if pubtext.author != null %}
+              {% for author in pubtext.author %}
+              {% endfor %}
+            {% endif %}
+            {% for tag in pubtext.keyword %}
+            {% endfor %}
+            {% if pubtext.year != null %}
+            {% endif %}
+            {% if pubtext.conference != null %}
+            {% elsif pubtext.organization != null %}
+            {% endif %}
+            {% if pubtext.pdf != null %}
+              {% if pubtext.pdf contains "http://" first or pubtext.pdf contains "https://" first %}
+              {% else %}
+              {% endif %}
+            {% elsif pubtext.presentation != null %}
+              {% if pubtext.presentation contains "http://" first or pubtext.presentation contains "https://" first %}
+              {% else %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+  {% else %}
+  {% endif %}
+{% elsif page.type == "talks" %}
+  {% if page.dynaid %}
+    {% for section_hash in site.data.talks %}
+      {% for section in section_hash %}
+        {% assign pubtype =  section_hash[0] %}
+        {% for pubtext in section %}
+          {% if pubtext.title != null and pubtext.id == page.dynaid %}
+            {% if pubtext.author != null %}
+              {% for author in pubtext.author %}
+              {% endfor %}
+            {% endif %}
+            {% if pubtext.year != null %}
+            {% endif %}
+            {% for tag in pubtext.keyword %}
+            {% endfor %}
+            {% if pubtext.conference != null %}
+            {% elsif pubtext.organization != null %}
+            {% endif %}
+            {% if pubtext.pdf != null %}
+              {% if pubtext.pdf contains "http://" first or pubtext.pdf contains "https://" first %}
+              {% else %}
+              {% endif %}
+            {% elsif pubtext.presentation != null %}
+              {% if pubtext.presentation contains "http://" first or pubtext.presentation contains "https://" first %}
+              {% else %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+  {% else %}
+  {% endif %}
+{% elsif page.type == "projects" %}
+  {% if page.dynaid %}
+    {% for project in site.data.projects %}
+      {% if project.id == page.dynaid %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+  {% endif %}
+{% elsif page.type == "profile" %}
+{% elsif page.type == "blog" %}
+{% elsif page.type == "contact" %}
+{% else %}
+{% endif %}
+
