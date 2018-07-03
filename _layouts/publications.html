@@ -1,44 +1,44 @@
 ---
 layout: default
 ---
-  {% for section_hash in site.data.publications %}
+{% for section_hash in site.data.publications %}
   {% for section in section_hash %}
     {% assign pubtype =  section_hash[0] %}
     {% for pubtext in section %}
-	{% if pubtext.title != null and pubtext.id == page.dynaid %}
-          <div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
-            <div class="col h5 gray">
-              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
-                  <span itemprop="name">Home</span>
-                </a>
-                <meta itemprop="position" content="1" />/
-              </span>
-              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/publications/#publications" class="link-color" title="Go to Publications">
-                  <span itemprop="name">Publications</span>
-                </a>
-                <meta itemprop="position" content="2" />
-              </span>
-              <span>
-                (<a href="/publications/#pub-{{ pubtype }}" class="link-color" title="Go to {{ pubtype }}">
-                  <span>{{ pubtype }}</span>
-                </a>)
-                /
-              </span>              
-              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/publications/{{ page.dynaid }}" class="link-color" title="Go to {{ pubtext.title }}">
-                  <span itemprop="name">{{ page.dynaid }}</span>
-                </a>
-                <meta itemprop="position" content="3" />
-              </span>
-              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            </div>
+      {% if pubtext.title != null and pubtext.id == page.dynaid %}
+        <div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <div class="col h5 gray">
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
+                <span itemprop="name">Home</span>
+              </a>
+              <meta itemprop="position" content="1" />/
+            </span>
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/publications/#publications" class="link-color" title="Go to Publications">
+                <span itemprop="name">Publications</span>
+              </a>
+              <meta itemprop="position" content="2" />
+            </span>
+            <span>
+              (<a href="/publications/#pub-{{ pubtype }}" class="link-color" title="Go to {{ pubtype }}">
+                 <span>{{ pubtype }}</span>
+              </a>)
+              /
+            </span>              
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/publications/{{ page.dynaid }}" class="link-color" title="Go to {{ pubtext.title }}">
+                <span itemprop="name">{{ page.dynaid }}</span>
+              </a>
+              <meta itemprop="position" content="3" />
+            </span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           </div>
-          <br>
-	  <div class="clearfix">
-	    <!-- https://stackoverflow.com/questions/16528783/check-for-existence-of-file-using-jekyll -->
-            {% assign pub_image = false %}
+        </div>
+        <br>
+	<div class="clearfix">
+	  <!-- https://stackoverflow.com/questions/16528783/check-for-existence-of-file-using-jekyll -->
+          {% assign pub_image = false %}
             {% capture pub_image %}publications/{{ pubtext.id }}.jpeg{% endcapture %}
             {% capture img_file_name %}{{ pubtext.id }}.jpeg{% endcapture %}
             {% for static_file in site.static_files %}
@@ -55,11 +55,9 @@ layout: default
 	      </a>
             </div>
             {% endif %}
-
             <div class="border-bottom border-light-gray">	
 	      <a id="{{ pubtext.id }}"></a><h4 class="citation_title">{{ pubtext.title }}</h4>
             </div>
-
             {% if pubtext.author != null %}
                 <p>
                 <i class="fa fa-fw fa-lg fa-users"></i>
@@ -72,14 +70,12 @@ layout: default
                 </span>
                 </p>
             {% endif %}
-
             {% if pubtext.short_name != null %}
               <p>
 		<i class="fa fa-fw fa-lg fa-bookmark-o"></i>
                 <span class="h5">{{ pubtext.short_name }}</span>
               </p>
             {% endif %}
-
             <p>
             {% if pubtext.place != null %}
                 <i class="fa fa-fw fa-lg fa-map-marker"></i>
@@ -90,14 +86,12 @@ layout: default
                 <span class="h5">{{ pubtext.year }}</span>
             {% endif %}
             </p>
-
             <p>
             {% if pubtext.institution != null %}
                 <i class="fa fa-fw fa-lg fa-university"></i>
                 <span class="h5">{{ pubtext.institution }}</span>
             {% endif %}
             </p>
-
             {% if pubtext.conference != null or pubtext.degree != null or pubtext.organization != null %}
 	      <p class="justify">
                 <i class="fa fa-fw fa-lg fa-book"></i>
@@ -129,12 +123,10 @@ layout: default
               <br>
               <br>
 	    {% endif %}
-
 	    {% if pubtext.abstract != null %}
 	      <p class="justify"><i class="fa fa-fw fa-lg fa-bars"> </i>	
 	        {{ pubtext.abstract }}</p>
             {% endif %}
-
             {% if pubtext.keyword != null %}
               <p class="justify">
               <span class="h5">
@@ -145,7 +137,6 @@ layout: default
               </span>
               </P>
             {% endif %}
-
             <span style="float:right;">
               {% if pubtext.pdf != null %}
                 <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
@@ -160,7 +151,6 @@ layout: default
                 <span class="h5"><a href="{{ pubtext.media }}" target="_blank" rel="noopener" onClick="ga(‘send’, ‘event’, ‘ Media Downloads’, ‘Click’, ‘Publications-{{ pubtext.id }}’);">Media</a></span>
               {% endif %}
 	    </span>
- 
             <span style="float:left;">
               {% if pubtext.url != null %}
                 {% for pub_url in pubtext.url %}
@@ -171,10 +161,8 @@ layout: default
                 {% endfor %}
               {% endif %}
             </span>
-
 	    <br>
 	    <br>
-
 <!--
             <span style="float:left;">
               <span class="h5">
@@ -189,10 +177,8 @@ layout: default
               </span>
             </span>
 -->
-
 	    <br>
             <br>
-
             <span style="float:left;">
               <span class="h5">
               {% assign onlyonce0 = 0 %}
@@ -213,12 +199,11 @@ layout: default
               {% endfor %}
               </span>
             </span>
-
           </div>
 	</div>
       {% endif %}
     {% endfor %}
   {% endfor %}
-  {% endfor %}
-  {% include page-buttons.html %}
-  <br>
+{% endfor %}
+{% include page-buttons.html %}
+<br>
