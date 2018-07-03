@@ -1,127 +1,121 @@
 ---
 layout: default
 ---
-  {% for section_hash in site.data.talks %}
+{% for section_hash in site.data.talks %}
   {% for section in section_hash %}
     {% assign pubtype =  section_hash[0] %}
     {% for pubtext in section %}
-	{% if pubtext.title != null and pubtext.id == page.dynaid %}
-          <div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
-            <div class="col h5 gray">
-              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
-                  <span itemprop="name">Home</span>
-                </a>
-                <meta itemprop="position" content="1" />/
-              </span>
-              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/publications/#talks" class="link-color" title="Go to Talks">
-                  <span itemprop="name">Talks</span>
-                </a>
-                <meta itemprop="position" content="2" />
-              </span>
-              <span>
-                (<a href="/publications/#pub-{{ pubtype }}" class="link-color" title="Go to {{ pubtype }}">
-                  <span>{{ pubtype }}</span>
-                </a>)
-                /
-              </span>
-              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/talks/{{ page.dynaid }}" class="link-color" title="Go to {{ pubtext.title }}">
-                  <span itemprop="name">{{ page.dynaid }}</span>
-                </a>
-                <meta itemprop="position" content="3" />
-              </span>
-              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            </div>
+      {% if pubtext.title != null and pubtext.id == page.dynaid %}
+        <div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <div class="col h5 gray">
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
+                <span itemprop="name">Home</span>
+              </a>
+              <meta itemprop="position" content="1" />/
+            </span>
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/publications/#talks" class="link-color" title="Go to Talks">
+                <span itemprop="name">Talks</span>
+              </a>
+              <meta itemprop="position" content="2" />
+            </span>
+            <span>
+              (<a href="/publications/#pub-{{ pubtype }}" class="link-color" title="Go to {{ pubtype }}">
+                <span>{{ pubtype }}</span>
+              </a>)
+              /
+            </span>
+            <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/talks/{{ page.dynaid }}" class="link-color" title="Go to {{ pubtext.title }}">
+                <span itemprop="name">{{ page.dynaid }}</span>
+              </a>
+              <meta itemprop="position" content="3" />
+            </span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           </div>
-	  </br>
-	  <div class="clearfix">
-	    <!-- https://stackoverflow.com/questions/16528783/check-for-existence-of-file-using-jekyll -->
-	    {% assign pub_image = false %}
-            {% capture pub_image %}talks/{{ pubtext.id }}.jpeg{% endcapture %}
-            {% capture img_file_name %}{{ pubtext.id }}.jpeg{% endcapture %}
-            {% for static_file in site.static_files %}
-              {% if static_file.path == pub_image %}
-                {% if static_file.name == img_file_name %}
-                  {% assign pub_image = true %}
-                {% endif %}
+        </div>
+	</br>
+	<div class="clearfix">
+	  <!-- https://stackoverflow.com/questions/16528783/check-for-existence-of-file-using-jekyll -->
+	  {% assign pub_image = false %}
+          {% capture pub_image %}talks/{{ pubtext.id }}.jpeg{% endcapture %}
+          {% capture img_file_name %}{{ pubtext.id }}.jpeg{% endcapture %}
+          {% for static_file in site.static_files %}
+            {% if static_file.path == pub_image %}
+              {% if static_file.name == img_file_name %}
+                {% assign pub_image = true %}
               {% endif %}
-            {% endfor %}
-	    {% if pub_image and pubtext.presentation != null %}
+            {% endif %}
+          {% endfor %}
+	  {% if pub_image and pubtext.presentation != null %}
             <div class="col sm-col-4 px2 mb2">
               <a href="{{ pubtext.presentation }}" target="_blank" rel="noopener" class="citation_pdf_url" onClick="ga(‘send’, ‘event’, ‘ Presentation Downloads’, ‘Click’, ‘Talks-{{ pubtext.id }}’);">
                 {% include image.html path=pub_image alt=pubtext.title %}
 	      </a>
             </div>
             {% endif %}
-
             <div class="border-bottom border-light-gray">	
 	      <a id="{{ pubtext.id }}"></a><h4 class="citation_title">{{ pubtext.title }}</h4>
             </div>
-
             {% if pubtext.author != null %}
-                <p>
+              <p>
                 <i class="fa fa-fw fa-lg fa-users"></i>
                 <span class="h5">
-                <i class="citation_author px2">
-		  {% for author in pubtext.author %}
-		    {{ author }}{% unless forloop.last %}, {% endunless %}
-		  {% endfor %}
-                </i>
+                  <i class="citation_author px2">
+		    {% for author in pubtext.author %}
+		      {{ author }}{% unless forloop.last %}, {% endunless %}
+		    {% endfor %}
+                  </i>
                 </span>
-                </p>
+              </p>
             {% endif %}
-
             {% if pubtext.short_name != null %}
               <p>
 		<i class="fa fa-fw fa-lg fa-bookmark-o"></i>
                 <span class="h5">{{ pubtext.short_name }}</span>
               </p>
             {% endif %}
-
             <p>
-            {% if pubtext.place != null %}
+              {% if pubtext.place != null %}
                 <i class="fa fa-fw fa-lg fa-map-marker"></i>
                 <span class="h5">{{ pubtext.place }}</span>
-            {% endif %}
-            {% if pubtext.year != null %}
+              {% endif %}
+              {% if pubtext.year != null %}
                 <i class="fa fa-fw fa-lg fa-calendar"></i>
                 <span class="h5">{{ pubtext.year }}</span>
-            {% endif %}
+              {% endif %}
             </p>
-
             <p>
-            {% if pubtext.institution != null %}
+              {% if pubtext.institution != null %}
                 <i class="fa fa-fw fa-lg fa-university"></i>
                 <span class="h5">{{ pubtext.institution }}</span>
-            {% endif %}
+              {% endif %}
             </p>
-
             {% if pubtext.conference != null or pubtext.degree != null or pubtext.organization != null %}
 	      <p class="justify">
                 <i class="fa fa-fw fa-lg fa-book"></i>
                 <span class="h5">
-                {% if pubtext.conference != null and pubtext.short_name != pubtext.conference %}
-                  {{ pubtext.conference }}
-                {% endif %}
-                {% if pubtext.degree != null %}
-                  {{ pubtext.degree }}
-                {% endif %}
-                {% if pubtext.page != null %}
-                  ({{ pubtext.page }})
-                {% endif %}
-	        {% if pubtext.conference != null or pubtext.degree != null %}
-                  {% if pubtext.organization != null %}
-                    ,&nbsp; 
+                  {% if pubtext.conference != null and pubtext.short_name != pubtext.conference %}
+                    {{ pubtext.conference }}
                   {% endif %}
-                {% else %}
-                  <br>
-                  <br>
-                {% endif %}
-                {% if pubtext.organization != null %}
-                  {{ pubtext.organization }}
-                {% endif %}
+                  {% if pubtext.degree != null %}
+                    {{ pubtext.degree }}
+                  {% endif %}
+                  {% if pubtext.page != null %}
+                    ({{ pubtext.page }})
+                  {% endif %}
+	          {% if pubtext.conference != null or pubtext.degree != null %}
+                    {% if pubtext.organization != null %}
+                      ,&nbsp; 
+                    {% endif %}
+                  {% else %}
+                    <br>
+                    <br>
+                  {% endif %}
+                  {% if pubtext.organization != null %}
+                    {{ pubtext.organization }}
+                  {% endif %}
                 </span>
               </p>
             {% else %}
@@ -129,12 +123,10 @@ layout: default
               <br>
               <br>
 	    {% endif %}
-
 	    {% if pubtext.abstract != null %}
 	      <p class="justify"><i class="fa fa-fw fa-lg fa-bars"> </i>	
 	        {{ pubtext.abstract }}</p>
             {% endif %}
-
             {% if pubtext.keyword != null %}
               <p class="justify">
               <span class="h5">
@@ -145,13 +137,11 @@ layout: default
               </span>
               </P>
             {% endif %}
- 
 	    <!--
             {% if pubtext.embed_url != null %}
               {% include iframe.html url=pubtext.embed_url %}
             {% endif %}
   	    -->
-
             <span style="float:right;">
               {% if pubtext.pdf != null %}
                 <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
@@ -166,7 +156,6 @@ layout: default
                 <span class="h5"><a href="{{ pubtext.media }}" target="_blank" rel="noopener" onClick="ga(‘send’, ‘event’, ‘ Media Downloads’, ‘Click’, ‘Talks-{{ pubtext.id }}’);">Media</a></span>
               {% endif %}
 	    </span>
- 
             <span style="float:left;">
               {% if pubtext.url != null %}
                 {% for pub_url in pubtext.url %}
@@ -177,11 +166,9 @@ layout: default
                 {% endfor %}
               {% endif %}
             </span>
-
 	    <br>
 	    <br>
-
-<!--
+            <!--
             <span style="float:left;">
               <span class="h5">
               {% if pubtext.src != null %} 
@@ -194,37 +181,34 @@ layout: default
               {% endif %}
               </span>
             </span>
--->
-
+            -->
 	    <br>
             <br>
-
             <span style="float:left;">
               <span class="h5">
-              {% assign onlyonce0 = 0 %}
-              {% for project in site.data.projects %}
-                {% for pub_prid in pubtext.prid %}
-                  {% if project.id == pub_prid %}
-                    {% if onlyonce0 == 0 %}<b>Related Project :</b>{% assign onlyonce0 = 1 %} {% endif %}
-                  {% endif %}
+                {% assign onlyonce0 = 0 %}
+                {% for project in site.data.projects %}
+                  {% for pub_prid in pubtext.prid %}
+                    {% if project.id == pub_prid %}
+                      {% if onlyonce0 == 0 %}<b>Related Project :</b>{% assign onlyonce0 = 1 %} {% endif %}
+                    {% endif %}
+                  {% endfor %}
                 {% endfor %}
-              {% endfor %}
-              {% for project in site.data.projects %}
-                {% for pub_prid in pubtext.prid %}
-                  {% if project.id == pub_prid %}
-                    <a href="/projects/{{ project.id }}/" class="link-color"><span>{{ project.name }}</span></a>
-                    &nbsp;
-                  {% endif %}
+                {% for project in site.data.projects %}
+                  {% for pub_prid in pubtext.prid %}
+                    {% if project.id == pub_prid %}
+                      <a href="/projects/{{ project.id }}/" class="link-color"><span>{{ project.name }}</span></a>
+                      &nbsp;
+                    {% endif %}
+                  {% endfor %}
                 {% endfor %}
-              {% endfor %}
               </span>
             </span>
-
           </div>
 	</div>
       {% endif %}
     {% endfor %}
   {% endfor %}
-  {% endfor %}
-  {% include page-buttons.html %}
-  <br>
+{% endfor %}
+{% include page-buttons.html %}
+<br>
