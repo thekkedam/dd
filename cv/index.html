@@ -4,26 +4,24 @@ type: profile
 include_header: profile_header.html
 nav_item: profile
 ---
-  {% include page-tops.html %}
+{% include page-tops.html %}
 
-  {% for section in site.data.sections %}
-        {% if section.id == "publications"  or section.id == "talks" %}
+{% for section in site.data.sections %}
+  {% if section.id == "publications"  or section.id == "talks" %}
     <div class="border-bottom border-light-gray circle-line pb3">
-            <h4 id="{{ section.id }}">{{ section.name }}</h4>
-	    <a href="/publications/#{{ section.id }}" class="link-color">To {{ section.name }} list >></a>
-        {% else %}
+      <h4 id="{{ section.id }}">{{ section.name }}</h4>
+      <a href="/publications/#{{ section.id }}" class="link-color">To {{ section.name }} list >></a>
+  {% else %}
     <div class="border-bottom border-light-gray mt4 mb4 pb3 circle-line">
-            <h4 id="{{ section.id }}">
-                {{ section.name }}
-            </h4>
-            {% capture section_layout %}resume/{{section.layout}}.html{% endcapture %}
-            {% for hash in site.data %}
-              {% if hash[0] == section.id %}
-                {% assign blurb = hash[1] %}
-                {% include {{section_layout}} %}
-              {% endif %}
-            {% endfor %}
-        <a href="#top" class="sm-col-right col dark-gray h6"><i class="fa fa-fw fa-lg fa-angle-double-up"></i>Top</a>
-        {% endif %}
+      <h4 id="{{ section.id }}">{{ section.name }}</h4>
+        {% capture section_layout %}resume/{{section.layout}}.html{% endcapture %}
+        {% for hash in site.data %}
+          {% if hash[0] == section.id %}
+            {% assign blurb = hash[1] %}
+            {% include {{section_layout}} %}
+          {% endif %}
+        {% endfor %}
+      <a href="#top" class="sm-col-right col dark-gray h6"><i class="fa fa-fw fa-lg fa-angle-double-up"></i>Top</a>
+  {% endif %}
     </div>
-  {% endfor %}
+{% endfor %}
