@@ -8,7 +8,7 @@ The content is Licensed undet two category
 
 ## Category - i
 
-Personal / propretry / Copyright contents, contact for any use.
+Personal / proprietary / Copyright contents, contact for any use.
 
 - Web links and documents under and with
   - Home Page /
