@@ -1,6 +1,6 @@
 <script type='application/ld+json'>
 {
-}
+	"@context": "http://schema.org",
 {% if page.type == "home" %}
 {% elsif page.type == "research" %}
   {% if page.dynaid %}
@@ -98,5 +98,25 @@
 {% elsif page.type == "blog" %}
 {% elsif page.type == "contact" %}
 {% else %}
+        "@type": "WebSite",
+        "url": "{% include canonical-url.html %}",
+        "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ site.base_url }}"
+        },
+        "name": "{{ site.data.config.full_name }}",
+        "headline": "{{ title }}",
+        "keywords": "{{ keywords }}",
+        "description": "{{ description }}",
+        "copyrightYear": "{{ site.time | date: "%Y" }}",
+        "isAccessibleForFree": true,
+        "isFamilyFriendly": true,
+        "version": "{{ site.data.config.version }}",
 {% endif %}
+        "potentialAction": {
+                "@type": "SearchAction",
+                "target": "{{ site.base_url }}{{ site.data.config.search }}/?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+        }
+}
 </script>
