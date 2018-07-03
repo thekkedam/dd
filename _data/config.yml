@@ -1,5 +1,6 @@
 version: "1.2"
 # Bio settings
+short_name: "Deepthi"
 name_short: "Deepthi Akkoorath"
 first_name: "Deepthi Devaki"
 last_name: "Akkoorath"
@@ -40,6 +41,8 @@ github:
   repo: "thekkedam/dd"
   branch: "gh-pages"
 
+#fb
+fb: deepthi.devaki
 # disqus id
 id: deepthidevaki
 # Google Analatic id
