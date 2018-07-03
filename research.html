@@ -4,32 +4,32 @@ type: research
 include_header: research_header.html
 nav_item: research
 ---
-  {% include page-tops.html %}
-  {% for research in site.data.research %}
+{% include page-tops.html %}
+{% for research in site.data.research %}
   {% if research.sta != "old" %}
-  <div class="clearfix mb2 border-bottom border-light-gray circle-line py3">
-    <h4 id="{{ research.id }}" class="mt0 mb0"><a href="/research/{{ research.id }}/">{{ research.topic }}</a></h4>
-    <ul class="list-unstyled">
-      <p class="justify">
-        {{ research.description | truncatewords: 30, " ... " }}
-       <a href="/research/{{ research.id }}/" class="link-color"><span> More >></span></a>
-      </p>
-    </ul>
-    <a href="#top" class="sm-col-right col dark-gray h6">
-       <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
-       Top
-    </a>
-  </div>
-  {% else %}
-  <div class="clearfix mb2">
-    <a id="{{ research.id }}"><a href="/research/{{ research.id }}/"><h5>{{ research.topic }}</h5></a> 
+    <div class="clearfix mb2 border-bottom border-light-gray circle-line py3">
+      <h4 id="{{ research.id }}" class="mt0 mb0"><a href="/research/{{ research.id }}/">{{ research.topic }}</a></h4>
       <ul class="list-unstyled">
-      <p class="justify">{{ research.description | truncatewords: 5, " ... " }} 
-      <a href="/research/{{ research.id }}/" class="link-color"><span> More >></span></a></p>
+        <p class="justify">
+          {{ research.description | truncatewords: 30, " ... " }}
+          <a href="/research/{{ research.id }}/" class="link-color"><span> More >></span></a>
+        </p>
       </ul>
-  </div>
+      <a href="#top" class="sm-col-right col dark-gray h6">
+        <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
+        Top
+      </a>
+    </div>
+  {% else %}
+    <div class="clearfix mb2">
+      <a id="{{ research.id }}"><a href="/research/{{ research.id }}/"><h5>{{ research.topic }}</h5></a> 
+        <ul class="list-unstyled">
+          <p class="justify">{{ research.description | truncatewords: 5, " ... " }} 
+            <a href="/research/{{ research.id }}/" class="link-color"><span> More >></span></a></p>
+        </ul>
+    </div>
   {% endif %}
-  {% endfor %}
+{% endfor %}
 
 <div class="clearfix mb2 border-bottom border-light-gray circle-line py3">
   <a href="#top" class="sm-col-right col dark-gray h6">
