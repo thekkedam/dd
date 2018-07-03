@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-  {% for research in site.data.research %}
+{% for research in site.data.research %}
   {% if research.id == page.dynaid %}
   <div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
     <div class="col h5 gray">
@@ -33,123 +33,120 @@ layout: default
       <p class="justify">
         {{ research.description }}
       </p>
-<!--
-     {% if research.tags != null %}
-         <p><span>Keywords :
-         <i>
-         {% for tag in research.tags %}
-           {{ tag }}{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-        </i>
+      <!--
+      {% if research.tags != null %}
+        <p><span>Keywords :
+          <i>
+            {% for tag in research.tags %}
+              {{ tag }}{% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          </i>
         </span></p>
       {% endif %}
--->
-    <p>
-    {% assign onlyonce0 = 0 %}
-    {% for project in site.data.projects %}
-      {% if project.rid == research.id %}
-	 {% if onlyonce0 == 0 %} Related Project : {% assign onlyonce0 = 1 %} {% endif %}
-      {% endif %}
-   {% endfor %}
-   {% for project in site.data.projects %}
-      {% if project.rid == research.id %}
-        <a href="/projects/{{ project.id }}/" class="link-color"><span>{{ project.name }}</span></a>
-        &nbsp;
-      {% endif %}
-    {% endfor %}
-    </p>
-
-  <p>
-  {% assign onlyonce = 0 %}
-  {% for section_hash in site.data.publications %}
-    {% for section in section_hash %}
-      {% for pubtext in section %}
-        {% if pubtext.title != null %}
-          {% for rid in pubtext.rid %} 
-          {% if rid == research.id %}
-          {% if onlyonce == 0 %} Related Publications : {% assign onlyonce = 1 %} {% endif %}
+      -->
+      <p>
+        {% assign onlyonce0 = 0 %}
+        {% for project in site.data.projects %}
+          {% if project.rid == research.id %}
+	    {% if onlyonce0 == 0 %} Related Project : {% assign onlyonce0 = 1 %} {% endif %}
           {% endif %}
-          {% endfor %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-  {% endfor %}
-  {% for section_hash in site.data.publications %}
-    <ul class="list-unstyled">
-    {% for section in section_hash %}
-      {% for pubtext in section %}
-        {% if pubtext.title != null %}
-          {% for rid in pubtext.rid %} 
-          {% if rid == research.id %}
-          <li><a id="{{ pubtext.id }}"></a><a href="/publications/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
-            {% if pubtext.conference != null %}
-                {{ pubtext.conference }},
-            {% endif %}
-            {% if pubtext.degree != null %}
-                {{ pubtext.degree }},
-            {% endif %}
-            {% if pubtext.year != null %}
-              {{ pubtext.year }}
-            {% endif %}
-          </li>
+        {% endfor %}
+        {% for project in site.data.projects %}
+          {% if project.rid == research.id %}
+            <a href="/projects/{{ project.id }}/" class="link-color"><span>{{ project.name }}</span></a>
+            &nbsp;
           {% endif %}
+        {% endfor %}
+      </p>
+      <p>
+        {% assign onlyonce = 0 %}
+        {% for section_hash in site.data.publications %}
+          {% for section in section_hash %}
+            {% for pubtext in section %}
+              {% if pubtext.title != null %}
+                {% for rid in pubtext.rid %} 
+                  {% if rid == research.id %}
+                    {% if onlyonce == 0 %} Related Publications : {% assign onlyonce = 1 %} {% endif %}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
           {% endfor %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-    </ul>
-  {% endfor %}
-  {% assign onlyonce = 0 %}
-  {% for section_hash in site.data.talks %}
-    {% for section in section_hash %}
-      {% for pubtext in section %}
-        {% if pubtext.title != null %}
-          {% for rid in pubtext.rid %} 
-          {% if rid == research.id %}
-          {% if onlyonce == 0 %} Related Talks : {% assign onlyonce = 1 %} {% endif %}
-          {% endif %}
+        {% endfor %}
+        {% for section_hash in site.data.publications %}
+          <ul class="list-unstyled">
+            {% for section in section_hash %}
+              {% for pubtext in section %}
+                {% if pubtext.title != null %}
+                  {% for rid in pubtext.rid %} 
+                    {% if rid == research.id %}
+                      <li><a id="{{ pubtext.id }}"></a><a href="/publications/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
+                        {% if pubtext.conference != null %}
+                          {{ pubtext.conference }},
+                        {% endif %}
+                        {% if pubtext.degree != null %}
+                          {{ pubtext.degree }},
+                        {% endif %}
+                        {% if pubtext.year != null %}
+                          {{ pubtext.year }}
+                        {% endif %}
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        {% endfor %}
+        {% assign onlyonce = 0 %}
+        {% for section_hash in site.data.talks %}
+          {% for section in section_hash %}
+            {% for pubtext in section %}
+              {% if pubtext.title != null %}
+                {% for rid in pubtext.rid %} 
+                  {% if rid == research.id %}
+                    {% if onlyonce == 0 %} Related Talks : {% assign onlyonce = 1 %} {% endif %}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
           {% endfor %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-  {% endfor %}
-  {% for section_hash in site.data.talks %}
-    <ul class="list-unstyled">
-    {% for section in section_hash %}
-      {% for pubtext in section %}
-        {% if pubtext.title != null %}
-          {% for rid in pubtext.rid %} 
-          {% if rid == research.id %}
-          <li><a id="{{ pubtext.id }}"></a><a href="/talks/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
-            {% if pubtext.conference != null %}
-                {{ pubtext.conference }},
-            {% endif %}
-            {% if pubtext.degree != null %}
-                {{ pubtext.degree }},
-            {% endif %}
-            {% if pubtext.year != null %}
-              {{ pubtext.year }}
-            {% endif %}
-          </li>
-	  {% endif %}
-	  {% endfor %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-    </ul>
-  {% endfor %}
-
-  </p>
-
-    {% if research.link != null %}
-       <a href="{{ research.link }}" target="_blank" rel="noopener" class="dark-gray">
+        {% endfor %}
+        {% for section_hash in site.data.talks %}
+          <ul class="list-unstyled">
+            {% for section in section_hash %}
+              {% for pubtext in section %}
+                {% if pubtext.title != null %}
+                  {% for rid in pubtext.rid %} 
+                    {% if rid == research.id %}
+                      <li><a id="{{ pubtext.id }}"></a><a href="/talks/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
+                        {% if pubtext.conference != null %}
+                          {{ pubtext.conference }},
+                        {% endif %}
+                        {% if pubtext.degree != null %}
+                          {{ pubtext.degree }},
+                        {% endif %}
+                        {% if pubtext.year != null %}
+                          {{ pubtext.year }}
+                        {% endif %}
+                      </li>
+	            {% endif %}
+	          {% endfor %}
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </p>
+        {% if research.link != null %}
+          <a href="{{ research.link }}" target="_blank" rel="noopener" class="dark-gray">
           <i class="fa fa-fw fa-lg fa-info-circle"></i>
-          <span class="h6">More Info</span>
-       </a>
-    {% endif %}
-    </ul>
-    {% include page-buttons.html %}
-  </div>
+            <span class="h6">More Info</span>
+          </a>
+        {% endif %}
+      </ul>
+      {% include page-buttons.html %}
+    </div>
   {% endif %}
-  {% endfor %}
+{% endfor %}
 
