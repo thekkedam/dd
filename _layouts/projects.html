@@ -1,167 +1,167 @@
 ---
 layout: default
 ---
-  <div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
-    <div class="col h5 gray">
-      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
-          <span itemprop="name">Home</span>
-        </a>
-        <meta itemprop="position" content="1" />/
-      </span>
-      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/projects/" class="link-color" title="Go to Projects">
-          <span itemprop="name">Projects</span>
-        </a>
-        <meta itemprop="position" content="2" />/
-      </span>
-      <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/projects/{{ page.dynaid }}/" class="link-color" title="Go to {{ page.dynaid | capitalize }}">
-          <span itemprop="name">{{ page.dynaid | capitalize }}</span>
-        </a>
-        <meta itemprop="position" content="3" />
-      </span>
-      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    </div>
-  </div>
-<div>
-{% for project in site.data.projects %}
-  {% if project.id == page.dynaid %}
-  <div class="mxn2 clearfix mb2 py3">
-    <div class="col sm-col-4 px2 mb2">
-        {% capture image_path %}projects/{{ project.image }}{% endcapture %}
-        {% include image.html path=image_path alt=project.name %}
-    </div>
-    <div class="col sm-col-8 px2">
-         <a id="{{ project.id }}"></a>
-         <h2 class="mt0 mb0">{{ project.name }}</h2>
-      <h5>{{ project.name_long }}</h5>
-      {% if project.org != null %}
-        <i class="fa fa-fw fa-lg fa-building-o"></i>
-      	<span class="h5">{{ project.org }}</span>
-        <br>
-      {% endif %}
-      {% if project.date != null %}
-        <i class="fa fa-fw fa-lg fa-calendar"></i>
-        <span class="h5">{{ project.date }}</span>
-        <br>
-      {% endif %}
-      {% if project.sta != null %}
-        <i class="fa fa-fw fa-lg fa-bullseye"></i>
-        <span class="h5">{{ project.sta | capitalize }}</span>
-        <br>
-      {% endif %}
-    </div>
+<div class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <div class="col h5 gray">
+    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />/
+    </span>
+    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/projects/" class="link-color" title="Go to Projects">
+        <span itemprop="name">Projects</span>
+      </a>
+      <meta itemprop="position" content="2" />/
+    </span>
+    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/projects/{{ page.dynaid }}/" class="link-color" title="Go to {{ page.dynaid | capitalize }}">
+        <span itemprop="name">{{ page.dynaid | capitalize }}</span>
+      </a>
+      <meta itemprop="position" content="3" />
+    </span>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
 <div>
-      <p class="justify">
-	  {{ project.description }}
-      </p>
-      {% for project_url in project.url %}
+  {% for project in site.data.projects %}
+    {% if project.id == page.dynaid %}
+      <div class="mxn2 clearfix mb2 py3">
+        <div class="col sm-col-4 px2 mb2">
+          {% capture image_path %}projects/{{ project.image }}{% endcapture %}
+          {% include image.html path=image_path alt=project.name %}
+        </div>
+        <div class="col sm-col-8 px2">
+          <a id="{{ project.id }}"></a>
+          <h2 class="mt0 mb0">{{ project.name }}</h2>
+          <h5>{{ project.name_long }}</h5>
+          {% if project.org != null %}
+            <i class="fa fa-fw fa-lg fa-building-o"></i>
+      	    <span class="h5">{{ project.org }}</span>
+            <br>
+          {% endif %}
+          {% if project.date != null %}
+            <i class="fa fa-fw fa-lg fa-calendar"></i>
+            <span class="h5">{{ project.date }}</span>
+            <br>
+          {% endif %}
+          {% if project.sta != null %}
+            <i class="fa fa-fw fa-lg fa-bullseye"></i>
+            <span class="h5">{{ project.sta | capitalize }}</span>
+            <br>
+          {% endif %}
+        </div>
+      </div>
+      <div>
+        <p class="justify">
+	        {{ project.description }}
+        </p>
+        {% for project_url in project.url %}
           <a href="{{ project_url[1] }}" target="_blank" rel="noopener" class="dark-gray">
             <i class="fa fa-fw fa-lg fa-globe"></i>
             <span class="h6">{{ project_url[0] }}</span>
-          </a><br>
-      {% endfor %}
-      {% for project_src in project.src %}
+          </a>
+          <br>
+        {% endfor %}
+        {% for project_src in project.src %}
           <a href="{{ project_src[1] }}" target="_blank" rel="noopener" class="dark-gray">
             <i class="fa fa-fw fa-lg fa-github-square"></i>
             <span class="h6">{{ project_src[0] }}</span>
-          </a><br>
-      {% endfor %}
-      {% for project_doc in project.doc %}
+          </a>
+          <br>
+        {% endfor %}
+        {% for project_doc in project.doc %}
           <a href="{{ project_doc[1] }}" target="_blank" rel="noopener" class="dark-gray">
             <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
             <span class="h6">{{ project_doc[0] }}</span>
-          </a><br>
-      {% endfor %}
-      <p>
-      <br>
-  {% assign onlyonce = 0 %}
-  {% for section_hash in site.data.publications %}
-    {% for section in section_hash %}
-      {% for pubtext in section %}
-        {% if pubtext.title != null %}
-          {% for prid in pubtext.prid %}
-          {% if prid == project.id %}
-          {% if onlyonce == 0 %} Related Publications : {% assign onlyonce = 1 %} {% endif %}
-          {% endif %}
+          </a>
+          <br>
+        {% endfor %}
+        <p>
+          <br>
+          {% assign onlyonce = 0 %}
+          {% for section_hash in site.data.publications %}
+            {% for section in section_hash %}
+              {% for pubtext in section %}
+                {% if pubtext.title != null %}
+                  {% for prid in pubtext.prid %}
+                    {% if prid == project.id %}
+                      {% if onlyonce == 0 %} Related Publications : {% assign onlyonce = 1 %} {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
           {% endfor %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-  {% endfor %}
-  {% for section_hash in site.data.publications %}
-    <ul class="list-unstyled">
-    {% for section in section_hash %}
-      {% for pubtext in section %}
-        {% if pubtext.title != null %} 
-          {% for prid in pubtext.prid %}
-          {% if prid == project.id %}
-          <li><a id="{{ pubtext.id }}"></a><a href="/publications/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
-            {% if pubtext.conference != null %}
-                {{ pubtext.conference }},
-            {% endif %}
-            {% if pubtext.degree != null %}
-                {{ pubtext.degree }},
-            {% endif %}
-            {% if pubtext.year != null %}
-               {{ pubtext.year }}
-            {% endif %}
-          </li>
-          {% endif %}
+          {% for section_hash in site.data.publications %}
+            <ul class="list-unstyled">
+              {% for section in section_hash %}
+                {% for pubtext in section %}
+                  {% if pubtext.title != null %}
+                    {% for prid in pubtext.prid %}
+                      {% if prid == project.id %}
+                        <li><a id="{{ pubtext.id }}"></a><a href="/publications/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
+                          {% if pubtext.conference != null %}
+                            {{ pubtext.conference }},
+                          {% endif %}
+                          {% if pubtext.degree != null %}
+                            {{ pubtext.degree }},
+                          {% endif %}
+                          {% if pubtext.year != null %}
+                            {{ pubtext.year }}
+                          {% endif %}
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+            </ul>
           {% endfor %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-    </ul>
-  {% endfor %}
-  {% assign onlyonce1 = 0 %}
-  {% for section_hash in site.data.talks %}
-    {% for section in section_hash %}
-      {% for pubtext in section %}
-        {% if pubtext.title != null %}
-          {% for prid in pubtext.prid %}
-          {% if prid == project.id %}
-          {% if onlyonce1 == 0 %} Related Talks : {% assign onlyonce1 = 1 %} {% endif %}
-          {% endif %}
+          {% assign onlyonce1 = 0 %}
+          {% for section_hash in site.data.talks %}
+            {% for section in section_hash %}
+              {% for pubtext in section %}
+                {% if pubtext.title != null %}
+                  {% for prid in pubtext.prid %}
+                    {% if prid == project.id %}
+                      {% if onlyonce1 == 0 %} Related Talks : {% assign onlyonce1 = 1 %} {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
           {% endfor %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-  {% endfor %}
-  {% for section_hash in site.data.talks %}
-    <ul class="list-unstyled">
-    {% for section in section_hash %}
-      {% for pubtext in section %}
-        {% if pubtext.title != null %}
-          {% for prid in pubtext.prid %}
-          {% if prid == project.id %}
-          <li><a id="{{ pubtext.id }}"></a><a href="/talks/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
-            {% if pubtext.conference != null %}
-                {{ pubtext.conference }},
-            {% endif %}
-            {% if pubtext.degree != null %}
-                {{ pubtext.degree }},
-            {% endif %}
-            {% if pubtext.year != null %}
-               {{ pubtext.year }}
-            {% endif %}
-          </li>
-          {% endif %}
+          {% for section_hash in site.data.talks %}
+            <ul class="list-unstyled">
+              {% for section in section_hash %}
+                {% for pubtext in section %}
+                  {% if pubtext.title != null %}
+                    {% for prid in pubtext.prid %}
+                      {% if prid == project.id %}
+                        <li><a id="{{ pubtext.id }}"></a><a href="/talks/{{ pubtext.id }}/" class="link-color">{{ pubtext.title }}</a>
+                          {% if pubtext.conference != null %}
+                            {{ pubtext.conference }},
+                          {% endif %}
+                          {% if pubtext.degree != null %}
+                            {{ pubtext.degree }},
+                          {% endif %}
+                          {% if pubtext.year != null %}
+                            {{ pubtext.year }}
+                          {% endif %}
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+            </ul>
           {% endfor %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-    </ul>
+        </p>
+        {% include page-buttons.html %}
+      </div>
+    {% endif %}
   {% endfor %}
-
-  </p>
-
-  {% include page-buttons.html %}
 </div>
-  {% endif %}
-{% endfor %}
 <br>
-</div>
