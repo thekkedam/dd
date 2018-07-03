@@ -4,7 +4,7 @@ permalink: /assets/img/icons/favicon/manifest.json
 
 {
  "name": "{{ site.data.config.description }}",
- "short_name": "{{ site.data.config.name_short }}",
+ "short_name": "{{ site.data.config.short_name }}",
  "start_url": "/index.html",
  "display": "minimal-ui",
  "theme_color": "#ffffff",
