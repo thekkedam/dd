@@ -8,40 +8,6 @@ nav_item: contact
 
 <div class="clearfix mb2">
 <div class="mxn2 clearfix mb2 py3">
-<!--
-  <div class="col sm-col-9 px2">
-    <p>
-      The contact request submitted here will be forwarded to my Gmail account. The message will be filtered 
-      by  Gmail, so please careful not to include any HTML and other suspicious links in the message. 
-      Make sure your email in the submission field is correct so that I will be able to contact you.
-    </p>
-    <form id="contactform" method="POST">
-      <input type="hidden" name="_format" value="plain" />
-      <input type="hidden" name="_next" value="//dd.thekkedam.org/contact/thanks.html" />
-      Name:<br>
-      <input type="text" name="name" placeholder="Your name" required>
-      <br>
-      Email:<br>
-      <input type="email" name="_replyto" placeholder="Your email" required>
-      <br>
-      Subject:<br>
-      <input type="text" name="_subject" placeholder="Subject for contact" required>
-      <br>
-      Message:<br>
-      <textarea name="message" placeholder="Your message" required></textarea>
-      <br>
-      <input type="text" name="_gotcha" style="display:none" />
-      <br>
-      <input type="submit" value="Send"> 
-      <br>
-    </form>
-    <script>
-      var contactform =  document.getElementById('contactform');
-      contactform.setAttribute('action', '//formspree.io/' + 'deepthidevaki+DDwebCONTACT' + '@' + 'gmail' + '.' + 'com');
-    </script>
-    <br>
-  </div>
--->
   <div class="col sm-col-4 px2 mb2">
     {% include contact.html %}
   </div>
