@@ -2,7 +2,9 @@
 {
 	"@context": "http://schema.org",
 {% if page.type == "home" %}
+        "@type": "WebSite",
 {% elsif page.type == "research" %}
+        "@type": "WebSite",
   {% if page.dynaid %}
     {% for research in site.data.research %}
       {% if research.id == page.dynaid %}
@@ -21,6 +23,7 @@
   {% else %}
   {% endif %}
 {% elsif page.type == "publications" %}
+        "@type": "WebSite",
   {% if page.dynaid %}
     {% for section_hash in site.data.publications %}
       {% for section in section_hash %}
@@ -54,6 +57,7 @@
   {% else %}
   {% endif %}
 {% elsif page.type == "talks" %}
+        "@type": "WebSite",
   {% if page.dynaid %}
     {% for section_hash in site.data.talks %}
       {% for section in section_hash %}
@@ -87,6 +91,7 @@
   {% else %}
   {% endif %}
 {% elsif page.type == "projects" %}
+        "@type": "WebSite",
   {% if page.dynaid %}
     {% for project in site.data.projects %}
       {% if project.id == page.dynaid %}
@@ -95,8 +100,11 @@
   {% else %}
   {% endif %}
 {% elsif page.type == "profile" %}
+        "@type": "WebSite",
 {% elsif page.type == "blog" %}
+        "@type": "WebSite",
 {% elsif page.type == "contact" %}
+        "@type": "WebSite",
 {% else %}
         "@type": "WebSite",
         "url": "{% include canonical-url.html %}",
