@@ -46,6 +46,7 @@ Peer-reviewed:
     doi: 10.1145/3064889.3064897
     url:
       ACM Digital Library: https://dl.acm.org/citation.cfm?doid=3064889.3064897
+      ACM DL Author-ize service: https://dl.acm.org/authorize?N653070
     src:
       Github FMKe: https://github.com/SyncFree/FMKe
     pdf: /assets/documents/publications/Peer-reviewed/FMKe_a_Real-World_Benchmark_for_Key-Value_Data_Stores_Akkoorath.pdf
@@ -73,6 +74,7 @@ Peer-reviewed:
     doi: 10.1145/2975969.2975975
     url:
      ACM Digital Library: https://dl.acm.org/citation.cfm?doid=2975969.2975975
+     ACM DL Author-ize service: https://dl.acm.org/authorize?N21503
     src:
      Github AntidoteDB: https://github.com/SyncFree/antidote
     pdf: /assets/documents/publications/Peer-reviewed/Observing_the_Consistency_of_Distributed_Systems_Akkoorath.Bieniusa.ew2016.pdf
@@ -138,6 +140,7 @@ Peer-reviewed:
       - Annette Bieniusa
     url:
       ACM Digital Library: https://dl.acm.org/citation.cfm?doid=2911151.2911158
+      ACM DL Author-ize service: https://dl.acm.org/authorize?N21504
     pdf: /assets/documents/publications/Peer-reviewed/Highly-scalable_Concurrent_Objects.pdf
     language: English
     presentation: /assets/documents/talks/Highly_scalable_concurrent_objects.pdf
