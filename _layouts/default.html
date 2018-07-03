@@ -2,40 +2,29 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"><!--<![endif]-->
-{% include capture-meta.html page=page %}
-<!-- <head prefix="og: http://ogp.me/ns# {{ type }}: http://ogp.me/ns/{{ type }}#" itemscope itemtype="http://schema.org/{{ schema_type }}"> -->
-<head prefix="og: http://ogp.me/ns# {{ type }}: http://ogp.me/ns/{{ type }}#">
-
-  {% include head.html %}
-
-</head>
-
-<body>
-
-  <!-- include google_tag_body.html -->
-
-  {% include nav.html %}
-
-  <a id="top"></a>
-  {% if page.include_header %}
-    {% include header.html include_header=page.include_header %}
-
-  {% elsif layout.include_header %}
-    {% include header.html include_header=layout.include_header %}
-
-  {% endif %}
-  <main class="container block p3">
-    {{ content }}
-
-  </main>
-  {% if layout.bottom_include %}
-    {% include {{ layout.bottom_include }} %}
-  {% endif %}
-
-  {% include footer.html %}
-
-  {% include scripts.html %}
-</body>
-
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"><!--<![endif]-->
+  {% include capture-meta.html page=page %}
+  <!-- <head prefix="og: http://ogp.me/ns# {{ type }}: http://ogp.me/ns/{{ type }}#" itemscope itemtype="http://schema.org/{{ schema_type }}"> -->
+  <head prefix="og: http://ogp.me/ns# {{ type }}: http://ogp.me/ns/{{ type }}#">
+    {% include head.html %}
+  </head>
+  <body>
+    <!-- include google_tag_body.html -->
+    {% include nav.html %}
+    <a id="top"></a>
+    {% if page.include_header %}
+      {% include header.html include_header=page.include_header %}
+    {% elsif layout.include_header %}
+      {% include header.html include_header=layout.include_header %}
+    {% endif %}
+    <main class="container block p3">
+      {{ content }}
+    </main>
+    {% if layout.bottom_include %}
+      {% include {{ layout.bottom_include }} %}
+    {% endif %}
+    {% include footer.html %}
+    {% include scripts.html %}
+  </body>
 </html>
