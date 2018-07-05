@@ -202,9 +202,6 @@ EOL
                                         mkdir -p _includes/text/publications
                                 fi
 				gen_text $pdffile _includes/text/publications/$fieldid.txt
-                	fi
-			if [ $pdffile != "null" ]
-			then
 				exiftool -overwrite_original -Title="$title" -Author="$authors" -Subject="$subject" -Keywords="$keywords" $pdffile
 			fi
 		else
@@ -276,9 +273,6 @@ EOL
 					mkdir -p _includes/text/talks
 				fi
 				gen_text $pdffile _includes/text/talks/$fieldid.txt
-                	fi
-                        if [ $pdffile != "null" ]
-                        then
                                 exiftool -overwrite_original -Title="$title" -Author="$authors" -Subject="$subject" -Keywords="$keywords" $pdffile
                         fi
                 else
