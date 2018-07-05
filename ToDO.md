@@ -2,7 +2,11 @@
 
 List of ToDO
 
+### Set Title, Subject, Author, Keywords in all pdf
+
 ### Change ACM PDF links to
+
+How to Use this ??
 
 ```
 <!-- ACM DL Article: Multi-view data types for scalable concurrency in the multi-core era-->
