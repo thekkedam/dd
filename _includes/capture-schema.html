@@ -5,7 +5,6 @@
         "@type": "Person",
         "url": "{% include canonical-url.html %}",
         "name": "{{ site.data.config.full_name }}",
-        "keywords": "{{ keywords }}",
         "familyName": "{{ site.data.config.last_name }}",
         "givenName": "{{ site.data.config.first_name }}",
         "homeLocation": "{{ site.data.config.location }}",
@@ -62,14 +61,6 @@
         "name": "{{ title }}",
         "keywords": "{{ keywords }}",
         "description": "{{ description }}",
-        "alternateName": [
-                "{{ site.data.config.full_name }} - {{ page.type | capitalize }}",
-                "{{ site.data.config.name_short }} - {{ page.type | capitalize }}",
-                "{{ site.data.config.last_name }} - {{ page.type | capitalize }}",
-                "{{ site.data.config.first_name }} - {{ page.type | capitalize }}",
-                "{{ site.data.config.alt_name }} - {{ page.type | capitalize }}",
-                "{{ site.data.config.u_name }} - {{ page.type | capitalize }}",
-                "{{ page.type | capitalize }}",
   {% if page.dynaid %}
     {% for research in site.data.research %}
       {% if research.id == page.dynaid %}
@@ -87,12 +78,6 @@
     {% endfor %}	
   {% else %}
   {% endif %}
-{% elsif page.type == "publications" %}
-        "@type": "WebPage",
-        "url": "{% include canonical-url.html %}",
-        "name": "{{ title }}",
-        "keywords": "{{ keywords }}",
-        "description": "{{ description }}",
         "alternateName": [
                 "{{ site.data.config.full_name }} - {{ page.type | capitalize }}",
                 "{{ site.data.config.name_short }} - {{ page.type | capitalize }}",
@@ -101,6 +86,12 @@
                 "{{ site.data.config.alt_name }} - {{ page.type | capitalize }}",
                 "{{ site.data.config.u_name }} - {{ page.type | capitalize }}",
                 "{{ page.type | capitalize }}",
+{% elsif page.type == "publications" %}
+        "@type": "WebPage",
+        "url": "{% include canonical-url.html %}",
+        "name": "{{ title }}",
+        "keywords": "{{ keywords }}",
+        "description": "{{ description }}",
   {% if page.dynaid %}
     {% for section_hash in site.data.publications %}
       {% for section in section_hash %}
@@ -133,12 +124,6 @@
     {% endfor %}
   {% else %}
   {% endif %}
-{% elsif page.type == "talks" %}
-        "@type": "WebPage",
-        "url": "{% include canonical-url.html %}",
-        "name": "{{ title }}",
-        "keywords": "{{ keywords }}",
-        "description": "{{ description }}",
         "alternateName": [
                 "{{ site.data.config.full_name }} - {{ page.type | capitalize }}",
                 "{{ site.data.config.name_short }} - {{ page.type | capitalize }}",
@@ -147,6 +132,12 @@
                 "{{ site.data.config.alt_name }} - {{ page.type | capitalize }}",
                 "{{ site.data.config.u_name }} - {{ page.type | capitalize }}",
                 "{{ page.type | capitalize }}",
+{% elsif page.type == "talks" %}
+        "@type": "WebPage",
+        "url": "{% include canonical-url.html %}",
+        "name": "{{ title }}",
+        "keywords": "{{ keywords }}",
+        "description": "{{ description }}",
   {% if page.dynaid %}
     {% for section_hash in site.data.talks %}
       {% for section in section_hash %}
@@ -179,12 +170,6 @@
     {% endfor %}
   {% else %}
   {% endif %}
-{% elsif page.type == "projects" %}
-        "@type": "WebPage",
-        "url": "{% include canonical-url.html %}",
-        "name": "{{ title }}",
-        "keywords": "{{ keywords }}",
-        "description": "{{ description }}",
         "alternateName": [
                 "{{ site.data.config.full_name }} - {{ page.type | capitalize }}",
                 "{{ site.data.config.name_short }} - {{ page.type | capitalize }}",
@@ -193,6 +178,12 @@
                 "{{ site.data.config.alt_name }} - {{ page.type | capitalize }}",
                 "{{ site.data.config.u_name }} - {{ page.type | capitalize }}",
                 "{{ page.type | capitalize }}",
+{% elsif page.type == "projects" %}
+        "@type": "WebPage",
+        "url": "{% include canonical-url.html %}",
+        "name": "{{ title }}",
+        "keywords": "{{ keywords }}",
+        "description": "{{ description }}",
   {% if page.dynaid %}
     {% for project in site.data.projects %}
       {% if project.id == page.dynaid %}
@@ -200,6 +191,14 @@
     {% endfor %}
   {% else %}
   {% endif %}
+        "alternateName": [
+                "{{ site.data.config.full_name }} - {{ page.type | capitalize }}",
+                "{{ site.data.config.name_short }} - {{ page.type | capitalize }}",
+                "{{ site.data.config.last_name }} - {{ page.type | capitalize }}",
+                "{{ site.data.config.first_name }} - {{ page.type | capitalize }}",
+                "{{ site.data.config.alt_name }} - {{ page.type | capitalize }}",
+                "{{ site.data.config.u_name }} - {{ page.type | capitalize }}",
+                "{{ page.type | capitalize }}",
 {% elsif page.type == "profile" %}
         "@type": "WebPage",
         "url": "{% include canonical-url.html %}",
