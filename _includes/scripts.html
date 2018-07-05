@@ -1,3 +1,8 @@
+<!-- ENABLE this to work with java script enabled only
+<noscript>
+  <META HTTP-EQUIV="Refresh" CONTENT="0;URL=/noscript.html">
+</noscript>
+-->
 {% include serviceworker.html %} 
 <script type="text/javascript" src="/assets/js/main.js"></script>
 {% include https-redirect.html %}
@@ -6,6 +11,7 @@
   {% include google_analytics.html %}
   {% if page.type == 'search' %}
     {% include google_search.html %}
+    {% include google_search_warning.html %}
   {% endif %}
 {% endif %}
 {% if page.extra_scripts %}
