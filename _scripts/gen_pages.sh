@@ -1,6 +1,11 @@
 #!/bin/bash 
 
-ptype=$1
+if [ -z $1 ]
+then
+    exit 1
+else
+    ptype=$1
+fi
 
 PUB_data="_data/publications.yml"
 PUB_DIR="publications"
@@ -13,6 +18,21 @@ RES_DIR="research"
 CV_data="_data/config.yml"
 CV_DIR="cv"
 
+function replace_coma-semicolon()
+{
+    sed -e "s/,/;/g"
+}
+
+function replace_cr-coma()
+{
+    sed -e 'H;${x;s/\n/, /g;s/^,//;p;};d'
+}
+
+function replace_cr-semicolon()
+{   
+    sed -e 'H;${x;s/\n/; /g;s/^;//;p;};d'
+}
+
 function rm_special()
 {
     sed 's/[^a-z  A-Z]//g'
@@ -21,6 +41,11 @@ function rm_special()
 function space2under()
 {
     sed -e 's/ /_/g'
+}
+
+function rm_1st-space()
+{
+    sed 's/^ *//g'
 }
 
 function rm_sections()
@@ -98,9 +123,13 @@ then
 	FileN=$CV_data
 
 	CV_FILE=$(cat $FileN | grep -e ^resume_path: | cut -d"\"" -f2 | rm_leading_slash )
+        F_NAME=$(cat $FileN | grep -e ^full_name: | cut -d"\"" -f2)
+        F_KEY=$(cat $FileN | grep -e ^keywords: | cut -d"\"" -f2 | replace_coma-semicolon | rm_1st-space )
+        F_TYPE="Resume"
 
-        if [ -z $CV_FILE ] && [ -f $CV_FILE ]
+        if [ ! -z $CV_FILE ] && [ -f $CV_FILE ]
        	then
+		exiftool -overwrite_original -Title="$F_NAME - $F_TYPE" -Author="$F_NAME" -Subject="$F_TYPE of $F_NAME" -Keywords="$F_KEY" $CV_FILE
                 gen_image_1pdf assets/img/cv/Deepthi_Devaki_Akkoorath_profile.jpeg $CV_FILE 
 	fi
 	if [ ! -d _includes/text/cv ]
@@ -122,7 +151,12 @@ then
 	index=0
 	while [ $run != "null" ]
 	do
-		title=$(cat $FileN | rm_sections | yaml2json | jq .[$index].title | rm_quotes )
+		title=$(cat $FileN | rm_sections | yaml2json | jq .[$index].title | rm_quotes | rm_1st-space)
+                authors=$(cat $FileN | rm_sections | yaml2json | jq .[$index].author[] | rm_quotes | replace_cr-semicolon | rm_1st-space)
+                keywords=$(cat $FileN | rm_sections | yaml2json | jq .[$index].keyword[] | rm_quotes | replace_cr-semicolon | rm_1st-space)
+                short_name=$(cat $FileN | rm_sections | yaml2json | jq .[$index].short_name | rm_quotes | rm_1st-space)
+		subject="Publication - $short_name"
+
 		filename=$(echo $title | rm_special | space2under)
 		fieldid=$(cat $FileN | rm_sections | yaml2json | jq .[$index].id | rm_quotes )
 		pdffile=$(cat $FileN | rm_sections | yaml2json | jq .[$index].pdf | rm_quotes | rm_leading_slash )
@@ -169,6 +203,10 @@ EOL
                                 fi
 				gen_text $pdffile _includes/text/publications/$fieldid.txt
                 	fi
+			if [ $pdffile != "null" ]
+			then
+				exiftool -overwrite_original -Title="$title" -Author="$authors" -Subject="$subject" -Keywords="$keywords" $pdffile
+			fi
 		else
 			run="null"
 		fi
@@ -187,7 +225,12 @@ then
         index=0
         while [ $run != "null" ]
         do
-                title=$(cat $FileN | rm_sections | yaml2json | jq .[$index].title | rm_quotes )
+                title=$(cat $FileN | rm_sections | yaml2json | jq .[$index].title | rm_quotes | rm_1st-space)
+                authors=$(cat $FileN | rm_sections | yaml2json | jq .[$index].author[] | rm_quotes | replace_cr-semicolon | rm_1st-space)
+                keywords=$(cat $FileN | rm_sections | yaml2json | jq .[$index].keyword[] | rm_quotes | replace_cr-semicolon | rm_1st-space)
+                short_name=$(cat $FileN | rm_sections | yaml2json | jq .[$index].short_name | rm_quotes | rm_1st-space)
+                subject="Presentation - $short_name"
+
                 filename=$(echo $title | rm_special | space2under)
                 fieldid=$(cat $FileN | rm_sections | yaml2json | jq .[$index].id | rm_quotes )
 		pdffile=$(cat $FileN | rm_sections | yaml2json | jq .[$index].presentation | rm_quotes | rm_leading_slash )
@@ -234,6 +277,10 @@ EOL
 				fi
 				gen_text $pdffile _includes/text/talks/$fieldid.txt
                 	fi
+                        if [ $pdffile != "null" ]
+                        then
+                                exiftool -overwrite_original -Title="$title" -Author="$authors" -Subject="$subject" -Keywords="$keywords" $pdffile
+                        fi
                 else
                         run="null"
                 fi
