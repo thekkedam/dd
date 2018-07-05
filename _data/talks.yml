@@ -37,6 +37,8 @@ Concurrent Programming:
     organization: ECOOP 2017
     place: Barcelona, Spain
     year: June 20, 2017
+    author:
+      - Deepthi Devaki Akkoorath
     url:
       PMLDC at ECOOP: https://2017.ecoop.org/event/pmldc-2017-papers-multi-view-data-types-for-scalable-concurrency-in-the-multi-core-era
       ACM Digital Library: https://dl.acm.org/citation.cfm?id=3166089.3168448
@@ -58,6 +60,8 @@ Concurrent Programming:
     organization: TU Kaiserslautern
     place: Kaiserslautern, Germany
     year: Tue 10 November 2015
+    author:
+      - Deepthi Devaki Akkoorath
     url:
       Uni KL: https://phd.cs.uni-kl.de/events/talks/
     keyword:
