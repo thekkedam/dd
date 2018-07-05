@@ -4,22 +4,10 @@ type: search
 include_header: search_header.html
 nav_item: search
 ---
-<div>
-  <h5 class="page-description body-font gray mt1 regular">
-    <a href="/" class="link-color" title="Go to Home">Home</a>/
-    {{ page.type | capitalize }}
-  </h5>
-<div>
-
-<div class="mxn2 clearfix mb2">
+{% include page-tops.html %}
+<div class="clearfix mb2 py3 mxn2">
   <gcse:searchbox-only></gcse:searchbox-only>
 </div>
 <div class="mxn2 clearfix mb2 border-bottom border-light-gray circle-line py3">
   <gcse:searchresults-only></gcse:searchresults-only>
-<!--
-  <a href="#top" class="sm-col-right col dark-gray h6">
-    <i class="fa fa-fw fa-lg fa-angle-double-up"></i>
-    Top 
-  </a> 
--->
 </div>
