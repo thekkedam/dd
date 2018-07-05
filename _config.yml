@@ -36,6 +36,7 @@ exclude:
   - tests
   - update
   - versions.json
+  - ToDO.md
 
 # include
 include:
