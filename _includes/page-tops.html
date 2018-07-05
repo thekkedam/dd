@@ -25,10 +25,12 @@
       </span>
     </span>
   {% endif %}
-  <div class="sm-col-right col h5 gray">
-    <span>Share {% include share-buttons.html %}</span>
-    {% if page.type == "profile" %}
-      <span> | <a href="{{ site.data.config.resume_path }}" target="_blank" rel="noopener" onClick="ga(‘send’, ‘event’, ‘ CV Downloads’, ‘Click’, ‘CV-PDF’);"><i class="h6 fa fa-fw fa-lg fa-download"></i>CV</a></span>
-    {% endif %}
-  </div>
+  {% if page.type != "search" %}
+    <div class="sm-col-right col h5 gray">
+      <span>Share {% include share-buttons.html %}</span>
+      {% if page.type == "profile" %}
+        <span> | <a href="{{ site.data.config.resume_path }}" target="_blank" rel="noopener" onClick="ga(‘send’, ‘event’, ‘ CV Downloads’, ‘Click’, ‘CV-PDF’);"><i class="h6 fa fa-fw fa-lg fa-download"></i>CV</a></span>
+      {% endif %}
+    </div>
+  {% endif %}
 </div>
