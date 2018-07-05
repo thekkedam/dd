@@ -15,6 +15,7 @@
     var searchBox =  document.getElementById("gsc-i-id1");
     searchBox.placeholder="Search in {{ site.data.config.full_name }}";
     searchBox.title="Search in {{ site.data.config.full_name }}"; 
+    document.getElementById('banner-gcserr').style.display='none';
   }
 </script>
 <script data-cfasync='false'>
@@ -33,3 +34,4 @@
     };
   });
 </script>
+
