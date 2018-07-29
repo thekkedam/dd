@@ -66,6 +66,7 @@ disallow:
   - skype.html
   - 200.html
   - 404.html
+  - noscript.html
   - .htaccess
   - .message
   - upup.js
