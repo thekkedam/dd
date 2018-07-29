@@ -11,18 +11,9 @@
         "description": "{{ description }}",
         "jobTitle": "{{ site.data.config.job }}",
         "image": "{{ image_url | strip }}",
-        "sameAs": [
-                {% for external_url_hash in site.data.contact %}
-                  {% assign external_url = external_url_hash[1] %}
-                  {% capture test_str %}{{ external_url.url | slice: 0, 7 }}{% endcapture %}
-                    {% unless test_str == 'mailto:' %}
-                      "{{ external_url.url }}", 
-                    {% endunless %}
-                {% endfor %}
-                {% for bib_url_hash in site.data.bibliography_link %}
-                  {% assign bib_url = bib_url_hash[1] %}
-                  "{{ bib_url.url }}"{% unless forloop.last %}, {% endunless %}
-                {% endfor %}
+        "sameAs": [{% for external_url_hash in site.data.contact %}{% assign external_url = external_url_hash[1] %}{% capture test_str %}{{ external_url.url | slice: 0, 7 }}{% endcapture %}{% unless test_str == 'mailto:' %}
+                  "{{ external_url.url }}", {% endunless %}{% endfor %}{% for bib_url_hash in site.data.bibliography_link %}{% assign bib_url = bib_url_hash[1] %}
+                  "{{ bib_url.url }}"{% unless forloop.last %}, {% endunless %}{% endfor %}
         ],
         "colleague": [
                 "https://softech.cs.uni-kl.de/homepage/en/staff/AnnetteBieniusa/",
@@ -256,6 +247,7 @@
                 "{{ site.data.config.u_name }} - {{ page.type | capitalize }}",
                 "{{ page.type | capitalize }}",
 {% endif %}
+		"D D Akkoorath",
                 "{{ site.data.config.full_name }}",
                 "{{ site.data.config.name_short }}",
                 "{{ site.data.config.last_name }}",
