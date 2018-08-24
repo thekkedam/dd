@@ -2,6 +2,10 @@
 
 List of ToDO
 
+### Add peoples.yml, me.yml  and remove all per person details from html, config and other yml files
+
+### Add all people in data yml (with details) and use that in all place
+
 ### Set Title, Subject, Author, Keywords in all pdf
 
 ### Change ACM PDF links to
@@ -48,13 +52,13 @@ https://dl.acm.org/authorize?N21504
 
 ### Add http://schema.org in all pages
 
-### Add all people in data yml (with details) and use that in all place
-
 ### Add all social and other links to projects
 
 ### Seperate Talk page
 
 ### Add software page like projects
+
+### Add thesis projects in project / software page
 
 ### Add full publication as html with cronical url
 
@@ -67,3 +71,6 @@ https://dl.acm.org/authorize?N21504
  - If not submit https://web.archive.org/save/https://softech.cs.uni-kl.de/homepage/de/staff/DeepthiAkkoorath/
  - or use https://github.com/jjjake/internetarchive
 
+### Add travel map
+
+### Add code map
