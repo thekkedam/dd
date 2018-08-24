@@ -2,13 +2,13 @@
   {% if page.type != "home" %}
     <div class="col h5 gray">
       <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/" class="link-color" title="Go to Home">
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="{{ site.url }}/" class="link-color" title="Go to Home">
           <span itemprop="name">Home</span>
         </a>
         <meta itemprop="position" content="1" />/
       </span>
       <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"> 
-        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/{{ page.type }}/" class="link-color" title="Go to {{ page.type | capitalize }}">
+        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="{{ site.url }}/{{ page.type }}/" class="link-color" title="Go to {{ page.type | capitalize }}">
           <span itemprop="name">{{ page.type | capitalize }}</span>
         </a>
         <meta itemprop="position" content="2" />
@@ -18,7 +18,7 @@
   {% else %}
     <span>
       <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-        <span itemscope itemtype="http://schema.org/Thing" itemprop="item">
+        <span itemscope itemtype="http://schema.org/Thing" itemprop="item" href="{{ site.url }}/" class="link-color" title="Go to Home">
           <meta itemprop="name" content="Home" />
         </span>
         <meta itemprop="position" content="1" />
