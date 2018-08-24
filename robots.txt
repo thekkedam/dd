@@ -3,8 +3,5 @@ permalink: /robots.txt
 ---
 User-agent: *
 Sitemap: {{ site.url }}/{{ site.data.config.sitemap }}
-{% if site.data.config.disallow != null %}
-  {% for disallow in site.data.config.disallow %}
-Disallow: {{ disallow }}
-  {% endfor %}
-{% endif %}
+{% if site.data.config.disallow != null %}{% for disallow in site.data.config.disallow %}Disallow: /{{ disallow }}
+{% endfor %}{% endif %}
