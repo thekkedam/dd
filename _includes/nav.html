@@ -11,15 +11,17 @@
   </div>
   <ul class="right list-reset m0 nav-collapse">
     {% for nav_item in site.data.nav.main %}
-      <li class="inline-block m0">
-        {% if nav_item[0] != 'home' %}
-	    <a href="{{ nav_item[1] }}/" class="button button-transparent py2 h6 nav-button caps{% if page.nav_item == nav_item[0] %} link-color{% endif %}">{{ nav_item[0] }}</a>
-	{% else %}
-            {% if page.nav_item != 'home' %}
-                <a href="{{ nav_item[1] }}" class="button button-transparent py2 h6 nav-button caps{% if page.nav_item == nav_item[0] %} link-color{% endif %}">Home</a>
-            {% endif %}
+      {% if nav_item[0] != 'home' %}
+        <li class="inline-block m0">
+	  <a href="{{ nav_item[1] }}/" class="button button-transparent py2 h6 nav-button caps{% if page.nav_item == nav_item[0] %} link-color{% endif %}">{{ nav_item[0] }}</a>
+        </li>
+      {% else %}
+        {% if page.nav_item != 'home' %}
+          <li class="inline-block m0">
+            <a href="{{ nav_item[1] }}" class="button button-transparent py2 h6 nav-button caps{% if page.nav_item == nav_item[0] %} link-color{% endif %}">Home</a>
+          </li>
         {% endif %}
-      </li>
+      {% endif %}
     {% endfor %}
 <!--
     <li class="inline-block button button-transparent">
