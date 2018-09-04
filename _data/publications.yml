@@ -6,10 +6,18 @@ Peer-reviewed:
     prid:
       - mview
     year: August 2018
-    short_name: (Accepted) EuroPar 2018
-    conference: (Accepted) 24th International European Conference on Parallel and Distributed Computing
+    short_name: EuroPar 2018
+    conference: 24th International European Conference on Parallel and Distributed Computing
+    organization: Lecture Notes in Computer Science book series (LNCS, volume 11014), Springer
+    place: Turin, Italy
+    page: 492-504
+    doi: 10.1007/978-3-319-96983-1_35
     url:
-      Preliminary version on arxiv: https://arxiv.org/abs/1705.03704
+      Preliminary version: https://arxiv.org/abs/1705.03704
+      Springer Link: https://link.springer.com/chapter/10.1007/978-3-319-96983-1_35
+    src:
+      Code: https://doi.org/10.6084/m9.figshare.6383807
+    pdf: /assets/documents/publications/Report/Global-Local_View_Scalable_Consistency_for_Concurrent_Data_Types_Akkoorath.pdf
     author:
       - Deepthi Devaki Akkoorath
       - José Brandão
