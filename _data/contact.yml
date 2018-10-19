@@ -53,3 +53,8 @@
     url: "https://angel.co/deepthidevaki"
     label: "AngelList"
     icon: "angellist"
+  openhub:
+    url: "https://www.openhub.net/accounts/deepthidevaki"
+    label: "OpenHub"
+    icon: "code"
+
