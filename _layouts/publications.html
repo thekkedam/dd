@@ -135,8 +135,32 @@ layout: default
                   {{ keyword }}{% unless forloop.last %}, {% endunless %}
                 {% endfor %}
               </span>
-              </P>
+              </p>
             {% endif %}
+            </span>
+
+            <p class="justify">
+              <span class="h5">
+              {% assign onlyonce0 = 0 %}
+              {% for project in site.data.projects %}
+                {% for pub_prid in pubtext.prid %}
+                  {% if project.id == pub_prid %}
+                    {% if onlyonce0 == 0 %}<b>Related Project :</b>{% assign onlyonce0 = 1 %} {% endif %}
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+              {% for project in site.data.projects %}
+                {% for pub_prid in pubtext.prid %}
+                  {% if project.id == pub_prid %}
+                    <a href="/projects/{{ project.id }}/" class="link-color"><span>{{ project.name }}</span></a>
+                    &nbsp;
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+              </span>
+              </br>
+            </p>
+
             <span style="float:right;">
               {% if pubtext.pdf != null %}
                 <i class="fa fa-fw fa-lg fa-file-pdf-o"></i>
@@ -160,25 +184,22 @@ layout: default
                   </a><br>
                 {% endfor %}
               {% endif %}
+<!--
             </span>
 	    <br>
 	    <br>
-<!--
-            <span style="float:left;">
-              <span class="h5">
+            <span style="float:right;">
+-->
               {% if pubtext.src != null %} 
                 {% for pub_src in pubtext.src %}
                   <a href="{{ pub_src[1] }}" target="_blank" rel="noopener" class="link-color">
                   <i class="fa fa-fw fa-lg fa-github"></i>
-                    {{ pub_src[0] }}
+                    <span class="h5">{{ pub_src[0] }}</span>
                   </a><br>
                 {% endfor %}
               {% endif %}
-              </span>
             </span>
--->
-	    <br>
-            <br>
+<!--
             <span style="float:left;">
               <span class="h5">
               {% assign onlyonce0 = 0 %}
@@ -199,6 +220,7 @@ layout: default
               {% endfor %}
               </span>
             </span>
+-->
           </div>
 	</div>
       {% endif %}
