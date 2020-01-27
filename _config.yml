@@ -3,7 +3,7 @@ baseurl: "/"
 base_url: "https://dd.thekkedam.org"
 url: "https://dd.thekkedam.org"
 domain: "dd.thekkedam.org"
-production: true
+production: "true"
 
 # Jekyll build settings
 paginate: 6
@@ -11,7 +11,7 @@ paginate_path: "/writing/page:num"
 permalink: "/writing/:year/:month/:day/:title/"
 sass:
   sass_dir: "/assets/css"
-  style: :compressed  
+  style: :compressed
 highlighter: rouge
 timezone: 'Europe/Berlin'
 
