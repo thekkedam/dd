@@ -3,27 +3,60 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="" > <![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"><!--<![endif]-->
-  {% capture metadata %}{% include capture-meta.html page=page %}{% endcapture %}{{ metadata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+  {% if site.production == "true" %}
+    {% capture metadata %}{% include capture-meta.html page=page %}{% endcapture %}{{ metadata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+  {% else %}
+    {% include capture-meta.html page=page %}
+  {% endif %}
   <!-- <head prefix="og: http://ogp.me/ns# {{ type }}: http://ogp.me/ns/{{ type }}#" itemscope itemtype="http://schema.org/{{ schema_type }}"> -->
   <head prefix="og: http://ogp.me/ns# {{ type }}: http://ogp.me/ns/{{ type }}#">
-    {% capture headdata %}{% include head.html %}{% endcapture %}{{ headdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+    {% if site.production == "true" %}
+      {% capture headdata %}{% include head.html %}{% endcapture %}{{ headdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+    {% else %}
+      {% include head.html %}
+    {% endif %}
   </head>
   <body>
     <!-- include google_tag_body.html -->
     <a id="top"></a>
-    {% capture navdata %}{% include nav.html %}{% endcapture %}{{ navdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+    {% if site.production == "true" %}
+      {% capture navdata %}{% include nav.html %}{% endcapture %}{{ navdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+    {% else %}
+      {% include nav.html %}
+    {% endif %}
     {% if page.include_header %}
-      {% capture headerdata %}{% include header.html include_header=page.include_header %}{% endcapture %}{{ headerdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+      {% if site.production == "true" %}
+        {% capture headerdata %}{% include header.html include_header=page.include_header %}{% endcapture %}{{ headerdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+      {% else %}
+        {% include header.html include_header=page.include_header %}
+      {% endif %}
     {% elsif layout.include_header %}
-      {% capture headerdata %}{% include header.html include_header=layout.include_header %}{% endcapture %}{{ headerdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+      {% if site.production == "true" %}
+        {% capture headerdata %}{% include header.html include_header=layout.include_header %}{% endcapture %}{{ headerdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+      {% else %}
+        {% include header.html include_header=layout.include_header %}
+      {% endif %}
     {% endif %}
     <main class="container block p3">
-      {% capture contentdata %}{{ content }}{% endcapture %}{{ contentdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+      {% if site.production == "true" %}
+        {% capture contentdata %}{{ content }}{% endcapture %}{{ contentdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+      {% else %}
+        {{ content }}
+      {% endif %}
     </main>
     {% if layout.bottom_include %}
-      {% capture bottemdata %}{% include {{ layout.bottom_include }} %}{% endcapture %}{{ bottemdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+      {% if site.production == "true" %}
+        {% capture bottemdata %}{% include {{ layout.bottom_include }} %}{% endcapture %}{{ bottemdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+      {% else %}
+        {% include {{ layout.bottom_include }} %}
+      {% endif %}
     {% endif %}
-    {% capture footerdata %}{% include footer.html %}{% endcapture %}{{ footerdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
-    {% capture scriptsdata %}{% include scripts.html %}{% endcapture %}{{ scriptsdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+    {% if site.production == "true" %}
+      {% capture footerdata %}{% include footer.html %}{% endcapture %}{{ footerdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+      {% capture scriptsdata %}{% include scripts.html %}{% endcapture %}{{ scriptsdata | strip_newlines | strip_newlines | strip | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' | replace: '  ', ' ' }}
+    {% else %}
+      {% include footer.html %}
+      {% include scripts.html %}
+    {% endif %}
   </body>
 </html>
