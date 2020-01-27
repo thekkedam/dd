@@ -22,7 +22,6 @@ site_admin: "Vipin Madhavanunni"
 # direct links 
 about: "/about-site"
 license: "/LICENSE"
-# cms: "/cms.html"
 feed: "/feed.xml"
 sitemap: "sitemap.xml"
 search: "/search"
@@ -57,7 +56,6 @@ gtm: "GTM-PWWLD7J"
 # robots.txt 
 disallow:
   - BingSiteAuth.xml
-  - cms.html
   - CNAME
   - LICENSE/
   - nortonsw_26518600-9b7f-0.html
