@@ -1,6 +1,6 @@
-_scripts/gen_versions.sh
-_scripts/gen_pages.sh pub
-_scripts/gen_pages.sh talk
-_scripts/gen_pages.sh res
-_scripts/gen_pages.sh pro
-_scripts/gen_pages.sh cv
+/bin/bash -x _scripts/gen_versions.sh
+/bin/bash -x _scripts/gen_pages.sh pub
+/bin/bash -x _scripts/gen_pages.sh talk
+/bin/bash -x _scripts/gen_pages.sh res
+/bin/bash -x _scripts/gen_pages.sh pro
+/bin/bash -x _scripts/gen_pages.sh cv
