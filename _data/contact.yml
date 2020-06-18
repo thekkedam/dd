@@ -6,10 +6,6 @@
 #   disc: A small discription
 
 
-  TUgroup:
-    url: "https://softech.cs.uni-kl.de/homepage/en/staff/DeepthiAkkoorath/"
-    label: "TU Kaiserslautern"
-    icon: "pencil-square"
   github:
     url: "https://github.com/deepthidevaki/"
     label: "GitHub"
@@ -26,11 +22,6 @@
     url: "https://www.xing.com/profile/DeepthiDevaki_Akkoorath"
     label: "Xing"
     icon: "xing-square"
-  emailTU:
-    url: "mailto:akkoorath@cs.uni-kl.de"
-    value: "akkoorath@cs.uni-kl.de"
-    icon: "envelope-square"
-    label: "TU Kaiserslautern email" 
   email:
     url: "mailto:deepthidevaki@gmail.com"
     value: "deepthidevaki@gmail.com"
@@ -45,10 +36,6 @@
     url: "https://www.facebook.com/deepthi.devaki"
     label: "Facebook"
     icon: "facebook-square"
-  google:
-    url: "https://plus.google.com/+DeepthiDevakiAkkoorath"
-    label: "Google+"
-    icon: "google-plus-square"
   angellist:
     url: "https://angel.co/deepthidevaki"
     label: "AngelList"
@@ -57,4 +44,8 @@
     url: "https://www.openhub.net/accounts/deepthidevaki"
     label: "OpenHub"
     icon: "code"
+  TUgroup:
+    url: "https://softech.cs.uni-kl.de/homepage/en/staff/DeepthiAkkoorath/"
+    label: "TU Kaiserslautern"
+    icon: "pencil-square"    
 
