@@ -7,11 +7,12 @@
 #
 
 - org:  University of Kaiserslautern (TU Kaiserslautern)
-  role: PhD student
+  role: PhD
   location: Kaiserslautern, Germany
-  when: 2014 - Now
+  when: 2014-2018
   bullets:
     - 'Concurrent programs and Software Transactional Memory'
+    - 'PhD thesis : Scalable Consistency in the Multi-core Era'
 - org:  University of Amsterdam
   role: MSc in Computer Science
   location: Amsterdam, Netherlands
