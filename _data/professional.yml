@@ -6,10 +6,16 @@
 #       - <other details>
 #
 
+- org:  Camunda Services GmbH
+  role: Software Engineer
+  location: Berlin, Germany
+  when: Dec 2018 - Now
+  bullets:
+    - Developer for [Zeebe](https://zeebe.io/).
 - org:  Software Technology Group, TU Kaiserslautern
   role: Research Associate
   location: Kaiserslautern, Germany
-  when: Feb 2014 - Now
+  when: Feb 2014 - Oct 2018
   bullets:
     - Research on scalable protocols for large scale distributed systems and multi-core programs.
     - Collaborated on 2 EU projects, [SyncFree](http://syncfree.lip6.fr/) and [LightKone](https://www.lightkone.eu/).
