@@ -11,12 +11,27 @@
 #  sta: status ( current / last will be shown full in project, old will have only short discription and link )
 
 
+- name: "Zeebe"
+  name_long: "Distributed Workflow Engine for Microservices Orchestration"
+  id: "zeebee"
+  rid: "dist"
+  org: "Camunda Services GmbH"
+  date: "Dec 2018 - Now"
+  description: |
+    A Workflow Engine for Microservices Orchestration.
+  url:
+    Camunda Homepage: "https://camunda.com/"
+    Zeebe Homepage: "https://zeebe.io/"
+  src:
+    Zeebe Github: "https://github.com/zeebe-io/"
+  image: "zeebe.png"
+  sta: current
 - name: "LightKone"
   name_long: "Lightweight computation for networks at the edge"
   id: "lightkone"
   rid: "crdt"
   org: "TU Kaiserslautern"
-  date: "Jan 2017 - Now"
+  date: "Jan 2017 - Oct 2018"
   description: |
     The goal of LightKone is to develop a scientifically sound and industrially validated 
     model for doing general-purpose computation on edge networks. An edge network consists 
@@ -28,8 +43,12 @@
     resilience, and security, and permit local decision making.
   url:
     Homepage: "http://lightkone.eu/"
+    AntidoteDb Homepage: "http://antidotedb.org"
+  src:
+    Antidote Github: "https://github.com/AntidoteDB/antidote"
+    SyncFree Github: "https://github.com/LightKone"    
   image: "LightKone.jpg"
-  sta: current
+  sta: "No more contributing"
 - name: "SyncFree"
   name_long: "Synchronisation free computations over large-scale replicated system"
   id: "syncfree"
@@ -50,7 +69,7 @@
     Project Homepage: "http://syncfree.lip6.fr/"
     AntidoteDb Homepage: "http://antidotedb.org"
   src: 
-    Antidote Github: "https://github.com/SyncFree/antidote"
+    Antidote Github: "https://github.com/AntidoteDB/antidote"
     SyncFree Github: "https://github.com/SyncFree"
   image: "SyncFree.png"
   sta: "Concluded and working on follow up project LightKone"
