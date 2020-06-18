@@ -13,7 +13,7 @@
 
 - name: "Zeebe"
   name_long: "Distributed Workflow Engine for Microservices Orchestration"
-  id: "zeebee"
+  id: "zeebe"
   rid: "dist"
   org: "Camunda Services GmbH"
   date: "Dec 2018 - Now"
@@ -46,7 +46,7 @@
     AntidoteDb Homepage: "http://antidotedb.org"
   src:
     Antidote Github: "https://github.com/AntidoteDB/antidote"
-    SyncFree Github: "https://github.com/LightKone"    
+    LightKone Github: "https://github.com/LightKone"    
   image: "LightKone.jpg"
   sta: "No more contributing"
 - name: "SyncFree"
