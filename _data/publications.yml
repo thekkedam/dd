@@ -191,6 +191,37 @@ Peer-reviewed:
     abstract: 'Destructible updates on shared objects require careful handling of concurrent accesses in multi-threaded programs. Paradigms such as Transactional Memory support the programmer in correctly synchronizing access to mutable shared data by serializing the transactional reads and writes. But under high contention, serializable transactions incur frequent aborts and limit parallelism. This can lead to a severe performance degradation. In this paper, we propose mergeable transactions which provide a consistency semantics that allows for more scalability even under contention. Instead of aborting and re-executing, object versions from conflicting updates on shared objects are merged using data-type specific semantics. The evaluation of our prototype implementation in Haskell shows that mergeable transactions outperform serializable transactions even under low contention while providing a structured and type-safe interface.'
 
 Thesis:
+  - title: Scalable Consistency in the Multi-core Era
+    id: phd
+    rid:
+      - stm
+    prid:
+      - stm
+    author:
+      - Deepthi Devaki Akkoorath
+    supervisors:
+      - Prof. Dr. Arnd Poetzsch-Heffter
+      - Dr. rer. nat. Annette Bieniusa
+    institution: University of Kaiserslautern (TU Kaiserslautern)
+    place: Kaiserslautern, Germany
+    degree: PhD thesis
+    short_name: PhD thesis
+    year:  2019
+    url:
+      TU-KL: "https://nbn-resolving.org/urn:nbn:de:hbz:386-kluedo-59037"
+      DNB: "http://d-nb.info/1205314725"
+    pdf: /assets/documents/publications/Thesis/Scalable_Consistency_In_Multicore_Era__Deepthi_Akkoorath.pdf
+    keyword:
+       - Scalable Consistency
+       - Concurrent Data Types
+       - Parallel Computing
+       - Concurrent programming
+       - Transactional memory
+       - Mergeable objects
+       - Relaxed consistency
+       - Concurrent Data Structures
+       - Weak Consistency         
+    abstract: 'The advent of heterogeneous many-core systems has increased the spectrum of achievable performance from multi-threaded programming. As the processor components become more distributed, the cost of synchronization and communication needed to access the shared resources increases. Concurrent linearizable access to shared objects can be prohibitively expensive in a high contention workload. Though there are various mechanisms (eg, lock-free data structures) to circumvent the synchronization overhead in linearizable objects, it still incurs performance overhead for many concurrent data types. Moreover, many applications do not require linearizable objects and apply ad-hoc techniques to eliminate synchronous atomic updates. In this thesis, we propose the Global-Local View Model. This programming model exploits the heterogeneous access latencies in many-core systems. In this model, each thread maintains different views on the shared object: a thread-local view and a global view. As the thread-local view is not shared, it can be updated without incurring synchronization costs. The local updates become visible to other threads only after the thread-local view is merged with the global view. This scheme improves the performance at the expense of linearizability.'
   - title: Improving Quality of Experience of Internet Applications by Dynamic Placement of Application Components
     id: master
     rid:
